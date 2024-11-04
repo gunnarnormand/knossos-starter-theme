@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/HubSpot/cms-theme-boilerplate/wiki">Documentation</a> |
+  <a href="https://github.com/gunnarnormand/knossos-starter-theme/wiki">Documentation</a> |
   <a href="#">Demo website</a>
 </p>
 
