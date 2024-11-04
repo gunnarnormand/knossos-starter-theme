@@ -1,0 +1,49 @@
+<section class="px-[5%] py-16 md:py-24 lg:py-28">
+  <div class="container max-w-lg text-center">
+    {% inline_rich_text field="content" value="{{ module.tagline }}" %}
+    {% inline_rich_text field="title" value="{{ module.title }}" %}
+    {% inline_rich_text field="content" value="{{ module.content }}" %}
+    <div class="mt-6 flex items-center justify-center gap-x-4 md:mt-8">
+        {% if module.is_button %}
+            {% set href_one = module.button_group.link_one.url.href %}
+            {% if module.button_group.link_one.url.type == "EMAIL_ADDRESS" %}
+                {% set href_one = "mailto:" + href_one %}
+            {% endif %}
+            {% set rel = [] %}
+            {% if module.button_group.link_one.no_follow %}
+                {% do rel.append("nofollow") %}
+            {% endif %}
+            {% if module.button_group.link_one.open_in_new_tab %}
+                {% do rel.append("noopener") %}
+            {% endif %}
+
+            <a class="button" href="{{ href_one|escape_url }}"
+                {% if module.button_group.link_one.open_in_new_tab %}target="_blank"{% endif %}
+                {% if rel %}rel="{{ rel|join(" ")|escape_attr }}"{% endif %}
+            >
+                {{ module.button_group.button_text_one|escape_html }}
+            </a>
+        {% endif %}
+        {% if module.is_button and module.is_second_button %}
+            {% set href_two = module.button_group_two.link_two.url.href %}
+            {% if module.button_group_two.link_two.url.type == "EMAIL_ADDRESS" %}
+                {% set href_two = "mailto:" + href_two %}
+            {% endif %}
+            {% set rel = [] %}
+            {% if module.button_group_two.link_two.no_follow %}
+                {% do rel.append("nofollow") %}
+            {% endif %}
+            {% if module.button_group_two.link_two.open_in_new_tab %}
+                {% do rel.append("noopener") %}
+            {% endif %}
+
+            <a class="button alternate-button" href="{{ href_two|escape_url }}"
+                {% if module.button_group_two.link_two.open_in_new_tab %}target="_blank"{% endif %}
+                {% if rel %}rel="{{ rel|join(" ")|escape_attr }}"{% endif %}
+            >
+                {{ module.button_group_two.button_text_two|escape_html }}
+            </a>
+        {% endif %}
+    </div>
+  </div>
+</section>

@@ -1,8 +1,18 @@
 [
     {
+        "name": "tagline",
+        "label": "Tagline",
+        "help_text": "Header Tagline text that goes above the heading",
+        "display_width": null,
+        "required": false,
+        "locked": false,
+        "type": "richtext",
+        "default": "<p class='mb-3 font-semibold md:mb-4'>Tagline</p>"
+    },
+    {
         "name": "title",
         "label": "Title",
-        "help_text": "Hero Header Title",
+        "help_text": "Header Title",
         "display_width": null,
         "required": false,
         "locked": false,
@@ -17,35 +27,17 @@
             "hr",
             "source_code"
         ],
-        "default": "<h1 class='mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl'>Medium length hero heading goes here</h1>"
+        "default": "<h1 class='mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl'>Short heading here</h1>"
     },
     {
         "name": "content",
         "label": "Content",
-        "help_text": "Hero Header Content",
+        "help_text": "Header Content",
         "display_width": null,
         "required": false,
         "locked": false,
         "type": "richtext",
-        "default": "<p class='md:text-md'>Welcome to your hero section! Use this space to introduce your business with a captivating headline. Add a brief description that highlights your key value or service. Inspire visitors to explore further with a clear, concise call to action.</p>"
-    },
-    {
-        "name": "image_field",
-        "label": "Image",
-        "help_text": "Hero Header Image - Image will resize to be conducive with best loading practices",
-        "display_width": null,
-        "required": true,
-        "locked": false,
-        "responsive": true,
-        "resizable": false,
-        "show_loading": true,
-        "type": "image",
-        "default": {
-            "size_type": "auto",
-            "src": "../../images/hero-one-placeholder-image.svg",
-            "alt": null,
-            "loading": "lazy"
-        }
+        "default": "<p class='md:text-md'>Introduce your business here with a clear, engaging statement. Highlight your main service or value proposition to grab visitor attention instantly.</p>"
     },
     {
         "name": "is_button",
