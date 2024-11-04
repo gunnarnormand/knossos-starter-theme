@@ -1,0 +1,245 @@
+[
+  {
+    "name": "tagline",
+    "display_width": null,
+    "label": "Tagline",
+    "help_text": "Tagline text that goes above the heading",
+    "required": false,
+    "locked": false,
+    "type": "richtext",
+    "default": "<p class=\"mb-3 font-semibold md:mb-4\">Tagline</p>"
+  },
+  {
+    "name": "heading",
+    "display_width": null,
+    "label": "Heading",
+    "help_text": "Heading for module",
+    "required": false,
+    "locked": false,
+    "type": "richtext",
+    "default": "<h1 class=\"mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl\">Short heading goes here</h1>"
+  },
+  {
+    "name": "content",
+    "display_width": null,
+    "label": "Content",
+    "help_text": "Content for feature section",
+    "required": false,
+    "locked": false,
+    "type": "richtext",
+    "default": "<p class=\"md:text-md\">Describe a key benefit or feature here.</p>"
+  },
+  {
+    "name": "feature_item",
+    "display_width": null,
+    "label": "Feature Item",
+    "help_text": "Adds a block with an Icon/Image, Text and link",
+    "required": false,
+    "locked": false,
+    "occurrence": {
+      "min": 1,
+      "max": null,
+      "sorting_label_field": "b8002005-cabe-a3e9-ccd3-f723900d757a",
+      "default": 3
+    },
+    "children": [
+      {
+        "name": "feature_icon_type",
+        "display_width": null,
+        "label": "Feature Icon Type",
+        "help_text": "Choose to use either an icon from the icon library or a custom image",
+        "required": false,
+        "locked": false,
+        "display": "select",
+        "choices": [
+          [
+            "icon",
+            "Icon"
+          ],
+          [
+            "image",
+            "Image"
+          ]
+        ],
+        "multiple": false,
+        "reordering_enabled": true,
+        "preset": null,
+        "type": "choice",
+        "default": "icon"
+      },
+      {
+        "name": "feature_icon",
+        "display_width": null,
+        "label": "Feature Icon",
+        "required": false,
+        "locked": false,
+        "visibility": {
+          "controlling_field": null,
+          "controlling_field_path": "feature_item.feature_icon_type",
+          "controlling_value_regex": "icon",
+          "property": null,
+          "operator": "EQUAL",
+          "access": null
+        },
+        "icon_set": "fontawesome-5.14.0",
+        "type": "icon",
+        "default": {
+          "name": "Mountain",
+          "unicode": "f6fc",
+          "type": "SOLID"
+        }
+      },
+      {
+        "name": "feature_image",
+        "label": "Feature Image",
+        "type": "image",
+        "display_width": null,
+        "required": false,
+        "locked": false,
+        "responsive": true,
+        "resizable": false,
+        "show_loading": true,
+        "visibility": {
+          "controlling_field": null,
+          "controlling_field_path": "feature_item.feature_icon_type",
+          "controlling_value_regex": "image",
+          "property": null,
+          "operator": "EQUAL",
+          "access": null
+        },
+        "default": {
+          "size_type": "auto",
+          "src": "../../images/hero-one-placeholder-image.svg",
+          "alt": null,
+          "loading": "lazy"
+        }
+      },
+      {
+        "name": "feature_content",
+        "display_width": null,
+        "label": "Feature Content",
+        "required": false,
+        "locked": false,
+        "type": "richtext",
+        "default": "<h2 class=\"mb-3 text-2xl font-bold md:mb-4 md:text-3xl md:leading-[1.3] lg:text-4xl\">Describe a key benefit or feature here.</h2>\n<p>Showcase what makes your service stand out.</p>"
+      },
+      {
+        "name": "feature_link",
+        "display_width": null,
+        "label": "Feature Link",
+        "required": false,
+        "locked": false,
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG",
+          "CALL_TO_ACTION",
+          "PHONE_NUMBER",
+          "WHATSAPP_NUMBER",
+          "PAYMENT"
+        ],
+        "show_advanced_rel_options": false,
+        "type": "link",
+        "default": {
+          "url": {
+            "content_id": null,
+            "type": "EXTERNAL",
+            "href": ""
+          },
+          "open_in_new_tab": false,
+          "no_follow": false
+        }
+      },
+      {
+        "label": "Link Text",
+        "name": "link_text",
+        "type": "text",
+        "required": true,
+        "default": "Button"
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "default": [
+      {
+        "feature_icon": {
+          "name": "Mountain",
+          "unicode": "f6fc",
+          "type": "SOLID"
+        },
+        "feature_image": {
+          "size_type": "auto",
+          "src": "",
+          "alt": null,
+          "loading": "lazy"
+        },
+        "feature_content": "<h2 class=\"mb-3 text-2xl font-bold md:mb-4 md:text-3xl md:leading-[1.3] lg:text-4xl\">Describe a key benefit or feature here.</h2>\n<p>Showcase what makes your service stand out.</p>",
+        "feature_link": {
+          "url": {
+            "content_id": null,
+            "type": "EXTERNAL",
+            "href": ""
+          },
+          "open_in_new_tab": false,
+          "no_follow": false
+        },
+        "link_text": "Button",
+        "feature_icon_type": "icon"
+      },
+      {
+        "feature_icon": {
+          "name": "Mountain",
+          "unicode": "f6fc",
+          "type": "SOLID"
+        },
+        "feature_image": {
+          "size_type": "auto",
+          "src": "",
+          "alt": null,
+          "loading": "lazy"
+        },
+        "feature_content": "<h2 class=\"mb-3 text-2xl font-bold md:mb-4 md:text-3xl md:leading-[1.3] lg:text-4xl\">Describe a key benefit or feature here.</h2>\n<p>Showcase what makes your service stand out.</p>",
+        "feature_link": {
+          "url": {
+            "content_id": null,
+            "type": "EXTERNAL",
+            "href": ""
+          },
+          "open_in_new_tab": false,
+          "no_follow": false
+        },
+        "link_text": "Button",
+        "feature_icon_type": "icon"
+      },
+      {
+        "feature_icon": {
+          "name": "Mountain",
+          "unicode": "f6fc",
+          "type": "SOLID"
+        },
+        "feature_image": {
+          "size_type": "auto",
+          "src": "",
+          "alt": null,
+          "loading": "lazy"
+        },
+        "feature_content": "<h2 class=\"mb-3 text-2xl font-bold md:mb-4 md:text-3xl md:leading-[1.3] lg:text-4xl\">Describe a key benefit or feature here.</h2>\n<p>Showcase what makes your service stand out.</p>",
+        "feature_link": {
+          "url": {
+            "content_id": null,
+            "type": "EXTERNAL",
+            "href": ""
+          },
+          "open_in_new_tab": false,
+          "no_follow": false
+        },
+        "link_text": "Button",
+        "feature_icon_type": "icon"
+      }
+    ]
+  }
+]

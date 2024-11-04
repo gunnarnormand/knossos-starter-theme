@@ -1,0 +1,67 @@
+<section class="feature-one-module px-[5%] py-16 md:py-24 lg:py-28">
+  <div class="container">
+    <div class="mx-auto mb-12 w-full max-w-lg text-center md:mb-18 lg:mb-20">
+      {% inline_rich_text field="tagline" value="{{ module.tagline }}" %}
+      {% inline_rich_text field="heading" value="{{ module.heading }}" %}
+      {% inline_rich_text field="content" value="{{ module.content }}" %}
+    </div>
+    <div class="grid auto-cols-fr grid-cols-1 gap-6 md:gap-8 lg:grid-cols-3">
+      {% for item in module.feature_item %}
+      <div class="flex flex-col justify-center border border-border-primary p-6 md:p-8">
+        <div>
+          <div class="rb-5 mb-5 md:mb-6">
+            <figure>
+              {% if item.feature_icon_type == "image" and item.feature_image.src %}
+                  {% set loadingAttr = item.feature_image.loading != 'disabled' ? 'loading="{{ item.feature_image.loading|escape_attr }}"' : '' %}
+                  <img srcset="{{ resize_image_url(item.feature_image.src, 288) }} 288w,
+                      {{ resize_image_url(item.feature_image.src, 468) }} 468w,
+                      {{ resize_image_url(item.feature_image.src, 736) }} 736w,
+                      {{ resize_image_url(item.feature_image.src, 928) }} 928w"
+                      sizes="(max-width: 320px) 288px,
+                              (max-width: 500px) 468px,
+                              (max-width: 768px) 736px,
+                              928px"
+                      src="{{ item.feature_image.src }}"
+                      alt="{{ item.feature_image.alt }}"
+                      width="{{ item.feature_image.width }}"
+                      height="{{ item.feature_image.height }}"
+                      {{ loadingAttr }}>
+              {% endif %}
+              {% if item.feature_icon_type == "icon" %}
+                {% icon
+                  name="{{ item.feature_icon.name }}"
+                  style="{{ item.feature_icon.type }}"
+                  unicode="{{ item.feature_icon.unicode }}"
+                  icon_set="{{ item.feature_icon.icon_set }}"
+                %}
+              {% endif %}
+            </figure>
+          </div>
+          {% inline_rich_text field="feature_content" value="{{ item.feature_content }}" %}
+        </div>
+        <div class="mt-5 md:mt-6">
+          {% set href = item.feature_link.url.href %}
+          {% if item.feature_link.url.type is equalto "EMAIL_ADDRESS" %}
+            {% set href = "mailto:" + href %}
+          {% endif %}
+          <a class="button alternate-button"
+            {% if item.feature_link.url.type is equalto "CALL_TO_ACTION"  %}
+              href="{{ href }}" {# The href here is not escaped as it is not editable and functions as a JavaScript call to the associated CTA #}
+            {% else %}
+              href="{{ href|escape_url }}"
+            {% endif %}
+            {% if item.feature_link.open_in_new_tab %}
+              target="_blank"
+            {% endif %}
+            {% if item.feature_link.rel %}
+              rel="{{ item.feature_link.rel|escape_attr }}"
+            {% endif %}
+            >
+              {{ item.link_text|escape_html }}
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
