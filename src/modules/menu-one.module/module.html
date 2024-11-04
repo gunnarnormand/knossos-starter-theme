@@ -1,0 +1,204 @@
+{# Module styles #}
+
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+      .menu-one__link {
+        {% if module.styles.links.text.font %}
+          {{ module.styles.links.text.font.css }};
+        {% endif %}
+        {% if module.styles.links.text.transform %}
+          text-transform: {{ module.styles.links.text.transform }};
+        {% endif %}
+        {% if module.styles.links.background.color.color %}
+          background-color: rgba({{ module.styles.links.background.color.color|convert_rgb }}, {{ module.styles.links.background.color.opacity / 100 }});
+        {% endif %}
+       
+      }
+
+      .menu-one__link:not(.menu__submenu .menu-one__link) {
+        {% if module.styles.links.corner.top_left_radius >= 0 %}
+          border-top-left-radius: {{ module.styles.links.corner.top_left_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.links.corner.top_right_radius >= 0 %}
+          border-top-right-radius: {{ module.styles.links.corner.top_right_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.links.corner.bottom_left_radius >= 0 %}
+          border-bottom-left-radius: {{ module.styles.links.corner.bottom_left_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.links.corner.bottom_right_radius >= 0 %}
+          border-bottom-right-radius: {{ module.styles.links.corner.bottom_right_radius ~ "px" }};
+        {% endif %}
+      }
+
+    .menu__submenu > .menu-one__item:first-child > .menu-one__link {
+      {% if module.styles.links.corner.top_left_radius >= 0 %}
+        border-top-left-radius: {{ module.styles.links.corner.top_left_radius ~ "px" }};
+      {% endif %}
+      {% if module.styles.links.corner.top_right_radius >= 0 %}
+        border-top-right-radius: {{ module.styles.links.corner.top_right_radius ~ "px" }};
+      {% endif %}
+    }
+
+    .menu__submenu > .menu-one__item:last-child > .menu-one__link {
+      {% if module.styles.links.corner.bottom_left_radius >= 0 %}
+        border-bottom-left-radius: {{ module.styles.links.corner.bottom_left_radius ~ "px" }};
+      {% endif %}
+      {% if module.styles.links.corner.bottom_right_radius >= 0 %}
+        border-bottom-right-radius: {{ module.styles.links.corner.bottom_right_radius ~ "px" }};
+      {% endif %}
+    }
+
+      .menu-one__link:hover,
+      .menu-one__link:focus,
+      .menu-one__link:active {
+        {% if module.styles.links.hover.text.color.color %}
+          color: rgba({{ module.styles.links.hover.text.color.color|convert_rgb }}, {{ module.styles.links.hover.text.color.opacity / 100 }});
+        {% endif %}
+        {% if module.styles.links.hover.background.color.color %}
+          background-color: rgba({{ module.styles.links.hover.background.color.color|convert_rgb }}, {{ module.styles.links.hover.background.color.opacity / 100 }});
+        {% endif %}
+      }
+
+      .menu-one__link:hover:not(.menu__submenu .menu-one__link),
+      .menu-one__link:focus:not(.menu__submenu .menu-one__link),
+      .menu-one__link:active:not(.menu__submenu .menu-one__link) {
+        {% if module.styles.links.hover.corner.top_left_radius >= 0 %}
+          border-top-left-radius: {{ module.styles.links.hover.corner.top_left_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.links.hover.corner.top_right_radius >= 0 %}
+          border-top-right-radius: {{ module.styles.links.hover.corner.top_right_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.links.hover.corner.bottom_left_radius >= 0 %}
+          border-bottom-left-radius: {{ module.styles.links.hover.corner.bottom_left_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.links.hover.corner.bottom_right_radius >= 0 %}
+          border-bottom-right-radius: {{ module.styles.links.hover.corner.bottom_right_radius ~ "px" }};
+        {% endif %}
+      }
+
+      .menu-one__link:hover ~ .menu-one__child-toggle .menu-one__child-toggle-icon,
+      .menu-one__link:focus ~ .menu-one__child-toggle .menu-one__child-toggle-icon,
+      .menu-one__link:active ~ .menu-one__child-toggle .menu-one__child-toggle-icon {
+        {% if module.styles.links.hover.chevron.color.color %}
+          color: rgba({{ module.styles.links.hover.chevron.color.color|convert_rgb }}, {{ module.styles.links.hover.chevron.color.opacity / 100 }});
+        {% endif %}
+      }
+
+      .menu-one__child-toggle-icon {
+        {% if module.styles.links.chevron.color.color %}
+          color: rgba({{ module.styles.links.chevron.color.color|convert_rgb }}, {{ module.styles.links.chevron.color.opacity / 100 }});
+        {% endif %}
+        stroke-width: {{ module.styles.links.chevron.stroke_width }};
+        height: {{ module.styles.links.text.font.size ~ "px" }};
+        width: {{ module.styles.links.text.font.size ~ "px" }};
+      }
+
+      .menu__submenu {
+        {% if module.styles.drop_downs.background.color.color %}
+          background-color: rgba({{ module.styles.drop_downs.background.color.color|convert_rgb }}, {{ module.styles.drop_downs.background.color.opacity / 100 }});
+        {% endif %}
+        {% if module.styles.drop_downs.border.border %}
+          {{ module.styles.drop_downs.border.border.css }}
+        {% endif %}
+        {% if module.styles.drop_downs.box_shadow.box_shadow %}
+          box-shadow: {{ module.styles.drop_downs.box_shadow.box_shadow }};
+        {% endif %}
+        {% if module.styles.drop_downs.corner.top_left_radius >= 0 %}
+          border-top-left-radius: {{ module.styles.drop_downs.corner.top_left_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.drop_downs.corner.top_right_radius >= 0 %}
+          border-top-right-radius: {{ module.styles.drop_downs.corner.top_right_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.drop_downs.corner.bottom_left_radius >= 0 %}
+          border-bottom-left-radius: {{ module.styles.drop_downs.corner.bottom_left_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.drop_downs.corner.bottom_right_radius >= 0 %}
+          border-bottom-right-radius: {{ module.styles.drop_downs.corner.bottom_right_radius ~ "px" }};
+        {% endif %}
+      }
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+{# Menu items #}
+
+{% macro menu_one_items() %}
+  {% set menu_one = module.menu_one ? menu(module.menu_one, "site_root").children : [] %}
+
+  {% macro render_link_item(link, depth) %}
+    <li class="menu-one__item menu-one__item--depth-{{ depth|escape_attr }} w-full lg:w-auto
+               {{ 'menu-one__item--has-submenu' if link.children and depth < module.max_levels }} 
+               hs-skip-lang-url-rewrite 
+               {{ 'relative' if link.children }} 
+               {{ 'lg:group/level-' ~ depth if depth <= 2 }}">
+      {{ render_link(link, depth) }}
+
+      {% if link.children and depth < module.max_levels %}
+        {% set next_depth = depth + 1 %}
+        <button class="menu-one__child-toggle no-button absolute top-0 right-0 m-3 will-change-transform" aria-expanded="false">
+          <span class="show-for-sr">Show submenu for {{ link.label|escape_html }}</span>
+          <svg class="menu-one__child-toggle-icon" stroke="currentColor" fill="none" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M3.13523 6.15803C3.3241 5.95657 3.64052 5.94637 3.84197 6.13523L7.5 9.56464L11.158 6.13523C11.3595 5.94637 11.6759 5.95657 11.8648 6.15803C12.0536 6.35949 12.0434 6.67591 11.842 6.86477L7.84197 10.6148C7.64964 10.7951 7.35036 10.7951 7.15803 10.6148L3.15803 6.86477C2.95657 6.67591 2.94637 6.35949 3.13523 6.15803Z"
+              fill="currentColor"></path>
+          </svg>
+        </button>
+        <ul class="menu__submenu menu__submenu--level-{{ next_depth|escape_attr }} lg:absolute w-full lg:w-48 bg-white border hidden 
+                   {{ 'left-0 lg:group-hover/level-1:block' if depth == 1 }} 
+                   {{ 'top-0 left-full lg:group-hover/level-2:block' if depth == 2 }}">
+          {% for sublink in link.children %}
+            {{ render_link_item(sublink, next_depth) }}
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </li>
+  {% endmacro %}
+
+  {% macro render_link(link, depth) %}
+
+    {% if link.url %}
+
+      <a class="menu-one__link cursor-pointer
+              {{ 'menu-one__link--toggle' if link.children and depth < module.max_levels }}
+              {{ 'pr-8' if link.children and depth == 1 }} 
+              {{ 'menu-one__link--active-branch' if link.activeBranch }} 
+              {{ 'menu-one__link--active-link' if link.activeNode }} 
+              block px-4 py-2 transition duration-150 ease-in-out"
+        href="{{ link.url|escape_url if link.url else '#' }}"
+        {{ 'aria-haspopup="true" aria-expanded="false"' if link.children and depth < module.max_levels }}
+        {{ 'aria-current="page"' if link.activeNode }}
+        {{ 'target="_blank" rel="noopener"' if link.linkTarget }}>
+        {{ link.label|escape_html }}
+      </a>
+
+    {% else %}
+
+      <span class="menu-one__link 
+                {{ 'menu-one__link--toggle' if link.children and depth < module.max_levels }}
+                {{ 'pr-8' if link.children and depth == 1 }}
+        block px-4 py-2 transition duration-150 ease-in-out">
+        {{ link.label|escape_html }}
+      </span>
+
+    {% endif %}
+
+  {% endmacro %}
+
+  {% for link in menu_one %}
+    {{ render_link_item(link, 1) }}
+  {% endfor %}
+
+{% endmacro %}
+
+
+
+{# Menu #}
+
+<nav class="menu-one pt-4 lg:pt-0" aria-label="Main menu">
+  <ul class="menu-one__wrapper no-list flex flex-col lg:flex-row items-start lg:items-center space-y-2 lg:space-y-0 lg:space-x-2">
+    {{ menu_one_items() }}
+  </ul>
+</nav>

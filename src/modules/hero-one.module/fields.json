@@ -1,0 +1,153 @@
+[
+    {
+        "name": "title",
+        "label": "Title",
+        "help_text": "Hero Header Title",
+        "display_width": null,
+        "required": false,
+        "locked": false,
+        "type": "richtext",
+        "enabled_features": [
+            "link",
+            "colors",
+            "fonts",
+            "standard_emphasis",
+            "block",
+            "lineheight",
+            "hr",
+            "source_code"
+        ],
+        "default": "<h1 class='mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl'>Medium length hero heading goes here</h1>"
+    },
+    {
+        "name": "content",
+        "label": "Content",
+        "help_text": "Hero Header Content Section",
+        "display_width": null,
+        "required": false,
+        "locked": false,
+        "type": "richtext",
+        "default": "<p class='md:text-md'>Welcome to your hero section! Use this space to introduce your business with a captivating headline. Add a brief description that highlights your key value or service. Inspire visitors to explore further with a clear, concise call to action.</p>"
+    },
+    {
+        "name": "image_field",
+        "label": "Image",
+        "help_text": "Hero Header Image - Image will resize to be conducive with best loading practices",
+        "display_width": null,
+        "required": true,
+        "locked": false,
+        "responsive": true,
+        "resizable": false,
+        "show_loading": true,
+        "type": "image",
+        "default": {
+            "size_type": "auto",
+            "src": "../../images/hero-one-placeholder-image.svg",
+            "alt": null,
+            "loading": "lazy"
+        }
+    },
+    {
+        "name": "is_button",
+        "label": "Enable Button",
+        "help_text": "Adds a button to the module when toggled on",
+        "required": false,
+        "locked": false,
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+    },
+    {
+        "label": "Button One",
+        "name": "button_group",
+        "type": "group",
+        "visibility": {
+            "controlling_field_path": "is_button",
+            "controlling_value_regex": "true",
+            "operator": "EQUAL"
+        },
+        "children": [
+            {
+                "label": "Button link one",
+                "name": "link_one",
+                "type": "link",
+                "supported_types": [
+                    "EXTERNAL",
+                    "CONTENT",
+                    "FILE",
+                    "EMAIL_ADDRESS",
+                    "CALL_TO_ACTION"
+                ],
+                "default": {
+                    "url": {
+                        "href": "",
+                        "type": "EXTERNAL"
+                    },
+                    "no_follow": false,
+                    "open_in_new_tab": false
+                }
+            },
+            {
+                "label": "Button text one",
+                "name": "button_text_one",
+                "type": "text",
+                "required": true,
+                "default": "Button"
+            }
+        ]
+    },
+    {
+        "name": "is_second_button",
+        "label": "Enable Second Button",
+        "help_text": "Adds a second button to the module when toggled on",
+        "required": false,
+        "locked": false,
+        "type": "boolean",
+        "display": "toggle",
+        "visibility": {
+            "controlling_field_path": "is_button",
+            "controlling_value_regex": "true",
+            "operator": "EQUAL"
+        },
+        "default": false
+    },
+    {
+        "label": "Button Two",
+        "name": "button_group_two",
+        "type": "group",
+        "visibility": {
+            "controlling_field_path": "is_second_button",
+            "controlling_value_regex": "true",
+            "operator": "EQUAL"
+        },
+        "children": [
+            {
+                "label": "Button link two",
+                "name": "link_two",
+                "type": "link",
+                "supported_types": [
+                    "EXTERNAL",
+                    "CONTENT",
+                    "FILE",
+                    "EMAIL_ADDRESS",
+                    "CALL_TO_ACTION"
+                ],
+                "default": {
+                    "url": {
+                        "href": "",
+                        "type": "EXTERNAL"
+                    },
+                    "no_follow": false,
+                    "open_in_new_tab": false
+                }
+            },
+            {
+                "label": "Button text two",
+                "name": "button_text_two",
+                "type": "text",
+                "required": true,
+                "default": "Button"
+            }
+        ]
+    }
+]

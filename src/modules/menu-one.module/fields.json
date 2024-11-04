@@ -1,0 +1,454 @@
+[
+  {
+    "label": "Menu One",
+    "name": "menu_one",
+    "type": "menu",
+    "default": "default"
+  },
+  {
+    "label": "Max levels",
+    "name": "max_levels",
+    "type": "number",
+    "help_text": "Determines the number of menu tree children that can be expanded in the menu",
+    "display": "text",
+    "max": 3,
+    "min": 1,
+    "step": 1,
+    "required": true,
+    "default": 3
+  },
+  {
+    "label": "Styles",
+    "name": "styles",
+    "type": "group",
+    "tab": "STYLE",
+    "children": [
+      {
+        "label": "Links",
+        "name": "links",
+        "help_text": "Set menu link styles",
+        "type": "group",
+        "children": [
+          {
+            "label": "Text",
+            "name": "text",
+            "help_text": "Set menu link text styles",
+            "type": "group",
+            "children": [
+              {
+                "label": "Font",
+                "name": "font",
+                "type": "font",
+                "load_external_fonts": false,
+                "default": {
+                  "size": 16,
+                  "size_unit": "px",
+                  "color": "#000000",
+                  "styles": {}
+                }
+              },
+              {
+                "label": "Transform",
+                "name": "transform",
+                "type": "choice",
+                "choices": [
+                  [
+                    "none",
+                    "None"
+                  ],
+                  [
+                    "capitalize",
+                    "Capitalize"
+                  ],
+                  [
+                    "uppercase",
+                    "Uppercase"
+                  ],
+                  [
+                    "lowercase",
+                    "Lowercase"
+                  ]
+                ],
+                "display": "select",
+                "default": "none"
+              }
+            ]
+          },
+          {
+            "label": "Background",
+            "name": "background",
+            "help_text": "Set menu link background color",
+            "type": "group",
+            "children": [
+              {
+                "label": "Color",
+                "name": "color",
+                "type": "color",
+                "default": {
+                  "color": "#ffffff",
+                  "opacity": 0
+                }
+              }
+            ]
+          },
+          {
+            "name": "corner",
+            "label": "Corner",
+            "help_text": "Set menu dropdown border radius styles",
+            "type": "group",
+            "children": [
+              {
+                "label": "Top Left Radius",
+                "name": "top_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Top Right Radius",
+                "name": "top_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Bottom Left Radius",
+                "name": "bottom_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Bottom Right Radius",
+                "name": "bottom_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              }
+            ]
+          },
+          {
+            "label": "Chevron",
+            "name": "chevron",
+            "help_text": "Set menu link chevron styles",
+            "type": "group",
+            "children": [
+              {
+                "label": "Color",
+                "name": "color",
+                "type": "color",
+                "default": {
+                  "color": "#000000",
+                  "opacity": 100
+                }
+              },
+              {
+                "name": "stroke_width",
+                "label": "Stroke Width",
+                "required": false,
+                "locked": false,
+                "display": "text",
+                "min": 0,
+                "max": 5,
+                "step": 1,
+                "type": "number",
+                "default": 0
+              }
+            ]
+          },
+          {
+            "label": "Hover",
+            "name": "hover",
+            "help_text": "Set menu link hover styles",
+            "type": "group",
+            "children": [
+              {
+                "label": "Text",
+                "name": "text",
+                "help_text": "Set menu link hover text color",
+                "type": "group",
+                "children": [
+                  {
+                    "label": "Color",
+                    "name": "color",
+                    "type": "color",
+                    "default": {
+                      "color": "#000000",
+                      "opacity": 100
+                    }
+                  }
+                ]
+              },
+              {
+                "label": "Background",
+                "name": "background",
+                "help_text": "Set menu link hover background color",
+                "type": "group",
+                "children": [
+                  {
+                    "label": "Color",
+                    "name": "color",
+                    "type": "color",
+                    "default": {
+                      "color": "#000000",
+                      "opacity": 10
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "corner",
+                "label": "Corner",
+                "help_text": "Set menu dropdown border radius styles",
+                "type": "group",
+                "children": [
+                  {
+                    "label": "Top Left Radius",
+                    "name": "top_left_radius",
+                    "type": "number",
+                    "display": "text",
+                    "max": 100,
+                    "step": 1,
+                    "suffix": "px",
+                    "default": 0
+                  },
+                  {
+                    "label": "Top Right Radius",
+                    "name": "top_right_radius",
+                    "type": "number",
+                    "display": "text",
+                    "max": 100,
+                    "step": 1,
+                    "suffix": "px",
+                    "default": 0
+                  },
+                  {
+                    "label": "Bottom Left Radius",
+                    "name": "bottom_left_radius",
+                    "type": "number",
+                    "display": "text",
+                    "max": 100,
+                    "step": 1,
+                    "suffix": "px",
+                    "default": 0
+                  },
+                  {
+                    "label": "Bottom Right Radius",
+                    "name": "bottom_right_radius",
+                    "type": "number",
+                    "display": "text",
+                    "max": 100,
+                    "step": 1,
+                    "suffix": "px",
+                    "default": 0
+                  }
+                ]
+              },
+              {
+                "label": "Chevron",
+                "name": "chevron",
+                "help_text": "Set menu link hover chevron color",
+                "type": "group",
+                "children": [
+                  {
+                    "label": "Color",
+                    "name": "color",
+                    "type": "color",
+                    "default": {
+                      "color": "#000000",
+                      "opacity": 100
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Drop downs",
+        "name": "drop_downs",
+        "help_text": "Set menu dropdown styles",
+        "type": "group",
+        "children": [
+          {
+            "label": "Background",
+            "name": "background",
+            "help_text": "Set menu dropdown background color",
+            "type": "group",
+            "children": [
+              {
+                "label": "Color",
+                "name": "color",
+                "type": "color",
+                "default": {
+                  "color": "#ffffff",
+                  "opacity": 100
+                }
+              }
+            ]
+          },
+          {
+            "label": "Border",
+            "name": "border",
+            "help_text": "Set menu dropdown border styles",
+            "type": "group",
+            "children": [
+              {
+                "label": "Border",
+                "name": "border",
+                "type": "border",
+                "default": {
+                  "top": {
+                    "width": {
+                      "value": 0,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  },
+                  "right": {
+                    "width": {
+                      "value": 0,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  },
+                  "bottom": {
+                    "width": {
+                      "value": 0,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  },
+                  "left": {
+                    "width": {
+                      "value": 0,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "name": "corner",
+            "label": "Corner",
+            "help_text": "Set menu dropdown border radius styles",
+            "type": "group",
+            "children": [
+              {
+                "label": "Top Left Radius",
+                "name": "top_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Top Right Radius",
+                "name": "top_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Bottom Left Radius",
+                "name": "bottom_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Bottom Right Radius",
+                "name": "bottom_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              }
+            ]
+          },
+          {
+            "name": "box_shadow",
+            "label": "Box Shadow",
+            "help_text": "Set menu dropdown box-shadow styles",
+            "type": "group",
+            "children": [
+              {
+                "name": "box_shadow",
+                "label": "Box Shadow",
+                "type": "choice",
+                "choices": [
+                  [
+                    "none",
+                    "None"
+                  ],
+                  [
+                    "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+                    "Small Shadow"
+                  ],
+                  [
+                    "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+                    "Regular Shadow"
+                  ],
+                  [
+                    "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+                    "Medium Shadow"
+                  ],
+                  [
+                    "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+                    "Large Shadow"
+                  ],
+                  [
+                    "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+                    "XL Shadow"
+                  ],
+                  [
+                    "0 25px 50px -12px rgb(0 0 0 / 0.25)",
+                    "2XL Shadow"
+                  ],
+                  [
+                    "inset 0 2px 4px 0 rgb(0 0 0 / 0.05)",
+                    "Shadow Inner"
+                  ]
+                ],
+                "default": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

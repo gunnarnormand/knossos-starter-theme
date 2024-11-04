@@ -1,0 +1,24 @@
+<!--
+  templateType: global_partial
+  label: Header no navigation
+-->
+<header class="header header--no-navigation">
+
+  {# Main header #}
+
+  <div class="header__container content-wrapper">
+
+    {# Logo #}
+
+    <div class="header__logo">
+      {% module "site_logo"
+        path="@hubspot/logo"
+        img={
+          "loading": "eager"
+        }
+      %}
+    </div>
+
+  </div>
+
+</header>

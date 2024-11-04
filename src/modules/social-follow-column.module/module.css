@@ -1,0 +1,25 @@
+.social-column {
+  margin: 0;
+}
+
+.social-column__icon {
+  border-radius: 0;
+  margin: 0;
+  position: relative;
+}
+
+.social-column__icon svg {
+  fill: #000000;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 1rem;
+  height: 1rem;
+}
+
+.social-column__link:hover .social-column__icon svg,
+.social-column__link:focus .social-column__icon svg,
+.social-column__link:active .social-column__icon svg {
+  fill: #000000;
+}

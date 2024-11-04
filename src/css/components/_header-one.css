@@ -1,0 +1,48 @@
+/* CSS variables for mobile menu */
+
+:root {
+  --height-open: 100vh;
+  --height-closed: 0;
+}
+
+/* Navigation skipper */
+
+.header-one__skip {
+  height: 1px;
+  left: -1000px;
+  overflow: hidden;
+  position: absolute;
+  text-align: left;
+  top: -1000px;
+  width: 1px;
+}
+
+.header-one__skip:hover,
+.header-one__skip:focus,
+.header-one__skip:active {
+  height: auto;
+  left: 0;
+  overflow: visible;
+  top: 0;
+  width: auto;
+}
+
+
+/* Adjust button styles on mobile devices */
+
+@media screen and (max-width: 992px) {
+  .hs-language-switcher,
+  .hs-language-switcher__inner-wrapper,
+  .hs-language-switcher__button,
+  .header-one nav .button {
+    width: 100%;
+  }
+
+  #site-header #hs_cos_wrapper_language-switcher .hs-language-switcher__current-language {
+      display: inherit;
+  }
+
+  #site-header #hs_cos_wrapper_language-switcher .hs-language-switcher__label {
+    justify-content: center;
+  }
+}
