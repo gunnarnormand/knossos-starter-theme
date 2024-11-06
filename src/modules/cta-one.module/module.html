@@ -1,9 +1,14 @@
 <section class="px-[5%] py-16 md:py-24 lg:py-28">
-  <div class="container max-w-lg text-center">
-    {% inline_rich_text field="tagline" value="{{ module.tagline }}" %}
-    {% inline_rich_text field="title" value="{{ module.title }}" %}
-    {% inline_rich_text field="content" value="{{ module.content }}" %}
-    <div class="mt-6 flex items-center justify-center gap-x-4 md:mt-8">
+  <div
+    class="container grid w-full grid-cols-1 items-start justify-between gap-6 md:grid-cols-[1fr_max-content] md:gap-x-12 md:gap-y-8 lg:gap-x-20"
+  >
+    <div class="md:mr-12 lg:mr-0">
+      <div class="w-full max-w-lg">
+        {% inline_rich_text field="title" value="{{ module.title }}" %}
+        {% inline_rich_text field="content" value="{{ module.content }}" %}
+      </div>
+    </div>
+    <div class="flex items-start justify-start gap-4">
         {% if module.is_button %}
             {% set href_one = module.button_group.link_one.url.href %}
             {% if module.button_group.link_one.url.type == "EMAIL_ADDRESS" %}
@@ -47,3 +52,4 @@
     </div>
   </div>
 </section>
+

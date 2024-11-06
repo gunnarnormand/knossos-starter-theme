@@ -1,0 +1,135 @@
+[
+    {
+        "name": "title",
+        "label": "Title",
+        "help_text": "Header Title",
+        "display_width": null,
+        "required": false,
+        "locked": false,
+        "type": "richtext",
+        "enabled_features": [
+            "link",
+            "colors",
+            "fonts",
+            "standard_emphasis",
+            "block",
+            "lineheight",
+            "hr",
+            "source_code"
+        ],
+        "default": "<h2 class='mb-3 text-4xl font-bold leading-[1.2] md:mb-4 md:text-5xl lg:text-6xl'>Medium length heading goes here</h2>"
+    },
+    {
+        "name": "content",
+        "label": "Content",
+        "help_text": "Header Content",
+        "display_width": null,
+        "required": false,
+        "locked": false,
+        "type": "richtext",
+        "default": "<p class='md:text-md'>Encourage users to take the next step today.</p>"
+    },
+    {
+        "name": "is_button",
+        "label": "Enable Button",
+        "help_text": "Adds a button to the module when toggled on",
+        "required": false,
+        "locked": false,
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+    },
+    {
+        "label": "Button One",
+        "name": "button_group",
+        "type": "group",
+        "visibility": {
+            "controlling_field_path": "is_button",
+            "controlling_value_regex": "true",
+            "operator": "EQUAL"
+        },
+        "children": [
+            {
+                "label": "Button link one",
+                "name": "link_one",
+                "type": "link",
+                "supported_types": [
+                    "EXTERNAL",
+                    "CONTENT",
+                    "FILE",
+                    "EMAIL_ADDRESS",
+                    "CALL_TO_ACTION"
+                ],
+                "default": {
+                    "url": {
+                        "href": "",
+                        "type": "EXTERNAL"
+                    },
+                    "no_follow": false,
+                    "open_in_new_tab": false
+                }
+            },
+            {
+                "label": "Button text one",
+                "name": "button_text_one",
+                "type": "text",
+                "required": true,
+                "default": "Button"
+            }
+        ]
+    },
+    {
+        "name": "is_second_button",
+        "label": "Enable Second Button",
+        "help_text": "Adds a second button to the module when toggled on",
+        "required": false,
+        "locked": false,
+        "type": "boolean",
+        "display": "toggle",
+        "visibility": {
+            "controlling_field_path": "is_button",
+            "controlling_value_regex": "true",
+            "operator": "EQUAL"
+        },
+        "default": false
+    },
+    {
+        "label": "Button Two",
+        "name": "button_group_two",
+        "type": "group",
+        "visibility": {
+            "controlling_field_path": "is_second_button",
+            "controlling_value_regex": "true",
+            "operator": "EQUAL"
+        },
+        "children": [
+            {
+                "label": "Button link two",
+                "name": "link_two",
+                "type": "link",
+                "supported_types": [
+                    "EXTERNAL",
+                    "CONTENT",
+                    "FILE",
+                    "EMAIL_ADDRESS",
+                    "CALL_TO_ACTION"
+                ],
+                "default": {
+                    "url": {
+                        "href": "",
+                        "type": "EXTERNAL"
+                    },
+                    "no_follow": false,
+                    "open_in_new_tab": false
+                }
+            },
+            {
+                "label": "Button text two",
+                "name": "button_text_two",
+                "type": "text",
+                "required": true,
+                "default": "Button"
+            }
+        ]
+    }
+]
