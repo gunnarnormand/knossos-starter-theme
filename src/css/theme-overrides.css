@@ -388,7 +388,8 @@ form input[type=tel],
 form input[type=number],
 form input[type=file],
 form select,
-form textarea {
+form textarea,
+.file-input-cover {
   {{ form_field_border }}
   background-color: {{ form_field_bg_color }};
   color: {{ form_field_font_color }};
