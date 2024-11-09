@@ -1,0 +1,56 @@
+[
+    {
+        "name": "tagline",
+        "display_width": null,
+        "label": "Tagline",
+        "help_text": "Tagline text that goes above the heading",
+        "required": false,
+        "locked": false,
+        "type": "richtext",
+        "default": "<p class='mb-3 font-semibold md:mb-4'>Tagline</p>"
+    },
+    {
+        "name": "title",
+        "label": "Title",
+        "help_text": "Header Title",
+        "display_width": null,
+        "required": false,
+        "locked": false,
+        "type": "richtext",
+        "enabled_features": [
+            "link",
+            "colors",
+            "fonts",
+            "standard_emphasis",
+            "block",
+            "lineheight",
+            "hr",
+            "source_code"
+        ],
+        "default": "<h2 class='rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl'>Contact us</h2>"
+    },
+    {
+        "name": "content",
+        "label": "Content",
+        "help_text": "Header Content",
+        "display_width": null,
+        "required": false,
+        "locked": false,
+        "type": "richtext",
+        "default": "<p class='md:text-md'>Invite users to reach out for more information.</p>"
+    },
+    {
+        "name": "form_field",
+        "label": "Form",
+        "help_text": "Form to display in the module",
+        "display_width": null,
+        "required": true,
+        "locked": false,
+        "type": "form",
+        "disable_inline_form_editing": false,
+        "default": {
+            "response_type": "inline",
+            "message": "Thanks for submitting the form."
+        }
+    }
+]
