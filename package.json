@@ -10,6 +10,7 @@
     "build:theme": "hs watch --account=knossos-starter-theme src knossos-starter-theme --initial-upload",
     "watch:theme": "hs watch --account=knossos-starter-theme src knossos-starter-theme",
     "watch:all": "concurrently \"npm run watch:css\" \"npm run watch:theme\"",
+    "fetch:theme": "hs fetch --account=knossos-starter-theme knossos-starter-theme src",
     "start": "concurrently \"npm run watch:css\" \"npm run build:theme\""
   },
   "author": "Gunnar Normand",
