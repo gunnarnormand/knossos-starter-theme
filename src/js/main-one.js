@@ -15,10 +15,6 @@
     const menuHeight = viewportHeight - triggerContainerHeight;
     rootStyles.style.setProperty('--height-open', `${menuHeight}px`);
 
-    let formInputsHandled = false;
-
-
-
     // Functions
   
     // Function for executing code on document ready
@@ -28,17 +24,6 @@
       } else {
         document.addEventListener('DOMContentLoaded', callback);
       }
-    }
-
-    function onMessageReady(callback) {
-      if (typeof callback !== 'function') {
-        throw new Error('Callback must be a function');
-      }
-      window.addEventListener('message', event => {
-        if(event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormReady') {
-          callback(event);
-        }
-      });
     }
   
     // Function to toggle main navigation menu on mobile screens
@@ -74,31 +59,25 @@
       });
     }
 
-    // Function to handle forms with file inputs
-    function handleFormFileInputs() {
-      if (formInputsHandled) {
-        return; // Prevent duplicate handling
-      }
+    // Function to handle form alterations
+    function handleForms(data) {
+      // get the form via data & data-form-id value 
+      const formId = data.id;
+      const formElement = document.querySelector(`[data-form-id="${formId}"]`);
 
-      // Check if the page contains any form elements
-      const forms = document.querySelectorAll('form');
-      if (forms.length === 0) {
-        // No forms present, do nothing
-        return;
-      }
+      // check for all file inputs
+      const fileInputs = formElement.querySelectorAll('input[type="file"]');
+      // check for all radio inputs
+      const radioInputs = formElement.querySelectorAll('input[type="radio"]');
+      // check for all checkbox labels
+      const checkboxInputs = formElement.querySelectorAll('input[type="checkbox"]');
 
-      // Iterate through each form and check if it contains a file input
-      forms.forEach((form) => {
-        const fileInputs = form.querySelectorAll('input[type="file"]');
-        if (fileInputs.length === 0) {
-          // This form doesn't have a file input, move on to the next form
-          return;
-        }
-
+      if (fileInputs.length) {
         fileInputs.forEach((fileInput) => {
           // add the file input cover markup to each file input
           const fileInputWrapper = fileInput.parentElement;
           fileInputWrapper.style.position = "relative";
+          fileInput.classList.add('form-cover-applied');
           const newFileInputBlock = `<div class="file-input-cover flex justify-center px-4 py-6">
                                         <div class="text-center">
                                           <svg class="mx-auto h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -149,9 +128,99 @@
           });
 
         });
-      });
+      } 
+      if (radioInputs.length) {
+        
+        radioInputs.forEach((radioInput) => {
+          
+          const radioId = radioInput.getAttribute('id');
+          radioLabel = formElement.querySelector(`[for="${radioId}"]`);
 
-      formInputsHandled = true; // Set the flag to prevent reprocessing
+          radioLabel.addEventListener('click', (e) => {
+            const currentLabel = e.currentTarget;
+            if (e.target !== currentLabel) {
+              e.preventDefault();
+              return;
+            }
+            const currentParentUl = currentLabel.closest('ul[role="checkbox"]');
+            const allCurrentLabels = currentParentUl.querySelectorAll('label');
+            allCurrentLabels.forEach(label => {
+              label.classList.remove('checked');
+              label.querySelector('input[type="radio"]').checked === false;
+            });
+            currentLabel.classList.add('checked');
+            currentLabel.querySelector('input[type="radio"]').checked === true;
+          });
+
+          radioInput.addEventListener('focus', (e) => {
+            let currentRadioId = e.currentTarget.id;
+            let currentLabel = formElement.querySelector(`[for="${currentRadioId}"]`);
+
+            if (currentLabel) {
+              currentLabel.classList.add('focus-visible');
+            }
+          });
+
+          radioInput.addEventListener('blur', (e) => {
+            let currentRadioId = e.currentTarget.id;
+            let currentLabel = formElement.querySelector(`[for="${currentRadioId}"]`);
+
+            if (currentLabel) {
+              currentLabel.classList.remove('focus-visible');
+            }
+          });
+
+        });
+
+      } 
+      if (checkboxInputs.length) {
+        checkboxInputs.forEach((checkboxInput) => {
+
+          const checkboxId = checkboxInput.getAttribute('id');
+          checkboxLabel = formElement.querySelector(`[for="${checkboxId}"]`);
+
+          let canRun = true;
+          
+          checkboxLabel.addEventListener('click', (e) => {
+            const currentLabel = e.currentTarget;
+            if (e.target !== currentLabel) {
+              e.preventDefault();
+              return;
+            }
+            if (currentLabel.querySelector('input[type="checkbox"]').checked === false) {
+              currentLabel.querySelector('input[type="checkbox"]').checked === true;
+              currentLabel.classList.add('checked');
+            } else {
+              currentLabel.querySelector('input[type="checkbox"]').checked === false;
+              currentLabel.classList.remove('checked');
+            }
+          });
+
+          checkboxInput.addEventListener('focus', (e) => {
+            let currentCheckboxId = e.currentTarget.id;
+            let currentLabel = formElement.querySelector(`[for="${currentCheckboxId}"]`);
+
+            if (currentLabel) {
+              currentLabel.classList.add('focus-visible');
+            }
+          });
+
+          checkboxInput.addEventListener('blur', (e) => {
+            let currentCheckboxId = e.currentTarget.id;
+            let currentLabel = formElement.querySelector(`[for="${currentCheckboxId}"]`);
+
+            if (currentLabel) {
+              currentLabel.classList.remove('focus-visible');
+            }
+          });
+
+        });
+      } 
+      // If none of the input lists contain elements, return
+      if (!fileInputs.length && !radioInputs.length && !checkboxInputs.length) {
+        return;
+      }
+
     }
   
     // Execute JavaScript on document ready
@@ -170,14 +239,13 @@
           emailGlobalUnsub.addEventListener('change', toggleDisabled);
         }
 
-        onMessageReady(function(event) {
-          if (!event.data) {
-            return;
+        // listen for form message events & if present run fn to handle form manipulation
+        window.addEventListener('message', event => {
+          if(event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormReady') {
+            handleForms(event.data);
           }
-        
-          // Call the function to handle forms with file inputs
-          handleFormFileInputs();
         });
+
       }
     });
 

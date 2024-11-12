@@ -7,8 +7,8 @@
 /* Labels */
 
 form label {
+  font-size: 1rem;
   display: block;
-  font-size: 0.875rem;
   margin-bottom: 0.35rem;
 }
 
@@ -20,7 +20,7 @@ form label {
 /* Help text */
 
 form legend {
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 
 /* Inputs */
@@ -35,7 +35,7 @@ form input[type=file],
 form select,
 form textarea {
   display: inline-block;
-  font-size: 0.875rem;
+  font-size: 1rem;
   padding: 0.7rem;
   width: 100%;
 }
@@ -68,12 +68,101 @@ form .inputs-list > li {
 form .inputs-list input,
 form .inputs-list span {
   vertical-align: middle;
+  cursor: default;
 }
 
 form input[type=checkbox],
 form input[type=radio] {
   cursor: pointer;
   margin-right: 0.35rem;
+}
+
+/*  hide the checkbox/radio elements visually, while still making them accessible */
+
+form label input[type="checkbox"],
+form label input[type="radio"] {
+	position: absolute;
+	opacity: 0;
+	z-index: -1;
+}
+
+/* creates the custom checkbox/radio button */
+form label.hs-form-booleancheckbox-display,
+form label.hs-form-checkbox-display,
+form label.hs-form-radio-display {
+	position: relative;
+	display: inline-block;
+	padding-left: 36px; /* Adjust to give room for the custom checkbox/radio */
+	line-height: 1.7;
+	cursor: pointer;
+}
+
+/* The ::before pseudo-element creates the box for the checkbox or the circle for the radio button. */
+
+form label.hs-form-booleancheckbox-display::before,
+form label.hs-form-checkbox-display::before,
+form label.hs-form-radio-display::before {
+	content: "";
+	position: absolute;
+	top: 3px;
+	left: 0;
+	display: block;
+	width: 24px;
+	height: 24px;
+  transition: all 0.3s;
+}
+
+/* Adjust border-radius for the difference between radio and checkbox. */
+
+form label.hs-form-radio-display::before {
+  border-radius: 50%; /* For radio, mae it a circle */
+}
+
+/* The ::after pseudo-element is used to create the visual representation of the checkmark or the filled circle (for radio buttons) */
+form label.hs-form-booleancheckbox-display::after,
+form label.hs-form-checkbox-display::after {
+	content: "";
+	width: 24px;
+	height: 24px;
+	color: #ffffff;
+	text-align: center;
+	transform: scale(0); /* Initially hidden */
+	position: absolute;
+	top: 3px;
+	left: 0;
+	background-image: url({{ get_asset_url('knossos-starter-theme/images/module-icons/check.svg') }});
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 19px;
+	transition: all 0.3s;
+}
+
+form label.hs-form-radio-display::after {
+	content: "";
+	width: 12px;
+	height: 12px;
+	color: #ffffff;
+	text-align: center;
+	background-color: #000000;
+	border-radius: 50%;
+	position: absolute;
+	top: 9px;
+	left: 6px;
+	transform: scale(0.5);
+	opacity: 0.15;
+  transition: all 0.3s;
+}
+
+/* handle the checked state when the checkbox/radio is selected. */
+
+form label.hs-form-booleancheckbox-display.checked::after,
+form label.hs-form-checkbox-display.checked::after {
+	transform: scale(1);
+}
+
+form label.hs-form-radio-display.checked::after {
+  transform: scale(1);
+  opacity: 1;
 }
 
 /* Inputs - date picker */
@@ -107,7 +196,7 @@ form input[type=radio] {
 
 /* Inputs - file picker */
 
-form input[type=file] {
+form input[type=file].form-cover-applied {
   position: absolute;
   top: 0;
   left: 0;
@@ -115,10 +204,6 @@ form input[type=file] {
   height: 100%;
   opacity: 0;
   cursor: pointer;
-}
-
-form .focus-visible {
-  outline: -webkit-focus-ring-color auto 1px;
 }
 
 /* Headings and text */
@@ -137,7 +222,7 @@ form .hs-richtext img {
 
 .legal-consent-container .hs-form-booleancheckbox-display > span,
 .legal-consent-container .hs-form-booleancheckbox-display > span p {
-  margin-left: 1rem !important;
+  margin-left: 0px !important;
 }
 
 /* Validation */
@@ -153,6 +238,10 @@ form .hs-richtext img {
 .hs-error-msg {
   color: #EF6B51;
   margin-top: 0.35rem;
+}
+
+form .focus-visible {
+  outline: -webkit-focus-ring-color auto 1px;
 }
 
 /* Submit button */
