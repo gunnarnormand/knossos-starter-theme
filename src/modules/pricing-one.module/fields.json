@@ -1,0 +1,535 @@
+[
+  {
+    "id": "77844818-5d5e-36ae-3250-ee474201d407",
+    "name": "tagline",
+    "display_width": null,
+    "label": "Tagline",
+    "help_text": "tagline that goes above title text",
+    "required": false,
+    "locked": false,
+    "type": "richtext",
+    "default": "<p class=\"mb-3 font-semibold md:mb-4\">Tagline</p>"
+  },
+  {
+    "id": "49bd1e68-7158-2852-7452-caf5f04e5c76",
+    "name": "title",
+    "display_width": null,
+    "label": "Title",
+    "help_text": "Main title text for the module",
+    "required": false,
+    "locked": false,
+    "type": "richtext",
+    "default": "<h2 class=\"mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl\">Pricing plan</h2>"
+  },
+  {
+    "id": "77817aa2-7ebf-95a2-da2d-4589168fd324",
+    "name": "content",
+    "display_width": null,
+    "label": "Content",
+    "help_text": "Intro content for this module",
+    "required": false,
+    "locked": false,
+    "type": "richtext",
+    "default": "<p class=\"md:text-md\">Outline key features included in this plan.</p>"
+  },
+  {
+    "id": "0a81eced-3589-21a5-8c8a-fa69b52c7dc5",
+    "name": "pricing_card",
+    "display_width": null,
+    "label": "Pricing Card",
+    "help_text": "Pricing cards for the module",
+    "required": false,
+    "locked": false,
+    "occurrence": {
+      "min": 1,
+      "max": null,
+      "sorting_label_field": "35f11737-e2da-6787-e036-2098a359579c",
+      "default": 3
+    },
+    "children": [
+      {
+        "id": "4e697833-35cc-18db-54fc-c4b71ae15281",
+        "name": "add_icon",
+        "display_width": null,
+        "label": "Add Icon",
+        "help_text": "Adds an icon to the pricing card when enabled",
+        "required": false,
+        "locked": false,
+        "display": "toggle",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "id": "97b72dbd-71ac-4e87-f310-4992748899c1",
+        "name": "pricing_icon_type",
+        "display_width": null,
+        "label": "Pricing Icon Type",
+        "help_text": "Choose icon from image library or a custom image icon",
+        "required": false,
+        "locked": false,
+        "visibility": {
+          "controlling_field": null,
+          "controlling_field_path": "pricing_card.add_icon",
+          "controlling_value_regex": null,
+          "property": null,
+          "operator": "NOT_EMPTY",
+          "access": null
+        },
+        "display": "select",
+        "choices": [
+          [
+            "icon",
+            "Icon from library"
+          ],
+          [
+            "image",
+            "Custom Image"
+          ]
+        ],
+        "multiple": false,
+        "reordering_enabled": true,
+        "preset": null,
+        "type": "choice",
+        "default": "icon"
+      },
+      {
+        "id": "bdbb157f-7179-da6b-7f99-87ea16d700f7",
+        "name": "icon_field",
+        "display_width": null,
+        "label": "Icon",
+        "help_text": "Icon for pricing card displays in top right corner",
+        "required": false,
+        "locked": false,
+        "visibility": {
+          "controlling_field": null,
+          "controlling_field_path": "pricing_card.pricing_icon_type",
+          "controlling_value_regex": "icon",
+          "property": null,
+          "operator": "EQUAL",
+          "access": null
+        },
+        "icon_set": "fontawesome-5.14.0",
+        "type": "icon",
+        "default": {
+          "name": "Mountain",
+          "unicode": "f6fc",
+          "type": "SOLID"
+        }
+      },
+      {
+        "name": "feature_image",
+        "label": "Feature Image",
+        "help_text": "custom image for icon",
+        "type": "image",
+        "display_width": null,
+        "required": false,
+        "locked": false,
+        "responsive": true,
+        "resizable": false,
+        "show_loading": true,
+        "visibility": {
+          "controlling_field": null,
+          "controlling_field_path": "pricing_card.pricing_icon_type",
+          "controlling_value_regex": "image",
+          "property": null,
+          "operator": "EQUAL",
+          "access": null
+        },
+        "default": {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/knossos-icon.png",
+          "alt": "knossos-icon",
+          "loading": "lazy"
+        }
+      },
+      {
+        "id": "35f11737-e2da-6787-e036-2098a359579c",
+        "name": "pre_heading",
+        "display_width": null,
+        "label": "Pre Heading",
+        "required": false,
+        "locked": false,
+        "type": "richtext",
+        "default": "<h2 class=\"mb-2 text-md font-bold leading-[1.4] md:text-xl\">Basic plan</h2>"
+      },
+      {
+        "id": "ec4916fd-91e9-9516-4979-aef24fc186a8",
+        "name": "pricing_title",
+        "display_width": null,
+        "label": "Pricing Title",
+        "required": false,
+        "locked": false,
+        "type": "richtext",
+        "default": "<h3 class=\"my-2 text-6xl font-bold md:text-9xl lg:text-10xl\">$19<span class=\"text-2xl font-bold md:text-3xl md:leading-[1.3] lg:text-4xl\">/mo</span></h3>"
+      },
+      {
+        "id": "92739bb9-4b5e-cc08-10fa-336a6e0deacc",
+        "name": "sub_heading",
+        "display_width": null,
+        "label": "Sub Heading",
+        "required": false,
+        "locked": false,
+        "type": "richtext",
+        "default": "<p>or <!-- -->$199<!-- --> yearly</p>"
+      },
+      {
+        "id": "632c1efd-47c3-a775-f67e-840cf9eeb791",
+        "name": "add_divider",
+        "display_width": null,
+        "label": "Add Divider",
+        "help_text": "Adds divider to the pricing card when enabled",
+        "required": false,
+        "locked": false,
+        "display": "toggle",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "id": "c7bf4b49-712c-78b8-b833-36c7179bcd10",
+        "name": "feature_list_title",
+        "display_width": null,
+        "label": "Feature List Title",
+        "required": false,
+        "locked": false,
+        "type": "richtext",
+        "default": "<p>Includes:</p>"
+      },
+      {
+        "id": "e89d0767-9f20-b149-05c2-91188b1a8018",
+        "name": "feature_list",
+        "display_width": null,
+        "label": "Feature List",
+        "help_text": "List of features for the pricing card",
+        "required": false,
+        "locked": false,
+        "occurrence": {
+          "min": null,
+          "max": null,
+          "sorting_label_field": "16ea90fb-1f93-b83a-29d7-c9bf7ceb5ecb",
+          "default": 4
+        },
+        "children": [
+          {
+            "id": "6e6e401e-e13a-117e-898b-c559f9164754",
+            "name": "feature_list_icon",
+            "display_width": null,
+            "label": "Feature List Icon",
+            "required": false,
+            "locked": false,
+            "icon_set": "fontawesome-5.14.0",
+            "type": "icon",
+            "default": {
+              "name": "Check",
+              "unicode": "f00c",
+              "type": "SOLID"
+            }
+          },
+          {
+            "id": "16ea90fb-1f93-b83a-29d7-c9bf7ceb5ecb",
+            "name": "feature_text",
+            "display_width": null,
+            "label": "Feature Text",
+            "required": false,
+            "locked": false,
+            "validation_regex": "",
+            "allow_new_line": false,
+            "show_emoji_picker": false,
+            "type": "text",
+            "default": "Benefit detail here"
+          }
+        ],
+        "tab": "CONTENT",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "type": "group",
+        "default": [
+          {
+            "feature_list_icon": {
+              "name": "Check",
+              "unicode": "f00c",
+              "type": "SOLID"
+            },
+            "feature_text": "Benefit detail here"
+          },
+          {
+            "feature_list_icon": {
+              "name": "Check",
+              "unicode": "f00c",
+              "type": "SOLID"
+            },
+            "feature_text": "Benefit detail here"
+          },
+          {
+            "feature_list_icon": {
+              "name": "Check",
+              "unicode": "f00c",
+              "type": "SOLID"
+            },
+            "feature_text": "Benefit detail here"
+          },
+          {
+            "feature_list_icon": {
+              "name": "Check",
+              "unicode": "f00c",
+              "type": "SOLID"
+            },
+            "feature_text": "Benefit detail here"
+          }
+        ]
+      },
+      {
+        "id": "db6d959a-871b-4522-6d43-418e1377601e",
+        "name": "button_link",
+        "display_width": null,
+        "label": "Button Link",
+        "required": false,
+        "locked": false,
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG",
+          "CALL_TO_ACTION",
+          "PHONE_NUMBER",
+          "WHATSAPP_NUMBER",
+          "PAYMENT"
+        ],
+        "show_advanced_rel_options": false,
+        "type": "link",
+        "default": {
+          "url": {
+            "content_id": null,
+            "type": "EXTERNAL",
+            "href": ""
+          },
+          "open_in_new_tab": false,
+          "no_follow": false
+        }
+      },
+      {
+        "id": "f75bc973-c5ce-ee42-f260-0f02e214415a",
+        "name": "button_text",
+        "display_width": null,
+        "label": "Button Text",
+        "required": false,
+        "locked": false,
+        "validation_regex": "",
+        "allow_new_line": false,
+        "show_emoji_picker": false,
+        "type": "text",
+        "default": "Get Started"
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "default": [
+      {
+        "add_icon": true,
+        "pricing_icon_type": "icon",
+        "icon_field": {
+          "name": "Mountain",
+          "unicode": "f6fc",
+          "type": "SOLID"
+        },
+        "image_field": {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/knossos-icon.png",
+          "alt": "knossos-icon",
+          "loading": "lazy",
+          "width": 350,
+          "height": 366,
+          "max_width": 350,
+          "max_height": 366
+        },
+        "pre_heading": "<h2 class=\"mb-2 text-md font-bold leading-[1.4] md:text-xl\">Basic plan</h2>",
+        "pricing_title": "<h3 class=\"my-2 text-6xl font-bold md:text-9xl lg:text-10xl\">$19<span class=\"text-2xl font-bold md:text-3xl md:leading-[1.3] lg:text-4xl\">/mo</span></h3>",
+        "sub_heading": "<p>or <!-- -->$199<!-- --> yearly</p>",
+        "add_divider": true,
+        "feature_list_title": "<p>Includes:</p>",
+        "feature_list": [
+          {
+            "feature_list_icon": {
+              "name": "Check",
+              "unicode": "f00c",
+              "type": "SOLID"
+            },
+            "feature_text": "Benefit detail here"
+          },
+          {
+            "feature_list_icon": {
+              "name": "Check",
+              "unicode": "f00c",
+              "type": "SOLID"
+            },
+            "feature_text": "Benefit detail here"
+          },
+          {
+            "feature_list_icon": {
+              "name": "Check",
+              "unicode": "f00c",
+              "type": "SOLID"
+            },
+            "feature_text": "Benefit detail here"
+          },
+          {
+            "feature_list_icon": {
+              "name": "Check",
+              "unicode": "f00c",
+              "type": "SOLID"
+            },
+            "feature_text": "Benefit detail here"
+          }
+        ],
+        "button_link": {
+          "url": {
+            "content_id": null,
+            "type": "EXTERNAL",
+            "href": ""
+          },
+          "open_in_new_tab": false,
+          "no_follow": false
+        },
+        "button_text": "Get Started"
+      },
+      {
+        "add_icon": true,
+        "pricing_icon_type": "icon",
+        "icon_field": {
+          "name": "Mountain",
+          "unicode": "f6fc",
+          "type": "SOLID"
+        },
+        "image_field": {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/knossos-icon.png",
+          "alt": "knossos-icon",
+          "loading": "lazy",
+          "width": 350,
+          "height": 366,
+          "max_width": 350,
+          "max_height": 366
+        },
+        "pre_heading": "<h2 class=\"mb-2 text-md font-bold leading-[1.4] md:text-xl\">Business plan</h2>",
+        "pricing_title": "<h3 class=\"my-2 text-6xl font-bold md:text-9xl lg:text-10xl\">$29<span class=\"text-2xl font-bold md:text-3xl md:leading-[1.3] lg:text-4xl\">/mo</span></h3>",
+        "sub_heading": "<p>or <!-- -->$299<!-- --> yearly</p>",
+        "add_divider": true,
+        "feature_list_title": "<p>Includes:</p>",
+        "feature_list": [
+          {
+            "feature_list_icon": {
+              "name": "Check",
+              "unicode": "f00c",
+              "type": "SOLID"
+            },
+            "feature_text": "Benefit detail here"
+          },
+          {
+            "feature_list_icon": {
+              "name": "Check",
+              "unicode": "f00c",
+              "type": "SOLID"
+            },
+            "feature_text": "Benefit detail here"
+          },
+          {
+            "feature_list_icon": {
+              "name": "Check",
+              "unicode": "f00c",
+              "type": "SOLID"
+            },
+            "feature_text": "Benefit detail here"
+          },
+          {
+            "feature_list_icon": {
+              "name": "Check",
+              "unicode": "f00c",
+              "type": "SOLID"
+            },
+            "feature_text": "Benefit detail here"
+          }
+        ],
+        "button_link": {
+          "url": {
+            "content_id": null,
+            "type": "EXTERNAL",
+            "href": ""
+          },
+          "open_in_new_tab": false,
+          "no_follow": false
+        },
+        "button_text": "Get Started"
+      },
+      {
+        "add_icon": true,
+        "pricing_icon_type": "icon",
+        "icon_field": {
+          "name": "Mountain",
+          "unicode": "f6fc",
+          "type": "SOLID"
+        },
+        "image_field": {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/knossos-icon.png",
+          "alt": "knossos-icon",
+          "loading": "lazy",
+          "width": 350,
+          "height": 366,
+          "max_width": 350,
+          "max_height": 366
+        },
+        "pre_heading": "<h2 class=\"mb-2 text-md font-bold leading-[1.4] md:text-xl\">Enterprise plan</h2>",
+        "pricing_title": "<h3 class=\"my-2 text-6xl font-bold md:text-9xl lg:text-10xl\">$49<span class=\"text-2xl font-bold md:text-3xl md:leading-[1.3] lg:text-4xl\">/mo</span></h3>",
+        "sub_heading": "<p>or <!-- -->$499<!-- --> yearly</p>",
+        "add_divider": true,
+        "feature_list_title": "<p>Includes:</p>",
+        "feature_list": [
+          {
+            "feature_list_icon": {
+              "name": "Check",
+              "unicode": "f00c",
+              "type": "SOLID"
+            },
+            "feature_text": "Benefit detail here"
+          },
+          {
+            "feature_list_icon": {
+              "name": "Check",
+              "unicode": "f00c",
+              "type": "SOLID"
+            },
+            "feature_text": "Benefit detail here"
+          },
+          {
+            "feature_list_icon": {
+              "name": "Check",
+              "unicode": "f00c",
+              "type": "SOLID"
+            },
+            "feature_text": "Benefit detail here"
+          },
+          {
+            "feature_list_icon": {
+              "name": "Check",
+              "unicode": "f00c",
+              "type": "SOLID"
+            },
+            "feature_text": "Benefit detail here"
+          }
+        ],
+        "button_link": {
+          "url": {
+            "content_id": null,
+            "type": "EXTERNAL",
+            "href": ""
+          },
+          "open_in_new_tab": false,
+          "no_follow": false
+        },
+        "button_text": "Get Started"
+      }
+    ]
+  }
+]

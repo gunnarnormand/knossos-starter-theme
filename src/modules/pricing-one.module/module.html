@@ -1,0 +1,93 @@
+<section class="pricing-one-module px-[5%] py-16 md:py-24 lg:py-28">
+  <div class="container">
+    <div class="mx-auto mb-12 max-w-lg text-center md:mb-18 lg:mb-20">
+      {% inline_rich_text field="tagline" value="{{ module.tagline }}" %}
+      {% inline_rich_text field="title" value="{{ module.title }}" %}
+      {% inline_rich_text field="content" value="{{ module.content }}" %}
+    </div>
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+      {% for item in module.pricing_card %}
+        <div class="flex h-full flex-col justify-between border border-border-primary px-6 py-8 md:p-8">
+        <div>
+          {% if item.add_icon %}
+            <!-- HTML to show when checked -->
+            <figure class="pricing-icon-wrapper rb-4 mb-4 flex flex-col items-end justify-end">
+              {% if item.pricing_icon_type == "icon" %}
+                {% icon
+                  name="{{ item.icon_field.name }}"
+                  style="{{ item.icon_field.type }}"
+                  unicode="{{ item.icon_field.unicode }}"
+                  icon_set="{{ item.icon_field.icon_set }}"
+                %}
+              {% endif %}
+              {% if item.pricing_icon_type == "image" and item.feature_image.src %}
+                {% set loadingAttr = item.feature_image.loading != 'disabled' ? 'loading="{{ item.feature_image.loading|escape_attr }}"' : '' %}
+                <img srcset="{{ resize_image_url(item.feature_image.src, 288) }} 288w,
+                    {{ resize_image_url(item.feature_image.src, 468) }} 468w,
+                    {{ resize_image_url(item.feature_image.src, 736) }} 736w,
+                    {{ resize_image_url(item.feature_image.src, 928) }} 928w"
+                    sizes="(max-width: 320px) 288px,
+                            (max-width: 500px) 468px,
+                            (max-width: 768px) 736px,
+                            928px"
+                    src="{{ item.feature_image.src }}"
+                    alt="{{ item.feature_image.alt }}"
+                    width="{{ item.feature_image.width }}"
+                    height="{{ item.feature_image.height }}"
+                    {{ loadingAttr }}>
+              {% endif %}
+            </figure>
+          {% endif %}
+          {% inline_rich_text field="pre_heading" value="{{ item.pre_heading }}" %}
+          {% inline_rich_text field="pricing_title" value="{{ item.pricing_title }}" %}
+          {% inline_rich_text field="sub_heading" value="{{ item.sub_heading }}" %}
+          {% if item.add_divider %}
+            <!-- HTML to show when checked -->
+            <div class="my-8 h-px w-full shrink-0 bg-border"></div>
+          {% endif %}
+          {% inline_rich_text field="feature_list_title" value="{{ item.feature_list_title }}" %}
+          <div class="mb-8 mt-4 grid grid-cols-1 gap-y-4 py-2">
+            {% for item2 in item.feature_list %}
+              <div class="flex self-start">
+                <div class="mr-4 mt-0.5 flex-none self-start w-4 h-4">
+                  {% icon
+                    name="{{ item2.feature_list_icon.name }}"
+                    style="{{ item2.feature_list_icon.type }}"
+                    unicode="{{ item2.feature_list_icon.unicode }}"
+                    icon_set="{{ item2.feature_list_icon.icon_set }}"
+                    no_wrapper=true
+                  %}
+                </div>
+                <p class="benefit-detail">
+                  {% inline_text field="feature_text" value="{{ item2.feature_text }}" no_wrapper=true %}
+                </p>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div>
+          {% set href = item.button_link.url.href %}
+          {% if item.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+            {% set href = "mailto:" + href %}
+          {% endif %}
+          <a class="button w-full"
+            {% if item.button_link.url.type is equalto "CALL_TO_ACTION"  %}
+              href="{{ href }}" {# The href here is not escaped as it is not editable and functions as a JavaScript call to the associated CTA #}
+            {% else %}
+              href="{{ href|escape_url }}"
+            {% endif %}
+            {% if item.button_link.open_in_new_tab %}
+              target="_blank"
+            {% endif %}
+            {% if item.button_link.rel %}
+              rel="{{ item.button_link.rel|escape_attr }}"
+            {% endif %}
+            >
+            {% inline_text field="button_text" value="{{ item.button_text }}" %}
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
