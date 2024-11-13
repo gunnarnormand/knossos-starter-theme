@@ -1,0 +1,197 @@
+[
+  {
+    "id": "688c7461-1558-656b-3ee4-acdc90e8446d",
+    "name": "title",
+    "display_width": null,
+    "label": "Title",
+    "help_text": "Main title for the module",
+    "required": false,
+    "locked": false,
+    "type": "richtext",
+    "default": "<h2 class=\"mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl\">Customer testimonials</h2>"
+  },
+  {
+    "id": "048ca99e-59cb-48f5-182e-6bfe5518b115",
+    "name": "content",
+    "display_width": null,
+    "label": "Content",
+    "help_text": "Content beneath the main title before the testimonials",
+    "required": false,
+    "locked": false,
+    "type": "richtext",
+    "default": "<p class=\"md:text-md\">Hear what our happy customers have to say.</p>"
+  },
+  {
+    "id": "5869d50a-f714-1656-11a7-47ab2c688702",
+    "name": "testimonial",
+    "display_width": null,
+    "label": "Testimonial",
+    "required": false,
+    "locked": false,
+    "occurrence": {
+      "min": null,
+      "max": null,
+      "sorting_label_field": null,
+      "default": 3
+    },
+    "children": [
+      {
+        "id": "db14909c-6e96-98e4-45b1-b38ff989e7cd",
+        "name": "star_rating",
+        "display_width": null,
+        "label": "Star Rating",
+        "help_text": "displays stars for the chosen rating 1-5",
+        "required": false,
+        "locked": false,
+        "display": "select",
+        "choices": [
+          [
+            "five",
+            "5 Stars"
+          ],
+          [
+            "four",
+            "4 Stars"
+          ],
+          [
+            "three",
+            "3 Stars"
+          ],
+          [
+            "two",
+            "2 Stars"
+          ],
+          [
+            "one",
+            "1 Star"
+          ]
+        ],
+        "multiple": false,
+        "reordering_enabled": true,
+        "preset": null,
+        "type": "choice",
+        "default": "five"
+      },
+      {
+        "id": "d376513a-2940-7c72-bd87-e6976b99fa71",
+        "name": "quote",
+        "display_width": null,
+        "label": "Quote",
+        "help_text": "a quote for the testimonial",
+        "required": false,
+        "locked": false,
+        "type": "richtext",
+        "default": "<q class=\"md:text-md\">This service completely transformed my business! The support team was incredibly helpful, and the process was seamless from start to finish. Highly recommend to anyone in need of reliable solutions.</q>"
+      },
+      {
+        "id": "d8ac759c-068e-9400-bef3-45884494e6e2",
+        "name": "add_image",
+        "display_width": null,
+        "label": "Add Image",
+        "help_text": "Adds the option to include an image for the testimonial when selected",
+        "required": false,
+        "locked": false,
+        "display": "toggle",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "name": "testimonial_image",
+        "label": "Testimonial Image",
+        "type": "image",
+        "display_width": null,
+        "required": false,
+        "locked": false,
+        "responsive": true,
+        "resizable": false,
+        "show_loading": true,
+        "visibility": {
+          "controlling_field": null,
+          "controlling_field_path": "testimonial.add_image",
+          "controlling_value_regex": "true",
+          "property": null,
+          "operator": "EQUAL",
+          "access": null
+        },
+        "default": {
+          "size_type": "auto",
+          "src": "../../images/hero-one-placeholder-image.svg",
+          "alt": null,
+          "loading": "lazy"
+        }
+      },
+      {
+        "id": "149535f7-7192-7d7a-ca7d-0ecb8c3d4f56",
+        "name": "author_name",
+        "display_width": null,
+        "label": "Author Name",
+        "help_text": "The full name of the author of the testimonial",
+        "required": false,
+        "locked": false,
+        "validation_regex": "",
+        "allow_new_line": false,
+        "show_emoji_picker": false,
+        "type": "text",
+        "default": "Name Surname"
+      },
+      {
+        "id": "e5d23c96-cb1b-6014-095b-6806271319e7",
+        "name": "author_position",
+        "display_width": null,
+        "label": "Author Position",
+        "required": false,
+        "locked": false,
+        "validation_regex": "",
+        "allow_new_line": false,
+        "show_emoji_picker": false,
+        "type": "text",
+        "default": "Position, Company name"
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "default": [
+      {
+        "star_rating": "five",
+        "quote": "<q class=\"md:text-md\">This service completely transformed my business! The support team was incredibly helpful, and the process was seamless from start to finish. Highly recommend to anyone in need of reliable solutions.</q>",
+        "add_image": true,
+        "testimonial_image": {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/knossos-icon.png",
+          "alt": null,
+          "loading": "lazy"
+        },
+        "author_name": "Emily Harper",
+        "author_position": "CEO at BrightWorks Consulting"
+      },
+      {
+        "star_rating": "four",
+        "quote": "<q class=\"md:text-md\">Working with this company has been an amazing experience. Their professionalism, attention to detail, and dedication to customer satisfaction really stood out. My website has never run smoother!</q>",
+        "add_image": true,
+        "testimonial_image": {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/knossos-icon.png",
+          "alt": null,
+          "loading": "lazy"
+        },
+        "author_name": "James Caldwell",
+        "author_position": "Marketing Director at Apex Inc."
+      },
+      {
+        "star_rating": "five",
+        "quote": "<q class=\"md:text-md\">I was hesitant at first, but this service exceeded all my expectations. The speed, quality, and ease of use have made a big difference for my business. Exceptional value for the price!</q>",
+        "add_image": true,
+        "testimonial_image": {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/knossos-icon.png",
+          "alt": null,
+          "loading": "lazy"
+        },
+        "author_name": "Sophia Ramirez",
+        "author_position": "Founder at Green Horizon Studios"
+      }
+    ]
+  }
+]
