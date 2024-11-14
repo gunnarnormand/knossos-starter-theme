@@ -1,0 +1,19 @@
+{
+  "global": false,
+  "content_types": [
+    "QUOTE_TEMPLATE",
+    "LANDING_PAGE",
+    "SITE_PAGE",
+    "BLOG_LISTING",
+    "BLOG_POST"
+  ],
+  "host_template_types": [
+    "PAGE",
+    "BLOG_LISTING",
+    "BLOG_POST"
+  ],
+  "icon": "../../images/module-icons/logo-list.svg",
+  "module_id": 182783354281,
+  "label": "Logo List One",
+  "is_available_for_new_content": true
+}

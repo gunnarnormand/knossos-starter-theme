@@ -1,0 +1,109 @@
+[
+  {
+    "id": "ad47b734-398c-51cf-f4f8-845a6a0e0df4",
+    "name": "heading",
+    "display_width": null,
+    "label": "Heading",
+    "help_text": "Main heading for the module",
+    "required": false,
+    "locked": false,
+    "type": "richtext",
+    "default": "<h2 class=\"mx-auto mb-6 w-full max-w-lg text-center text-2xl font-bold leading-[1.2] md:mb-8 md:leading-[1.2]\">Trusted by businesses of all sizes worldwide</h2>"
+  },
+  {
+    "id": "f7c34cf0-c56d-f903-d737-f7c4dd7620bb",
+    "name": "logos",
+    "display_width": null,
+    "label": "Logos",
+    "required": false,
+    "locked": false,
+    "occurrence": {
+      "min": 1,
+      "max": null,
+      "sorting_label_field": "299f1aee-e966-adcb-89ac-faa2ffff4d43",
+      "default": 7
+    },
+    "children": [
+      {
+        "id": "299f1aee-e966-adcb-89ac-faa2ffff4d43",
+        "name": "image_field",
+        "display_width": null,
+        "label": "Image",
+        "required": true,
+        "locked": false,
+        "responsive": true,
+        "resizable": false,
+        "show_loading": true,
+        "type": "image",
+        "default": {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/logo-list-one.png",
+          "alt": null,
+          "loading": "lazy"
+        }
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "default": [
+      {
+        "image_field": {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/logo-list-two.png",
+          "alt": "logo-list-one",
+          "loading": "lazy"
+        }
+      },
+      {
+        "image_field": {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/logo-list-one.png",
+          "alt": "logo-list-one",
+          "loading": "lazy"
+        }
+      },
+      {
+        "image_field": {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/logo-list-two.png",
+          "alt": "logo-list-one",
+          "loading": "lazy"
+        }
+      },
+      {
+        "image_field": {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/logo-list-one.png",
+          "alt": "logo-list-one",
+          "loading": "lazy"
+        }
+      },
+      {
+        "image_field": {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/logo-list-two.png",
+          "alt": "logo-list-one",
+          "loading": "lazy"
+        }
+      },
+      {
+        "image_field": {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/logo-list-one.png",
+          "alt": "logo-list-one",
+          "loading": "lazy"
+        }
+      },
+      {
+        "image_field": {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/logo-list-two.png",
+          "alt": "logo-list-one",
+          "loading": "lazy"
+        }
+      }
+    ]
+  }
+]
