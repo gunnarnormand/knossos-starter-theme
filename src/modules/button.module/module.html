@@ -15,6 +15,9 @@
       {# Button #}
 
       .button {
+        {% if module.styles.alignment.is_full_width %}
+          width: 100%;
+        {% endif %}
         {% if module.styles.background.color.color %}
           background-color: rgba({{ module.styles.background.color.color|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
         {% endif %}

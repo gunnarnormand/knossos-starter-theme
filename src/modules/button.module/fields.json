@@ -304,7 +304,19 @@
             "label": "Alignment",
             "name": "alignment",
             "type": "alignment",
+            "display_width": "half_width",
             "alignment_direction": "HORIZONTAL"
+          },
+          {
+            "name": "is_full_width",
+            "label": "Full Width",
+            "required": false,
+            "locked": false,
+            "type": "boolean",
+            "display_width": "half_width",
+            "display": "toggle",
+            "help_text": "Makes button full width when enabled",
+            "default": false
           }
         ]
       }
