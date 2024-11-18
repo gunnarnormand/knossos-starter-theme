@@ -1,0 +1,1243 @@
+[
+  {
+    "id": "91b4932c-7461-354f-0640-f2fff73f0a7e",
+    "name": "featured_image",
+    "display_width": null,
+    "label": "Featured Image",
+    "help_text": "Displays the blog post featured image in the blog card when selected",
+    "required": false,
+    "locked": false,
+    "display": "toggle",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "id": "eb5fe1e0-9f7c-5e85-e633-7de4d42e63fd",
+    "name": "tags",
+    "display_width": null,
+    "label": "Tags",
+    "help_text": "Displays the blog post tags in the blog card when selected",
+    "required": false,
+    "locked": false,
+    "display": "toggle",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "id": "9730157a-efc8-e66d-0e46-689f394b6bbf",
+    "name": "title",
+    "display_width": null,
+    "label": "Title",
+    "help_text": "Displays the blog post title in the blog card when selected",
+    "required": false,
+    "locked": false,
+    "display": "toggle",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "id": "906e0696-bb09-77d5-22c9-bc115e957d06",
+    "name": "description",
+    "display_width": null,
+    "label": "Description",
+    "help_text": "Displays the blog post description in the blog card when selected",
+    "required": false,
+    "locked": false,
+    "display": "toggle",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "id": "5a0cbbc0-7fa4-273e-a31c-7e9c6d7bdcab",
+    "name": "author_name",
+    "display_width": null,
+    "label": "Author Name",
+    "help_text": "Displays the blog post author name in the blog card when selected",
+    "required": false,
+    "locked": false,
+    "display": "toggle",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "id": "5a0cbbc0-7fa4-273e-a31c-7e9c6d7bdbac",
+    "name": "author_image",
+    "display_width": null,
+    "label": "Author Image",
+    "help_text": "Displays the blog post author image in the blog card when selected",
+    "required": false,
+    "locked": false,
+    "display": "toggle",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "id": "4076370b-5e64-705b-0fc2-84af1521d092",
+    "name": "date",
+    "display_width": null,
+    "label": "Publish Date",
+    "help_text": "The publish date format can be changed in blog settings. <a href='https://knowledge.hubspot.com/blog/manage-your-blog-template-and-settings#set-your-blog-s-date-formats' target='_blank' rel='noopener'>Learn more</a>",
+    "required": false,
+    "locked": false,
+    "display": "toggle",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "id": "422e9014-44c6-501f-d3ac-6e8305c057c3",
+    "name": "button",
+    "display_width": null,
+    "label": "Button",
+    "help_text": "Displays a button in the blog card when selected",
+    "required": false,
+    "locked": false,
+    "display": "toggle",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "id": "dfbc4991-3a7e-2ad3-a883-ed1882bea7c4",
+    "name": "button_text",
+    "display_width": null,
+    "label": "Button Text",
+    "required": false,
+    "locked": false,
+    "validation_regex": "",
+    "visibility": {
+      "controlling_field_path": "button",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
+    },
+    "allow_new_line": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "default": "Read More"
+  },
+  {
+    "id": "styles",
+    "label": "Styles",
+    "name": "styles",
+    "display_width": null,
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "locked": false,
+    "required": false,
+    "tab": "STYLE",
+    "type": "group",
+    "children": [
+      {
+        "name": "card",
+        "label": "Card",
+        "type": "group",
+        "expanded": true,
+        "children": [
+          {
+            "name": "background",
+            "label": "Background",
+            "help_text": "Card Background Color",
+            "type": "group",
+            "children": [
+              {
+                "name": "bg_color",
+                "label": "Background color",
+                "required": false,
+                "locked": false,
+                "type": "color",
+                "default": {
+                  "color": "#ffffff",
+                  "opacity": 100
+                }
+              }
+            ]
+          },
+          {
+            "name": "border",
+            "label": "Border",
+            "help_text": "Card Border Style",
+            "type": "group",
+            "children": [
+              {
+                "name": "border",
+                "label": "Border",
+                "required": false,
+                "locked": false,
+                "allow_custom_border_sides": false,
+                "type": "border",
+                "default": {
+                  "top": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  },
+                  "bottom": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  },
+                  "left": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  },
+                  "right": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "name": "corner",
+            "label": "Corner",
+            "help_text": "Card Border Radius",
+            "type": "group",
+            "children": [
+              {
+                "label": "Top Left Radius",
+                "name": "top_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Top Right Radius",
+                "name": "top_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Bottom Left Radius",
+                "name": "bottom_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Bottom Right Radius",
+                "name": "bottom_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              }
+            ]
+          },
+          {
+            "name": "box_shadow",
+            "label": "Box Shadow",
+            "help_text": "Card Box Shadow Style",
+            "type": "group",
+            "children": [
+              {
+                "name": "box_shadow",
+                "label": "Box Shadow",
+                "type": "choice",
+                "choices": [
+                  [
+                    "none",
+                    "None"
+                  ],
+                  [
+                    "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+                    "Small Shadow"
+                  ],
+                  [
+                    "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+                    "Regular Shadow"
+                  ],
+                  [
+                    "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+                    "Medium Shadow"
+                  ],
+                  [
+                    "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+                    "Large Shadow"
+                  ],
+                  [
+                    "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+                    "XL Shadow"
+                  ],
+                  [
+                    "0 25px 50px -12px rgb(0 0 0 / 0.25)",
+                    "2XL Shadow"
+                  ],
+                  [
+                    "inset 0 2px 4px 0 rgb(0 0 0 / 0.05)",
+                    "Shadow Inner"
+                  ]
+                ],
+                "default": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)"
+              }
+            ]
+          },
+          {
+            "name": "hover",
+            "label": "Hover",
+            "type": "group",
+            "expanded": true,
+            "children": [
+              {
+                "name": "box_shadow",
+                "label": "Box Shadow",
+                "help_text": "Card Box Shadow Hover Style",
+                "type": "group",
+                "children": [
+                  {
+                    "name": "box_shadow",
+                    "label": "Box Shadow",
+                    "type": "choice",
+                    "choices": [
+                      [
+                        "none",
+                        "None"
+                      ],
+                      [
+                        "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+                        "Small Shadow"
+                      ],
+                      [
+                        "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+                        "Regular Shadow"
+                      ],
+                      [
+                        "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+                        "Medium Shadow"
+                      ],
+                      [
+                        "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+                        "Large Shadow"
+                      ],
+                      [
+                        "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+                        "XL Shadow"
+                      ],
+                      [
+                        "0 25px 50px -12px rgb(0 0 0 / 0.25)",
+                        "2XL Shadow"
+                      ],
+                      [
+                        "inset 0 2px 4px 0 rgb(0 0 0 / 0.05)",
+                        "Shadow Inner"
+                      ]
+                    ],
+                    "default": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)"
+                  }
+                ]
+              },
+              {
+                "name": "background",
+                "label": "Background",
+                "help_text": "Card Background Hover Color",
+                "type": "group",
+                "children": [
+                  {
+                    "name": "bg_color",
+                    "label": "Background color",
+                    "required": false,
+                    "locked": false,
+                    "type": "color",
+                    "default": {
+                      "color": "#ffffff",
+                      "opacity": 100
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "image",
+        "label": "Image",
+        "type": "group",
+        "expanded": true,
+        "children": [
+          {
+            "name": "corner",
+            "label": "Corner",
+            "help_text": "Image Border Radius",
+            "type": "group",
+            "children": [
+              {
+                "label": "Top Left Radius",
+                "name": "top_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Top Right Radius",
+                "name": "top_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Bottom Left Radius",
+                "name": "bottom_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Bottom Right Radius",
+                "name": "bottom_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "tags",
+        "label": "Tags",
+        "type": "group",
+        "expanded": true,
+        "children": [
+          {
+            "label": "Text",
+            "name": "text",
+            "help_text": "Tag Text Styles",
+            "type": "group",
+            "children": [
+              {
+                "label": "Font",
+                "name": "font",
+                "type": "font",
+                "default": {
+                  "color": "#000000",
+                  "size": 12,
+                  "size_unit": "px",
+                  "styles": {
+                    "text-decoration": "none"
+                  },
+                  "variant": "700"
+                }
+              },
+              {
+                "label": "Transform",
+                "name": "transform",
+                "type": "choice",
+                "choices": [
+                  [
+                    "none",
+                    "None"
+                  ],
+                  [
+                    "capitalize",
+                    "Capitalize"
+                  ],
+                  [
+                    "uppercase",
+                    "Uppercase"
+                  ],
+                  [
+                    "lowercase",
+                    "Lowercase"
+                  ]
+                ],
+                "display": "select",
+                "default": "none"
+              }
+            ]
+          },
+          {
+            "name": "background",
+            "label": "Background",
+            "help_text": "Tag Background Color",
+            "type": "group",
+            "children": [
+              {
+                "name": "bg_color",
+                "label": "Background color",
+                "required": false,
+                "locked": false,
+                "type": "color",
+                "default": {
+                  "color": "#ffffff",
+                  "opacity": 100
+                }
+              }
+            ]
+          },
+          {
+            "name": "border",
+            "label": "Border",
+            "help_text": "Tag Border Style",
+            "type": "group",
+            "children": [
+              {
+                "name": "border",
+                "label": "Border",
+                "required": false,
+                "locked": false,
+                "allow_custom_border_sides": false,
+                "type": "border",
+                "default": {
+                  "top": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  },
+                  "bottom": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  },
+                  "left": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  },
+                  "right": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "name": "corner",
+            "label": "Corner",
+            "help_text": "Tag Border Radius",
+            "type": "group",
+            "children": [
+              {
+                "label": "Top Left Radius",
+                "name": "top_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Top Right Radius",
+                "name": "top_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Bottom Left Radius",
+                "name": "bottom_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Bottom Right Radius",
+                "name": "bottom_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "title",
+        "label": "Title",
+        "type": "group",
+        "expanded": true,
+        "children": [
+          {
+            "label": "Text",
+            "name": "text",
+            "help_text": "Title Text Styles",
+            "type": "group",
+            "children": [
+              {
+                "label": "Font",
+                "name": "font",
+                "type": "font",
+                "default": {
+                  "fallback": "serif",
+                  "font": "DM Serif Display",
+                  "font_set": "GOOGLE",
+                  "color": "#000000",
+                  "size": 24,
+                  "size_unit": "px",
+                  "styles": {
+                    "text-decoration": "none"
+                  }
+                }
+              },
+              {
+                "label": "Transform",
+                "name": "transform",
+                "type": "choice",
+                "choices": [
+                  [
+                    "none",
+                    "None"
+                  ],
+                  [
+                    "capitalize",
+                    "Capitalize"
+                  ],
+                  [
+                    "uppercase",
+                    "Uppercase"
+                  ],
+                  [
+                    "lowercase",
+                    "Lowercase"
+                  ]
+                ],
+                "display": "select",
+                "default": "none"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "description",
+        "label": "Description",
+        "type": "group",
+        "expanded": true,
+        "children": [
+          {
+            "label": "Text",
+            "name": "text",
+            "help_text": "Description Text Styles",
+            "type": "group",
+            "children": [
+              {
+                "label": "Font",
+                "name": "font",
+                "type": "font",
+                "default": {
+                  "color": "#000000",
+                  "size": 1,
+                  "size_unit": "rem",
+                  "styles": {
+                    "text-decoration": "none"
+                  }
+                }
+              },
+              {
+                "label": "Transform",
+                "name": "transform",
+                "type": "choice",
+                "choices": [
+                  [
+                    "none",
+                    "None"
+                  ],
+                  [
+                    "capitalize",
+                    "Capitalize"
+                  ],
+                  [
+                    "uppercase",
+                    "Uppercase"
+                  ],
+                  [
+                    "lowercase",
+                    "Lowercase"
+                  ]
+                ],
+                "display": "select",
+                "default": "none"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "author",
+        "label": "Author",
+        "type": "group",
+        "expanded": true,
+        "children": [
+          {
+            "label": "Author Name Text",
+            "name": "author_name_text",
+            "help_text": "Author Name Text Styles",
+            "type": "group",
+            "children": [
+              {
+                "label": "Font",
+                "name": "font",
+                "type": "font",
+                "default": {
+                  "color": "#000000",
+                  "size": 14,
+                  "size_unit": "px",
+                  "styles": {
+                    "text-decoration": "underline"
+                  }
+                }
+              },
+              {
+                "label": "Transform",
+                "name": "transform",
+                "type": "choice",
+                "choices": [
+                  [
+                    "none",
+                    "None"
+                  ],
+                  [
+                    "capitalize",
+                    "Capitalize"
+                  ],
+                  [
+                    "uppercase",
+                    "Uppercase"
+                  ],
+                  [
+                    "lowercase",
+                    "Lowercase"
+                  ]
+                ],
+                "display": "select",
+                "default": "none"
+              }
+            ]
+          },
+          {
+            "label": "Author Image",
+            "name": "author_image",
+            "help_text": "Author Image Styles",
+            "type": "group",
+            "children": [
+              {
+                "name": "image_size",
+                "label": "Number",
+                "required": false,
+                "locked": false,
+                "min": 48,
+                "max": 120,
+                "step": 1,
+                "type": "number",
+                "prefix": "",
+                "suffix": "px",
+                "default": "48",
+                "placeholder": "48px"
+              },
+              {
+                "name": "image_border_radius",
+                "label": "Image Border Radius",
+                "type": "choice",
+                "choices": [
+                  [
+                    "0",
+                    "None"
+                  ],
+                  [
+                    "9999px",
+                    "Rounded"
+                  ]
+                ],
+                "default": "9999px"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "date",
+        "label": "Publish Date",
+        "type": "group",
+        "expanded": true,
+        "children": [
+          {
+            "label": "Publish Date Text",
+            "name": "date_text",
+            "help_text": "Author Name Text Styles",
+            "type": "group",
+            "children": [
+              {
+                "label": "Font",
+                "name": "font",
+                "type": "font",
+                "default": {
+                  "color": "#000000",
+                  "size": 14,
+                  "size_unit": "px",
+                  "styles": {
+                    "text-decoration": "none"
+                  }
+                }
+              },
+              {
+                "label": "Transform",
+                "name": "transform",
+                "type": "choice",
+                "choices": [
+                  [
+                    "none",
+                    "None"
+                  ],
+                  [
+                    "capitalize",
+                    "Capitalize"
+                  ],
+                  [
+                    "uppercase",
+                    "Uppercase"
+                  ],
+                  [
+                    "lowercase",
+                    "Lowercase"
+                  ]
+                ],
+                "display": "select",
+                "default": "none"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "button",
+        "label": "Button",
+        "type": "group",
+        "expanded": true,
+        "children": [
+          {
+            "label": "Text",
+            "name": "text",
+            "help_text": "Set Button font and transform styles",
+            "type": "group",
+            "children": [
+              {
+                "label": "Font",
+                "name": "font",
+                "type": "font",
+                "default": {
+                  "color": "#FFFFFF",
+                  "size": 16,
+                  "size_unit": "px"
+                }
+              },
+              {
+                "label": "Transform",
+                "name": "transform",
+                "type": "choice",
+                "choices": [
+                  [
+                    "none",
+                    "None"
+                  ],
+                  [
+                    "capitalize",
+                    "Capitalize"
+                  ],
+                  [
+                    "uppercase",
+                    "Uppercase"
+                  ],
+                  [
+                    "lowercase",
+                    "Lowercase"
+                  ]
+                ],
+                "display": "select",
+                "default": "none"
+              }
+            ]
+          },
+          {
+            "label": "Background",
+            "name": "background",
+            "help_text": "Set Button Background color",
+            "type": "group",
+            "children": [
+              {
+                "label": "Color",
+                "name": "color",
+                "type": "color",
+                "inherited_value": {
+                  "property_value_paths": {
+                    "color": "theme.global_colors.primary.color"
+                  }
+                },
+                "default": {
+                  "opacity": 100
+                }
+              }
+            ]
+          },
+          {
+            "label": "Border",
+            "name": "border",
+            "help_text": "Set Button Border styles",
+            "type": "group",
+            "children": [
+              {
+                "label": "Border",
+                "name": "border",
+                "type": "border",
+                "default": {
+                  "top": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  },
+                  "right": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  },
+                  "bottom": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  },
+                  "left": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "name": "corner",
+            "label": "Corner",
+            "help_text": "Set Button Border Radius for each corner individually",
+            "type": "group",
+            "children": [
+              {
+                "label": "Top Left Radius",
+                "name": "top_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Top Right Radius",
+                "name": "top_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Bottom Left Radius",
+                "name": "bottom_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Bottom Right Radius",
+                "name": "bottom_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              }
+            ]
+          },
+          {
+            "label": "Hover",
+            "name": "hover",
+            "help_text": "Set Button Hover styles",
+            "type": "group",
+            "children": [
+              {
+                "label": "Text",
+                "name": "text",
+                "type": "group",
+                "children": [
+                  {
+                    "label": "Color",
+                    "name": "color",
+                    "type": "color",
+                    "default": {
+                      "color": "#000000",
+                      "opacity": 100
+                    }
+                  }
+                ]
+              },
+              {
+                "label": "Background",
+                "name": "background",
+                "type": "group",
+                "children": [
+                  {
+                    "label": "Color",
+                    "name": "color",
+                    "type": "color",
+                    "default": {
+                      "opacity": 100,
+                      "color": "#ffffff"
+                    }
+                  }
+                ]
+              },
+              {
+                "label": "Border",
+                "name": "border",
+                "type": "group",
+                "children": [
+                  {
+                    "label": "Border",
+                    "name": "border",
+                    "type": "border",
+                    "default": {
+                      "top": {
+                        "width": {
+                          "value": 1,
+                          "units": "px"
+                        },
+                        "opacity": 100,
+                        "style": "solid",
+                        "color": "#000000"
+                      },
+                      "right": {
+                        "width": {
+                          "value": 1,
+                          "units": "px"
+                        },
+                        "opacity": 100,
+                        "style": "solid",
+                        "color": "#000000"
+                      },
+                      "bottom": {
+                        "width": {
+                          "value": 1,
+                          "units": "px"
+                        },
+                        "opacity": 100,
+                        "style": "solid",
+                        "color": "#000000"
+                      },
+                      "left": {
+                        "width": {
+                          "value": 1,
+                          "units": "px"
+                        },
+                        "opacity": 100,
+                        "style": "solid",
+                        "color": "#000000"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "corner",
+                "label": "Corner",
+                "type": "group",
+                "children": [
+                  {
+                    "label": "Top Left Radius",
+                    "name": "top_left_radius",
+                    "type": "number",
+                    "display": "text",
+                    "max": 100,
+                    "step": 1,
+                    "suffix": "px",
+                    "default": 0
+                  },
+                  {
+                    "label": "Top Right Radius",
+                    "name": "top_right_radius",
+                    "type": "number",
+                    "display": "text",
+                    "max": 100,
+                    "step": 1,
+                    "suffix": "px",
+                    "default": 0
+                  },
+                  {
+                    "label": "Bottom Left Radius",
+                    "name": "bottom_left_radius",
+                    "type": "number",
+                    "display": "text",
+                    "max": 100,
+                    "step": 1,
+                    "suffix": "px",
+                    "default": 0
+                  },
+                  {
+                    "label": "Bottom Right Radius",
+                    "name": "bottom_right_radius",
+                    "type": "number",
+                    "display": "text",
+                    "max": 100,
+                    "step": 1,
+                    "suffix": "px",
+                    "default": 0
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "label": "Spacing",
+            "name": "spacing",
+            "help_text": "Set Button Spacing values",
+            "type": "group",
+            "children": [
+              {
+                "label": "Spacing",
+                "name": "spacing",
+                "type": "spacing",
+                "visibility": {
+                  "hidden_subfields": {
+                    "margin": true
+                  }
+                },
+                "default": {
+                  "padding": {
+                    "top": {
+                      "value": 12,
+                      "units": "px"
+                    },
+                    "right": {
+                      "value": 24,
+                      "units": "px"
+                    },
+                    "bottom": {
+                      "value": 12,
+                      "units": "px"
+                    },
+                    "left": {
+                      "value": 24,
+                      "units": "px"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "label": "Alignment",
+            "name": "alignment",
+            "help_text": "Set Button Alignment",
+            "type": "group",
+            "children": [
+              {
+                "label": "Alignment",
+                "name": "alignment",
+                "type": "alignment",
+                "display_width": "half_width",
+                "alignment_direction": "HORIZONTAL"
+              },
+              {
+                "name": "is_full_width",
+                "label": "Full Width",
+                "required": false,
+                "locked": false,
+                "type": "boolean",
+                "display_width": "half_width",
+                "display": "toggle",
+                "help_text": "Makes button full width when enabled",
+                "default": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

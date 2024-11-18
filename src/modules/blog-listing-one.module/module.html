@@ -1,0 +1,316 @@
+{####################################################}
+{################# Module styles ####################}
+{####################################################}
+{% require_css %}
+<style>
+{% scope_css %}
+
+
+{# Card Styles #}
+
+.blog-listing-one__card {
+  {% if module.styles.card.background.bg_color %}
+    background-color: rgba({{ module.styles.card.background.bg_color.color|convert_rgb }}, {{ module.styles.card.background.bg_color.opacity / 100 }});
+  {% endif %}
+  {% if module.styles.card.border.border %}
+    {{ module.styles.card.border.border.css }}
+  {% endif %}
+  {% if module.styles.card.corner %}
+    border-top-left-radius: {{ module.styles.card.corner.top_left_radius ~ "px" }};
+    border-top-right-radius: {{ module.styles.card.corner.top_right_radius ~ "px" }};
+    border-bottom-left-radius: {{ module.styles.card.corner.bottom_left_radius ~ "px" }};
+    border-bottom-right-radius: {{ module.styles.card.corner.bottom_right_radius ~ "px" }};
+  {% endif %}
+  {% if module.styles.card.box_shadow.box_shadow %}
+    box-shadow: {{ module.styles.card.box_shadow.box_shadow }};
+  {% endif %}
+}
+
+.blog-listing-one__card:hover {
+  {% if module.styles.card.hover.box_shadow.box_shadow %}
+    box-shadow: {{ module.styles.card.hover.box_shadow.box_shadow }};
+  {% endif %}
+  {% if module.styles.card.hover.background.bg_color %}
+    background-color: rgba({{ module.styles.card.hover.background.bg_color.color|convert_rgb }}, {{ module.styles.card.hover.background.bg_color.opacity / 100 }});
+  {% endif %}
+}
+
+
+{# Image Styles #}
+
+.blog-listing-one__image {
+  {% if module.styles.image.corner %}
+    border-top-left-radius: {{ module.styles.image.corner.top_left_radius ~ "px" }};
+    border-top-right-radius: {{ module.styles.image.corner.top_right_radius ~ "px" }};
+    border-bottom-left-radius: {{ module.styles.image.corner.bottom_left_radius ~ "px" }};
+    border-bottom-right-radius: {{ module.styles.image.corner.bottom_right_radius ~ "px" }};
+  {% endif %}
+}
+
+
+{# Tag Styles #}
+
+.blog-listing-one__tag {
+  {% if module.styles.tags.background.bg_color %}
+    background-color: rgba({{ module.styles.tags.background.bg_color.color|convert_rgb }}, {{ module.styles.tags.background.bg_color.opacity / 100 }});
+  {% endif %}
+  {% if module.styles.tags.border.border %}
+    {{ module.styles.tags.border.border.css }}
+  {% endif %}
+  {% if module.styles.tags.corner %}
+    border-top-left-radius: {{ module.styles.tags.corner.top_left_radius ~ "px" }};
+    border-top-right-radius: {{ module.styles.tags.corner.top_right_radius ~ "px" }};
+    border-bottom-left-radius: {{ module.styles.tags.corner.bottom_left_radius ~ "px" }};
+    border-bottom-right-radius: {{ module.styles.tags.corner.bottom_right_radius ~ "px" }};
+  {% endif %}
+}
+
+.blog-listing-one__tag a {
+  {% if module.styles.tags.text.font %}
+    {{ module.styles.tags.text.font.style }};
+    font-size: {{ module.styles.tags.text.font.size ~ module.styles.tags.text.font.size_unit }};
+    color: {{ module.styles.tags.text.font.color }};
+  {% endif %}
+  {% if module.styles.tags.text.transform %}
+    text-transform: {{ module.styles.tags.text.transform }};
+  {% endif %}
+}
+
+
+{# Title Styles #}
+
+.blog-listing-one__title,
+.blog-listing-one__title a {
+  {% if module.styles.title.text.font %}
+    {{ module.styles.title.text.font.style }};
+    font-size: {{ module.styles.title.text.font.size ~ module.styles.title.text.font.size_unit }};
+    color: {{ module.styles.title.text.font.color }};
+  {% endif %}
+  {% if module.styles.title.text.transform %}
+    text-transform: {{ module.styles.title.text.transform }};
+  {% endif %}
+}
+
+
+{# Description Styles #}
+
+.blog-listing-one__description {
+  {% if module.styles.description.text.font %}
+    {{ module.styles.description.text.font.style }};
+    font-size: {{ module.styles.description.text.font.size ~ module.styles.description.text.font.size_unit }};
+    color: {{ module.styles.description.text.font.color }};
+  {% endif %}
+  {% if module.styles.description.text.transform %}
+    text-transform: {{ module.styles.description.text.transform }};
+  {% endif %}
+}
+
+
+{# Author Styles #}
+
+.blog-listing-one__author-image {
+
+  {% if module.styles.author.author_image.image_size %}
+    width: {{ module.styles.author.author_image.image_size ~ "px" }};
+    height: {{ module.styles.author.author_image.image_size ~ "px" }};
+  {% endif %}
+
+
+  {% if module.styles.author.author_image.image_border_radius %}
+    border-radius: {{ module.styles.author.author_image.image_border_radius }};
+  {% endif %}
+}
+
+.blog-listing-one__author,
+.blog-listing-one__author a {
+  {% if module.styles.author.author_name_text.font %}
+    {{ module.styles.author.author_name_text.font.style }};
+    font-size: {{ module.styles.author.author_name_text.font.size ~ module.styles.author.author_name_text.font.size_unit }};
+    color: {{ module.styles.author.author_name_text.font.color }};
+  {% endif %}
+  {% if module.styles.author.author_name_text.transform %}
+    text-transform: {{ module.styles.author.author_name_text.transform }};
+  {% endif %}
+}
+
+.blog-listing-one__date {
+  {% if module.styles.date.date_text.font %}
+    {{ module.styles.date.date_text.font.style }};
+    font-size: {{ module.styles.date.date_text.font.size ~ module.styles.date.date_text.font.size_unit }};
+    color: {{ module.styles.date.date_text.font.color }};
+  {% endif %}
+  {% if module.styles.date.date_text.transform %}
+    text-transform: {{ module.styles.date.date_text.transform }};
+  {% endif %}
+}
+
+
+{# Button Styles #}
+
+{% if module.styles.button.alignment.alignment %}
+  .blog-listing-one__button-wrapper {
+    text-align: {{ module.styles.button.alignment.alignment.horizontal_align }};
+  }
+{% endif %}
+
+.blog-listing-one__button {
+  {% if module.styles.button.alignment.is_full_width %}
+      width: 100%;
+  {% endif %}
+
+
+  {% if module.styles.button.background.color.color %}
+    background-color: rgba({{ module.styles.button.background.color.color|convert_rgb }}, {{ module.styles.button.background.color.opacity / 100 }});
+  {% endif %}
+  {% if module.styles.button.corner.top_left_radius >= 0 %}
+    border-top-left-radius: {{ module.styles.button.corner.top_left_radius ~ "px" }};
+  {% endif %}
+  {% if module.styles.button.corner.top_right_radius >= 0 %}
+    border-top-right-radius: {{ module.styles.button.corner.top_right_radius ~ "px" }};
+  {% endif %}
+  {% if module.styles.button.corner.bottom_left_radius >= 0 %}
+    border-bottom-left-radius: {{ module.styles.button.corner.bottom_left_radius ~ "px" }};
+  {% endif %}
+  {% if module.styles.button.corner.bottom_right_radius >= 0 %}
+    border-bottom-right-radius: {{ module.styles.button.corner.bottom_right_radius ~ "px" }};
+  {% endif %}
+  {% if module.styles.button.text.font %}
+    {{ module.styles.button.text.font.css }}
+  {% endif %}
+  {% if module.styles.button.text.transform %}
+    text-transform: {{ module.styles.button.text.transform }};
+  {% endif %}
+  {% if module.styles.button.border.border %}
+    {{ module.styles.button.border.border.css }}
+  {% endif %}
+  {{ module.styles.button.spacing.spacing.css }}
+}
+
+.blog-listing-one__button:hover,
+.blog-listing-one__button:focus,
+.blog-listing-one__button:active {
+  {% if module.styles.button.hover.text.color.color %}
+    color: rgba({{ module.styles.button.hover.text.color.color|convert_rgb }}, {{ module.styles.button.hover.text.color.opacity / 100 }});
+  {% endif %}
+  {% if module.styles.button.hover.background.color.color %}
+    background-color: rgba({{ module.styles.button.hover.background.color.color|convert_rgb }}, {{ module.styles.button.hover.background.color.opacity / 100 }});
+  {% endif %}
+  {% if module.styles.button.hover.border.border %}
+    {{ module.styles.button.hover.border.border.css }}
+  {% endif %}
+  {% if module.styles.button.hover.corner.top_left_radius >= 0 %}
+    border-top-left-radius: {{ module.styles.button.hover.corner.top_left_radius ~ "px" }};
+  {% endif %}
+  {% if module.styles.button.hover.corner.top_right_radius >= 0 %}
+    border-top-right-radius: {{ module.styles.button.hover.corner.top_right_radius ~ "px" }};
+  {% endif %}
+  {% if module.styles.button.hover.corner.bottom_left_radius >= 0 %}
+    border-bottom-left-radius: {{ module.styles.button.hover.corner.bottom_left_radius ~ "px" }};
+  {% endif %}
+  {% if module.styles.button.hover.corner.bottom_right_radius >= 0 %}
+    border-bottom-right-radius: {{ module.styles.button.hover.corner.bottom_right_radius ~ "px" }};
+  {% endif %}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+{% end_scope_css %}
+</style>
+{% end_require_css %}
+
+
+{####################################################}
+{################ Blog layout ###################}
+{####################################################}
+
+<section class="blog-listing-one px-[5%] py-16 md:py-24 lg:py-28">
+  <div class="container">
+    <div class="grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2 md:gap-y-16 lg:grid-cols-3">
+      {% for content in contents %}
+        <div  class="blog-listing-one__card flex size-full flex-col items-center justify-start overflow-hidden transition-all">
+          {% if content.featured_image and module.featured_image %}
+            <div class="relative w-full overflow-hidden pt-[66%]">
+              <a href="{{ content.absolute_url }}">
+                <img
+                  class="blog-listing-one__image absolute inset-0 size-full object-cover"
+                  src="{{ content.featured_image }}"
+                  loading="lazy"
+                  alt="{{ content.featured_image_alt_text }}"
+                />
+              </a>
+            </div>
+          {% endif %}
+          <div class="flex w-full flex-1 flex-col justify-between px-5 py-6 md:p-6">
+            {% if module.tags and content.tag_list %}
+              <div class="rb-4 mb-4 flex flex-wrap items-center">
+                {% for tag in content.tag_list %}
+                  <p class="blog-listing-one__tag flex mr-1 mb-1 px-2 py-1">
+                    <a class="text-nowrap" href="{{ blog_tag_url(group.id, tag.slug) }}">{{ tag.name }}</a>
+                  </p>
+                {% endfor %}
+              </div>
+            {% endif %}
+            <div class="flex w-full flex-col items-start justify-start">
+              {% if module.title %}
+                <h2 class="blog-listing-one__title mb-2">
+                  <a href="{{ content.absolute_url }}">{{ content.name }}</a>
+                </h2>
+              {% endif %}
+              {% if module.description %}
+                <p class="blog-listing-one__description mb-0">{{ content.post_list_content|striptags|truncatehtml(100, "...", true) }}</p>
+              {% endif %}
+              {% if content.blog_author and module.author_image or module.author_name or module.date %}
+                <div class="mt-6 flex items-center">
+                  {% if content.blog_author.avatar and module.author_image %}
+                    <div class="mr-4 shrink-0">
+                      <img
+                        src="{{ content.blog_author.avatar }}"
+                        alt="{{ module.default_text.picture_of_text }}"
+                        class="blog-listing-one__author-image min-h-12 min-w-12 object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                  {% endif %}
+                  <div>
+                    {% if content.blog_author.display_name and module.author_name %}
+                      <h6 class="blog-listing-one__author mb-0">
+                        <a href="{{ blog_author_url(group.id, content.blog_post_author.slug) }}">{{ content.blog_author.display_name }}</a>
+                      </h6>
+                    {% endif %}
+                    <div class="flex items-center">
+                      {% if module.date %}
+                        <time class="blog-listing-one__date" datetime="{{ content.publish_date }}">
+                          {{ content.publish_date_localized }}
+                        </time>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+              {% if module.button %}
+                <div class="blog-listing-one__button-wrapper mt-6 w-full">
+                  <a
+                    class="button blog-listing-one__button block"
+                    href="{{ content.absolute_url }}"
+                    aria-label="{{ content.post_list_content|striptags|truncatehtml(20, "...", true) }}"
+                  >
+                    {{ module.button_text }}
+                  </a>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}  
+    </div>
+  </div>
+</section>
