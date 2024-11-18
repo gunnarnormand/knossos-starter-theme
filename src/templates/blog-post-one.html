@@ -1,0 +1,148 @@
+<!--
+  templateType: blog_post
+  isAvailableForNewContent: true
+  label: Knossos Blog Post One
+  screenshotPath: ../images/template-previews/blog-post.png
+-->
+{# set template_css = "../../css/templates/blog-one.css" #}
+{% extends "./layouts/base-one.html" %}
+
+{% block body %}
+<div class="body-container body-container--blog-post-one">
+
+  {# Blog post #}
+
+  <section class="px-[5%] py-16 md:py-24 lg:py-28">
+    <div class="container">
+      <div class="mx-auto w-full max-w-lg items-center mb-12 md:mb-18 lg:mb-20">
+        <h1 class="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
+          {{ content.name|sanitize_html }}
+        </h1>
+        <div class="blog-post__meta mt-6 flex items-center">
+          <div class="mr-4 shrink-0">
+            <img
+              src="{{ content.blog_post_author.avatar }}"
+              alt="{{ content.blog_post_author.display_name }}"
+              class="size-12 min-h-12 min-w-12 rounded-full object-cover"
+            />
+          </div>
+          <div>
+            <h6 class="text-sm font-semibold mb-0">
+              <a href="{{ blog_author_url(group.id, content.blog_post_author.slug)|escape_url }}" rel="author">
+                {{ content.blog_post_author.display_name|escape_html }}
+              </a>
+            </h6>
+            <div class="flex items-center">
+              <p class="text-sm mb-0">
+                <time datetime="{{ content.publish_date|escape_attr }}">
+                  {{ content.publish_date_localized|escape_html }}
+                </time>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% if content.featured_image %}
+        <div class="mb-12 md:mb-18 lg:mb-20">
+          <img
+            src="{{ content.featured_image }}"
+            class="w-full object-cover"
+            alt="{{ content.featured_image_alt_text }}"
+          />
+        </div>
+      {% endif %}
+      <article class="blog-post__body-one mb-12 md:mb-18 lg:mb-20">
+        {{ content.post_body }}{# escaped elsewhere #}
+      </article>
+      {% if content.tag_list %}
+        <div class="blog-post__tags flex mb-12 md:mb-18 lg:mb-20">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 mr-2">
+            <path fill-rule="evenodd" d="M5.25 2.25a3 3 0 0 0-3 3v4.318a3 3 0 0 0 .879 2.121l9.58 9.581c.92.92 2.39 1.186 3.548.428a18.849 18.849 0 0 0 5.441-5.44c.758-1.16.492-2.629-.428-3.548l-9.58-9.581a3 3 0 0 0-2.122-.879H5.25ZM6.375 7.5a1.125 1.125 0 1 0 0-2.25 1.125 1.125 0 0 0 0 2.25Z" clip-rule="evenodd" />
+          </svg>
+          {% for tag in content.tag_list %}
+            <p class="blog-post__tag-button mr-1 mb-1 px-2 py-1 text-sm">
+              <a class="blog-post__tag-link text-nowrap" href="{{ blog_tag_url(group.id, tag.slug) }}" rel="tag">{{ tag.name|escape_html }}</a>
+            </p>
+          {% endfor %}
+        </div>
+      {% endif %}
+      {% if group.allow_comments %}
+        <div class="blog-comments">
+          {% module "blog_comments"
+            path="@hubspot/blog_comments",
+            label="Blog comments"
+          %}
+        </div>
+      {% endif %}
+    </div>
+  </section>
+
+
+  {# Recent posts listing #}
+
+  {# This macro is used to format each recent post card and gets passed to the related_blog_posts HubL tag below #}
+  {% macro related_posts(post, count, total) %}
+    {% if count == 1 %}
+      <section class="px-[5%] py-16 md:py-24 lg:py-28">
+        <div class="container">
+          <div class="rb-12 mb-12 w-full max-w-lg md:mb-18 lg:mb-20">
+            <p class="mb-3 font-semibold md:mb-4">{{ blog.public_title|default('Blog', true) }}</p>
+            <h2 class="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
+              Related Posts
+            </h2>
+          </div>
+          <div class="grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2 md:gap-y-16 lg:grid-cols-2 lg:gap-x-12">
+    {% endif %} 
+            <article class="flex size-full flex-col items-center justify-start" aria-label="Blog post summary: {{ post.name|escape_attr }}">
+              {% if post.featured_image %}
+                <a class="mb-6 w-full" href="{{ post.absolute_url|escape_url }}" aria-label="{% if post.featured_image_alt_text %} Featured image: {{ post.featured_image_alt_text|escape_attr }} - {% endif %}Read full post: {{ post.name|escape_attr }}">
+                  <img
+                    src="{{ post.featured_image|escape_url }}"
+                    alt="{{ post.featured_image_alt_text|escape_attr }}"
+                    class="aspect-video size-full object-cover"
+                    loading="lazy"
+                  />
+                </a>
+              {% endif %}
+              {% if post.tag_list %}
+                <div class="rb-4 mb-4 w-full flex flex-wrap items-center">
+                  {% for tag in post.tag_list %}
+                    <p class="blog-post__tag-button mr-1 mb-1 px-2 py-1 text-xs">
+                      <a class="blog-post__tag-link text-nowrap" href="{{ blog_tag_url(group.id, tag.slug) }}">{{ tag.name }}</a>
+                    </p>
+                  {% endfor %}
+                </div>
+              {% endif %}
+              <div class="flex w-full flex-col items-start justify-start">
+                <h3 class="mb-2">
+                  <a class="blog-related-posts__title-link text-xl font-bold md:text-2xl" href="{{ post.absolute_url|escape_url }}">{{ post.name|escape_html }}</a>
+                </h3>
+                {{ post.post_summary|truncatehtml(100)|sanitize_html("STRIP") }}
+              </div>
+            </article>
+    {% if count == total %}
+          </div>
+          <div class="flex items-center justify-start">
+            <a
+              href="{{ group.absolute_url }}"
+              class="button mt-10 md:mt-14 lg:mt-16"
+              title="View all"
+            >
+              View all
+            </a>
+          </div>
+        </div>
+      </section>
+    {% endif %}
+  {% endmacro %}
+
+  {% related_blog_posts
+    limit=2,
+    no_wrapper=True,
+    post_formatter="related_posts"
+  %}
+
+</div>
+
+{% endblock body %}
+
