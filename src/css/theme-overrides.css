@@ -219,13 +219,14 @@ blockquote {
 button,
 .button,
 .hs-button,
-.hs-blog-post-listing__post-button {
+.hs-blog-post-listing__post-button,
+.gbtn {
   {{ button_font.style }};
   color: {{ button_font.color }};
   font-size: {{ button_font.size ~ button_font.size_unit }};
   text-transform: {{ button_text_transform }};
   background-color: {{ button_bg_color }};
-  {{ button_border }}
+  {{ button_border }};
   border-top-left-radius: {{ button_top_left_corner_radius }};
   border-top-right-radius: {{ button_top_right_corner_radius }};
   border-bottom-left-radius: {{ button_bottom_left_corner_radius }};
@@ -240,7 +241,9 @@ button:focus,
 .hs-button:hover,
 .hs-button:focus,
 .hs-blog-post-listing__post-button:hover,
-.hs-blog-post-listing__post-button:focus {
+.hs-blog-post-listing__post-button:focus,
+.gbtn:hover,
+.gbtn:focus {
   color: {{ button_hover_color }};
   background-color: {{ button_hover_background }};
   {{ button_hover_border }};
@@ -253,7 +256,8 @@ button:focus,
 button:active,
 .button:active,
 .hs-button:active,
-.hs-blog-post-listing__post-button:active {
+.hs-blog-post-listing__post-button:active,
+.gbtn:active {
   {{ button_font.style }};
   color: {{ button_hover_color }};
   background-color: {{ button_hover_background }};
@@ -290,6 +294,21 @@ button.alternate-button:active,
 .hs-blog-post-listing__post-button.alternate-button:active {
   color: {{ button_hover_background }};
   background-color: {{ button_hover_color }};
+}
+
+.glightbox-knossos .gclose path,
+.glightbox-knossos .gnext path,
+.glightbox-knossos .gprev path {
+    fill: {{ button_font.color }};
+}
+
+.gbtn:hover path,
+.gbtn:focus path {
+  fill: {{ button_hover_color }};
+}
+
+.gbtn:active path {
+  fill: {{ button_hover_color }};
 }
 
 {###########################################################################}

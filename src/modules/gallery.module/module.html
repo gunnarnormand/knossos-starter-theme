@@ -1,0 +1,110 @@
+{{ require_css("https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css") }}
+{{ require_js("https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js", {
+  position: "footer",
+  defer: true
+}) }}
+
+{####################################################}
+{################# Module scripts ###################}
+{####################################################}
+
+{% require_js %}
+  <script defer>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (typeof window.hsInEditor === 'undefined') {
+        const lightbox = GLightbox({
+          selector: ".gallery-module-one__glightbox",
+          openEffect: "zoom",
+          closeEffect: "zoom",
+          slideEffect: "slide",
+          closeButton: true,
+          loop: true,
+          skin: 'knossos'
+        });
+      }
+    });
+  </script>
+{% end_require_js %}
+
+{####################################################}
+{################# Module styles ####################}
+{####################################################}
+
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+      .gallery-module-one__grid-image-wrap {
+        {% if module.styles.grid_image.border.border %}
+          {{ module.styles.grid_image.border.border.css }}
+        {% endif %}
+        {% if module.styles.grid_image.corner %}
+          border-top-left-radius: {{ module.styles.grid_image.corner.top_left_radius ~ "px" }};
+          border-top-right-radius: {{ module.styles.grid_image.corner.top_right_radius ~ "px" }};
+          border-bottom-left-radius: {{ module.styles.grid_image.corner.bottom_left_radius ~ "px" }};
+          border-bottom-right-radius: {{ module.styles.grid_image.corner.bottom_right_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.grid_image.box_shadow.box_shadow %}
+          box-shadow: {{ module.styles.grid_image.box_shadow.box_shadow }};
+        {% endif %}
+      }
+
+      .gallery-module-one__grid-image-wrap:hover {
+        {% if module.styles.grid_image.hover.box_shadow.box_shadow %}
+          box-shadow: {{ module.styles.grid_image.hover.box_shadow.box_shadow }};
+        {% endif %}
+      }
+
+
+      
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+
+{####################################################}
+{################# Module markup ####################}
+{####################################################}
+
+<section class="gallery-one-module px-[5%] py-16 md:py-24 lg:py-28">
+  <div class="container">
+    <div class="grid grid-cols-2 items-stretch justify-center gap-6 md:gap-8 lg:{{module.grid_column_count}}">  
+      {% for item in module.gallery_items.image_field %}
+
+        {% if item.src %}
+
+          {% set loadingAttr = item.loading != 'disabled' ? 'loading="{{ item.loading|escape_attr }}"' : '' %}
+
+          {% set sizeAttrs = 'width="{{ item.width|escape_attr }}" height="{{ item.height|escape_attr }}"' %}
+          {% if item.size_type == 'auto' %}
+            {% set sizeAttrs = 'width="{{ item.width|escape_attr }}" height="{{ item.height|escape_attr }}" style="max-width: 100%; height: auto;"' %}
+          {% elif item.size_type == 'auto_custom_max' %}
+            {% set sizeAttrs = 'width="{{ item.max_width|escape_attr }}" height="{{ item.max_height|escape_attr }}" style="max-width: 100%; height: auto;"' %}
+          {% endif %}
+          
+          <div class="gallery-module-one__grid-image-wrap self-stretch overflow-hidden transition-all">
+            <a class="gallery-module-one__glightbox" href="{{ item.src|escape_url }}">
+              <img 
+                class="size-full object-cover" 
+                srcset="{{ resize_image_url(item.src, 288) }} 288w,
+                        {{ resize_image_url(item.src, 468) }} 468w,
+                        {{ resize_image_url(item.src, 736) }} 736w,
+                        {{ resize_image_url(item.src, 928) }} 928w"
+                sizes="(max-width: 320px) 288px,
+                       (max-width: 500px) 468px,
+                       (max-width: 768px) 736px,
+                       928px"
+                src="{{ item.src|escape_url }}" 
+                alt="{{ item.alt|escape_attr }}" 
+                width="{{ item.width }}"
+                height="{{ item.height }}"
+                {{ loadingAttr }}>
+            </a>           
+          </div>
+
+        {% endif %}
+
+      {% endfor %}
+    </div>
+  </div>
+</section>

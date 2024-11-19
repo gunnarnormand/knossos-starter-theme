@@ -1,0 +1,457 @@
+[
+  {
+    "name": "grid_column_count",
+    "label": "Grid Columns",
+    "required": false,
+    "locked": false,
+    "multiple": "false",
+    "display": "select",
+    "choices": [
+      [
+        "grid-cols-3",
+        "3 Columns"
+      ],
+      [
+        "grid-cols-4",
+        "4 Columns"
+      ],
+      [
+        "grid-cols-5",
+        "5 Columns"
+      ],
+      [
+        "grid-cols-6",
+        "6 Columns"
+      ]
+    ],
+    "type": "choice",
+    "default": "grid-cols-4"
+  },
+  {
+    "id": "3b967fdf-9652-108a-19e5-53a2419565cf",
+    "name": "gallery_items",
+    "display_width": null,
+    "label": "Gallery Items",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "b0af1541-dffa-35e9-e224-a7788df626dd",
+        "name": "image_field",
+        "display_width": null,
+        "label": "Image",
+        "help_text": "Image for the image gallery",
+        "required": false,
+        "locked": false,
+        "occurrence": {
+          "min": 1,
+          "max": null,
+          "sorting_label_field": null,
+          "default": 8
+        },
+        "responsive": true,
+        "resizable": false,
+        "show_loading": false,
+        "type": "image",
+        "default": [
+          {
+            "size_type": "auto",
+            "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/gallery-placeholder-image.svg",
+            "alt": "gallery placeholder image",
+            "loading": "lazy",
+            "width": 1000,
+            "height": 1000,
+            "max_width": 1000,
+            "max_height": 1000
+          },
+          {
+            "size_type": "auto",
+            "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/gallery-placeholder-image.svg",
+            "alt": "gallery placeholder image",
+            "loading": "lazy",
+            "width": 1000,
+            "height": 1000,
+            "max_width": 1000,
+            "max_height": 1000
+          },
+          {
+            "size_type": "auto",
+            "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/gallery-placeholder-image.svg",
+            "alt": "gallery placeholder image",
+            "loading": "lazy",
+            "width": 1000,
+            "height": 1000,
+            "max_width": 1000,
+            "max_height": 1000
+          },
+          {
+            "size_type": "auto",
+            "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/gallery-placeholder-image.svg",
+            "alt": "gallery placeholder image",
+            "loading": "lazy",
+            "width": 1000,
+            "height": 1000,
+            "max_width": 1000,
+            "max_height": 1000
+          },
+          {
+            "size_type": "auto",
+            "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/gallery-placeholder-image.svg",
+            "alt": "gallery placeholder image",
+            "loading": "lazy",
+            "width": 1000,
+            "height": 1000,
+            "max_width": 1000,
+            "max_height": 1000
+          },
+          {
+            "size_type": "auto",
+            "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/gallery-placeholder-image.svg",
+            "alt": "gallery placeholder image",
+            "loading": "lazy",
+            "width": 1000,
+            "height": 1000,
+            "max_width": 1000,
+            "max_height": 1000
+          },
+          {
+            "size_type": "auto",
+            "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/gallery-placeholder-image.svg",
+            "alt": "gallery placeholder image",
+            "loading": "lazy",
+            "width": 1000,
+            "height": 1000,
+            "max_width": 1000,
+            "max_height": 1000
+          },
+          {
+            "size_type": "auto",
+            "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/gallery-placeholder-image.svg",
+            "alt": "gallery placeholder image",
+            "loading": "lazy",
+            "width": 1000,
+            "height": 1000,
+            "max_width": 1000,
+            "max_height": 1000
+          }
+        ]
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": true,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "default": {
+      "image_field": [
+        {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/gallery-placeholder-image.svg",
+          "alt": "gallery placeholder image",
+          "loading": "lazy",
+          "width": 1000,
+          "height": 1000,
+          "max_width": 1000,
+          "max_height": 1000
+        },
+        {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/gallery-placeholder-image.svg",
+          "alt": "gallery placeholder image",
+          "loading": "lazy",
+          "width": 1000,
+          "height": 1000,
+          "max_width": 1000,
+          "max_height": 1000
+        },
+        {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/gallery-placeholder-image.svg",
+          "alt": "gallery placeholder image",
+          "loading": "lazy",
+          "width": 1000,
+          "height": 1000,
+          "max_width": 1000,
+          "max_height": 1000
+        },
+        {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/gallery-placeholder-image.svg",
+          "alt": "gallery placeholder image",
+          "loading": "lazy",
+          "width": 1000,
+          "height": 1000,
+          "max_width": 1000,
+          "max_height": 1000
+        },
+        {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/gallery-placeholder-image.svg",
+          "alt": "gallery placeholder image",
+          "loading": "lazy",
+          "width": 1000,
+          "height": 1000,
+          "max_width": 1000,
+          "max_height": 1000
+        },
+        {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/gallery-placeholder-image.svg",
+          "alt": "gallery placeholder image",
+          "loading": "lazy",
+          "width": 1000,
+          "height": 1000,
+          "max_width": 1000,
+          "max_height": 1000
+        },
+        {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/gallery-placeholder-image.svg",
+          "alt": "gallery placeholder image",
+          "loading": "lazy",
+          "width": 1000,
+          "height": 1000,
+          "max_width": 1000,
+          "max_height": 1000
+        },
+        {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/gallery-placeholder-image.svg",
+          "alt": "gallery placeholder image",
+          "loading": "lazy",
+          "width": 1000,
+          "height": 1000,
+          "max_width": 1000,
+          "max_height": 1000
+        }
+      ]
+    }
+  },
+  {
+    "id": "styles",
+    "label": "Styles",
+    "name": "styles",
+    "display_width": null,
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "locked": false,
+    "required": false,
+    "tab": "STYLE",
+    "type": "group",
+    "children": [
+      {
+        "name": "grid_image",
+        "label": "Grid Image",
+        "type": "group",
+        "expanded": true,
+        "children": [
+          {
+            "name": "border",
+            "label": "Border",
+            "help_text": "Grid Image Border Style",
+            "type": "group",
+            "children": [
+              {
+                "name": "border",
+                "label": "Border",
+                "required": false,
+                "locked": false,
+                "allow_custom_border_sides": false,
+                "type": "border",
+                "default": {
+                  "top": {
+                    "width": {
+                      "value": 0,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  },
+                  "bottom": {
+                    "width": {
+                      "value": 0,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  },
+                  "left": {
+                    "width": {
+                      "value": 0,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  },
+                  "right": {
+                    "width": {
+                      "value": 0,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "name": "corner",
+            "label": "Corner",
+            "help_text": "Grid Image Border Radius",
+            "type": "group",
+            "children": [
+              {
+                "label": "Top Left Radius",
+                "name": "top_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Top Right Radius",
+                "name": "top_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Bottom Left Radius",
+                "name": "bottom_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Bottom Right Radius",
+                "name": "bottom_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              }
+            ]
+          },
+          {
+            "name": "box_shadow",
+            "label": "Box Shadow",
+            "help_text": "Grid Image Box Shadow Style",
+            "type": "group",
+            "children": [
+              {
+                "name": "box_shadow",
+                "label": "Box Shadow",
+                "type": "choice",
+                "choices": [
+                  [
+                    "none",
+                    "None"
+                  ],
+                  [
+                    "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+                    "Small Shadow"
+                  ],
+                  [
+                    "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+                    "Regular Shadow"
+                  ],
+                  [
+                    "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+                    "Medium Shadow"
+                  ],
+                  [
+                    "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+                    "Large Shadow"
+                  ],
+                  [
+                    "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+                    "XL Shadow"
+                  ],
+                  [
+                    "0 25px 50px -12px rgb(0 0 0 / 0.25)",
+                    "2XL Shadow"
+                  ],
+                  [
+                    "inset 0 2px 4px 0 rgb(0 0 0 / 0.05)",
+                    "Shadow Inner"
+                  ]
+                ],
+                "default": "none"
+              }
+            ]
+          },
+          {
+            "name": "hover",
+            "label": "Hover",
+            "type": "group",
+            "expanded": true,
+            "children": [
+              {
+                "name": "box_shadow",
+                "label": "Box Shadow",
+                "help_text": "Grid Image Box Shadow Hover Style",
+                "type": "group",
+                "children": [
+                  {
+                    "name": "box_shadow",
+                    "label": "Box Shadow",
+                    "type": "choice",
+                    "choices": [
+                      [
+                        "none",
+                        "None"
+                      ],
+                      [
+                        "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+                        "Small Shadow"
+                      ],
+                      [
+                        "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+                        "Regular Shadow"
+                      ],
+                      [
+                        "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+                        "Medium Shadow"
+                      ],
+                      [
+                        "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+                        "Large Shadow"
+                      ],
+                      [
+                        "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+                        "XL Shadow"
+                      ],
+                      [
+                        "0 25px 50px -12px rgb(0 0 0 / 0.25)",
+                        "2XL Shadow"
+                      ],
+                      [
+                        "inset 0 2px 4px 0 rgb(0 0 0 / 0.05)",
+                        "Shadow Inner"
+                      ]
+                    ],
+                    "default": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

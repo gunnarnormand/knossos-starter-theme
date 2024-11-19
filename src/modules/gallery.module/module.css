@@ -1,0 +1,91 @@
+/* glightbox styles  */
+.glightbox-knossos .gslide-description {
+    background: #fff
+}
+
+.glightbox-knossos .gdesc-inner {
+    padding: 22px 20px
+}
+
+.glightbox-knossos .gslide-title {
+    font-size: 1em;
+    font-weight: 400;
+    font-family: arial;
+    color: #000;
+    margin-bottom: 19px;
+    line-height: 1.4em
+}
+
+.glightbox-knossos .gslide-desc {
+    font-size: .86em;
+    margin-bottom: 0;
+    font-family: arial;
+    line-height: 1.4em
+}
+
+.glightbox-knossos .gslide-video {
+    background: #000
+}
+
+.glightbox-knossos .gprev,
+.glightbox-knossos .gnext,
+.glightbox-knossos .gclose {
+    border: inherit;
+}
+
+.glightbox-knossos .gprev {
+    position: absolute;
+    top: -100%;
+    left: 30px;
+    width: 40px;
+    height: 50px
+}
+
+.glightbox-knossos .gnext {
+    position: absolute;
+    top: -100%;
+    right: 30px;
+    width: 40px;
+    height: 50px
+}
+
+.glightbox-knossos .gclose {
+    width: 35px;
+    height: 35px;
+    top: 15px;
+    right: 10px;
+    position: absolute
+}
+
+.glightbox-knossos .gclose svg {
+    width: 18px;
+    height: auto
+}
+
+@media (min-width: 769px) {
+    .glightbox-knossos .gslide-media {
+        -webkit-box-shadow: 1px 2px 9px 0 rgba(0,0,0,.65);
+        box-shadow: 1px 2px 9px 0 rgba(0,0,0,.65)
+    }
+
+    .glightbox-knossos .description-left .gdesc-inner,
+    .glightbox-knossos .description-right .gdesc-inner {
+        position: absolute;
+        height: 100%;
+        overflow-y: auto
+    }
+
+    .glightbox-knossos .gprev {
+        top: 45%
+    }
+
+    .glightbox-knossos .gnext {
+        top: 45%
+    }
+}
+
+@media (min-width: 992px) {
+    .glightbox-knossos .gclose {
+        right: 20px
+    }
+}
