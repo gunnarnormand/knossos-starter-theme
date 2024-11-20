@@ -619,10 +619,10 @@
             "type": "border",
             "inherited_value": {
               "property_value_paths": {
-                "top.color": "theme.buttons.background.color.color",
-                "right.color": "theme.buttons.background.color.color",
-                "bottom.color": "theme.buttons.background.color.color",
-                "left.color": "theme.buttons.background.color.color"
+                "top.color": "theme.global_colors.primary.color",
+                "left.color": "theme.global_colors.primary.color",
+                "right.color": "theme.global_colors.primary.color",
+                "bottom.color": "theme.global_colors.primary.color"
               }
             },
             "default": {
@@ -1366,8 +1366,12 @@
                 "inherited_value": {
                   "property_value_paths": {
                     "fallback": "theme.global_fonts.primary.fallback",
-                    "font": "theme.global_fonts.primary.font",
-                    "font_set": "theme.global_fonts.primary.font_set"
+                    "font": "theme.buttons.text.font.font",
+                    "font_set": "theme.buttons.text.font.font_set",
+                    "color": "theme.buttons.text.font.color",
+                    "size": "theme.buttons.text.font.size",
+                    "size_unit": "theme.buttons.text.font.size_unit",
+                    "styles": "theme.buttons.text.font.styles"
                   }
                 },
                 "placeholder": "Submit",
@@ -1376,6 +1380,27 @@
                   "color": "#FFFFFF",
                   "size": 16,
                   "size_unit": "px"
+                }
+              }
+            ]
+          },
+          {
+            "label": "Background",
+            "name": "background",
+            "help_text": "Submit Button Background Color",
+            "type": "group",
+            "children": [
+              {
+                "label": "Color",
+                "name": "color",
+                "type": "color",
+                "inherited_value": {
+                  "property_value_paths": {
+                    "color": "theme.buttons.background.color.color"
+                  }
+                },
+                "default": {
+                  "opacity": 100
                 }
               }
             ]
@@ -1393,10 +1418,18 @@
                 "allow_custom_border_sides": false,
                 "inherited_value": {
                   "property_value_paths": {
-                    "top.color": "theme.global_colors.primary.color",
-                    "left.color": "theme.global_colors.primary.color",
-                    "right.color": "theme.global_colors.primary.color",
-                    "bottom.color": "theme.global_colors.primary.color"
+                    "top.color": "theme.buttons.border.border.top.color",
+                    "right.color": "theme.buttons.border.border.right.color",
+                    "bottom.color": "theme.buttons.border.border.bottom.color",
+                    "left.color": "theme.buttons.border.border.left.color",
+                    "top.width": "theme.buttons.border.border.top.width",
+                    "right.width": "theme.buttons.border.border.right.width",
+                    "bottom.width": "theme.buttons.border.border.bottom.width",
+                    "left.width": "theme.buttons.border.border.left.width",
+                    "top.style": "theme.buttons.border.border.top.style",
+                    "right.style": "theme.buttons.border.border.right.style",
+                    "bottom.style": "theme.buttons.border.border.bottom.style",
+                    "left.style": "theme.buttons.border.border.left.style"
                   }
                 },
                 "default": {
@@ -1436,27 +1469,6 @@
                     "style": "solid",
                     "color": "#000000"
                   }
-                }
-              }
-            ]
-          },
-          {
-            "label": "Background",
-            "name": "background",
-            "help_text": "Submit Button Background Color",
-            "type": "group",
-            "children": [
-              {
-                "label": "Color",
-                "name": "color",
-                "type": "color",
-                "inherited_value": {
-                  "property_value_paths": {
-                    "color": "theme.global_colors.primary.color"
-                  }
-                },
-                "default": {
-                  "opacity": 100
                 }
               }
             ]
@@ -1519,6 +1531,11 @@
                     "label": "Color",
                     "name": "color",
                     "type": "color",
+                    "inherited_value": {
+                      "property_value_paths": {
+                        "color": "theme.buttons.hover.text.color.color"
+                      }
+                    },
                     "default": {
                       "color": "#000000",
                       "opacity": 100
@@ -1535,6 +1552,11 @@
                     "label": "Color",
                     "name": "color",
                     "type": "color",
+                    "inherited_value": {
+                      "property_value_paths": {
+                        "color": "theme.buttons.hover.background.color.color"
+                      }
+                    },
                     "default": {
                       "opacity": 100,
                       "color": "#ffffff"
@@ -1551,6 +1573,22 @@
                     "label": "Border",
                     "name": "border",
                     "type": "border",
+                    "inherited_value": {
+                      "property_value_paths": {
+                        "top.color": "theme.buttons.hover.border.border.top.color",
+                        "right.color": "theme.buttons.hover.border.border.right.color",
+                        "bottom.color": "theme.buttons.hover.border.border.bottom.color",
+                        "left.color": "theme.buttons.hover.border.border.left.color",
+                        "top.width": "theme.buttons.hover.border.border.top.width",
+                        "right.width": "theme.buttons.hover.border.border.right.width",
+                        "bottom.width": "theme.buttons.hover.border.border.bottom.width",
+                        "left.width": "theme.buttons.hover.border.border.left.width",
+                        "top.style": "theme.buttons.hover.border.border.top.style",
+                        "right.style": "theme.buttons.hover.border.border.right.style",
+                        "bottom.style": "theme.buttons.hover.border.border.bottom.style",
+                        "left.style": "theme.buttons.hover.border.border.left.style"
+                      }
+                    },
                     "default": {
                       "top": {
                         "width": {
