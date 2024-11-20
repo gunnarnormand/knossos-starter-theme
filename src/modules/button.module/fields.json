@@ -65,8 +65,7 @@
                 "Lowercase"
               ]
             ],
-            "display": "select",
-            "default": "none"
+            "display": "select"
           }
         ]
       },
@@ -109,8 +108,7 @@
             "display": "text",
             "max": 100,
             "step": 1,
-            "suffix": "px",
-            "default": 0
+            "suffix": "px"
           },
           {
             "label": "Top Right Radius",
@@ -119,8 +117,7 @@
             "display": "text",
             "max": 100,
             "step": 1,
-            "suffix": "px",
-            "default": 0
+            "suffix": "px"
           },
           {
             "label": "Bottom Left Radius",
@@ -129,8 +126,7 @@
             "display": "text",
             "max": 100,
             "step": 1,
-            "suffix": "px",
-            "default": 0
+            "suffix": "px"
           },
           {
             "label": "Bottom Right Radius",
@@ -139,8 +135,7 @@
             "display": "text",
             "max": 100,
             "step": 1,
-            "suffix": "px",
-            "default": 0
+            "suffix": "px"
           }
         ]
       },
@@ -158,11 +153,7 @@
               {
                 "label": "Color",
                 "name": "color",
-                "type": "color",
-                "default": {
-                  "color": "#000000",
-                  "opacity": 100
-                }
+                "type": "color"
               }
             ]
           },
@@ -174,11 +165,7 @@
               {
                 "label": "Color",
                 "name": "color",
-                "type": "color",
-                "default": {
-                  "opacity": 100,
-                  "color": "#ffffff"
-                }
+                "type": "color"
               }
             ]
           },
@@ -190,45 +177,7 @@
               {
                 "label": "Border",
                 "name": "border",
-                "type": "border",
-                "default": {
-                  "top": {
-                    "width": {
-                      "value": 1,
-                      "units": "px"
-                    },
-                    "opacity": 100,
-                    "style": "solid",
-                    "color": "#000000"
-                  },
-                  "right": {
-                    "width": {
-                      "value": 1,
-                      "units": "px"
-                    },
-                    "opacity": 100,
-                    "style": "solid",
-                    "color": "#000000"
-                  },
-                  "bottom": {
-                    "width": {
-                      "value": 1,
-                      "units": "px"
-                    },
-                    "opacity": 100,
-                    "style": "solid",
-                    "color": "#000000"
-                  },
-                  "left": {
-                    "width": {
-                      "value": 1,
-                      "units": "px"
-                    },
-                    "opacity": 100,
-                    "style": "solid",
-                    "color": "#000000"
-                  }
-                }
+                "type": "border"
               }
             ]
           },
@@ -244,8 +193,7 @@
                 "display": "text",
                 "max": 100,
                 "step": 1,
-                "suffix": "px",
-                "default": 0
+                "suffix": "px"
               },
               {
                 "label": "Top Right Radius",
@@ -254,8 +202,7 @@
                 "display": "text",
                 "max": 100,
                 "step": 1,
-                "suffix": "px",
-                "default": 0
+                "suffix": "px"
               },
               {
                 "label": "Bottom Left Radius",
@@ -264,8 +211,7 @@
                 "display": "text",
                 "max": 100,
                 "step": 1,
-                "suffix": "px",
-                "default": 0
+                "suffix": "px"
               },
               {
                 "label": "Bottom Right Radius",
@@ -274,8 +220,7 @@
                 "display": "text",
                 "max": 100,
                 "step": 1,
-                "suffix": "px",
-                "default": 0
+                "suffix": "px"
               }
             ]
           }
