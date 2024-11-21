@@ -5,12 +5,10 @@
 {% require_js %}
   <script defer>
     document.addEventListener("DOMContentLoaded", function () {
-      if (typeof window.hsInEditor === 'undefined') {
-
-        const bannerOneModule = document.querySelector('.banner-one-module');
-        const bannerInner = document.querySelector('.banner-one-module__banner');
-        const closeButton = document.querySelector('.banner-one-module__close-button');
-
+        const widgetId = "{{ name }}";
+        const bannerOneModule = document.getElementById(`${widgetId}`);
+        const bannerInner = bannerOneModule.querySelector('.banner-one-module__banner');
+        const closeButton = bannerOneModule.querySelector('.banner-one-module__close-button');
         closeButton.addEventListener('click', (e) => {
           closeButton.setAttribute('aria-expanded', false);
           bannerOneModule.setAttribute('aria-hidden', true);
@@ -30,11 +28,6 @@
           }, 'start');
 
         });
-
-
-        
-
-      }
     });
   </script>
 {% end_require_js %}
@@ -195,8 +188,6 @@
         {% endif %}
       }
 
-
-
     {% end_scope_css %}
   </style>
 {% end_require_css %}
@@ -206,8 +197,10 @@
 {################# Module layout ####################}
 {####################################################}
 
-<div {{ module.banner_role }} aria-labelledby="banner-one-heading" aria-hidden="false" class="banner-one-module w-full">
-  <div class="banner-one-module__banner lg:px-[5%] relative flex flex-col justify-start border border-border-primary p-4 md:flex-row md:items-center md:px-4 md:py-3">
+
+
+<div {{ module.banner_role }} id="{{ name }}" aria-labelledby="banner-one-heading__{{ name }}" aria-hidden="false" class="banner-one-module w-full">
+  <div class="banner-one-module__banner lg:px-[5%] relative flex flex-col justify-start p-4 md:flex-row md:items-center md:px-4 md:py-3">
     <div class="md:flex md:flex-1 {{ module.styles.banner.content_position }} ">
       <div class="flex items-center">
         {% if module.add_icon %}
@@ -236,7 +229,7 @@
           {% endif %}
         {% endif %}
         <div class="mb-4 md:mb-0">
-          <h2 id="banner-one-heading" class="banner-one-module__heading mb-0">{% inline_text field="banner_heading" value="{{ module.banner_heading }}" no_wrapper=true %}</h2>
+          <h2 id="banner-one-heading__{{ name }}" class="banner-one-module__heading mb-0">{% inline_text field="banner_heading" value="{{ module.banner_heading }}" no_wrapper=true %}</h2>
           {% if module.add_subheading %}
             <p class="banner-one-module__subheading mb-0">{% inline_text field="banner_subheading" value="{{ module.banner_subheading }}" no_wrapper=true %}</p>
           {% endif %}
