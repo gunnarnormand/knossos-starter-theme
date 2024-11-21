@@ -35,6 +35,8 @@
         {% global_partial path="../partials/footer-one.html" %}
       {% endblock footer %}
     </div>
+    {{ require_js("https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js") }}
+    {{ require_js(get_asset_url("../../js/gsap-defaults.js")) }}
     {{ require_js(get_asset_url("../../js/main-one.js")) }}
     {# To see a full list of what is included via standard_footer_includes please reference this article: https://developers.hubspot.com/docs/cms/hubl/variables#required-page-template-variables #}
     {{ standard_footer_includes }}
