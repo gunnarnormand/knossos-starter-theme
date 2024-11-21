@@ -8,6 +8,12 @@ module.exports = {
     "./src/js/**/*.js",
     "./node_modules/@relume_io/relume-ui/dist/**/*.{js,ts,jsx,tsx}"
   ],
+  safelist: [
+    'lg:grid-cols-3',
+    'lg:grid-cols-4',
+    'lg:grid-cols-5',
+    'lg:grid-cols-6' 
+  ],
   theme: {
     screens: {
       sm: "480px",

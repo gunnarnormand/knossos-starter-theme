@@ -1249,10 +1249,6 @@ video {
   justify-content: space-between;
 }
 
-.justify-stretch {
-  justify-content: stretch;
-}
-
 .gap-1 {
   gap: 0.25rem;
 }
@@ -1519,6 +1515,11 @@ video {
   padding: 1.5rem;
 }
 
+.px-0 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -1602,11 +1603,6 @@ video {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
-}
-
-.px-0 {
-  padding-left: 0px;
-  padding-right: 0px;
 }
 
 .pb-10 {
@@ -2550,6 +2546,10 @@ video {
     padding-bottom: 4.5rem;
   }
 
+  .md\:pb-5 {
+    padding-bottom: 1.25rem;
+  }
+
   .md\:pt-2 {
     padding-top: 0.5rem;
   }
@@ -2560,10 +2560,6 @@ video {
 
   .md\:pt-8 {
     padding-top: 2rem;
-  }
-
-  .md\:pb-5 {
-    padding-bottom: 1.25rem;
   }
 
   .md\:text-2xl {
@@ -2694,6 +2690,14 @@ video {
 
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
   .lg\:grid-cols-\[0\.75fr\2c 1fr\] {
