@@ -1,0 +1,938 @@
+[
+  {
+    "id": "71878390-71a9-77ee-116e-6cb4a94a2526",
+    "name": "banner_role",
+    "display_width": null,
+    "label": "Banner Role",
+    "inline_help_text": "Required accessibility settings",
+    "help_text": "If the message is critical or needs immediate attention use role Alert, for a less urgent message use role Region",
+    "required": true,
+    "locked": true,
+    "display": "select",
+    "choices": [
+      [
+        "role=\"alert\" aria-live=\"polite\"",
+        "Alert"
+      ],
+      [
+        "role=\"region\"",
+        "Region"
+      ]
+    ],
+    "multiple": false,
+    "reordering_enabled": true,
+    "preset": null,
+    "type": "choice",
+    "default": "role=\"region\""
+  },
+  {
+    "id": "6cdcbbda-1bcf-820f-cf61-0059dfda3fd3",
+    "name": "add_icon",
+    "display_width": null,
+    "label": "Add Icon",
+    "help_text": "Adds an icon to the banner when selected",
+    "required": false,
+    "locked": true,
+    "display": "toggle",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "id": "2e42ccd9-f160-24b6-f0af-0e4554702934",
+    "name": "icon_type",
+    "display_width": null,
+    "label": "Icon Type",
+    "help_text": "Choose to use a icon from the icon library or a custom image",
+    "required": false,
+    "locked": true,
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "add_icon",
+      "controlling_value_regex": "true",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    },
+    "display": "select",
+    "choices": [
+      [
+        "icon",
+        "Library Icon"
+      ],
+      [
+        "image",
+        "Custom Image"
+      ]
+    ],
+    "multiple": false,
+    "reordering_enabled": true,
+    "preset": null,
+    "type": "choice",
+    "default": "icon"
+  },
+  {
+    "id": "4d688240-c0a0-a9cd-ed9b-9d53bfcc39c7",
+    "name": "icon_field",
+    "display_width": null,
+    "label": "Icon",
+    "required": false,
+    "locked": true,
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "icon_type",
+      "controlling_value_regex": "icon",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    },
+    "icon_set": "fontawesome-5.14.0",
+    "type": "icon",
+    "default": {
+      "name": "Mountain",
+      "unicode": "f6fc",
+      "type": "SOLID"
+    }
+  },
+  {
+    "id": "74e682be-adf5-a213-cc55-72f51eebcb53",
+    "name": "icon_image",
+    "display_width": null,
+    "label": "Icon Image",
+    "required": false,
+    "locked": true,
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "icon_type",
+      "controlling_value_regex": "image",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    },
+    "responsive": true,
+    "resizable": false,
+    "show_loading": false,
+    "type": "image",
+    "default": {
+      "size_type": "auto",
+      "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/knossos-icon.png",
+      "alt": "knossos-icon",
+      "loading": "eager",
+      "width": 350,
+      "height": 366,
+      "max_width": 350,
+      "max_height": 366
+    }
+  },
+  {
+    "id": "a7bd1ab5-a3de-5796-93f4-42094d35c55f",
+    "name": "banner_heading",
+    "display_width": null,
+    "label": "Banner Heading",
+    "help_text": "Main banner heading text, required for screen reader \"aria-labelledby\" attribute ",
+    "required": true,
+    "locked": true,
+    "validation_regex": "",
+    "allow_new_line": false,
+    "show_emoji_picker": true,
+    "type": "text",
+    "default": "Medium length banner heading goes here"
+  },
+  {
+    "id": "4aa6e615-055e-7d5e-6fc5-62865abbb189",
+    "name": "add_subheading",
+    "display_width": null,
+    "label": "Add Subheading",
+    "help_text": "Adds an additional line of text to the banner module",
+    "required": false,
+    "locked": true,
+    "display": "toggle",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "id": "b448b10d-01b5-ce70-829f-bfcd816b5c4c",
+    "name": "banner_subheading",
+    "display_width": null,
+    "label": "Banner Subheading",
+    "required": false,
+    "locked": true,
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "add_subheading",
+      "controlling_value_regex": "true",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    },
+    "validation_regex": "",
+    "allow_new_line": false,
+    "show_emoji_picker": true,
+    "type": "text",
+    "default": "Important update: Learn more about our latest features."
+  },
+  {
+    "id": "e008124b-f2b4-6393-8a87-8ab039e985dd",
+    "name": "add_button",
+    "display_width": null,
+    "label": "Add Button",
+    "help_text": "Adds a button to the banner when selected",
+    "required": false,
+    "locked": true,
+    "display": "toggle",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "id": "0f920f4c-75aa-a6ba-3933-46b62e6b571f",
+    "name": "button_link",
+    "display_width": null,
+    "label": "Button Link",
+    "required": false,
+    "locked": true,
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "add_button",
+      "controlling_value_regex": "true",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    },
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG",
+      "CALL_TO_ACTION",
+      "PHONE_NUMBER",
+      "WHATSAPP_NUMBER",
+      "PAYMENT"
+    ],
+    "show_advanced_rel_options": false,
+    "type": "link",
+    "default": {
+      "url": {
+        "content_id": null,
+        "type": "EXTERNAL",
+        "href": ""
+      },
+      "open_in_new_tab": false,
+      "no_follow": false
+    }
+  },
+  {
+    "id": "29afffc6-75f1-3bbf-999a-0822ac76beec",
+    "name": "button_text",
+    "display_width": null,
+    "label": "Button Text",
+    "required": false,
+    "locked": true,
+    "validation_regex": "",
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "add_button",
+      "controlling_value_regex": "true",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    },
+    "allow_new_line": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "default": "Button"
+  },
+  {
+    "id": "styles",
+    "label": "Styles",
+    "name": "styles",
+    "display_width": null,
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "locked": false,
+    "required": false,
+    "tab": "STYLE",
+    "type": "group",
+    "children": [
+      {
+        "name": "banner",
+        "label": "Banner",
+        "type": "group",
+        "expanded": true,
+        "children": [
+          {
+            "name": "content_position",
+            "label": "Content Position",
+            "required": true,
+            "locked": false,
+            "multiple": "false",
+            "display": "select",
+            "choices": [
+              [
+                "justify-between",
+                "Content Left - Button Right"
+              ],
+              [
+                "justify-center",
+                "Center All"
+              ]
+            ],
+            "type": "choice",
+            "default": "justify-between"
+          },
+          {
+            "name": "background",
+            "label": "Background",
+            "help_text": "Banner Background Color",
+            "type": "group",
+            "children": [
+              {
+                "name": "bg_color",
+                "label": "Background color",
+                "required": false,
+                "locked": false,
+                "type": "color",
+                "default": {
+                  "color": "#000000",
+                  "opacity": 10
+                }
+              }
+            ]
+          },
+          {
+            "name": "border",
+            "label": "Border",
+            "help_text": "Banner Border Style",
+            "type": "group",
+            "children": [
+              {
+                "name": "border",
+                "label": "Border",
+                "required": false,
+                "locked": false,
+                "allow_custom_border_sides": true,
+                "type": "border",
+                "default": {
+                  "top": {
+                    "width": {
+                      "value": 0,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  },
+                  "bottom": {
+                    "width": {
+                      "value": 0,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  },
+                  "left": {
+                    "width": {
+                      "value": 0,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  },
+                  "right": {
+                    "width": {
+                      "value": 0,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "name": "corner",
+            "label": "Corner",
+            "help_text": "Banner Border Radius",
+            "type": "group",
+            "children": [
+              {
+                "label": "Top Left Radius",
+                "name": "top_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Top Right Radius",
+                "name": "top_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Bottom Left Radius",
+                "name": "bottom_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Bottom Right Radius",
+                "name": "bottom_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              }
+            ]
+          },
+          {
+            "name": "box_shadow",
+            "label": "Box Shadow",
+            "help_text": "Banner Box Shadow Style",
+            "type": "group",
+            "children": [
+              {
+                "name": "box_shadow",
+                "label": "Box Shadow",
+                "type": "choice",
+                "choices": [
+                  [
+                    "none",
+                    "None"
+                  ],
+                  [
+                    "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+                    "Small Shadow"
+                  ],
+                  [
+                    "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+                    "Regular Shadow"
+                  ],
+                  [
+                    "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+                    "Medium Shadow"
+                  ],
+                  [
+                    "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+                    "Large Shadow"
+                  ],
+                  [
+                    "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+                    "XL Shadow"
+                  ],
+                  [
+                    "0 25px 50px -12px rgb(0 0 0 / 0.25)",
+                    "2XL Shadow"
+                  ],
+                  [
+                    "inset 0 2px 4px 0 rgb(0 0 0 / 0.05)",
+                    "Shadow Inner"
+                  ]
+                ],
+                "default": "none"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "icon_image",
+        "label": "Icon/Image",
+        "type": "group",
+        "expanded": true,
+        "children": [
+          {
+            "label": "Icon",
+            "name": "icon",
+            "help_text": "Icon Styles",
+            "type": "group",
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "icon_type",
+              "controlling_value_regex": "icon",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "children": [
+              {
+                "name": "icon_size",
+                "label": "Size",
+                "required": false,
+                "locked": false,
+                "min": 32,
+                "max": 120,
+                "step": 1,
+                "type": "number",
+                "prefix": "",
+                "suffix": "px",
+                "default": "32",
+                "placeholder": "32px"
+              },
+              {
+                "name": "color",
+                "label": "Color",
+                "required": false,
+                "locked": false,
+                "type": "color",
+                "default": {
+                  "color": "#000000",
+                  "opacity": 100
+                }
+              }
+            ]
+          },
+          {
+            "label": "Image",
+            "name": "image",
+            "help_text": "Image Styles",
+            "type": "group",
+            "visibility": {
+              "controlling_field": null,
+              "controlling_field_path": "icon_type",
+              "controlling_value_regex": "image",
+              "property": null,
+              "operator": "EQUAL",
+              "access": null
+            },
+            "children": [
+              {
+                "name": "image_size",
+                "label": "Size",
+                "required": false,
+                "locked": false,
+                "min": 32,
+                "max": 120,
+                "step": 1,
+                "type": "number",
+                "prefix": "",
+                "suffix": "px",
+                "default": "32",
+                "placeholder": "32px"
+              },
+              {
+                "name": "image_border_radius",
+                "label": "Image Border Radius",
+                "type": "choice",
+                "choices": [
+                  [
+                    "0",
+                    "None"
+                  ],
+                  [
+                    "9999px",
+                    "Rounded"
+                  ]
+                ],
+                "default": "0"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "heading",
+        "label": "Heading",
+        "type": "group",
+        "expanded": true,
+        "children": [
+          {
+            "label": "Text",
+            "name": "text",
+            "help_text": "Heading Text Styles",
+            "type": "group",
+            "children": [
+              {
+                "label": "Font",
+                "name": "font",
+                "type": "font",
+                "default": {
+                  "fallback": "serif",
+                  "font": "DM Serif Display",
+                  "font_set": "GOOGLE",
+                  "color": "#000000",
+                  "size": 21,
+                  "size_unit": "px",
+                  "styles": {
+                    "text-decoration": "none"
+                  }
+                }
+              },
+              {
+                "label": "Transform",
+                "name": "transform",
+                "type": "choice",
+                "choices": [
+                  [
+                    "none",
+                    "None"
+                  ],
+                  [
+                    "capitalize",
+                    "Capitalize"
+                  ],
+                  [
+                    "uppercase",
+                    "Uppercase"
+                  ],
+                  [
+                    "lowercase",
+                    "Lowercase"
+                  ]
+                ],
+                "display": "select",
+                "default": "none"
+              },
+              {
+                "name": "alignment",
+                "label": "Heading alignment",
+                "required": false,
+                "type": "textalignment",
+                "default": {
+                  "text_align": "LEFT"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "subheading",
+        "label": "Subheading",
+        "type": "group",
+        "expanded": true,
+        "children": [
+          {
+            "label": "Text",
+            "name": "text",
+            "help_text": "Subheading Text Styles",
+            "type": "group",
+            "children": [
+              {
+                "label": "Font",
+                "name": "font",
+                "type": "font",
+                "default": {
+                  "fallback": "serif",
+                  "font": "DM Sans",
+                  "font_set": "GOOGLE",
+                  "color": "#000000",
+                  "size": 14,
+                  "size_unit": "px",
+                  "styles": {
+                    "text-decoration": "none"
+                  },
+                  "variant": "500"
+                }
+              },
+              {
+                "label": "Transform",
+                "name": "transform",
+                "type": "choice",
+                "choices": [
+                  [
+                    "none",
+                    "None"
+                  ],
+                  [
+                    "capitalize",
+                    "Capitalize"
+                  ],
+                  [
+                    "uppercase",
+                    "Uppercase"
+                  ],
+                  [
+                    "lowercase",
+                    "Lowercase"
+                  ]
+                ],
+                "display": "select",
+                "default": "none"
+              },
+              {
+                "name": "alignment",
+                "label": "Subheading alignment",
+                "required": false,
+                "type": "textalignment",
+                "default": {
+                  "text_align": "LEFT"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "button",
+        "label": "Button",
+        "type": "group",
+        "expanded": true,
+        "children": [
+          {
+            "label": "Text",
+            "name": "text",
+            "help_text": "Set Button font and transform styles",
+            "type": "group",
+            "children": [
+              {
+                "label": "Font",
+                "name": "font",
+                "type": "font"
+              },
+              {
+                "label": "Transform",
+                "name": "transform",
+                "type": "choice",
+                "choices": [
+                  [
+                    "none",
+                    "None"
+                  ],
+                  [
+                    "capitalize",
+                    "Capitalize"
+                  ],
+                  [
+                    "uppercase",
+                    "Uppercase"
+                  ],
+                  [
+                    "lowercase",
+                    "Lowercase"
+                  ]
+                ],
+                "display": "select"
+              }
+            ]
+          },
+          {
+            "label": "Background",
+            "name": "background",
+            "help_text": "Set Button Background color",
+            "type": "group",
+            "children": [
+              {
+                "label": "Color",
+                "name": "color",
+                "type": "color"
+              }
+            ]
+          },
+          {
+            "label": "Border",
+            "name": "border",
+            "help_text": "Set Button Border styles",
+            "type": "group",
+            "children": [
+              {
+                "label": "Border",
+                "name": "border",
+                "type": "border"
+              }
+            ]
+          },
+          {
+            "name": "corner",
+            "label": "Corner",
+            "help_text": "Set Button Border Radius for each corner individually",
+            "type": "group",
+            "children": [
+              {
+                "label": "Top Left Radius",
+                "name": "top_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px"
+              },
+              {
+                "label": "Top Right Radius",
+                "name": "top_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px"
+              },
+              {
+                "label": "Bottom Left Radius",
+                "name": "bottom_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px"
+              },
+              {
+                "label": "Bottom Right Radius",
+                "name": "bottom_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px"
+              }
+            ]
+          },
+          {
+            "label": "Hover",
+            "name": "hover",
+            "help_text": "Set Button Hover styles",
+            "type": "group",
+            "children": [
+              {
+                "label": "Text",
+                "name": "text",
+                "type": "group",
+                "children": [
+                  {
+                    "label": "Color",
+                    "name": "color",
+                    "type": "color"
+                  }
+                ]
+              },
+              {
+                "label": "Background",
+                "name": "background",
+                "type": "group",
+                "children": [
+                  {
+                    "label": "Color",
+                    "name": "color",
+                    "type": "color"
+                  }
+                ]
+              },
+              {
+                "label": "Border",
+                "name": "border",
+                "type": "group",
+                "children": [
+                  {
+                    "label": "Border",
+                    "name": "border",
+                    "type": "border"
+                  }
+                ]
+              },
+              {
+                "name": "corner",
+                "label": "Corner",
+                "type": "group",
+                "children": [
+                  {
+                    "label": "Top Left Radius",
+                    "name": "top_left_radius",
+                    "type": "number",
+                    "display": "text",
+                    "max": 100,
+                    "step": 1,
+                    "suffix": "px"
+                  },
+                  {
+                    "label": "Top Right Radius",
+                    "name": "top_right_radius",
+                    "type": "number",
+                    "display": "text",
+                    "max": 100,
+                    "step": 1,
+                    "suffix": "px"
+                  },
+                  {
+                    "label": "Bottom Left Radius",
+                    "name": "bottom_left_radius",
+                    "type": "number",
+                    "display": "text",
+                    "max": 100,
+                    "step": 1,
+                    "suffix": "px"
+                  },
+                  {
+                    "label": "Bottom Right Radius",
+                    "name": "bottom_right_radius",
+                    "type": "number",
+                    "display": "text",
+                    "max": 100,
+                    "step": 1,
+                    "suffix": "px"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "label": "Spacing",
+            "name": "spacing",
+            "help_text": "Set Button Spacing values",
+            "type": "group",
+            "children": [
+              {
+                "label": "Spacing",
+                "name": "spacing",
+                "type": "spacing",
+                "visibility": {
+                  "hidden_subfields": {
+                    "margin": true
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "close_button",
+        "label": "Close Button",
+        "type": "group",
+        "expanded": false,
+        "children": [
+          {
+            "name": "size",
+            "label": "Size",
+            "help_text": "Set Close Banner Button size",
+            "required": false,
+            "locked": false,
+            "min": 32,
+            "max": 120,
+            "step": 1,
+            "type": "number",
+            "prefix": "",
+            "suffix": "px",
+            "default": "32",
+            "placeholder": "32px"
+          },
+          {
+            "name": "color",
+            "label": "Color",
+            "help_text": "Set Close Banner Button color",
+            "required": false,
+            "locked": false,
+            "type": "color",
+            "default": {
+              "color": "#000000",
+              "opacity": 100
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,293 @@
+{####################################################}
+{################# Module scripts ###################}
+{####################################################}
+
+{% require_js %}
+  <script defer>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (typeof window.hsInEditor === 'undefined') {
+
+        const bannerOneModule = document.querySelector('.banner-one-module');
+        const bannerInner = document.querySelector('.banner-one-module__banner');
+        const closeButton = document.querySelector('.banner-one-module__close-button');
+
+        closeButton.addEventListener('click', (e) => {
+          closeButton.setAttribute('aria-expanded', false);
+          bannerOneModule.setAttribute('aria-hidden', true);
+
+          let tl = gsap.timeline({
+            onComplete: () => {
+              gsap.set(bannerOneModule, { display: "none" });
+            },
+          });
+
+          tl.to(bannerInner, {
+            yPercent: -100,
+            autoAlpha: 0
+          }, 'start')
+          .to(bannerOneModule, {
+            height: 0
+          }, 'start');
+
+        });
+
+
+        
+
+      }
+    });
+  </script>
+{% end_require_js %}
+
+
+
+{####################################################}
+{################# Module styles ####################}
+{####################################################}
+
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+      {# Banner Styles #}
+
+      .banner-one-module__banner {
+        {% if module.styles.banner.background.bg_color %}
+          background-color: rgba({{ module.styles.banner.background.bg_color.color|convert_rgb }}, {{ module.styles.banner.background.bg_color.opacity / 100 }});
+        {% endif %}
+        {% if module.styles.banner.border.border %}
+          {{ module.styles.banner.border.border.css }}
+        {% endif %}
+        {% if module.styles.banner.corner %}
+          border-top-left-radius: {{ module.styles.banner.corner.top_left_radius ~ "px" }};
+          border-top-right-radius: {{ module.styles.banner.corner.top_right_radius ~ "px" }};
+          border-bottom-left-radius: {{ module.styles.banner.corner.bottom_left_radius ~ "px" }};
+          border-bottom-right-radius: {{ module.styles.banner.corner.bottom_right_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.banner.box_shadow.box_shadow %}
+          box-shadow: {{ module.styles.banner.box_shadow.box_shadow }};
+        {% endif %}
+      }
+
+
+      {# Icon/Image Styles #}
+
+      .banner-one-module__icon {
+        {% if module.styles.icon_image.icon.icon_size %}
+          width: {{ module.styles.icon_image.icon.icon_size ~ "px" }};
+          height: {{ module.styles.icon_image.icon.icon_size ~ "px" }};
+        {% endif %}
+      }
+
+      .banner-one-module__icon svg {
+        {% if module.styles.icon_image.icon.color %}
+          fill: rgba({{ module.styles.icon_image.icon.color.color|convert_rgb }}, {{ module.styles.icon_image.icon.color.opacity / 100 }});
+        {% endif %}
+      }
+
+      .banner-one-module__image {
+        {% if module.styles.icon_image.image.image_size %}
+          width: {{ module.styles.icon_image.image.image_size ~ "px" }};
+        {% endif %}
+        {% if module.styles.icon_image.image.image_border_radius %}
+          border-radius: {{ module.styles.icon_image.image.image_border_radius }};
+        {% endif %}
+      }
+
+      
+      {# Heading Styles #} 
+
+      .banner-one-module__heading {
+        {% if module.styles.heading.text.font %}
+          {{ module.styles.heading.text.font.style }};
+          font-size: {{ module.styles.heading.text.font.size ~ module.styles.heading.text.font.size_unit }};
+          color: {{ module.styles.heading.text.font.color }};
+        {% endif %}
+        {% if module.styles.heading.text.transform %}
+          text-transform: {{ module.styles.heading.text.transform }};
+        {% endif %}
+        {% if module.styles.heading.text.alignment %}
+          {{ module.styles.heading.text.alignment.css }};
+        {% endif %}
+      }
+
+      .banner-one-module__subheading {
+        {% if module.styles.subheading.text.font %}
+          {{ module.styles.subheading.text.font.style }};
+          font-size: {{ module.styles.subheading.text.font.size ~ module.styles.subheading.text.font.size_unit }};
+          color: {{ module.styles.subheading.text.font.color }};
+        {% endif %}
+        {% if module.styles.subheading.text.transform %}
+          text-transform: {{ module.styles.subheading.text.transform }};
+        {% endif %}
+        {% if module.styles.subheading.text.alignment %}
+          {{ module.styles.subheading.text.alignment.css }};
+        {% endif %}
+      }
+
+
+      {# Button Styles #}
+
+      .banner-one-module__button {
+        {% if module.styles.button.background.color.color %}
+          background-color: rgba({{ module.styles.button.background.color.color|convert_rgb }}, {{ module.styles.button.background.color.opacity / 100 }});
+        {% endif %}
+        {% if module.styles.button.corner.top_left_radius >= 0 %}
+          border-top-left-radius: {{ module.styles.button.corner.top_left_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.button.corner.top_right_radius >= 0 %}
+          border-top-right-radius: {{ module.styles.button.corner.top_right_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.button.corner.bottom_left_radius >= 0 %}
+          border-bottom-left-radius: {{ module.styles.button.corner.bottom_left_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.button.corner.bottom_right_radius >= 0 %}
+          border-bottom-right-radius: {{ module.styles.button.corner.bottom_right_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.button.text.font %}
+        {{ module.styles.button.text.font.css }}
+        {% endif %}
+        {% if module.styles.button.text.transform %}
+          text-transform: {{ module.styles.button.text.transform }};
+        {% endif %}
+        {% if module.styles.button.border.border %}
+          {{ module.styles.button.border.border.css }}
+        {% endif %}
+        {{ module.styles.button.spacing.spacing.css }}
+      }
+
+      .banner-one-module__button:hover,
+      .banner-one-module__button:focus,
+      .banner-one-module__button:active {
+        {% if module.styles.button.hover.text.color.color %}
+          color: rgba({{ module.styles.button.hover.text.color.color|convert_rgb }}, {{ module.styles.button.hover.text.color.opacity / 100 }});
+        {% endif %}
+        {% if module.styles.button.hover.background.color.color %}
+          background-color: rgba({{ module.styles.button.hover.background.color.color|convert_rgb }}, {{ module.styles.button.hover.background.color.opacity / 100 }});
+        {% endif %}
+        {% if module.styles.button.hover.border.border %}
+          {{ module.styles.button.hover.border.border.css }}
+        {% endif %}
+        {% if module.styles.button.hover.corner.top_left_radius >= 0 %}
+          border-top-left-radius: {{ module.styles.button.hover.corner.top_left_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.button.hover.corner.top_right_radius >= 0 %}
+          border-top-right-radius: {{ module.styles.button.hover.corner.top_right_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.button.hover.corner.bottom_left_radius >= 0 %}
+          border-bottom-left-radius: {{ module.styles.button.hover.corner.bottom_left_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.button.hover.corner.bottom_right_radius >= 0 %}
+          border-bottom-right-radius: {{ module.styles.button.hover.corner.bottom_right_radius ~ "px" }};
+        {% endif %}
+      }
+
+      .banner-one-module__close-button svg {
+        {% if module.styles.close_button.size %}
+          width: {{ module.styles.close_button.size ~ "px" }};
+          height: {{ module.styles.close_button.size ~ "px" }};
+        {% endif %}
+      }
+
+      .banner-one-module__close-button path {
+        {% if module.styles.close_button.color %}
+          fill: rgba({{ module.styles.close_button.color.color|convert_rgb }}, {{ module.styles.close_button.color.opacity / 100 }});
+        {% endif %}
+      }
+
+
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+
+{####################################################}
+{################# Module layout ####################}
+{####################################################}
+
+<div {{ module.banner_role }} aria-labelledby="banner-one-heading" aria-hidden="false" class="banner-one-module w-full">
+  <div class="banner-one-module__banner lg:px-[5%] relative flex flex-col justify-start border border-border-primary p-4 md:flex-row md:items-center md:px-4 md:py-3">
+    <div class="md:flex md:flex-1 {{ module.styles.banner.content_position }} ">
+      <div class="flex items-center">
+        {% if module.add_icon %}
+          {% if module.icon_type == "icon" %}
+            {% icon
+              name="{{ module.icon_field.name }}"
+              style="{{ module.icon_field.type }}"
+              unicode="{{ module.icon_field.unicode }}"
+              icon_set="{{ module.icon_field.icon_set }}"
+              extra_classes="banner-one-module__icon mr-4 hidden md:flex md:items-center"
+            %}
+          {% endif %}
+          {% if module.icon_type == "image" %}
+            {% if module.icon_image.src %}
+              {% set loadingAttr = module.icon_image.loading != 'disabled' ? 'loading="{{ module.icon_image.loading|escape_attr }}"' : '' %}
+                <img class="banner-one-module__image mr-4 hidden h-auto flex-none md:block"
+                  srcset="{{ resize_image_url(module.icon_image.src, 288) }} 288w"
+                  sizes="(max-width: 320px) 288px"
+                  src="{{ module.icon_image.src|escape_url }}"
+                  alt="{{ module.icon_image.alt|escape_attr }}"
+                  width="{{ module.icon_image.width }}"
+                  height="{{ module.icon_image.height }}"
+                  {{ loadingAttr }}
+                >
+            {% endif %}
+          {% endif %}
+        {% endif %}
+        <div class="mb-4 md:mb-0">
+          <h2 id="banner-one-heading" class="banner-one-module__heading mb-0">{% inline_text field="banner_heading" value="{{ module.banner_heading }}" no_wrapper=true %}</h2>
+          {% if module.add_subheading %}
+            <p class="banner-one-module__subheading mb-0">{% inline_text field="banner_subheading" value="{{ module.banner_subheading }}" no_wrapper=true %}</p>
+          {% endif %}
+        </div>
+      </div>
+      {% if module.add_button %}
+        <div class="md:ml-4">
+          {% set href = module.button_link.url.href %}
+          {% if module.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+            {% set href = "mailto:" + href %}
+          {% endif %}
+          <a class="button banner-one-module__button"
+             aria-label="{{ module.button_text }}"
+            {% if module.button_link.url.type is equalto "CALL_TO_ACTION"  %}
+              href="{{ href }}" {# The href here is not escaped as it is not editable and functions as a JavaScript call to the associated CTA #}
+            {% else %}
+              href="{{ href|escape_url }}"
+            {% endif %}
+            {% if module.button_link.open_in_new_tab %}
+              target="_blank"
+            {% endif %}
+            {% if module.button_link.rel %}
+              rel="{{ module.button_link.rel|escape_attr }}"
+            {% endif %}
+          >
+            {% inline_text field="button_text" value="{{ module.button_text }}" %}
+          </a>
+        </div>
+      {% endif %}
+    </div>
+
+    <button 
+      class="banner-one-module__close-button no-button absolute right-2 top-2 ml-4 md:static"
+      aria-expanded="true"
+      aria-label="Close"
+    >
+      <svg
+        stroke="currentColor"
+        fill="none"
+        stroke-width="0"
+        viewBox="0 0 15 15"
+        class="p-1"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M11.7816 4.03157C12.0062 3.80702 12.0062 3.44295 11.7816 3.2184C11.5571 2.99385 11.193 2.99385 10.9685 3.2184L7.50005 6.68682L4.03164 3.2184C3.80708 2.99385 3.44301 2.99385 3.21846 3.2184C2.99391 3.44295 2.99391 3.80702 3.21846 4.03157L6.68688 7.49999L3.21846 10.9684C2.99391 11.193 2.99391 11.557 3.21846 11.7816C3.44301 12.0061 3.80708 12.0061 4.03164 11.7816L7.50005 8.31316L10.9685 11.7816C11.193 12.0061 11.5571 12.0061 11.7816 11.7816C12.0062 11.557 12.0062 11.193 11.7816 10.9684L8.31322 7.49999L11.7816 4.03157Z"
+          fill="currentColor"
+        ></path>
+      </svg>
+    </button>
+  </div>
+</div>

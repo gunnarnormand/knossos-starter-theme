@@ -1,0 +1,20 @@
+{
+  "global": true,
+  "content_types": [
+    "LANDING_PAGE",
+    "SITE_PAGE",
+    "BLOG_LISTING",
+    "BLOG_POST"
+  ],
+  "smart_type": "NOT_SMART",
+  "inline_help_text": "An accessible dismissible banner for displaying important information or updates across all pages of your website",
+  "host_template_types": [
+    "PAGE",
+    "BLOG_LISTING",
+    "BLOG_POST"
+  ],
+  "icon": "../../images/module-icons/banner.svg",
+  "module_id": 182985200398,
+  "label": "Banner One",
+  "is_available_for_new_content": true
+}
