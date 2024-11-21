@@ -1,0 +1,305 @@
+[
+    {
+        "label": "Question Text",
+        "name": "question_text",
+        "type": "text",
+        "required": true,
+        "default": "Question text goes here"
+    },
+    {
+        "label": "Answer Text",
+        "name": "answer_text",
+        "type": "richtext",
+        "display_width": null,
+        "required": true,
+        "locked": false,
+        "default": "Answer text goes here. Provide a clear and concise response to the frequently asked question. Make sure the answer addresses common customer concerns while offering helpful information. Include details that guide users effectively, keeping your tone friendly and supportive. End with a note that encourages further engagement if they need additional assistance or details."
+    },
+    {
+        "label": "Styles",
+        "name": "styles",
+        "type": "group",
+        "tab": "STYLE",
+        "children": [
+            {
+                "label": "Spacing",
+                "name": "spacing",
+                "type": "spacing",
+                "visibility": {
+                    "hidden_subfields": {
+                        "padding": true
+                    }
+                }
+            },
+            {
+                "name": "accordion",
+                "label": "Accordion",
+                "type": "group",
+                "expanded": true,
+                "children": [
+                    {
+                        "name": "background",
+                        "label": "Background",
+                        "help_text": "Accordion Background Color",
+                        "type": "group",
+                        "children": [
+                            {
+                                "name": "bg_color",
+                                "label": "Background color",
+                                "required": false,
+                                "locked": false,
+                                "type": "color",
+                                "default": {
+                                    "color": "#ffffff",
+                                    "opacity": 100
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "border",
+                        "label": "Border",
+                        "help_text": "Accordion Border Style",
+                        "type": "group",
+                        "children": [
+                            {
+                                "name": "border",
+                                "label": "Border",
+                                "required": false,
+                                "locked": false,
+                                "allow_custom_border_sides": true,
+                                "type": "border",
+                                "default": {
+                                    "top": {
+                                        "width": {
+                                            "value": 1,
+                                            "units": "px"
+                                        },
+                                        "opacity": 100,
+                                        "style": "solid",
+                                        "color": "#000000"
+                                    },
+                                    "bottom": {
+                                        "width": {
+                                            "value": 1,
+                                            "units": "px"
+                                        },
+                                        "opacity": 100,
+                                        "style": "solid",
+                                        "color": "#000000"
+                                    },
+                                    "left": {
+                                        "width": {
+                                            "value": 1,
+                                            "units": "px"
+                                        },
+                                        "opacity": 100,
+                                        "style": "solid",
+                                        "color": "#000000"
+                                    },
+                                    "right": {
+                                        "width": {
+                                            "value": 1,
+                                            "units": "px"
+                                        },
+                                        "opacity": 100,
+                                        "style": "solid",
+                                        "color": "#000000"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "corner",
+                        "label": "Corner",
+                        "help_text": "Accordion Border Radius",
+                        "type": "group",
+                        "children": [
+                            {
+                                "label": "Top Left Radius",
+                                "name": "top_left_radius",
+                                "type": "number",
+                                "display": "text",
+                                "max": 100,
+                                "step": 1,
+                                "suffix": "px",
+                                "default": 0
+                            },
+                            {
+                                "label": "Top Right Radius",
+                                "name": "top_right_radius",
+                                "type": "number",
+                                "display": "text",
+                                "max": 100,
+                                "step": 1,
+                                "suffix": "px",
+                                "default": 0
+                            },
+                            {
+                                "label": "Bottom Left Radius",
+                                "name": "bottom_left_radius",
+                                "type": "number",
+                                "display": "text",
+                                "max": 100,
+                                "step": 1,
+                                "suffix": "px",
+                                "default": 0
+                            },
+                            {
+                                "label": "Bottom Right Radius",
+                                "name": "bottom_right_radius",
+                                "type": "number",
+                                "display": "text",
+                                "max": 100,
+                                "step": 1,
+                                "suffix": "px",
+                                "default": 0
+                            }
+                        ]
+                    },
+                    {
+                        "name": "box_shadow",
+                        "label": "Box Shadow",
+                        "help_text": "Accordion Box Shadow Style",
+                        "type": "group",
+                        "children": [
+                            {
+                                "name": "box_shadow",
+                                "label": "Box Shadow",
+                                "type": "choice",
+                                "choices": [
+                                    [
+                                        "none",
+                                        "None"
+                                    ],
+                                    [
+                                        "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+                                        "Small Shadow"
+                                    ],
+                                    [
+                                        "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+                                        "Regular Shadow"
+                                    ],
+                                    [
+                                        "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+                                        "Medium Shadow"
+                                    ],
+                                    [
+                                        "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+                                        "Large Shadow"
+                                    ],
+                                    [
+                                        "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+                                        "XL Shadow"
+                                    ],
+                                    [
+                                        "0 25px 50px -12px rgb(0 0 0 / 0.25)",
+                                        "2XL Shadow"
+                                    ],
+                                    [
+                                        "inset 0 2px 4px 0 rgb(0 0 0 / 0.05)",
+                                        "Shadow Inner"
+                                    ]
+                                ],
+                                "default": "none"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "question_text",
+                "label": "Question Text",
+                "type": "group",
+                "expanded": true,
+                "children": [
+                    {
+                        "label": "Text",
+                        "name": "text",
+                        "help_text": "Question Text Styles",
+                        "type": "group",
+                        "children": [
+                            {
+                                "label": "Font",
+                                "name": "font",
+                                "type": "font",
+                                "default": {
+                                    "fallback": "serif",
+                                    "font": "DM Serif Display",
+                                    "font_set": "GOOGLE",
+                                    "color": "#000000",
+                                    "size": 21,
+                                    "size_unit": "px",
+                                    "styles": {
+                                        "text-decoration": "none"
+                                    }
+                                }
+                            },
+                            {
+                                "label": "Transform",
+                                "name": "transform",
+                                "type": "choice",
+                                "choices": [
+                                    [
+                                        "none",
+                                        "None"
+                                    ],
+                                    [
+                                        "capitalize",
+                                        "Capitalize"
+                                    ],
+                                    [
+                                        "uppercase",
+                                        "Uppercase"
+                                    ],
+                                    [
+                                        "lowercase",
+                                        "Lowercase"
+                                    ]
+                                ],
+                                "display": "select",
+                                "default": "none"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "expand_button",
+                "label": "Expand Button",
+                "type": "group",
+                "expanded": false,
+                "children": [
+                    {
+                        "name": "size",
+                        "label": "Size",
+                        "help_text": "Set Expand/Close Accordion Button size",
+                        "required": false,
+                        "locked": false,
+                        "min": 28,
+                        "max": 100,
+                        "step": 1,
+                        "type": "number",
+                        "prefix": "",
+                        "suffix": "px",
+                        "default": "28",
+                        "placeholder": "28"
+                    },
+                    {
+                        "name": "color",
+                        "label": "Color",
+                        "help_text": "Set Expand/Close Accordion Button color",
+                        "required": false,
+                        "locked": false,
+                        "type": "color",
+                        "default": {
+                            "color": "#000000",
+                            "opacity": 100
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+]

@@ -1,0 +1,152 @@
+{####################################################}
+{################# Module scripts ###################}
+{####################################################}
+
+{% require_js %}
+<script defer>
+    document.addEventListener("DOMContentLoaded", function () {
+        const widgetId = "{{ name }}";
+        const accordionModule = document.getElementById(`${widgetId}`);
+        const accordionButton = accordionModule.querySelector('.accordion-module__question');
+        const expandButton = accordionModule.querySelector('.accordion-module__expand_button');
+        const accordionAnswer = accordionModule.querySelector('.accordion-module__answer');
+        accordionAnswer.hidden = false; // unset hidden to calculate height
+        const answerHeight = accordionAnswer.scrollHeight;
+        accordionAnswer.hidden = true;
+
+        accordionButton.addEventListener('click', (e) => {
+            const isOpen = accordionButton.getAttribute('aria-expanded') === 'true';
+
+            if (isOpen) {
+                // Closing the accordion
+                let closeTl = gsap.timeline();
+                closeTl.to(accordionAnswer, { height: 0, ease: "expoScale(0.5,7,none)", duration: 0.5 }, 'start')
+                       .to(expandButton, { rotation: 0, ease: "expoScale(0.5,7,none)", duration: 0.3 }, 'start');
+
+            } else {
+                // Opening the accordion
+                accordionAnswer.style.height = '0'; // set height to 0 for smooth animation
+                let openTl = gsap.timeline();
+                openTl.to(accordionAnswer, { height: answerHeight, ease: "expoScale(0.5,7,none)", duration: 0.5 }, 'start')
+                      .to(expandButton, { rotation: 45, ease: "expoScale(0.5,7,none)", duration: 0.3 }, 'start');
+            }
+
+            // Toggle state
+            accordionButton.setAttribute('aria-expanded', !isOpen);
+            accordionAnswer.hidden = isOpen;
+
+        });
+
+    });
+</script>
+{% end_require_js %}
+
+{####################################################}
+{################# Module styles ####################}
+{####################################################}
+
+{% require_css %}
+    <style>
+        {% scope_css %}
+
+            {# Spacing #}
+            {% if module.styles.spacing %}
+                .accordion-module {
+                    {{ module.styles.spacing.css }}
+                }
+            {% endif %}
+
+            {# Accordion Styles #}
+
+            .accordion-module {
+                {% if module.styles.accordion.background.bg_color %}
+                    background-color: rgba({{ module.styles.accordion.background.bg_color.color|convert_rgb }}, {{ module.styles.accordion.background.bg_color.opacity / 100 }});
+                {% endif %}
+                {% if module.styles.accordion.border.border %}
+                {{ module.styles.accordion.border.border.css }}
+                {% endif %}
+                {% if module.styles.accordion.corner %}
+                    border-top-left-radius: {{ module.styles.accordion.corner.top_left_radius ~ "px" }};
+                    border-top-right-radius: {{ module.styles.accordion.corner.top_right_radius ~ "px" }};
+                    border-bottom-left-radius: {{ module.styles.accordion.corner.bottom_left_radius ~ "px" }};
+                    border-bottom-right-radius: {{ module.styles.accordion.corner.bottom_right_radius ~ "px" }};
+                {% endif %}
+                {% if module.styles.accordion.box_shadow.box_shadow %}
+                    box-shadow: {{ module.styles.accordion.box_shadow.box_shadow }};
+                {% endif %}
+            }
+
+
+            {# Question Styles #} 
+
+            .accordion-module__question {
+                {% if module.styles.question_text.text.font %}
+                    {{ module.styles.question_text.text.font.style }};
+                    font-size: {{ module.styles.question_text.text.font.size ~ module.styles.question_text.text.font.size_unit }};
+                    color: {{ module.styles.question_text.text.font.color }};
+                {% endif %}
+                {% if module.styles.question_text.text.transform %}
+                    text-transform: {{ module.styles.question_text.text.transform }};
+                {% endif %}
+            }
+
+
+            {# Expand/Close Button Styles #}
+
+            .accordion-module__expand_button {
+                {% if module.styles.expand_button.size %}
+                    width: {{ module.styles.expand_button.size ~ "px" }};
+                    height: {{ module.styles.expand_button.size ~ "px" }};
+                {% endif %}
+            }
+
+            .accordion-module__expand_button path {
+                {% if module.styles.expand_button.color %}
+                    fill: rgba({{ module.styles.expand_button.color.color|convert_rgb }}, {{ module.styles.expand_button.color.opacity / 100 }});
+                {% endif %}
+            }
+
+        {% end_scope_css %}
+    </style>
+{% end_require_css %}
+
+
+{####################################################}
+{################# Module layout ####################}
+{####################################################}
+
+<div id="{{ name }}" class="accordion-module px-5 md:px-6">
+    <h3 data-orientation="vertical" class="flex w-full mb-0">
+        <button
+            role="button"
+            aria-controls="accordion-module__answer-{{ name }}"
+            aria-expanded="false"
+            id="accordion-module__question-{{ name }}"
+            class="accordion-module__question flex flex-1 items-center justify-between px-0 py-4 transition-all md:py-5"
+        >
+            {% inline_text field="question_text" value="{{ module.question_text }}" no_wrapper=true %}
+            <svg
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 15 15"
+                class="accordion-module__expand_button shrink-0 md:size-8"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M8 2.75C8 2.47386 7.77614 2.25 7.5 2.25C7.22386 2.25 7 2.47386 7 2.75V7H2.75C2.47386 7 2.25 7.22386 2.25 7.5C2.25 7.77614 2.47386 8 2.75 8H7V12.25C7 12.5261 7.22386 12.75 7.5 12.75C7.77614 12.75 8 12.5261 8 12.25V8H12.25C12.5261 8 12.75 7.77614 12.75 7.5C12.75 7.22386 12.5261 7 12.25 7H8V2.75Z"
+                    fill="currentColor"
+                ></path>
+            </svg>
+        </button>
+    </h3>
+    <div hidden
+        id="accordion-module__answer-{{ name }}"
+        role="region"
+        aria-labelledby="accordion-module__question-{{ name }}"
+        class="accordion-module__answer overflow-hidden pb-4 md:pb-5"
+    >
+        {% inline_rich_text field="answer_text" value="{{ module.answer_text }}" no_wrapper=true %}
+    </div>
+</div>

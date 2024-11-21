@@ -1,0 +1,19 @@
+.accordion-module__question,
+.accordion-module__question:hover,
+.accordion-module__question:focus,
+.accordion-module__question:active  {
+    background: none;
+    border: none;
+    border-radius: 0;
+    color: initial;
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    line-height: inherit;
+    margin-bottom: 0;
+    text-align: left;
+    text-decoration: none;
+    transition: none;
+}
