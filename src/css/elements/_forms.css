@@ -79,7 +79,7 @@ form input[type=radio] {
 
 /*  hide the checkbox/radio elements visually, while still making them accessible */
 
-form label input[type="checkbox"],
+form label input[type="checkbox"]:not([name="globalunsub"]),
 form label input[type="radio"] {
 	position: absolute;
 	opacity: 0;
