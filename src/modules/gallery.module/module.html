@@ -82,7 +82,7 @@
             {% set sizeAttrs = 'width="{{ item.max_width|escape_attr }}" height="{{ item.max_height|escape_attr }}" style="max-width: 100%; height: auto;"' %}
           {% endif %}
           
-          <div class="gallery-module-one__grid-image-wrap self-stretch overflow-hidden transition-all">
+          <div class="gallery-module-one__grid-image-wrap self-stretch transition-all">
             <a class="gallery-module-one__glightbox" href="{{ item.src|escape_url }}">
               <img 
                 class="size-full object-cover" 
