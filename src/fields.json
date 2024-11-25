@@ -63,6 +63,20 @@
         "default": {
           "color": "#ea580c"
         }
+      },
+      {
+        "label": "Accessibility Focus Color",
+        "name": "focus_visible",
+        "help_text": "Sets global element `:focus-visible` property color for accessibilty. Learn more about why this is needed <a href='https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html' target='_blank'>here: https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html</a>",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#ec4899"
+        }
       }
     ]
   },

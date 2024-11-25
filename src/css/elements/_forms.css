@@ -240,10 +240,6 @@ form .hs-richtext img {
   margin-top: 0.35rem;
 }
 
-form .focus-visible {
-  outline: -webkit-focus-ring-color auto 1px;
-}
-
 /* Submit button */
 
 form input[type=submit],

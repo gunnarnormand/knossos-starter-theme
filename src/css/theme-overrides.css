@@ -2,15 +2,7 @@
 
 {## Table of contents
 
-  1. Variables
-    1a. Containers
-    1b. Colors
-    1c. Typography
-    1d. Buttons
-    1e. Forms
-    1f. Tables
-    1g. Website header
-    1h. Website footer
+  1. Colors
   2. Containers / Grid / DND areas
   3. Typography
   4. Buttons
@@ -25,20 +17,53 @@
 ##}
 
 {###########################################################################}
-{############################   1. Variables   #############################}
+{############################   1. Colors   #############################}
 {###########################################################################}
 
-/* 1a. Containers */
-
-{% set container_width = theme.spacing.maximum_content_width ~ 'px' %}
-{% set dnd_section_padding = theme.spacing.vertical_spacing ~ 'px ' ~ '1rem' %}
-
-/* 1b. Colors */
+/* Colors Vars */
 
 {% set primary_color = theme.global_colors.primary.color  %}
 {% set secondary_color = theme.global_colors.secondary.color %}
+{% set tertiary_color = theme.global_colors.tertiary.color %}
+{% set focus_visible_color = theme.global_colors.focus_visible.color %}
 
-/* 1c. Typography */
+* :focus-visible {
+  outline: 4px auto {{ focus_visible_color }};
+  outline-offset: 4px;
+}
+
+form .focus-visible {
+  outline: 4px auto {{ focus_visible_color }};
+  outline-offset: 4px;
+}
+
+{###########################################################################}
+{##################   2. Containers / Grid / DND areas   ###################}
+{###########################################################################}
+
+/* Containers Vars */
+
+{% set container_width = theme.spacing.maximum_content_width ~ 'px' %}
+  {% set dnd_section_padding = theme.spacing.vertical_spacing ~ 'px ' ~ '1rem' %}
+
+.content-wrapper {
+  max-width: {{ container_width }};
+}
+
+.dnd-section,
+.content-wrapper--vertical-spacing {
+  padding: {{ dnd_section_padding }};
+}
+
+.dnd-section > .row-fluid {
+  max-width: {{ container_width }};
+}
+
+{###########################################################################}
+{###########################   3. Typography   #############################}
+{###########################################################################}
+
+/* Typography Vars */
 
 {% set primary_font = theme.global_fonts.primary %}
 {% set secondary_font = theme.global_fonts.secondary %}
@@ -64,42 +89,6 @@
 {% set body_font = theme.text.body_font.font %}
 
 {% set anchor_font = theme.text.links.font %}
-
-/* 1f. Tables */
-
-{% set table_head_bg_color = color(theme.tables.header.background.color) %}
-{% set table_head_font_color = theme.tables.header.text.color.color %}
-
-{% set table_bg_color = color(theme.tables.table_body.background.color) %}
-{% set table_font_color = theme.tables.table_body.text.color.color %}
-
-{% set table_footer_bg_color = color(theme.tables.footer.background.color) %}
-{% set table_footer_font_color = theme.tables.footer.text.color.color %}
-
-{% set table_cell_spacing = theme.tables.cells.spacing.spacing.css %}
-{% set table_border = theme.tables.cells.border.border.css %}
-
-
-{###########################################################################}
-{##################   2. Containers / Grid / DND areas   ###################}
-{###########################################################################}
-
-.content-wrapper {
-  max-width: {{ container_width }};
-}
-
-.dnd-section,
-.content-wrapper--vertical-spacing {
-  padding: {{ dnd_section_padding }};
-}
-
-.dnd-section > .row-fluid {
-  max-width: {{ container_width }};
-}
-
-{###########################################################################}
-{###########################   3. Typography   #############################}
-{###########################################################################}
 
 html {
   font-size: {{ body_font.size ~ body_font.size_unit }};
@@ -530,6 +519,21 @@ form,
 {#############################   6. Tables   ###############################}
 {###########################################################################}
 
+
+/* Tables Vars */
+
+{% set table_head_bg_color = color(theme.tables.header.background.color) %}
+{% set table_head_font_color = theme.tables.header.text.color.color %}
+
+{% set table_bg_color = color(theme.tables.table_body.background.color) %}
+{% set table_font_color = theme.tables.table_body.text.color.color %}
+
+{% set table_footer_bg_color = color(theme.tables.footer.background.color) %}
+{% set table_footer_font_color = theme.tables.footer.text.color.color %}
+
+{% set table_cell_spacing = theme.tables.cells.spacing.spacing.css %}
+{% set table_border = theme.tables.cells.border.border.css %}
+
 /* Table */
 
 table {
@@ -907,4 +911,14 @@ tfoot td {
   {{ h3_font.style }};
   color: {{ h3_font.color }};
   font-size: {{ h3_font.size ~ h3_font.size_unit }};
+}
+
+
+/* Gallery */
+
+.glightbox-knossos .gprev.focused,
+.glightbox-knossos .gnext.focused,
+.glightbox-knossos .gclose.focused {
+  outline: 4px auto {{ focus_visible_color }};
+  outline-offset: 0px;
 }
