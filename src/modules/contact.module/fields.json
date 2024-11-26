@@ -52,5 +52,38 @@
             "response_type": "inline",
             "message": "Thanks for submitting the form."
         }
+    },
+    {
+        "id": "styles",
+        "label": "Styles",
+        "name": "styles",
+        "display_width": null,
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "locked": false,
+        "required": false,
+        "tab": "STYLE",
+        "type": "group",
+        "children": [
+            {
+                "name": "alignment",
+                "label": "Content Alignment",
+                "type": "group",
+                "expanded": false,
+                "children": [
+                    {
+                        "name": "top_alignment",
+                        "label": "Top Content Alignment",
+                        "help_text": "Position the top content within its container.",
+                        "required": false,
+                        "type": "alignment",
+                        "alignment_direction": "HORIZONTAL",
+                        "default": {
+                            "horizontal_align": "CENTER"
+                        }
+                    }
+                ]
+            }
+        ]
     }
 ]

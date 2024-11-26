@@ -1,6 +1,16 @@
+{% set alignment_class_top = '' %}
+
+{% if module.styles.alignment.top_alignment.horizontal_align == 'CENTER' %}
+    {% set alignment_class_top = 'flex flex-col items-center text-center mx-auto' %}
+{% elif module.styles.alignment.top_alignment.horizontal_align == 'LEFT' %}
+    {% set alignment_class_top = 'text-left' %}
+{% elif module.styles.alignment.top_alignment.horizontal_align == 'RIGHT' %}
+    {% set alignment_class_top = 'flex flex-col items-end text-right ml-auto' %}
+{% endif %}
+
 <section class="px-[5%] py-16 md:py-24 lg:py-28">
   <div class="container max-w-lg">
-    <div class="mx-auto mb-8 w-full max-w-lg text-center md:mb-10 lg:mb-12">
+    <div class="mx-auto mb-8 w-full max-w-lg md:mb-10 lg:mb-12 {{ alignment_class_top }}">
         {% inline_rich_text field="tagline" value="{{ module.tagline }}" %}
         {% inline_rich_text field="title" value="{{ module.title }}" %}
         {% inline_rich_text field="content" value="{{ module.content }}" %}
