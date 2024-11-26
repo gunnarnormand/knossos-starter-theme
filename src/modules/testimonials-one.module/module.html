@@ -1,64 +1,157 @@
+{####################################################}
+{################# Module styles ####################}
+{####################################################}
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+      {# Card Styles #}
+
+      .testimonials-one-module__card {
+        {% if module.styles.card.background.bg_color %}
+          background-color: rgba({{ module.styles.card.background.bg_color.color|convert_rgb }}, {{ module.styles.card.background.bg_color.opacity / 100 }});
+        {% endif %}
+        {% if module.styles.card.border.border %}
+          {{ module.styles.card.border.border.css }}
+        {% endif %}
+        {% if module.styles.card.corner %}
+          border-top-left-radius: {{ module.styles.card.corner.top_left_radius ~ "px" }};
+          border-top-right-radius: {{ module.styles.card.corner.top_right_radius ~ "px" }};
+          border-bottom-left-radius: {{ module.styles.card.corner.bottom_left_radius ~ "px" }};
+          border-bottom-right-radius: {{ module.styles.card.corner.bottom_right_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.card.box_shadow.box_shadow %}
+          box-shadow: {{ module.styles.card.box_shadow.box_shadow }};
+        {% endif %}
+      }
+      
+      .testimonials-one-module__card:hover {
+        {% if module.styles.card.hover.box_shadow.box_shadow %}
+          box-shadow: {{ module.styles.card.hover.box_shadow.box_shadow }};
+        {% endif %}
+        {% if module.styles.card.hover.background.bg_color %}
+          background-color: rgba({{ module.styles.card.hover.background.bg_color.color|convert_rgb }}, {{ module.styles.card.hover.background.bg_color.opacity / 100 }});
+        {% endif %}
+      }
+
+      {# Star Rating Styles #}
+
+      .testimonials-one-module__rating-star {
+        {% if module.styles.rating_star.star.size %}
+          width: {{ module.styles.rating_star.star.size ~ "px" }};
+          height: {{ module.styles.rating_star.star.size ~ "px" }};
+        {% endif %}
+        {% if module.styles.rating_star.star.color %}
+          fill: rgba({{ module.styles.rating_star.star.color.color|convert_rgb }}, {{ module.styles.rating_star.star.color.opacity / 100 }});
+        {% endif %}
+      }
+
+
+      {# Author Image Styles #}
+
+      .testimonials-one-module__author-image {
+        {% if module.styles.author_image.image_size %}
+          width: {{ module.styles.author_image.image_size ~ "px" }};
+          height: auto;
+          min-width: {{ module.styles.author_image.image_size ~ "px" }};
+          min-height: {{ module.styles.author_image.image_size ~ "px" }};
+        {% endif %}
+        {% if module.styles.author_image.corner %}
+          border-top-left-radius: {{ module.styles.author_image.corner.top_left_radius ~ "px" }};
+          border-top-right-radius: {{ module.styles.author_image.corner.top_right_radius ~ "px" }};
+          border-bottom-left-radius: {{ module.styles.author_image.corner.bottom_left_radius ~ "px" }};
+          border-bottom-right-radius: {{ module.styles.author_image.corner.bottom_right_radius ~ "px" }};
+        {% endif %}
+      }
+
+
+      {# Author Text Styles #}
+
+      .testimonials-one-module__author-name {
+        {% if module.styles.author.author_name.font %}
+          {{ module.styles.author.author_name.font.style }};
+          font-size: {{ module.styles.author.author_name.font.size ~ module.styles.author.author_name.font.size_unit }};
+          color: {{ module.styles.author.author_name.font.color }};
+        {% endif %}
+        {% if module.styles.author.author_name.transform %}
+          text-transform: {{ module.styles.author.author_name.transform }};
+        {% endif %}
+      }
+
+      .testimonials-one-module__author-position {
+        {% if module.styles.author.position.font %}
+          {{ module.styles.author.position.font.style }};
+          font-size: {{ module.styles.author.position.font.size ~ module.styles.author.position.font.size_unit }};
+          color: {{ module.styles.author.position.font.color }};
+        {% endif %}
+        {% if module.styles.author.position.transform %}
+          text-transform: {{ module.styles.author.position.transform }};
+        {% endif %}
+      }
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+{####################################################}
+{################ Module layout ###################}
+{####################################################}
+
 <section class="testimonials-one-module px-[5%] py-16 md:py-24 lg:py-28">
   <div class="container">
     <div class="mx-auto mb-12 w-full max-w-lg text-center md:mb-18 lg:mb-20">
       {% inline_rich_text field="title" value="{{ module.title }}" %}
       {% inline_rich_text field="content" value="{{ module.content }}" %}
     </div>
-    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:{{module.grid_column_count}}">
       {% for item in module.testimonial %}
-        <div class="flex w-full flex-col items-start justify-between border border-border-primary p-6 md:p-8">
-          <div class="mb-5 flex md:mb-6">
-            
-            {% set rating_values = {
-                "one": 1,
-                "two": 2,
-                "three": 3,
-                "four": 4,
-                "five": 5
-            } %}
+        <div class="testimonials-one-module__card flex w-full flex-col items-start justify-between p-6 md:p-8 transition-all">
+          {% if item.star_rating %}
+            <div class="mb-5 flex md:mb-6">
+              
+              {% set rating_values = {
+                  "one": 1,
+                  "two": 2,
+                  "three": 3,
+                  "four": 4,
+                  "five": 5
+              } %}
 
-            {% set star_count = rating_values[item.star_rating] %}
+              {% set star_count = rating_values[item.star_rating] %}
 
-            {% if star_count %}
-              {% for i in range(star_count) %}
-                <svg
-                  stroke="currentColor"
-                  fill="currentColor"
-                  stroke-width="0"
-                  viewBox="0 0 24 24"
-                  class="mr-1 size-6"
-                  height="1em"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path>
-                </svg>
-              {% endfor %}
-            {% endif %}
+              {% if star_count %}
+                {% for i in range(star_count) %}
+                  <svg
+                    stroke-width="0"
+                    viewBox="0 0 24 24"
+                    class="testimonials-one-module__rating-star mr-1"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path>
+                  </svg>
+                {% endfor %}
+              {% endif %}
 
-          </div>
+            </div>
+          {% endif %}
           {% inline_rich_text field="quote" value="{{ item.quote }}" %}
           <div class="mt-5 flex w-full flex-col items-start md:mt-6 md:w-fit md:flex-row md:items-center">
               {% if item.add_image and item.testimonial_image.src %}
                   {% set loadingAttr = item.testimonial_image.loading != 'disabled' ? 'loading="{{ item.testimonial_image.loading|escape_attr }}"' : '' %}
-                  <img class="mb-4 size-12 min-h-12 min-w-12 rounded-full object-cover md:mb-0 md:mr-4"
-                      srcset="{{ resize_image_url(item.testimonial_image.src, 288) }} 288w,
-                      {{ resize_image_url(item.testimonial_image.src, 468) }} 468w,
-                      {{ resize_image_url(item.testimonial_image.src, 736) }} 736w,
-                      {{ resize_image_url(item.testimonial_image.src, 928) }} 928w"
-                      sizes="(max-width: 320px) 288px,
-                              (max-width: 500px) 468px,
-                              (max-width: 768px) 736px,
-                              928px"
+                  <img class="testimonials-one-module__author-image mb-4 object-cover md:mb-0 md:mr-4"
+                      srcset="{{ resize_image_url(item.testimonial_image.src, 288) }} 288w"
+                      sizes="(max-width: 320px) 288px"
                       src="{{ item.testimonial_image.src }}"
                       alt="{{ item.testimonial_image.alt }}"
-                      width="{{ item.testimonial_image.width }}"
-                      height="{{ item.testimonial_image.height }}"
+                      width="{{ module.styles.author_image.image_size }}"
+                      height="{{ module.styles.author_image.image_size }}"
                       {{ loadingAttr }}>
               {% endif %}
             <div>
-              <p class="font-semibold mb-0">{% inline_text field="author_name" value="{{ item.author_name }}" no_wrapper=true %}</p>
-              <p class="mb-0">{% inline_text field="author_position" value="{{ item.author_position }}" no_wrapper=true %}</p>
+              <p class="testimonials-one-module__author-name mb-0">{% inline_text field="author_name" value="{{ item.author_name }}" no_wrapper=true %}</p>
+              <p class="testimonials-one-module__author-position mb-0">{% inline_text field="author_position" value="{{ item.author_position }}" no_wrapper=true %}</p>
             </div>
           </div>
         </div>
