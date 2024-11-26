@@ -1,3 +1,142 @@
+{####################################################}
+{################# Module styles ####################}
+{####################################################}
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+      {# Card Styles #}
+
+      .feature-one-module__card {
+        {% if module.styles.card.background.bg_color %}
+          background-color: rgba({{ module.styles.card.background.bg_color.color|convert_rgb }}, {{ module.styles.card.background.bg_color.opacity / 100 }});
+        {% endif %}
+        {% if module.styles.card.border.border %}
+          {{ module.styles.card.border.border.css }}
+        {% endif %}
+        {% if module.styles.card.corner %}
+          border-top-left-radius: {{ module.styles.card.corner.top_left_radius ~ "px" }};
+          border-top-right-radius: {{ module.styles.card.corner.top_right_radius ~ "px" }};
+          border-bottom-left-radius: {{ module.styles.card.corner.bottom_left_radius ~ "px" }};
+          border-bottom-right-radius: {{ module.styles.card.corner.bottom_right_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.card.box_shadow.box_shadow %}
+          box-shadow: {{ module.styles.card.box_shadow.box_shadow }};
+        {% endif %}
+      }
+      
+      .feature-one-module__card:hover {
+        {% if module.styles.card.hover.box_shadow.box_shadow %}
+          box-shadow: {{ module.styles.card.hover.box_shadow.box_shadow }};
+        {% endif %}
+        {% if module.styles.card.hover.background.bg_color %}
+          background-color: rgba({{ module.styles.card.hover.background.bg_color.color|convert_rgb }}, {{ module.styles.card.hover.background.bg_color.opacity / 100 }});
+        {% endif %}
+      }
+
+
+      {# Icon/Image Styles #}
+
+      .feature-one-module__icon {
+        {% if module.styles.icon_image.icon.icon_size %}
+          width: {{ module.styles.icon_image.icon.icon_size ~ "px" }};
+          height: {{ module.styles.icon_image.icon.icon_size ~ "px" }};
+        {% endif %}
+      }
+
+      .feature-one-module__icon svg {
+        {% if module.styles.icon_image.icon.color %}
+          fill: rgba({{ module.styles.icon_image.icon.color.color|convert_rgb }}, {{ module.styles.icon_image.icon.color.opacity / 100 }});
+        {% endif %}
+      }
+
+      .feature-one-module__image {
+        {% if module.styles.icon_image.image.image_size %}
+          width: {{ module.styles.icon_image.image.image_size ~ "px" }};
+          height: auto;
+        {% endif %}
+        {% if module.styles.image.corner %}
+          border-top-left-radius: {{ module.styles.icon_image.image.corner.top_left_radius ~ "px" }};
+          border-top-right-radius: {{ module.styles.icon_image.image.corner.top_right_radius ~ "px" }};
+          border-bottom-left-radius: {{ module.styles.icon_image.image.corner.bottom_left_radius ~ "px" }};
+          border-bottom-right-radius: {{ module.styles.icon_image.image.corner.bottom_right_radius ~ "px" }};
+        {% endif %}
+      }
+
+
+      {# Button Styles #}
+
+      {% if module.styles.button.alignment.alignment %}
+        .feature-one-module__button-wrapper {
+          text-align: {{ module.styles.button.alignment.alignment.horizontal_align }};
+        }
+      {% endif %}
+
+      .feature-one-module__button {
+        {% if module.styles.button.alignment.is_full_width %}
+            width: 100%;
+        {% endif %}
+        {% if module.styles.button.background.color.color %}
+          background-color: rgba({{ module.styles.button.background.color.color|convert_rgb }}, {{ module.styles.button.background.color.opacity / 100 }});
+        {% endif %}
+        {% if module.styles.button.corner.top_left_radius >= 0 %}
+          border-top-left-radius: {{ module.styles.button.corner.top_left_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.button.corner.top_right_radius >= 0 %}
+          border-top-right-radius: {{ module.styles.button.corner.top_right_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.button.corner.bottom_left_radius >= 0 %}
+          border-bottom-left-radius: {{ module.styles.button.corner.bottom_left_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.button.corner.bottom_right_radius >= 0 %}
+          border-bottom-right-radius: {{ module.styles.button.corner.bottom_right_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.button.text.font %}
+          {{ module.styles.button.text.font.css }}
+        {% endif %}
+        {% if module.styles.button.text.transform %}
+          text-transform: {{ module.styles.button.text.transform }};
+        {% endif %}
+        {% if module.styles.button.border.border %}
+          {{ module.styles.button.border.border.css }}
+        {% endif %}
+        {{ module.styles.button.spacing.spacing.css }}
+      }
+
+      .feature-one-module__button:hover,
+      .feature-one-module__button:focus,
+      .feature-one-module__button:active {
+        {% if module.styles.button.hover.text.color.color %}
+          color: rgba({{ module.styles.button.hover.text.color.color|convert_rgb }}, {{ module.styles.button.hover.text.color.opacity / 100 }});
+        {% endif %}
+        {% if module.styles.button.hover.background.color.color %}
+          background-color: rgba({{ module.styles.button.hover.background.color.color|convert_rgb }}, {{ module.styles.button.hover.background.color.opacity / 100 }});
+        {% endif %}
+        {% if module.styles.button.hover.border.border %}
+          {{ module.styles.button.hover.border.border.css }}
+        {% endif %}
+        {% if module.styles.button.hover.corner.top_left_radius >= 0 %}
+          border-top-left-radius: {{ module.styles.button.hover.corner.top_left_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.button.hover.corner.top_right_radius >= 0 %}
+          border-top-right-radius: {{ module.styles.button.hover.corner.top_right_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.button.hover.corner.bottom_left_radius >= 0 %}
+          border-bottom-left-radius: {{ module.styles.button.hover.corner.bottom_left_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.button.hover.corner.bottom_right_radius >= 0 %}
+          border-bottom-right-radius: {{ module.styles.button.hover.corner.bottom_right_radius ~ "px" }};
+        {% endif %}
+      }
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+{####################################################}
+{################ Module layout ###################}
+{####################################################}
+
 <section class="feature-one-module px-[5%] py-16 md:py-24 lg:py-28">
   <div class="container">
     <div class="mx-auto mb-12 w-full max-w-lg text-center md:mb-18 lg:mb-20">
@@ -5,61 +144,60 @@
       {% inline_rich_text field="heading" value="{{ module.heading }}" %}
       {% inline_rich_text field="content" value="{{ module.content }}" %}
     </div>
-    <div class="grid auto-cols-fr grid-cols-1 gap-6 md:gap-8 lg:grid-cols-3">
+    <div class="grid auto-cols-fr grid-cols-1 gap-6 md:gap-8 lg:{{module.grid_column_count}}">
       {% for item in module.feature_item %}
-      <div class="flex flex-col justify-center border border-border-primary p-6 md:p-8">
+      <div class="feature-one-module__card flex flex-col justify-center p-6 md:p-8 transition-all">
         <div>
           <div class="rb-5 mb-5 md:mb-6">
-            <figure>
-              {% if item.feature_icon_type == "image" and item.feature_image.src %}
-                  {% set loadingAttr = item.feature_image.loading != 'disabled' ? 'loading="{{ item.feature_image.loading|escape_attr }}"' : '' %}
-                  <img srcset="{{ resize_image_url(item.feature_image.src, 288) }} 288w,
-                      {{ resize_image_url(item.feature_image.src, 468) }} 468w,
-                      {{ resize_image_url(item.feature_image.src, 736) }} 736w,
-                      {{ resize_image_url(item.feature_image.src, 928) }} 928w"
-                      sizes="(max-width: 320px) 288px,
-                              (max-width: 500px) 468px,
-                              (max-width: 768px) 736px,
-                              928px"
-                      src="{{ item.feature_image.src }}"
-                      alt="{{ item.feature_image.alt }}"
-                      width="{{ item.feature_image.width }}"
-                      height="{{ item.feature_image.height }}"
-                      {{ loadingAttr }}>
-              {% endif %}
-              {% if item.feature_icon_type == "icon" %}
+            {% if item.feature_icon_type == "image" and item.feature_image.src %}
+              <figure class="feature-one-module__image overflow-hidden">
+                {% set loadingAttr = item.feature_image.loading != 'disabled' ? 'loading="{{ item.feature_image.loading|escape_attr }}"' : '' %}
+                <img class="size-full object-cover"
+                    srcset="{{ resize_image_url(item.feature_image.src, 288) }} 288w"
+                    sizes="(max-width: 320px) 288px"
+                    src="{{ item.feature_image.src }}"
+                    alt="{{ item.feature_image.alt }}"
+                    width="{{ item.feature_image.width }}"
+                    height="{{ item.feature_image.height }}"
+                    {{ loadingAttr }}>
+              </figure>
+            {% endif %}
+            {% if item.feature_icon_type == "icon" %}
+              <figure class="feature-one-module__icon overflow-hidden">
                 {% icon
                   name="{{ item.feature_icon.name }}"
                   style="{{ item.feature_icon.type }}"
                   unicode="{{ item.feature_icon.unicode }}"
                   icon_set="{{ item.feature_icon.icon_set }}"
                 %}
-              {% endif %}
-            </figure>
+              </figure>
+            {% endif %}
           </div>
           {% inline_rich_text field="feature_content" value="{{ item.feature_content }}" %}
         </div>
-        <div class="mt-5 md:mt-6">
-          {% set href = item.feature_link.url.href %}
-          {% if item.feature_link.url.type is equalto "EMAIL_ADDRESS" %}
-            {% set href = "mailto:" + href %}
-          {% endif %}
-          <a class="button alternate-button"
-            {% if item.feature_link.url.type is equalto "CALL_TO_ACTION"  %}
-              href="{{ href }}" {# The href here is not escaped as it is not editable and functions as a JavaScript call to the associated CTA #}
-            {% else %}
-              href="{{ href|escape_url }}"
+        {% if item.add_button %}
+          <div class="feature-one-module__button-wrapper mt-5 md:mt-6">
+            {% set href = item.feature_link.url.href %}
+            {% if item.feature_link.url.type is equalto "EMAIL_ADDRESS" %}
+              {% set href = "mailto:" + href %}
             {% endif %}
-            {% if item.feature_link.open_in_new_tab %}
-              target="_blank"
-            {% endif %}
-            {% if item.feature_link.rel %}
-              rel="{{ item.feature_link.rel|escape_attr }}"
-            {% endif %}
-            >
-              {{ item.link_text|escape_html }}
-          </a>
-        </div>
+            <a class="button feature-one-module__button"
+              {% if item.feature_link.url.type is equalto "CALL_TO_ACTION"  %}
+                href="{{ href }}" {# The href here is not escaped as it is not editable and functions as a JavaScript call to the associated CTA #}
+              {% else %}
+                href="{{ href|escape_url }}"
+              {% endif %}
+              {% if item.feature_link.open_in_new_tab %}
+                target="_blank"
+              {% endif %}
+              {% if item.feature_link.rel %}
+                rel="{{ item.feature_link.rel|escape_attr }}"
+              {% endif %}
+              >
+                {{ item.link_text|escape_html }}
+            </a>
+          </div>
+        {% endif %}
       </div>
       {% endfor %}
     </div>
