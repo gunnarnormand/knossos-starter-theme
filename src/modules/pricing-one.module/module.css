@@ -1,9 +1,3 @@
-.pricing-one-module figure.pricing-icon-wrapper svg,
-.pricing-one-module figure.pricing-icon-wrapper img {
-    width: 3rem;
-    height: 3rem;
-}
-
-.pricing-one-module .benefit-detail {
+.pricing-one-module__benefit-detail {
     margin: 0;
 }

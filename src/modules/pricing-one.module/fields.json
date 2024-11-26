@@ -531,5 +531,765 @@
         "button_text": "Get Started"
       }
     ]
+  },
+  {
+    "id": "styles",
+    "label": "Styles",
+    "name": "styles",
+    "display_width": null,
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "locked": false,
+    "required": false,
+    "tab": "STYLE",
+    "type": "group",
+    "children": [
+      {
+        "name": "alignment",
+        "label": "Content Alignment",
+        "type": "group",
+        "expanded": false,
+        "children": [
+          {
+            "name": "top_alignment",
+            "label": "Top Content Alignment",
+            "help_text": "Position the top content within its container.",
+            "required": false,
+            "type": "alignment",
+            "alignment_direction": "HORIZONTAL",
+            "default": {
+              "horizontal_align": "CENTER"
+            }
+          }
+        ]
+      },
+      {
+        "name": "card",
+        "label": "Pricing Card",
+        "type": "group",
+        "expanded": true,
+        "children": [
+          {
+            "name": "background",
+            "label": "Background",
+            "help_text": "Card Background Color",
+            "type": "group",
+            "children": [
+              {
+                "name": "bg_color",
+                "label": "Background color",
+                "required": false,
+                "locked": false,
+                "type": "color",
+                "default": {
+                  "color": "#ffffff",
+                  "opacity": 100
+                }
+              }
+            ]
+          },
+          {
+            "name": "border",
+            "label": "Border",
+            "help_text": "Card Border Style",
+            "type": "group",
+            "children": [
+              {
+                "name": "border",
+                "label": "Border",
+                "required": false,
+                "locked": false,
+                "allow_custom_border_sides": false,
+                "type": "border",
+                "default": {
+                  "top": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  },
+                  "bottom": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  },
+                  "left": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  },
+                  "right": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "name": "corner",
+            "label": "Corner",
+            "help_text": "Card Border Radius",
+            "type": "group",
+            "children": [
+              {
+                "label": "Top Left Radius",
+                "name": "top_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Top Right Radius",
+                "name": "top_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Bottom Left Radius",
+                "name": "bottom_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Bottom Right Radius",
+                "name": "bottom_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              }
+            ]
+          },
+          {
+            "name": "box_shadow",
+            "label": "Box Shadow",
+            "help_text": "Card Box Shadow Style",
+            "type": "group",
+            "children": [
+              {
+                "name": "box_shadow",
+                "label": "Box Shadow",
+                "type": "choice",
+                "choices": [
+                  [
+                    "none",
+                    "None"
+                  ],
+                  [
+                    "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+                    "Small Shadow"
+                  ],
+                  [
+                    "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+                    "Regular Shadow"
+                  ],
+                  [
+                    "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+                    "Medium Shadow"
+                  ],
+                  [
+                    "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+                    "Large Shadow"
+                  ],
+                  [
+                    "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+                    "XL Shadow"
+                  ],
+                  [
+                    "0 25px 50px -12px rgb(0 0 0 / 0.25)",
+                    "2XL Shadow"
+                  ],
+                  [
+                    "inset 0 2px 4px 0 rgb(0 0 0 / 0.05)",
+                    "Shadow Inner"
+                  ]
+                ],
+                "default": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)"
+              }
+            ]
+          },
+          {
+            "name": "hover",
+            "label": "Hover",
+            "type": "group",
+            "expanded": true,
+            "children": [
+              {
+                "name": "box_shadow",
+                "label": "Box Shadow",
+                "help_text": "Card Box Shadow Hover Style",
+                "type": "group",
+                "children": [
+                  {
+                    "name": "box_shadow",
+                    "label": "Box Shadow",
+                    "type": "choice",
+                    "choices": [
+                      [
+                        "none",
+                        "None"
+                      ],
+                      [
+                        "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+                        "Small Shadow"
+                      ],
+                      [
+                        "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+                        "Regular Shadow"
+                      ],
+                      [
+                        "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+                        "Medium Shadow"
+                      ],
+                      [
+                        "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+                        "Large Shadow"
+                      ],
+                      [
+                        "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+                        "XL Shadow"
+                      ],
+                      [
+                        "0 25px 50px -12px rgb(0 0 0 / 0.25)",
+                        "2XL Shadow"
+                      ],
+                      [
+                        "inset 0 2px 4px 0 rgb(0 0 0 / 0.05)",
+                        "Shadow Inner"
+                      ]
+                    ],
+                    "default": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)"
+                  }
+                ]
+              },
+              {
+                "name": "background",
+                "label": "Background",
+                "help_text": "Card Background Hover Color",
+                "type": "group",
+                "children": [
+                  {
+                    "name": "bg_color",
+                    "label": "Background color",
+                    "required": false,
+                    "locked": false,
+                    "type": "color",
+                    "default": {
+                      "color": "#ffffff",
+                      "opacity": 100
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "icon_image",
+        "label": "Icon/Image",
+        "type": "group",
+        "expanded": true,
+        "children": [
+          {
+            "label": "Icon",
+            "name": "icon",
+            "help_text": "Icon Styles - applicable if icon option was chosen",
+            "type": "group",
+            "children": [
+              {
+                "name": "icon_size",
+                "label": "Size",
+                "required": false,
+                "locked": false,
+                "min": 32,
+                "max": 120,
+                "step": 1,
+                "type": "number",
+                "prefix": "",
+                "suffix": "px",
+                "default": "48",
+                "placeholder": "48px"
+              },
+              {
+                "name": "color",
+                "label": "Color",
+                "required": false,
+                "locked": false,
+                "type": "color",
+                "default": {
+                  "color": "#000000",
+                  "opacity": 100
+                }
+              }
+            ]
+          },
+          {
+            "label": "Image",
+            "name": "image",
+            "help_text": "Image Styles - applicable if image option was chosen",
+            "type": "group",
+            "children": [
+              {
+                "name": "image_size",
+                "label": "Size",
+                "required": false,
+                "locked": false,
+                "min": 32,
+                "max": 120,
+                "step": 1,
+                "type": "number",
+                "prefix": "",
+                "suffix": "px",
+                "default": "48",
+                "placeholder": "48px"
+              },
+              {
+                "name": "corner",
+                "label": "Corner",
+                "help_text": "Image Border Radius",
+                "type": "group",
+                "children": [
+                  {
+                    "label": "Top Left Radius",
+                    "name": "top_left_radius",
+                    "type": "number",
+                    "display": "text",
+                    "max": 100,
+                    "step": 1,
+                    "suffix": "px",
+                    "default": 0
+                  },
+                  {
+                    "label": "Top Right Radius",
+                    "name": "top_right_radius",
+                    "type": "number",
+                    "display": "text",
+                    "max": 100,
+                    "step": 1,
+                    "suffix": "px",
+                    "default": 0
+                  },
+                  {
+                    "label": "Bottom Left Radius",
+                    "name": "bottom_left_radius",
+                    "type": "number",
+                    "display": "text",
+                    "max": 100,
+                    "step": 1,
+                    "suffix": "px",
+                    "default": 0
+                  },
+                  {
+                    "label": "Bottom Right Radius",
+                    "name": "bottom_right_radius",
+                    "type": "number",
+                    "display": "text",
+                    "max": 100,
+                    "step": 1,
+                    "suffix": "px",
+                    "default": 0
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "alignment",
+            "label": "Icon/Image Alignment",
+            "help_text": "Position the icon/image content within its container.",
+            "required": false,
+            "type": "alignment",
+            "alignment_direction": "HORIZONTAL",
+            "default": {
+              "horizontal_align": "RIGHT"
+            }
+          }
+        ]
+      },
+      {
+        "name": "divider",
+        "label": "Divider Styles",
+        "type": "group",
+        "expanded": false,
+        "children": [
+          {
+            "name": "divider",
+            "label": "Divider Style",
+            "required": false,
+            "locked": false,
+            "allow_custom_border_sides": false,
+            "type": "border",
+            "default": {
+              "top": {
+                "width": {
+                  "value": 1,
+                  "units": "px"
+                },
+                "opacity": 100,
+                "style": "solid",
+                "color": "#000000"
+              },
+              "bottom": null,
+              "left": null,
+              "right": null
+            }
+          }
+        ]
+      },
+      {
+        "name": "feature_list",
+        "label": "Feature List Styles",
+        "type": "group",
+        "expanded": false,
+        "children": [
+          {
+            "label": "Icon",
+            "name": "icon",
+            "help_text": "Feature List Icon Styles",
+            "type": "group",
+            "children": [
+              {
+                "name": "color",
+                "label": "Color",
+                "required": false,
+                "locked": false,
+                "type": "color",
+                "default": {
+                  "color": "#000000",
+                  "opacity": 100
+                }
+              }
+            ]
+          },
+          {
+            "label": "Text",
+            "name": "text",
+            "help_text": "Feature List Text Styles",
+            "type": "group",
+            "children": [
+              {
+                "label": "Font",
+                "name": "font",
+                "type": "font",
+                "default": {
+                  "fallback": "serif",
+                  "font": "DM Sans",
+                  "font_set": "GOOGLE",
+                  "color": "#000000",
+                  "size": 16,
+                  "size_unit": "px",
+                  "styles": {
+                    "text-decoration": "none"
+                  },
+                  "variant": "regular"
+                }
+              },
+              {
+                "label": "Transform",
+                "name": "transform",
+                "type": "choice",
+                "choices": [
+                  [
+                    "none",
+                    "None"
+                  ],
+                  [
+                    "capitalize",
+                    "Capitalize"
+                  ],
+                  [
+                    "uppercase",
+                    "Uppercase"
+                  ],
+                  [
+                    "lowercase",
+                    "Lowercase"
+                  ]
+                ],
+                "display": "select",
+                "default": "none"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "button",
+        "label": "Button",
+        "type": "group",
+        "expanded": true,
+        "children": [
+          {
+            "label": "Text",
+            "name": "text",
+            "help_text": "Set Button font and transform styles",
+            "type": "group",
+            "children": [
+              {
+                "label": "Font",
+                "name": "font",
+                "type": "font"
+              },
+              {
+                "label": "Transform",
+                "name": "transform",
+                "type": "choice",
+                "choices": [
+                  [
+                    "none",
+                    "None"
+                  ],
+                  [
+                    "capitalize",
+                    "Capitalize"
+                  ],
+                  [
+                    "uppercase",
+                    "Uppercase"
+                  ],
+                  [
+                    "lowercase",
+                    "Lowercase"
+                  ]
+                ],
+                "display": "select"
+              }
+            ]
+          },
+          {
+            "label": "Background",
+            "name": "background",
+            "help_text": "Set Button Background color",
+            "type": "group",
+            "children": [
+              {
+                "label": "Color",
+                "name": "color",
+                "type": "color"
+              }
+            ]
+          },
+          {
+            "label": "Border",
+            "name": "border",
+            "help_text": "Set Button Border styles",
+            "type": "group",
+            "children": [
+              {
+                "label": "Border",
+                "name": "border",
+                "type": "border"
+              }
+            ]
+          },
+          {
+            "name": "corner",
+            "label": "Corner",
+            "help_text": "Set Button Border Radius for each corner individually",
+            "type": "group",
+            "children": [
+              {
+                "label": "Top Left Radius",
+                "name": "top_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px"
+              },
+              {
+                "label": "Top Right Radius",
+                "name": "top_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px"
+              },
+              {
+                "label": "Bottom Left Radius",
+                "name": "bottom_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px"
+              },
+              {
+                "label": "Bottom Right Radius",
+                "name": "bottom_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px"
+              }
+            ]
+          },
+          {
+            "label": "Hover",
+            "name": "hover",
+            "help_text": "Set Button Hover styles",
+            "type": "group",
+            "children": [
+              {
+                "label": "Text",
+                "name": "text",
+                "type": "group",
+                "children": [
+                  {
+                    "label": "Color",
+                    "name": "color",
+                    "type": "color"
+                  }
+                ]
+              },
+              {
+                "label": "Background",
+                "name": "background",
+                "type": "group",
+                "children": [
+                  {
+                    "label": "Color",
+                    "name": "color",
+                    "type": "color"
+                  }
+                ]
+              },
+              {
+                "label": "Border",
+                "name": "border",
+                "type": "group",
+                "children": [
+                  {
+                    "label": "Border",
+                    "name": "border",
+                    "type": "border"
+                  }
+                ]
+              },
+              {
+                "name": "corner",
+                "label": "Corner",
+                "type": "group",
+                "children": [
+                  {
+                    "label": "Top Left Radius",
+                    "name": "top_left_radius",
+                    "type": "number",
+                    "display": "text",
+                    "max": 100,
+                    "step": 1,
+                    "suffix": "px"
+                  },
+                  {
+                    "label": "Top Right Radius",
+                    "name": "top_right_radius",
+                    "type": "number",
+                    "display": "text",
+                    "max": 100,
+                    "step": 1,
+                    "suffix": "px"
+                  },
+                  {
+                    "label": "Bottom Left Radius",
+                    "name": "bottom_left_radius",
+                    "type": "number",
+                    "display": "text",
+                    "max": 100,
+                    "step": 1,
+                    "suffix": "px"
+                  },
+                  {
+                    "label": "Bottom Right Radius",
+                    "name": "bottom_right_radius",
+                    "type": "number",
+                    "display": "text",
+                    "max": 100,
+                    "step": 1,
+                    "suffix": "px"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "label": "Spacing",
+            "name": "spacing",
+            "help_text": "Set Button Spacing values",
+            "type": "group",
+            "children": [
+              {
+                "label": "Spacing",
+                "name": "spacing",
+                "type": "spacing",
+                "visibility": {
+                  "hidden_subfields": {
+                    "margin": true
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "label": "Alignment",
+            "name": "alignment",
+            "help_text": "Set Button Alignment",
+            "type": "group",
+            "children": [
+              {
+                "label": "Alignment",
+                "name": "alignment",
+                "type": "alignment",
+                "display_width": "half_width",
+                "alignment_direction": "HORIZONTAL"
+              },
+              {
+                "name": "is_full_width",
+                "label": "Full Width",
+                "required": false,
+                "locked": false,
+                "type": "boolean",
+                "display_width": "half_width",
+                "display": "toggle",
+                "help_text": "Makes button full width when enabled",
+                "default": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
   }
 ]

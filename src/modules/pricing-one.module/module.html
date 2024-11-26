@@ -1,92 +1,277 @@
+{####################################################}
+{################# Module styles ####################}
+{####################################################}
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+      {# Card Styles #}
+
+      .pricing-one-module__card {
+        {% if module.styles.card.background.bg_color %}
+          background-color: rgba({{ module.styles.card.background.bg_color.color|convert_rgb }}, {{ module.styles.card.background.bg_color.opacity / 100 }});
+        {% endif %}
+        {% if module.styles.card.border.border %}
+        {{ module.styles.card.border.border.css }}
+        {% endif %}
+        {% if module.styles.card.corner %}
+          border-top-left-radius: {{ module.styles.card.corner.top_left_radius ~ "px" }};
+          border-top-right-radius: {{ module.styles.card.corner.top_right_radius ~ "px" }};
+          border-bottom-left-radius: {{ module.styles.card.corner.bottom_left_radius ~ "px" }};
+          border-bottom-right-radius: {{ module.styles.card.corner.bottom_right_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.card.box_shadow.box_shadow %}
+          box-shadow: {{ module.styles.card.box_shadow.box_shadow }};
+        {% endif %}
+      }
+
+      .pricing-one-module__card:hover {
+        {% if module.styles.card.hover.box_shadow.box_shadow %}
+          box-shadow: {{ module.styles.card.hover.box_shadow.box_shadow }};
+        {% endif %}
+        {% if module.styles.card.hover.background.bg_color %}
+          background-color: rgba({{ module.styles.card.hover.background.bg_color.color|convert_rgb }}, {{ module.styles.card.hover.background.bg_color.opacity / 100 }});
+        {% endif %}
+      }
+
+
+      {# Icon/Image Styles #}
+
+      .pricing-one-module__icon svg {
+        {% if module.styles.icon_image.icon.icon_size %}
+          width: {{ module.styles.icon_image.icon.icon_size ~ "px" }};
+          height: {{ module.styles.icon_image.icon.icon_size ~ "px" }};
+        {% endif %}
+        {% if module.styles.icon_image.icon.color %}
+          fill: rgba({{ module.styles.icon_image.icon.color.color|convert_rgb }}, {{ module.styles.icon_image.icon.color.opacity / 100 }});
+        {% endif %}
+      }
+
+      .pricing-one-module__image img {
+        {% if module.styles.icon_image.image.image_size %}
+          width: {{ module.styles.icon_image.image.image_size ~ "px" }};
+          height: auto;
+        {% endif %}
+        {% if module.styles.icon_image.image.corner %}
+          border-top-left-radius: {{ module.styles.icon_image.image.corner.top_left_radius ~ "px" }};
+          border-top-right-radius: {{ module.styles.icon_image.image.corner.top_right_radius ~ "px" }};
+          border-bottom-left-radius: {{ module.styles.icon_image.image.corner.bottom_left_radius ~ "px" }};
+          border-bottom-right-radius: {{ module.styles.icon_image.image.corner.bottom_right_radius ~ "px" }};
+        {% endif %}
+      }
+
+
+      {# Divider Styles #}
+
+      {% if module.styles.divider.divider %}
+        .pricing-one-module__divider {
+          {{ module.styles.divider.divider.css }}
+        }
+      {% endif %}
+
+
+      {# Feature List Styles #}
+
+      .pricing-one-module__benefit-detail-icon {
+        width: {{ module.styles.feature_list.text.font.size ~ module.styles.feature_list.text.font.size_unit }};
+        height: {{ module.styles.feature_list.text.font.size ~ module.styles.feature_list.text.font.size_unit }};
+      }
+
+      {% if module.styles.feature_list.icon.color %}
+        .pricing-one-module__benefit-detail-icon svg {
+          fill: rgba({{ module.styles.feature_list.icon.color.color|convert_rgb }}, {{ module.styles.feature_list.icon.color.opacity / 100 }});
+        }
+      {% endif %}
+
+      .pricing-one-module__benefit-detail {
+        {% if module.styles.feature_list.text.font %}
+          {{ module.styles.feature_list.text.font.style }};
+          font-size: {{ module.styles.feature_list.text.font.size ~ module.styles.feature_list.text.font.size_unit }};
+          color: {{ module.styles.feature_list.text.font.color }};
+        {% endif %}
+        {% if module.styles.feature_list.text.transform %}
+          text-transform: {{ module.styles.feature_list.text.transform }};
+        {% endif %}
+      }
+
+
+      {# Button Styles #}
+
+      {% if module.styles.button.alignment.alignment %}
+        .pricing-one-module__button-wrapper {
+          text-align: {{ module.styles.button.alignment.alignment.horizontal_align }};
+        }
+      {% endif %}
+
+      .pricing-one-module__button {
+        {% if module.styles.button.alignment.is_full_width %}
+            width: 100%;
+        {% endif %}
+        {% if module.styles.button.background.color.color %}
+          background-color: rgba({{ module.styles.button.background.color.color|convert_rgb }}, {{ module.styles.button.background.color.opacity / 100 }});
+        {% endif %}
+        {% if module.styles.button.corner.top_left_radius >= 0 %}
+          border-top-left-radius: {{ module.styles.button.corner.top_left_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.button.corner.top_right_radius >= 0 %}
+          border-top-right-radius: {{ module.styles.button.corner.top_right_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.button.corner.bottom_left_radius >= 0 %}
+          border-bottom-left-radius: {{ module.styles.button.corner.bottom_left_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.button.corner.bottom_right_radius >= 0 %}
+          border-bottom-right-radius: {{ module.styles.button.corner.bottom_right_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.button.text.font %}
+          {{ module.styles.button.text.font.css }}
+        {% endif %}
+        {% if module.styles.button.text.transform %}
+          text-transform: {{ module.styles.button.text.transform }};
+        {% endif %}
+        {% if module.styles.button.border.border %}
+          {{ module.styles.button.border.border.css }}
+        {% endif %}
+        {{ module.styles.button.spacing.spacing.css }}
+      }
+
+      .pricing-one-module__button:hover,
+      .pricing-one-module__button:focus,
+      .pricing-one-module__button:active {
+        {% if module.styles.button.hover.text.color.color %}
+          color: rgba({{ module.styles.button.hover.text.color.color|convert_rgb }}, {{ module.styles.button.hover.text.color.opacity / 100 }});
+        {% endif %}
+        {% if module.styles.button.hover.background.color.color %}
+          background-color: rgba({{ module.styles.button.hover.background.color.color|convert_rgb }}, {{ module.styles.button.hover.background.color.opacity / 100 }});
+        {% endif %}
+        {% if module.styles.button.hover.border.border %}
+          {{ module.styles.button.hover.border.border.css }}
+        {% endif %}
+        {% if module.styles.button.hover.corner.top_left_radius >= 0 %}
+          border-top-left-radius: {{ module.styles.button.hover.corner.top_left_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.button.hover.corner.top_right_radius >= 0 %}
+          border-top-right-radius: {{ module.styles.button.hover.corner.top_right_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.button.hover.corner.bottom_left_radius >= 0 %}
+          border-bottom-left-radius: {{ module.styles.button.hover.corner.bottom_left_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.button.hover.corner.bottom_right_radius >= 0 %}
+          border-bottom-right-radius: {{ module.styles.button.hover.corner.bottom_right_radius ~ "px" }};
+        {% endif %}
+      }
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+{% set alignment_class_top = '' %}
+{% if module.styles.alignment.top_alignment.horizontal_align == 'CENTER' %}
+    {% set alignment_class_top = 'flex flex-col items-center text-center mx-auto' %}
+{% elif module.styles.alignment.top_alignment.horizontal_align == 'LEFT' %}
+    {% set alignment_class_top = 'flex flex-col items-start text-left mr-auto' %}
+{% elif module.styles.alignment.top_alignment.horizontal_align == 'RIGHT' %}
+    {% set alignment_class_top = 'flex flex-col items-end text-right ml-auto' %}
+{% endif %}
+
+{% set alignment_class = '' %}
+{% if module.styles.icon_image.alignment.horizontal_align == 'CENTER' %}
+    {% set alignment_class = 'items-center justify-center' %}
+{% elif module.styles.icon_image.alignment.horizontal_align == 'LEFT' %}
+    {% set alignment_class = 'items-start justify-start' %}
+{% elif module.styles.icon_image.alignment.horizontal_align == 'RIGHT' %}
+    {% set alignment_class = 'items-end justify-end' %}
+{% endif %}
+
+{####################################################}
+{################ Module layout ###################}
+{####################################################}
+
 <section class="pricing-one-module px-[5%] py-16 md:py-24 lg:py-28">
   <div class="container">
-    <div class="mx-auto mb-12 max-w-lg text-center md:mb-18 lg:mb-20">
+    <div class="mb-12 md:mb-18 lg:mb-20 max-w-lg {{ alignment_class_top }}">
       {% inline_rich_text field="tagline" value="{{ module.tagline }}" %}
       {% inline_rich_text field="title" value="{{ module.title }}" %}
       {% inline_rich_text field="content" value="{{ module.content }}" %}
     </div>
     <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
       {% for item in module.pricing_card %}
-        <div class="flex h-full flex-col justify-between border border-border-primary px-6 py-8 md:p-8">
-        <div>
-          {% if item.add_icon %}
-            <!-- HTML to show when checked -->
-            <figure class="pricing-icon-wrapper rb-4 mb-4 flex flex-col items-end justify-end">
+        <div class="pricing-one-module__card flex h-full flex-col justify-between px-6 py-8 md:p-8 transition-all">
+          <div>
+            {% if item.add_icon %}
+
               {% if item.pricing_icon_type == "icon" %}
-                {% icon
-                  name="{{ item.icon_field.name }}"
-                  style="{{ item.icon_field.type }}"
-                  unicode="{{ item.icon_field.unicode }}"
-                  icon_set="{{ item.icon_field.icon_set }}"
-                %}
+                <figure class="pricing-one-module__icon rb-4 mb-4 flex flex-col {{ alignment_class }}">
+                  {% icon
+                    name="{{ item.icon_field.name }}"
+                    style="{{ item.icon_field.type }}"
+                    unicode="{{ item.icon_field.unicode }}"
+                    icon_set="{{ item.icon_field.icon_set }}"
+                  %}
+                </figure>
               {% endif %}
+
               {% if item.pricing_icon_type == "image" and item.feature_image.src %}
                 {% set loadingAttr = item.feature_image.loading != 'disabled' ? 'loading="{{ item.feature_image.loading|escape_attr }}"' : '' %}
-                <img srcset="{{ resize_image_url(item.feature_image.src, 288) }} 288w,
-                    {{ resize_image_url(item.feature_image.src, 468) }} 468w,
-                    {{ resize_image_url(item.feature_image.src, 736) }} 736w,
-                    {{ resize_image_url(item.feature_image.src, 928) }} 928w"
-                    sizes="(max-width: 320px) 288px,
-                            (max-width: 500px) 468px,
-                            (max-width: 768px) 736px,
-                            928px"
+                <figure class="pricing-one-module__image rb-4 mb-4 flex flex-col {{ alignment_class }}">
+                  <img srcset="{{ resize_image_url(item.feature_image.src, 288) }} 288w"
+                    sizes="(max-width: 320px) 288px"
                     src="{{ item.feature_image.src }}"
                     alt="{{ item.feature_image.alt }}"
-                    width="{{ item.feature_image.width }}"
-                    height="{{ item.feature_image.height }}"
+                    width="{{ module.styles.icon_image.image.image_size }}"
+                    height="{{ module.styles.icon_image.image.image_size }}"
                     {{ loadingAttr }}>
+                </figure>
               {% endif %}
-            </figure>
-          {% endif %}
-          {% inline_rich_text field="pre_heading" value="{{ item.pre_heading }}" %}
-          {% inline_rich_text field="pricing_title" value="{{ item.pricing_title }}" %}
-          {% inline_rich_text field="sub_heading" value="{{ item.sub_heading }}" %}
-          {% if item.add_divider %}
-            <!-- HTML to show when checked -->
-            <div class="my-8 h-px w-full shrink-0 bg-border"></div>
-          {% endif %}
-          {% inline_rich_text field="feature_list_title" value="{{ item.feature_list_title }}" %}
-          <div class="mb-8 mt-4 grid grid-cols-1 gap-y-4 py-2">
-            {% for item2 in item.feature_list %}
-              <div class="flex self-start">
-                <div class="mr-4 mt-0.5 flex-none self-start w-4 h-4">
-                  {% icon
-                    name="{{ item2.feature_list_icon.name }}"
-                    style="{{ item2.feature_list_icon.type }}"
-                    unicode="{{ item2.feature_list_icon.unicode }}"
-                    icon_set="{{ item2.feature_list_icon.icon_set }}"
-                    no_wrapper=true
-                  %}
+              
+            {% endif %}
+            {% inline_rich_text field="pre_heading" value="{{ item.pre_heading }}" %}
+            {% inline_rich_text field="pricing_title" value="{{ item.pricing_title }}" %}
+            {% inline_rich_text field="sub_heading" value="{{ item.sub_heading }}" %}
+            {% if item.add_divider %}
+              <div class="pricing-one-module__divider my-8 w-full shrink-0"></div>
+            {% endif %}
+            {% inline_rich_text field="feature_list_title" value="{{ item.feature_list_title }}" %}
+            <div class="mb-8 mt-4 grid grid-cols-1 gap-y-4 py-2">
+              {% for item2 in item.feature_list %}
+                <div class="flex self-start">
+                  <div class="mr-4 mt-0.5 flex-none self-start pricing-one-module__benefit-detail-icon">
+                    {% icon
+                      name="{{ item2.feature_list_icon.name }}"
+                      style="{{ item2.feature_list_icon.type }}"
+                      unicode="{{ item2.feature_list_icon.unicode }}"
+                      icon_set="{{ item2.feature_list_icon.icon_set }}"
+                      no_wrapper=true
+                    %}
+                  </div>
+                  <p class="pricing-one-module__benefit-detail">
+                    {% inline_text field="feature_text" value="{{ item2.feature_text }}" no_wrapper=true %}
+                  </p>
                 </div>
-                <p class="benefit-detail">
-                  {% inline_text field="feature_text" value="{{ item2.feature_text }}" no_wrapper=true %}
-                </p>
-              </div>
-            {% endfor %}
+              {% endfor %}
+            </div>
+          </div>
+          <div class="pricing-one-module__button-wrapper">
+            {% set href = item.button_link.url.href %}
+            {% if item.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+              {% set href = "mailto:" + href %}
+            {% endif %}
+            <a class="button pricing-one-module__button"
+              {% if item.button_link.url.type is equalto "CALL_TO_ACTION"  %}
+                href="{{ href }}" {# The href here is not escaped as it is not editable and functions as a JavaScript call to the associated CTA #}
+              {% else %}
+                href="{{ href|escape_url }}"
+              {% endif %}
+              {% if item.button_link.open_in_new_tab %}
+                target="_blank"
+              {% endif %}
+              {% if item.button_link.rel %}
+                rel="{{ item.button_link.rel|escape_attr }}"
+              {% endif %}
+              >
+              {% inline_text field="button_text" value="{{ item.button_text }}" %}
+            </a>
           </div>
         </div>
-        <div>
-          {% set href = item.button_link.url.href %}
-          {% if item.button_link.url.type is equalto "EMAIL_ADDRESS" %}
-            {% set href = "mailto:" + href %}
-          {% endif %}
-          <a class="button w-full"
-            {% if item.button_link.url.type is equalto "CALL_TO_ACTION"  %}
-              href="{{ href }}" {# The href here is not escaped as it is not editable and functions as a JavaScript call to the associated CTA #}
-            {% else %}
-              href="{{ href|escape_url }}"
-            {% endif %}
-            {% if item.button_link.open_in_new_tab %}
-              target="_blank"
-            {% endif %}
-            {% if item.button_link.rel %}
-              rel="{{ item.button_link.rel|escape_attr }}"
-            {% endif %}
-            >
-            {% inline_text field="button_text" value="{{ item.button_text }}" %}
-          </a>
-        </div>
-      </div>
       {% endfor %}
     </div>
   </div>
