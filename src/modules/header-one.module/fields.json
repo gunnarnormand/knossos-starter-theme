@@ -141,5 +141,30 @@
                 "default": "Button"
             }
         ]
+    },
+    {
+        "id": "styles",
+        "label": "Styles",
+        "name": "styles",
+        "display_width": null,
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "locked": false,
+        "required": false,
+        "tab": "STYLE",
+        "type": "group",
+        "children": [
+            {
+                "name": "alignment",
+                "label": "Content Alignment",
+                "help_text": "Position the content within its container.",
+                "required": false,
+                "type": "alignment",
+                "alignment_direction": "HORIZONTAL",
+                "default": {
+                    "horizontal_align": "CENTER"
+                }
+            }
+        ]
     }
 ]
