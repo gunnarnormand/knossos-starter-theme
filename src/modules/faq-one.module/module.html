@@ -1,20 +1,129 @@
+{####################################################}
+{################# Module styles ####################}
+{####################################################}
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+      .faq-one-module__divider {
+        {% if module.styles.faqs.divider %}
+          {{ module.styles.faqs.divider.css }}
+        {% endif %}
+      }
+
+      .faq-one-module__question {
+        {% if module.styles.faqs.text.font %}
+          {{ module.styles.faqs.text.font.style }};
+          font-size: {{ module.styles.faqs.text.font.size ~ module.styles.faqs.text.font.size_unit }};
+          color: {{ module.styles.faqs.text.font.color }};
+        {% endif %}
+        {% if module.styles.faqs.text.transform %}
+          text-transform: {{ module.styles.faqs.text.transform }};
+        {% endif %}
+      }
+
+      {# Button Styles #}
+
+      .faq-one-module__button {
+        {% if module.styles.button.background.color.color %}
+          background-color: rgba({{ module.styles.button.background.color.color|convert_rgb }}, {{ module.styles.button.background.color.opacity / 100 }});
+        {% endif %}
+        {% if module.styles.button.corner.top_left_radius >= 0 %}
+          border-top-left-radius: {{ module.styles.button.corner.top_left_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.button.corner.top_right_radius >= 0 %}
+          border-top-right-radius: {{ module.styles.button.corner.top_right_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.button.corner.bottom_left_radius >= 0 %}
+          border-bottom-left-radius: {{ module.styles.button.corner.bottom_left_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.button.corner.bottom_right_radius >= 0 %}
+          border-bottom-right-radius: {{ module.styles.button.corner.bottom_right_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.button.text.font %}
+        {{ module.styles.button.text.font.css }}
+        {% endif %}
+        {% if module.styles.button.text.transform %}
+          text-transform: {{ module.styles.button.text.transform }};
+        {% endif %}
+        {% if module.styles.button.border.border %}
+          {{ module.styles.button.border.border.css }}
+        {% endif %}
+        {{ module.styles.button.spacing.spacing.css }}
+      }
+
+      .faq-one-module__button:hover,
+      .faq-one-module__button:focus,
+      .faq-one-module__button:active {
+        {% if module.styles.button.hover.text.color.color %}
+          color: rgba({{ module.styles.button.hover.text.color.color|convert_rgb }}, {{ module.styles.button.hover.text.color.opacity / 100 }});
+        {% endif %}
+        {% if module.styles.button.hover.background.color.color %}
+          background-color: rgba({{ module.styles.button.hover.background.color.color|convert_rgb }}, {{ module.styles.button.hover.background.color.opacity / 100 }});
+        {% endif %}
+        {% if module.styles.button.hover.border.border %}
+          {{ module.styles.button.hover.border.border.css }}
+        {% endif %}
+        {% if module.styles.button.hover.corner.top_left_radius >= 0 %}
+          border-top-left-radius: {{ module.styles.button.hover.corner.top_left_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.button.hover.corner.top_right_radius >= 0 %}
+          border-top-right-radius: {{ module.styles.button.hover.corner.top_right_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.button.hover.corner.bottom_left_radius >= 0 %}
+          border-bottom-left-radius: {{ module.styles.button.hover.corner.bottom_left_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.button.hover.corner.bottom_right_radius >= 0 %}
+          border-bottom-right-radius: {{ module.styles.button.hover.corner.bottom_right_radius ~ "px" }};
+        {% endif %}
+      }
+
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+  {% set alignment_class_top = '' %}
+
+  {% if module.styles.alignment.top_alignment.horizontal_align == 'CENTER' %}
+      {% set alignment_class_top = 'flex flex-col items-center text-center mx-auto' %}
+  {% elif module.styles.alignment.top_alignment.horizontal_align == 'LEFT' %}
+      {% set alignment_class_top = 'text-left' %}
+  {% elif module.styles.alignment.top_alignment.horizontal_align == 'RIGHT' %}
+      {% set alignment_class_top = 'flex flex-col items-end text-right ml-auto' %}
+  {% endif %}
+
+  {% set alignment_class_bottom = '' %}
+
+  {% if module.styles.alignment.bottom_alignment.horizontal_align == 'CENTER' %}
+      {% set alignment_class_bottom = 'flex flex-col items-center text-center mx-auto' %}
+  {% elif module.styles.alignment.bottom_alignment.horizontal_align == 'LEFT' %}
+      {% set alignment_class_bottom = 'text-left' %}
+  {% elif module.styles.alignment.bottom_alignment.horizontal_align == 'RIGHT' %}
+      {% set alignment_class_bottom = 'flex flex-col items-end text-right ml-auto' %}
+  {% endif %}
+
+{####################################################}
+{################ Module layout ###################}
+{####################################################}
+
 <section class="faq-one-module px-[5%] py-16 md:py-24 lg:py-28">
   <div class="container">
-    <div class="rb-12 mb-12 w-full max-w-lg md:mb-18 lg:mb-20">
+    <div class="mb-12 md:mb-18 lg:mb-20 w-full max-w-lg {{ alignment_class_top }}">
       {% inline_rich_text field="title" value="{{ module.title }}" %}
       {% inline_rich_text field="subtitle" value="{{ module.subtitle }}" %}
     </div>
     <div>
       {% for item in module.faqs %}
-        <div class="grid auto-cols-fr grid-cols-1 items-start gap-x-10 gap-y-4 border-t border-border-primary pb-10 pt-5 sm:grid-cols-[0.75fr_1fr] md:gap-x-12 md:gap-y-16 md:pb-12 md:pt-6 lg:gap-x-16 lg:gap-y-20">
-          <h2 class="font-bold text-md lg:text-xl">{% inline_text field="question" value="{{ item.question }}" %}</h2>
+        <div class="faq-one-module__divider grid auto-cols-fr grid-cols-1 items-start gap-x-10 gap-y-4 pb-10 pt-5 sm:grid-cols-[0.75fr_1fr] md:gap-x-12 md:gap-y-16 md:pb-12 md:pt-6 lg:gap-x-16 lg:gap-y-20">
+          <h2 class="faq-one-module__question">{% inline_text field="question" value="{{ item.question }}" %}</h2>
           <div>
             {% inline_rich_text field="answer" value="{{ item.answer }}" no_wrapper=true %}
           </div>
         </div>
       {% endfor %}
     </div>
-    <div class="mt-12 md:mt-18 lg:mt-20">
+    <div class="mt-12 md:mt-18 lg:mt-20 w-full max-w-lg {{ alignment_class_bottom }}">
       {% inline_rich_text field="bottom_heading" value="{{ module.bottom_heading }}" no_wrapper=true %}
       {% inline_rich_text field="bottom_content" value="{{ module.bottom_content }}" no_wrapper=true %}
       <div class="mt-6 md:mt-8">
@@ -22,7 +131,7 @@
         {% if module.button_link.url.type is equalto "EMAIL_ADDRESS" %}
           {% set href = "mailto:" + href %}
         {% endif %}
-        <a class="button alternate-button px-6 py-3"
+        <a class="button faq-one-module__button"
           {% if module.button_link.url.type is equalto "CALL_TO_ACTION"  %}
             href="{{ href }}" {# The href here is not escaped as it is not editable and functions as a JavaScript call to the associated CTA #}
           {% else %}
