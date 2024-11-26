@@ -3017,5 +3017,189 @@
         ]
       }
     ]
+  },
+  {
+    "label": "Blog",
+    "name": "blog",
+    "type": "group",
+    "children": [
+      {
+        "name": "tags",
+        "label": "Tags",
+        "help_text": "Tag Text Styles in Posts and Related Posts section",
+        "type": "group",
+        "expanded": true,
+        "children": [
+          {
+            "label": "Text",
+            "name": "text",
+            "help_text": "Tag Text Styles",
+            "type": "group",
+            "children": [
+              {
+                "label": "Font",
+                "name": "font",
+                "type": "font",
+                "default": {
+                  "color": "#000000",
+                  "size": 12,
+                  "size_unit": "px",
+                  "styles": {
+                    "text-decoration": "none"
+                  },
+                  "variant": "700"
+                }
+              },
+              {
+                "label": "Transform",
+                "name": "transform",
+                "type": "choice",
+                "choices": [
+                  [
+                    "none",
+                    "None"
+                  ],
+                  [
+                    "capitalize",
+                    "Capitalize"
+                  ],
+                  [
+                    "uppercase",
+                    "Uppercase"
+                  ],
+                  [
+                    "lowercase",
+                    "Lowercase"
+                  ]
+                ],
+                "display": "select",
+                "default": "none"
+              }
+            ]
+          },
+          {
+            "name": "background",
+            "label": "Background",
+            "help_text": "Tag Background Color",
+            "type": "group",
+            "children": [
+              {
+                "name": "bg_color",
+                "label": "Background color",
+                "required": false,
+                "locked": false,
+                "type": "color",
+                "default": {
+                  "color": "#ffffff",
+                  "opacity": 100
+                }
+              }
+            ]
+          },
+          {
+            "name": "border",
+            "label": "Border",
+            "help_text": "Tag Border Style",
+            "type": "group",
+            "children": [
+              {
+                "name": "border",
+                "label": "Border",
+                "required": false,
+                "locked": false,
+                "allow_custom_border_sides": false,
+                "type": "border",
+                "default": {
+                  "top": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  },
+                  "bottom": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  },
+                  "left": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  },
+                  "right": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "name": "corner",
+            "label": "Corner",
+            "help_text": "Tag Border Radius",
+            "type": "group",
+            "children": [
+              {
+                "label": "Top Left Radius",
+                "name": "top_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Top Right Radius",
+                "name": "top_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Bottom Left Radius",
+                "name": "bottom_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Bottom Right Radius",
+                "name": "bottom_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              }
+            ]
+          }
+        ]
+      }
+    ]
   }
 ]

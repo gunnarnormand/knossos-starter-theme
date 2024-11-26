@@ -449,20 +449,24 @@
                 "label": "Font",
                 "name": "font",
                 "type": "font",
-                "default": {
-                  "color": "#000000",
-                  "size": 12,
-                  "size_unit": "px",
-                  "styles": {
-                    "text-decoration": "none"
-                  },
-                  "variant": "700"
+                "inherited_value": {
+                  "property_value_paths": {
+                    "font": "theme.blog.tags.text.font.font",
+                    "color": "theme.blog.tags.text.font.color",
+                    "size": "theme.blog.tags.text.font.size",
+                    "size_unit": "theme.blog.tags.text.font.size_unit",
+                    "styles": "theme.blog.tags.text.font.styles",
+                    "variant": "theme.blog.tags.text.font.variant"
+                  }
                 }
               },
               {
                 "label": "Transform",
                 "name": "transform",
                 "type": "choice",
+                "inherited_value": {
+                  "default_value_path": "theme.blog.tags.text.transform"
+                },
                 "choices": [
                   [
                     "none",
@@ -481,8 +485,7 @@
                     "Lowercase"
                   ]
                 ],
-                "display": "select",
-                "default": "none"
+                "display": "select"
               }
             ]
           },
@@ -498,9 +501,11 @@
                 "required": false,
                 "locked": false,
                 "type": "color",
-                "default": {
-                  "color": "#ffffff",
-                  "opacity": 100
+                "inherited_value": {
+                  "property_value_paths": {
+                    "color": "theme.blog.tags.background.bg_color.color",
+                    "opacity": "theme.blog.tags.background.bg_color.opacity"
+                  }
                 }
               }
             ]
@@ -518,6 +523,30 @@
                 "locked": false,
                 "allow_custom_border_sides": false,
                 "type": "border",
+                "inherited_value": {
+                  "property_value_paths": {
+                    "top.width.value": "theme.blog.tags.border.border.top.width.value",
+                    "top.width.units": "theme.blog.tags.border.border.top.width.units",
+                    "top.color": "theme.blog.tags.border.border.top.color",
+                    "top.opacity": "theme.blog.tags.border.border.top.opacity",
+                    "top.style": "theme.blog.tags.border.border.top.style",
+                    "bottom.width.value": "theme.blog.tags.border.border.bottom.width.value",
+                    "bottom.width.units": "theme.blog.tags.border.border.bottom.width.units",
+                    "bottom.color": "theme.blog.tags.border.border.bottom.color",
+                    "bottom.opacity": "theme.blog.tags.border.border.bottom.opacity",
+                    "bottom.style": "theme.blog.tags.border.border.bottom.style",
+                    "left.width.value": "theme.blog.tags.border.border.left.width.value",
+                    "left.width.units": "theme.blog.tags.border.border.left.width.units",
+                    "left.color": "theme.blog.tags.border.border.left.color",
+                    "left.opacity": "theme.blog.tags.border.border.left.opacity",
+                    "left.style": "theme.blog.tags.border.border.left.style",
+                    "right.width.value": "theme.blog.tags.border.border.right.width.value",
+                    "right.width.units": "theme.blog.tags.border.border.right.width.units",
+                    "right.color": "theme.blog.tags.border.border.right.color",
+                    "right.opacity": "theme.blog.tags.border.border.right.opacity",
+                    "right.style": "theme.blog.tags.border.border.right.style"
+                  }
+                },
                 "default": {
                   "top": {
                     "width": {
@@ -573,6 +602,9 @@
                 "max": 100,
                 "step": 1,
                 "suffix": "px",
+                "inherited_value": {
+                  "default_value_path": "theme.blog.tags.corner.top_left_radius"
+                },
                 "default": 0
               },
               {
@@ -583,6 +615,9 @@
                 "max": 100,
                 "step": 1,
                 "suffix": "px",
+                "inherited_value": {
+                  "default_value_path": "theme.blog.tags.corner.top_right_radius"
+                },
                 "default": 0
               },
               {
@@ -593,6 +628,9 @@
                 "max": 100,
                 "step": 1,
                 "suffix": "px",
+                "inherited_value": {
+                  "default_value_path": "theme.blog.tags.corner.bottom_left_radius"
+                },
                 "default": 0
               },
               {
@@ -603,6 +641,9 @@
                 "max": 100,
                 "step": 1,
                 "suffix": "px",
+                "inherited_value": {
+                  "default_value_path": "theme.blog.tags.corner.bottom_right_radius"
+                },
                 "default": 0
               }
             ]

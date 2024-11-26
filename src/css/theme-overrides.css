@@ -44,7 +44,7 @@ form .focus-visible {
 /* Containers Vars */
 
 {% set container_width = theme.spacing.maximum_content_width ~ 'px' %}
-  {% set dnd_section_padding = theme.spacing.vertical_spacing ~ 'px ' ~ '1rem' %}
+{% set dnd_section_padding = theme.spacing.vertical_spacing ~ 'px ' ~ '1rem' %}
 
 .content-wrapper {
   max-width: {{ container_width }};
@@ -749,29 +749,44 @@ tfoot td {
 {##############################   9. Blog   ################################}
 {###########################################################################}
 
+/* Blog Vars */
+
+{% set blog_tag_font_style = theme.blog.tags.text.font.style %}
+{% set blog_tag_font_size = theme.blog.tags.text.font.size ~ theme.blog.tags.text.font.size_unit %}
+{% set blog_tag_font_color = theme.blog.tags.text.font.color %}
+{% set blog_tag_text_transform = theme.blog.tags.text.transform %}
+{% set blog_tag_bg_color = color(theme.blog.tags.background.bg_color) %}
+{% set blog_tag_border = theme.blog.tags.border.border.css %}
+{% set blog_tag_top_left_corner_radius = theme.blog.tags.corner.top_left_radius ~ "px" %}
+{% set blog_tag_top_right_corner_radius = theme.blog.tags.corner.top_right_radius ~ "px" %}
+{% set blog_tag_bottom_left_corner_radius = theme.blog.tags.corner.bottom_left_radius ~ "px" %}
+{% set blog_tag_bottom_right_corner_radius = theme.blog.tags.corner.bottom_right_radius ~ "px" %}
+
 /* Blog post */
 
 .blog-post__meta a {
   color: {{ body_font.color }};
 }
 
+/* Blog tags */
+
 .blog-post__tag-link,
 .blog-post__tag-link:hover,
 .blog-post__tag-link:focus,
 .blog-post__tag-link:active {
-  color: {{ body_font.color }};
+  {{ blog_tag_font_style }};
+  font-size: {{ blog_tag_font_size }};
+  color: {{ blog_tag_font_color }};
+  text-transform: {{ blog_tag_text_transform }};
 }
 
 .blog-post__tag-button {
-  {{ button_font.style }};
-  color: {{ button_bg_color }};
-  background-color: {{ button_font.color }};
-  text-transform: {{ button_text_transform }};
-  {{ button_border }}
-  border-top-left-radius: {{ button_top_left_corner_radius }};
-  border-top-right-radius: {{ button_top_right_corner_radius }};
-  border-bottom-left-radius: {{ button_bottom_left_corner_radius }};
-  border-bottom-right-radius: {{ button_bottom_right_corner_radius }};
+  background-color: {{ blog_tag_bg_color }};
+  {{ blog_tag_border }};
+  border-top-left-radius: {{ blog_tag_top_left_corner_radius }};
+  border-top-right-radius: {{ blog_tag_top_right_corner_radius }};
+  border-bottom-left-radius: {{ blog_tag_bottom_left_corner_radius }};
+  border-bottom-right-radius: {{ blog_tag_bottom_right_corner_radius }};
 }
 
 /* Blog related posts */
