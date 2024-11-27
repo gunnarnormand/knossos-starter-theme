@@ -96,26 +96,26 @@
         .header-one-module__alt-button:hover,
         .header-one-module__alt-button:focus,
         .header-one-module__alt-button:active {
-          {% if module.styles.button.hover.text.color.color %}
-            color: rgba({{ module.styles.button.hover.text.color.color|convert_rgb }}, {{ module.styles.button.hover.text.color.opacity / 100 }});
+          {% if module.styles.alt_button.hover.text.color.color %}
+            color: rgba({{ module.styles.alt_button.hover.text.color.color|convert_rgb }}, {{ module.styles.alt_button.hover.text.color.opacity / 100 }});
           {% endif %}
-          {% if module.styles.button.hover.background.color.color %}
-            background-color: rgba({{ module.styles.button.hover.background.color.color|convert_rgb }}, {{ module.styles.button.hover.background.color.opacity / 100 }});
+          {% if module.styles.alt_button.hover.background.color.color %}
+            background-color: rgba({{ module.styles.alt_button.hover.background.color.color|convert_rgb }}, {{ module.styles.alt_button.hover.background.color.opacity / 100 }});
           {% endif %}
-          {% if module.styles.button.hover.border.border %}
-            {{ module.styles.button.hover.border.border.css }}
+          {% if module.styles.alt_button.hover.border.border %}
+            {{ module.styles.alt_button.hover.border.border.css }}
           {% endif %}
-          {% if module.styles.button.hover.corner.top_left_radius >= 0 %}
-            border-top-left-radius: {{ module.styles.button.hover.corner.top_left_radius ~ "px" }};
+          {% if module.styles.alt_button.hover.corner.top_left_radius >= 0 %}
+            border-top-left-radius: {{ module.styles.alt_button.hover.corner.top_left_radius ~ "px" }};
           {% endif %}
-          {% if module.styles.button.hover.corner.top_right_radius >= 0 %}
-            border-top-right-radius: {{ module.styles.button.hover.corner.top_right_radius ~ "px" }};
+          {% if module.styles.alt_button.hover.corner.top_right_radius >= 0 %}
+            border-top-right-radius: {{ module.styles.alt_button.hover.corner.top_right_radius ~ "px" }};
           {% endif %}
-          {% if module.styles.button.hover.corner.bottom_left_radius >= 0 %}
-            border-bottom-left-radius: {{ module.styles.button.hover.corner.bottom_left_radius ~ "px" }};
+          {% if module.styles.alt_button.hover.corner.bottom_left_radius >= 0 %}
+            border-bottom-left-radius: {{ module.styles.alt_button.hover.corner.bottom_left_radius ~ "px" }};
           {% endif %}
-          {% if module.styles.button.hover.corner.bottom_right_radius >= 0 %}
-            border-bottom-right-radius: {{ module.styles.button.hover.corner.bottom_right_radius ~ "px" }};
+          {% if module.styles.alt_button.hover.corner.bottom_right_radius >= 0 %}
+            border-bottom-right-radius: {{ module.styles.alt_button.hover.corner.bottom_right_radius ~ "px" }};
           {% endif %}
         }
 
