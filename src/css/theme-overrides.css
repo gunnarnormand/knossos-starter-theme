@@ -268,6 +268,7 @@ button.alternate-button,
 .hs-blog-post-listing__post-button.alternate-button {
   color: {{ button_bg_color }};
   background-color: {{ button_font.color }};
+  {{ button_hover_border }};
 }
 
 button.alternate-button:hover,
@@ -280,6 +281,7 @@ button.alternate-button:focus,
 .hs-blog-post-listing__post-button.alternate-button:focus {
   color: {{ button_hover_background }};
   background-color: {{ button_hover_color }};
+  {{ button_border }};
 }
 
 button.alternate-button:active,
@@ -288,6 +290,7 @@ button.alternate-button:active,
 .hs-blog-post-listing__post-button.alternate-button:active {
   color: {{ button_hover_background }};
   background-color: {{ button_hover_color }};
+  {{ button_border }};
 }
 
 .glightbox-knossos .gclose path,
@@ -570,9 +573,7 @@ tfoot td {
 
 /* Header Vars */
 
-{% set lang_button_alignment = theme.header.language_switcher.button.alignment.alignment.css %}
 {% set lang_button_bg = color(theme.header.language_switcher.button.background.bg_color) %}
-
 {% set lang_button_border = theme.header.language_switcher.button.border.border.css %}
 {% set lang_top_left_corner_radius = theme.header.language_switcher.button.corner.top_left_radius ~ "px" %}
 {% set lang_top_right_corner_radius = theme.header.language_switcher.button.corner.top_right_radius ~ "px" %}
@@ -592,6 +593,7 @@ tfoot td {
 
 {% set lang_dropdown_font = theme.header.language_switcher.dropdown.text.font %}
 {% set lang_dropdown_text_transform = theme.header.language_switcher.dropdown.text.transform %}
+{% set lang_dropdown_alignment = theme.header.language_switcher.dropdown.text.alignment.alignment.css %}
 {% set lang_dropdown_border = theme.header.language_switcher.dropdown.border.border.css %}
 {% set lang_dropdown_top_left_corner_radius = theme.header.language_switcher.dropdown.corner.top_left_radius ~ "px" %}
 {% set lang_dropdown_top_right_corner_radius = theme.header.language_switcher.dropdown.corner.top_right_radius ~ "px" %}
@@ -624,10 +626,6 @@ tfoot td {
   {{ header_border_bottom }};
 }
 
-#site-header #hs_cos_wrapper_language-switcher .hs-language-switcher {
-  {{ lang_button_alignment }};
-}
-
 #site-header #hs_cos_wrapper_language-switcher .hs-language-switcher__button {
   background-color: {{ lang_button_bg }};
   {{ lang_button_border }};
@@ -640,6 +638,11 @@ tfoot td {
   color: {{ lang_button_font.color }};
   font-size: {{ lang_button_font.size ~ lang_button_font.size_unit }};
   text-transform: {{ lang_button_text_transform }};
+}
+
+#site-header #hs_cos_wrapper_language-switcher .hs-language-switcher__label {
+  font-size: {{ lang_button_font.size ~ lang_button_font.size_unit }};
+  line-height: 1.4;
 }
 
 #site-header #hs_cos_wrapper_language-switcher .hs-language-switcher__icon--dropdown {
@@ -671,6 +674,7 @@ tfoot td {
   color: {{ lang_dropdown_font.color }};
   font-size: {{ lang_dropdown_font.size ~ lang_dropdown_font.size_unit }};
   text-transform: {{ lang_dropdown_text_transform }};
+  {{ lang_dropdown_alignment }};
 }
 
 #site-header #hs_cos_wrapper_language-switcher .hs-language-switcher__button:focus,
@@ -813,12 +817,13 @@ tfoot td {
   background-color: {{ button_font.color }};
   font-size: {{ button_font.size ~ button_font.size_unit }};
   text-transform: {{ button_text_transform }};
-  {{ button_border }}
+  {{ button_hover_border }};
   border-top-left-radius: {{ button_top_left_corner_radius }};
   border-top-right-radius: {{ button_top_right_corner_radius }};
   border-bottom-left-radius: {{ button_bottom_left_corner_radius }};
   border-bottom-right-radius: {{ button_bottom_right_corner_radius }};
   {{ button_spacing }}
+  background-image: none;
 }
 
 #comments-listing .comment-reply-to:hover,
@@ -826,7 +831,7 @@ tfoot td {
 #comments-listing .comment-reply-to:active {
   color: {{ button_hover_background }};
   background-color: {{ button_hover_color }};
-  {{ button_hover_border }};
+  {{ button_border }};
   border-top-left-radius: {{ button_hover_top_left_corner_radius }};
   border-top-right-radius: {{ button_hover_top_right_corner_radius }};
   border-bottom-left-radius: {{ button_hover_bottom_left_corner_radius }};

@@ -67,7 +67,7 @@
       {
         "label": "Accessibility Focus Color",
         "name": "focus_visible",
-        "help_text": "Sets global element `:focus-visible` property color for accessibilty. Learn more about why this is needed <a href='https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html' target='_blank'>here: https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html</a>",
+        "help_text": "Sets global element <code>:focus-visible</code> property color for accessibilty. Learn more <a href='https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html' target='_blank'>here: https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html</a>",
         "type": "color",
         "visibility": {
           "hidden_subfields": {
@@ -1368,13 +1368,13 @@
         "type": "group",
         "children": [
           {
-            "label": "Text",
+            "label": "Button Text",
             "name": "text",
             "help_text": "Form Button Text Styles",
             "type": "group",
             "children": [
               {
-                "label": "Font",
+                "label": "Button Font",
                 "name": "font",
                 "type": "font",
                 "inherited_value": {
@@ -1385,7 +1385,8 @@
                     "color": "theme.buttons.text.font.color",
                     "size": "theme.buttons.text.font.size",
                     "size_unit": "theme.buttons.text.font.size_unit",
-                    "styles": "theme.buttons.text.font.styles"
+                    "styles": "theme.buttons.text.font.styles",
+                    "variant": "theme.buttons.text.font.variant"
                   }
                 },
                 "placeholder": "Submit",
@@ -1399,7 +1400,7 @@
             ]
           },
           {
-            "label": "Background",
+            "label": "Button Background",
             "name": "background",
             "help_text": "Submit Button Background Color",
             "type": "group",
@@ -1420,13 +1421,13 @@
             ]
           },
           {
-            "label": "Border",
+            "label": "Button Border",
             "name": "border",
             "help_text": "Submit Button Border Styles",
             "type": "group",
             "children": [
               {
-                "label": "Border",
+                "label": "Button Border",
                 "name": "border",
                 "type": "border",
                 "allow_custom_border_sides": false,
@@ -1488,13 +1489,13 @@
             ]
           },
           {
-            "label": "Spacing",
+            "label": "Button Spacing",
             "name": "spacing",
             "help_text": "Sumbit Button Spacing",
             "type": "group",
             "children": [
               {
-                "label": "Spacing",
+                "label": "Button Spacing",
                 "name": "spacing",
                 "type": "spacing",
                 "visibility": {
@@ -1531,13 +1532,13 @@
             ]
           },
           {
-            "label": "Hover",
+            "label": "Button Hover",
             "name": "hover",
             "help_text": "Submit Button Hover styles",
             "type": "group",
             "children": [
               {
-                "label": "Text",
+                "label": "Button Hover Text",
                 "name": "text",
                 "type": "group",
                 "children": [
@@ -1558,7 +1559,7 @@
                 ]
               },
               {
-                "label": "Background",
+                "label": "Button Hover Background",
                 "name": "background",
                 "type": "group",
                 "children": [
@@ -1579,7 +1580,7 @@
                 ]
               },
               {
-                "label": "Border",
+                "label": "Button Hover Border",
                 "name": "border",
                 "type": "group",
                 "children": [
@@ -2083,42 +2084,6 @@
             "type": "group",
             "children": [
               {
-                "name": "alignment",
-                "label": "Alignment",
-                "help_text": "Language Switcher Button Alignment",
-                "type": "group",
-                "children": [
-                  {
-                    "name": "alignment",
-                    "label": "Alignment",
-                    "type": "textalignment",
-                    "required": false,
-                    "default": {
-                      "text_align": "LEFT"
-                    }
-                  }
-                ]
-              },
-              {
-                "name": "background",
-                "label": "Background",
-                "help_text": "Language Switcher Button Background Color",
-                "type": "group",
-                "children": [
-                  {
-                    "name": "bg_color",
-                    "label": "Background color",
-                    "required": false,
-                    "locked": false,
-                    "type": "color",
-                    "default": {
-                      "color": "#ffffff",
-                      "opacity": 100
-                    }
-                  }
-                ]
-              },
-              {
                 "name": "text",
                 "label": "Text",
                 "help_text": "Language Switcher Button Text Styles",
@@ -2131,12 +2096,17 @@
                     "inherited_value": {
                       "property_value_paths": {
                         "fallback": "theme.global_fonts.primary.fallback",
-                        "font": "theme.global_fonts.primary.font",
-                        "font_set": "theme.global_fonts.primary.font_set"
+                        "font": "theme.buttons.text.font.font",
+                        "font_set": "theme.buttons.text.font.font_set",
+                        "color": "theme.buttons.text.font.color",
+                        "size": "theme.buttons.text.font.size",
+                        "size_unit": "theme.buttons.text.font.size_unit",
+                        "styles": "theme.buttons.text.font.styles",
+                        "variant": "theme.buttons.text.font.variant"
                       }
                     },
                     "default": {
-                      "color": "#000000",
+                      "color": "#ffffff",
                       "size": 16,
                       "size_unit": "px"
                     }
@@ -2145,6 +2115,9 @@
                     "label": "Transform",
                     "name": "transform",
                     "type": "choice",
+                    "inherited_value": {
+                      "default_value_path": "theme.buttons.text.transform"
+                    },
                     "choices": [
                       [
                         "none",
@@ -2169,6 +2142,30 @@
                 ]
               },
               {
+                "name": "background",
+                "label": "Background",
+                "help_text": "Language Switcher Button Background Color",
+                "type": "group",
+                "children": [
+                  {
+                    "name": "bg_color",
+                    "label": "Background color",
+                    "required": false,
+                    "locked": false,
+                    "type": "color",
+                    "inherited_value": {
+                      "property_value_paths": {
+                        "color": "theme.buttons.background.color.color"
+                      }
+                    },
+                    "default": {
+                      "color": "#ffffff",
+                      "opacity": 100
+                    }
+                  }
+                ]
+              },
+              {
                 "name": "border",
                 "label": "Border",
                 "help_text": "Language Switcher Button Border Style, Color and Width",
@@ -2181,6 +2178,22 @@
                     "locked": false,
                     "allow_custom_border_sides": true,
                     "type": "border",
+                    "inherited_value": {
+                      "property_value_paths": {
+                        "top.color": "theme.buttons.border.border.top.color",
+                        "right.color": "theme.buttons.border.border.right.color",
+                        "bottom.color": "theme.buttons.border.border.bottom.color",
+                        "left.color": "theme.buttons.border.border.left.color",
+                        "top.width": "theme.buttons.border.border.top.width",
+                        "right.width": "theme.buttons.border.border.right.width",
+                        "bottom.width": "theme.buttons.border.border.bottom.width",
+                        "left.width": "theme.buttons.border.border.left.width",
+                        "top.style": "theme.buttons.border.border.top.style",
+                        "right.style": "theme.buttons.border.border.right.style",
+                        "bottom.style": "theme.buttons.border.border.bottom.style",
+                        "left.style": "theme.buttons.border.border.left.style"
+                      }
+                    },
                     "default": {
                       "top": {
                         "width": {
@@ -2236,6 +2249,9 @@
                     "max": 100,
                     "step": 1,
                     "suffix": "px",
+                    "inherited_value": {
+                      "default_value_path": "theme.buttons.corner.top_left_radius"
+                    },
                     "default": 0
                   },
                   {
@@ -2246,6 +2262,9 @@
                     "max": 100,
                     "step": 1,
                     "suffix": "px",
+                    "inherited_value": {
+                      "default_value_path": "theme.buttons.corner.top_right_radius"
+                    },
                     "default": 0
                   },
                   {
@@ -2256,6 +2275,9 @@
                     "max": 100,
                     "step": 1,
                     "suffix": "px",
+                    "inherited_value": {
+                      "default_value_path": "theme.buttons.corner.bottom_left_radius"
+                    },
                     "default": 0
                   },
                   {
@@ -2266,6 +2288,9 @@
                     "max": 100,
                     "step": 1,
                     "suffix": "px",
+                    "inherited_value": {
+                      "default_value_path": "theme.buttons.corner.bottom_right_radius"
+                    },
                     "default": 0
                   }
                 ]
@@ -2283,6 +2308,11 @@
                     "visibility": {
                       "hidden_subfields": {
                         "margin": true
+                      }
+                    },
+                    "inherited_value": {
+                      "property_value_paths": {
+                        "padding": "theme.buttons.spacing.spacing.padding"
                       }
                     },
                     "default": {
@@ -2320,8 +2350,13 @@
                     "required": false,
                     "locked": false,
                     "type": "color",
+                    "inherited_value": {
+                      "property_value_paths": {
+                        "color": "theme.buttons.text.font.color"
+                      }
+                    },
                     "default": {
-                      "color": "#000000",
+                      "color": "#ffffff",
                       "opacity": 100
                     }
                   },
@@ -2369,8 +2404,13 @@
                     "required": false,
                     "locked": false,
                     "type": "color",
+                    "inherited_value": {
+                      "property_value_paths": {
+                        "color": "theme.buttons.text.font.color"
+                      }
+                    },
                     "default": {
-                      "color": "#000000",
+                      "color": "#ffffff",
                       "opacity": 100
                     }
                   },
@@ -2426,8 +2466,12 @@
                     "inherited_value": {
                       "property_value_paths": {
                         "fallback": "theme.global_fonts.primary.fallback",
-                        "font": "theme.global_fonts.primary.font",
-                        "font_set": "theme.global_fonts.primary.font_set"
+                        "font": "theme.buttons.text.font.font",
+                        "font_set": "theme.buttons.text.font.font_set",
+                        "color": "theme.buttons.text.font.color",
+                        "size": "theme.buttons.text.font.size",
+                        "size_unit": "theme.buttons.text.font.size_unit",
+                        "styles": "theme.buttons.text.font.styles"
                       }
                     },
                     "default": {
@@ -2459,7 +2503,51 @@
                       ]
                     ],
                     "display": "select",
+                    "inherited_value": {
+                      "default_value_path": "theme.buttons.text.transform"
+                    },
                     "default": "none"
+                  },
+                  {
+                    "name": "alignment",
+                    "label": "Alignment",
+                    "help_text": "Language Switcher Dropwdown Text Alignment",
+                    "type": "group",
+                    "children": [
+                      {
+                        "name": "alignment",
+                        "label": "Alignment",
+                        "type": "textalignment",
+                        "required": false,
+                        "default": {
+                          "text_align": "CENTER"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "background",
+                "label": "Background",
+                "help_text": "Language Switcher Dropdown Background Color",
+                "type": "group",
+                "children": [
+                  {
+                    "name": "bg_color",
+                    "label": "Background color",
+                    "required": false,
+                    "locked": false,
+                    "type": "color",
+                    "inherited_value": {
+                      "property_value_paths": {
+                        "color": "theme.buttons.background.color.color"
+                      }
+                    },
+                    "default": {
+                      "color": "#ffffff",
+                      "opacity": 100
+                    }
                   }
                 ]
               },
@@ -2476,6 +2564,21 @@
                     "locked": false,
                     "allow_custom_border_sides": true,
                     "type": "border",
+                    "inherited_value": {
+                      "property_value_paths": {
+                        "top.color": "theme.buttons.border.border.top.color",
+                        "right.color": "theme.buttons.border.border.right.color",
+                        "bottom.color": "theme.buttons.border.border.bottom.color",
+                        "left.color": "theme.buttons.border.border.left.color",
+                        "right.width": "theme.buttons.border.border.right.width",
+                        "bottom.width": "theme.buttons.border.border.bottom.width",
+                        "left.width": "theme.buttons.border.border.left.width",
+                        "top.style": "theme.buttons.border.border.top.style",
+                        "right.style": "theme.buttons.border.border.right.style",
+                        "bottom.style": "theme.buttons.border.border.bottom.style",
+                        "left.style": "theme.buttons.border.border.left.style"
+                      }
+                    },
                     "default": {
                       "top": {
                         "width": {
@@ -2531,6 +2634,9 @@
                     "max": 100,
                     "step": 1,
                     "suffix": "px",
+                    "inherited_value": {
+                      "default_value_path": "theme.buttons.corner.top_left_radius"
+                    },
                     "default": 0
                   },
                   {
@@ -2541,6 +2647,9 @@
                     "max": 100,
                     "step": 1,
                     "suffix": "px",
+                    "inherited_value": {
+                      "default_value_path": "theme.buttons.corner.top_right_radius"
+                    },
                     "default": 0
                   },
                   {
@@ -2551,6 +2660,9 @@
                     "max": 100,
                     "step": 1,
                     "suffix": "px",
+                    "inherited_value": {
+                      "default_value_path": "theme.buttons.corner.bottom_left_radius"
+                    },
                     "default": 0
                   },
                   {
@@ -2561,26 +2673,10 @@
                     "max": 100,
                     "step": 1,
                     "suffix": "px",
+                    "inherited_value": {
+                      "default_value_path": "theme.buttons.corner.bottom_right_radius"
+                    },
                     "default": 0
-                  }
-                ]
-              },
-              {
-                "name": "background",
-                "label": "Background",
-                "help_text": "Language Switcher Dropdown Background Color",
-                "type": "group",
-                "children": [
-                  {
-                    "name": "bg_color",
-                    "label": "Background color",
-                    "required": false,
-                    "locked": false,
-                    "type": "color",
-                    "default": {
-                      "color": "#ffffff",
-                      "opacity": 100
-                    }
                   }
                 ]
               },
@@ -2646,6 +2742,28 @@
                 "type": "group",
                 "children": [
                   {
+                    "label": "Text",
+                    "name": "text",
+                    "help_text": "Language Switcher Button Hover Text Color",
+                    "type": "group",
+                    "children": [
+                      {
+                        "label": "Color",
+                        "name": "color",
+                        "type": "color",
+                        "inherited_value": {
+                          "property_value_paths": {
+                            "color": "theme.buttons.hover.text.color.color"
+                          }
+                        },
+                        "default": {
+                          "color": "#ffffff",
+                          "opacity": 100
+                        }
+                      }
+                    ]
+                  },
+                  {
                     "name": "background",
                     "label": "Background",
                     "help_text": "Language Switcher Button Hover Background Color",
@@ -2657,25 +2775,13 @@
                         "required": false,
                         "locked": false,
                         "type": "color",
+                        "inherited_value": {
+                          "property_value_paths": {
+                            "color": "theme.buttons.hover.background.color.color"
+                          }
+                        },
                         "default": {
                           "color": "#000000",
-                          "opacity": 100
-                        }
-                      }
-                    ]
-                  },
-                  {
-                    "label": "Text",
-                    "name": "text",
-                    "help_text": "Language Switcher Button Hover Text Color",
-                    "type": "group",
-                    "children": [
-                      {
-                        "label": "Color",
-                        "name": "color",
-                        "type": "color",
-                        "default": {
-                          "color": "#ffffff",
                           "opacity": 100
                         }
                       }
@@ -2691,6 +2797,22 @@
                         "label": "Border",
                         "name": "border",
                         "type": "border",
+                        "inherited_value": {
+                          "property_value_paths": {
+                            "top.color": "theme.buttons.hover.border.border.top.color",
+                            "right.color": "theme.buttons.hover.border.border.right.color",
+                            "bottom.color": "theme.buttons.hover.border.border.bottom.color",
+                            "left.color": "theme.buttons.hover.border.border.left.color",
+                            "top.width": "theme.buttons.hover.border.border.top.width",
+                            "right.width": "theme.buttons.hover.border.border.right.width",
+                            "bottom.width": "theme.buttons.hover.border.border.bottom.width",
+                            "left.width": "theme.buttons.hover.border.border.left.width",
+                            "top.style": "theme.buttons.hover.border.border.top.style",
+                            "right.style": "theme.buttons.hover.border.border.right.style",
+                            "bottom.style": "theme.buttons.hover.border.border.bottom.style",
+                            "left.style": "theme.buttons.hover.border.border.left.style"
+                          }
+                        },
                         "default": {
                           "top": {
                             "width": {
@@ -2746,6 +2868,9 @@
                         "max": 100,
                         "step": 1,
                         "suffix": "px",
+                        "inherited_value": {
+                          "default_value_path": "theme.buttons.hover.corner.top_left_radius"
+                        },
                         "default": 0
                       },
                       {
@@ -2756,6 +2881,9 @@
                         "max": 100,
                         "step": 1,
                         "suffix": "px",
+                        "inherited_value": {
+                          "default_value_path": "theme.buttons.hover.corner.top_right_radius"
+                        },
                         "default": 0
                       },
                       {
@@ -2766,6 +2894,9 @@
                         "max": 100,
                         "step": 1,
                         "suffix": "px",
+                        "inherited_value": {
+                          "default_value_path": "theme.buttons.hover.corner.bottom_left_radius"
+                        },
                         "default": 0
                       },
                       {
@@ -2776,6 +2907,9 @@
                         "max": 100,
                         "step": 1,
                         "suffix": "px",
+                        "inherited_value": {
+                          "default_value_path": "theme.buttons.hover.corner.bottom_right_radius"
+                        },
                         "default": 0
                       }
                     ]
@@ -2792,6 +2926,11 @@
                         "required": false,
                         "locked": false,
                         "type": "color",
+                        "inherited_value": {
+                          "property_value_paths": {
+                            "color": "theme.buttons.hover.text.color.color"
+                          }
+                        },
                         "default": {
                           "color": "#ffffff",
                           "opacity": 100
@@ -2811,6 +2950,11 @@
                         "required": false,
                         "locked": false,
                         "type": "color",
+                        "inherited_value": {
+                          "property_value_paths": {
+                            "color": "theme.buttons.hover.text.color.color"
+                          }
+                        },
                         "default": {
                           "color": "#ffffff",
                           "opacity": 100
@@ -2827,6 +2971,28 @@
                 "type": "group",
                 "children": [
                   {
+                    "label": "Text",
+                    "name": "text",
+                    "help_text": "Language Switcher Dropdown Hover Text Color",
+                    "type": "group",
+                    "children": [
+                      {
+                        "label": "Color",
+                        "name": "color",
+                        "type": "color",
+                        "inherited_value": {
+                          "property_value_paths": {
+                            "color": "theme.buttons.hover.text.color.color"
+                          }
+                        },
+                        "default": {
+                          "color": "#ffffff",
+                          "opacity": 100
+                        }
+                      }
+                    ]
+                  },
+                  {
                     "name": "background",
                     "label": "Background",
                     "help_text": "Language Switcher Dropdown Hover Background Color",
@@ -2838,25 +3004,13 @@
                         "required": false,
                         "locked": false,
                         "type": "color",
+                        "inherited_value": {
+                          "property_value_paths": {
+                            "color": "theme.buttons.hover.background.color.color"
+                          }
+                        },
                         "default": {
                           "color": "#000000",
-                          "opacity": 100
-                        }
-                      }
-                    ]
-                  },
-                  {
-                    "label": "Text",
-                    "name": "text",
-                    "help_text": "Language Switcher Dropdown Hover Text Color",
-                    "type": "group",
-                    "children": [
-                      {
-                        "label": "Color",
-                        "name": "color",
-                        "type": "color",
-                        "default": {
-                          "color": "#ffffff",
                           "opacity": 100
                         }
                       }
