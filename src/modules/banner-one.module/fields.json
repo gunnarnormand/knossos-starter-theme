@@ -7,7 +7,7 @@
     "inline_help_text": "Required accessibility settings",
     "help_text": "If the message is critical or needs immediate attention use role Alert, for a less urgent message use role Region",
     "required": true,
-    "locked": true,
+    "locked": false,
     "display": "select",
     "choices": [
       [
@@ -32,7 +32,7 @@
     "label": "Add Icon",
     "help_text": "Adds an icon to the banner when selected",
     "required": false,
-    "locked": true,
+    "locked": false,
     "display": "toggle",
     "type": "boolean",
     "default": true
@@ -44,7 +44,7 @@
     "label": "Icon Type",
     "help_text": "Choose to use a icon from the icon library or a custom image",
     "required": false,
-    "locked": true,
+    "locked": false,
     "visibility": {
       "controlling_field": null,
       "controlling_field_path": "add_icon",
@@ -76,7 +76,7 @@
     "display_width": null,
     "label": "Icon",
     "required": false,
-    "locked": true,
+    "locked": false,
     "visibility": {
       "controlling_field": null,
       "controlling_field_path": "icon_type",
@@ -99,7 +99,7 @@
     "display_width": null,
     "label": "Icon Image",
     "required": false,
-    "locked": true,
+    "locked": false,
     "visibility": {
       "controlling_field": null,
       "controlling_field_path": "icon_type",
@@ -130,7 +130,7 @@
     "label": "Banner Heading",
     "help_text": "Main banner heading text, required for screen reader \"aria-labelledby\" attribute ",
     "required": true,
-    "locked": true,
+    "locked": false,
     "validation_regex": "",
     "allow_new_line": false,
     "show_emoji_picker": true,
@@ -144,7 +144,7 @@
     "label": "Add Subheading",
     "help_text": "Adds an additional line of text to the banner module",
     "required": false,
-    "locked": true,
+    "locked": false,
     "display": "toggle",
     "type": "boolean",
     "default": true
@@ -155,7 +155,7 @@
     "display_width": null,
     "label": "Banner Subheading",
     "required": false,
-    "locked": true,
+    "locked": false,
     "visibility": {
       "controlling_field": null,
       "controlling_field_path": "add_subheading",
@@ -177,7 +177,7 @@
     "label": "Add Button",
     "help_text": "Adds a button to the banner when selected",
     "required": false,
-    "locked": true,
+    "locked": false,
     "display": "toggle",
     "type": "boolean",
     "default": true
@@ -188,7 +188,7 @@
     "display_width": null,
     "label": "Button Link",
     "required": false,
-    "locked": true,
+    "locked": false,
     "visibility": {
       "controlling_field": null,
       "controlling_field_path": "add_button",
@@ -226,7 +226,7 @@
     "display_width": null,
     "label": "Button Text",
     "required": false,
-    "locked": true,
+    "locked": false,
     "validation_regex": "",
     "visibility": {
       "controlling_field": null,
