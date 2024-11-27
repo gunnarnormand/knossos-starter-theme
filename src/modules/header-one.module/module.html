@@ -1,5 +1,129 @@
-{% set alignment_class = '' %}
+{####################################################}
+{################# Module styles ####################}
+{####################################################}
 
+{% require_css %}
+    <style>
+        {% scope_css %}
+
+          {# Button Styles #}
+
+          .header-one-module__button {
+            {% if module.styles.button.background.color.color %}
+              background-color: rgba({{ module.styles.button.background.color.color|convert_rgb }}, {{ module.styles.button.background.color.opacity / 100 }});
+            {% endif %}
+            {% if module.styles.button.corner.top_left_radius >= 0 %}
+              border-top-left-radius: {{ module.styles.button.corner.top_left_radius ~ "px" }};
+            {% endif %}
+            {% if module.styles.button.corner.top_right_radius >= 0 %}
+              border-top-right-radius: {{ module.styles.button.corner.top_right_radius ~ "px" }};
+            {% endif %}
+            {% if module.styles.button.corner.bottom_left_radius >= 0 %}
+              border-bottom-left-radius: {{ module.styles.button.corner.bottom_left_radius ~ "px" }};
+            {% endif %}
+            {% if module.styles.button.corner.bottom_right_radius >= 0 %}
+              border-bottom-right-radius: {{ module.styles.button.corner.bottom_right_radius ~ "px" }};
+            {% endif %}
+            {% if module.styles.button.text.font %}
+              {{ module.styles.button.text.font.css }}
+            {% endif %}
+            {% if module.styles.button.text.transform %}
+              text-transform: {{ module.styles.button.text.transform }};
+            {% endif %}
+            {% if module.styles.button.border.border %}
+              {{ module.styles.button.border.border.css }}
+            {% endif %}
+            {{ module.styles.button.spacing.spacing.css }}
+          }
+
+          .header-one-module__button:hover,
+          .header-one-module__button:focus,
+          .header-one-module__button:active {
+            {% if module.styles.button.hover.text.color.color %}
+              color: rgba({{ module.styles.button.hover.text.color.color|convert_rgb }}, {{ module.styles.button.hover.text.color.opacity / 100 }});
+            {% endif %}
+            {% if module.styles.button.hover.background.color.color %}
+              background-color: rgba({{ module.styles.button.hover.background.color.color|convert_rgb }}, {{ module.styles.button.hover.background.color.opacity / 100 }});
+            {% endif %}
+            {% if module.styles.button.hover.border.border %}
+              {{ module.styles.button.hover.border.border.css }}
+            {% endif %}
+            {% if module.styles.button.hover.corner.top_left_radius >= 0 %}
+              border-top-left-radius: {{ module.styles.button.hover.corner.top_left_radius ~ "px" }};
+            {% endif %}
+            {% if module.styles.button.hover.corner.top_right_radius >= 0 %}
+              border-top-right-radius: {{ module.styles.button.hover.corner.top_right_radius ~ "px" }};
+            {% endif %}
+            {% if module.styles.button.hover.corner.bottom_left_radius >= 0 %}
+              border-bottom-left-radius: {{ module.styles.button.hover.corner.bottom_left_radius ~ "px" }};
+            {% endif %}
+            {% if module.styles.button.hover.corner.bottom_right_radius >= 0 %}
+              border-bottom-right-radius: {{ module.styles.button.hover.corner.bottom_right_radius ~ "px" }};
+            {% endif %}
+          }
+
+
+          {# Alt Button Styles #}
+
+          .header-one-module__alt-button {
+          {% if module.styles.alt_button.background.color.color %}
+            background-color: rgba({{ module.styles.alt_button.background.color.color|convert_rgb }}, {{ module.styles.alt_button.background.color.opacity / 100 }});
+          {% endif %}
+          {% if module.styles.alt_button.corner.top_left_radius >= 0 %}
+            border-top-left-radius: {{ module.styles.alt_button.corner.top_left_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.alt_button.corner.top_right_radius >= 0 %}
+            border-top-right-radius: {{ module.styles.alt_button.corner.top_right_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.alt_button.corner.bottom_left_radius >= 0 %}
+            border-bottom-left-radius: {{ module.styles.alt_button.corner.bottom_left_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.alt_button.corner.bottom_right_radius >= 0 %}
+            border-bottom-right-radius: {{ module.styles.alt_button.corner.bottom_right_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.alt_button.text.font %}
+            {{ module.styles.alt_button.text.font.css }}
+          {% endif %}
+          {% if module.styles.alt_button.text.transform %}
+            text-transform: {{ module.styles.alt_button.text.transform }};
+          {% endif %}
+          {% if module.styles.alt_button.border.border %}
+            {{ module.styles.alt_button.border.border.css }}
+          {% endif %}
+          {{ module.styles.alt_button.spacing.spacing.css }}
+        }
+
+        .header-one-module__alt-button:hover,
+        .header-one-module__alt-button:focus,
+        .header-one-module__alt-button:active {
+          {% if module.styles.button.hover.text.color.color %}
+            color: rgba({{ module.styles.button.hover.text.color.color|convert_rgb }}, {{ module.styles.button.hover.text.color.opacity / 100 }});
+          {% endif %}
+          {% if module.styles.button.hover.background.color.color %}
+            background-color: rgba({{ module.styles.button.hover.background.color.color|convert_rgb }}, {{ module.styles.button.hover.background.color.opacity / 100 }});
+          {% endif %}
+          {% if module.styles.button.hover.border.border %}
+            {{ module.styles.button.hover.border.border.css }}
+          {% endif %}
+          {% if module.styles.button.hover.corner.top_left_radius >= 0 %}
+            border-top-left-radius: {{ module.styles.button.hover.corner.top_left_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.button.hover.corner.top_right_radius >= 0 %}
+            border-top-right-radius: {{ module.styles.button.hover.corner.top_right_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.button.hover.corner.bottom_left_radius >= 0 %}
+            border-bottom-left-radius: {{ module.styles.button.hover.corner.bottom_left_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.button.hover.corner.bottom_right_radius >= 0 %}
+            border-bottom-right-radius: {{ module.styles.button.hover.corner.bottom_right_radius ~ "px" }};
+          {% endif %}
+        }
+
+        {% end_scope_css %}
+    </style>
+{% end_require_css %}
+
+{% set alignment_class = '' %}
 {% if module.styles.alignment.horizontal_align == 'CENTER' %}
     {% set alignment_class = 'flex flex-col items-center text-center mx-auto' %}
 {% elif module.styles.alignment.horizontal_align == 'LEFT' %}
@@ -8,10 +132,11 @@
     {% set alignment_class = 'flex flex-col items-end text-right ml-auto' %}
 {% endif %}
 
+{####################################################}
+{################ Module layout ###################}
+{####################################################}
 
-
-
-<section class="px-[5%] py-16 md:py-24 lg:py-28">
+<section class="header-one-module px-[5%] py-16 md:py-24 lg:py-28">
   <div class="container max-w-lg {{ alignment_class }}">
     {% inline_rich_text field="tagline" value="{{ module.tagline }}" %}
     {% inline_rich_text field="title" value="{{ module.title }}" %}
@@ -30,7 +155,7 @@
                 {% do rel.append("noopener") %}
             {% endif %}
 
-            <a class="button" href="{{ href_one|escape_url }}"
+            <a class="header-one-module__button button" href="{{ href_one|escape_url }}"
                 {% if module.button_group.link_one.open_in_new_tab %}target="_blank"{% endif %}
                 {% if rel %}rel="{{ rel|join(" ")|escape_attr }}"{% endif %}
             >
@@ -50,7 +175,7 @@
                 {% do rel.append("noopener") %}
             {% endif %}
 
-            <a class="button alternate-button" href="{{ href_two|escape_url }}"
+            <a class="header-one-module__alt-button button alternate-button" href="{{ href_two|escape_url }}"
                 {% if module.button_group_two.link_two.open_in_new_tab %}target="_blank"{% endif %}
                 {% if rel %}rel="{{ rel|join(" ")|escape_attr }}"{% endif %}
             >

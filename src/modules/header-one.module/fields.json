@@ -164,6 +164,446 @@
                 "default": {
                     "horizontal_align": "CENTER"
                 }
+            },
+            {
+                "name": "button",
+                "label": "Button",
+                "type": "group",
+                "expanded": true,
+                "children": [
+                    {
+                        "label": "Text",
+                        "name": "text",
+                        "help_text": "Set Button font and transform styles",
+                        "type": "group",
+                        "children": [
+                            {
+                                "label": "Font",
+                                "name": "font",
+                                "type": "font"
+                            },
+                            {
+                                "label": "Transform",
+                                "name": "transform",
+                                "type": "choice",
+                                "choices": [
+                                    [
+                                        "none",
+                                        "None"
+                                    ],
+                                    [
+                                        "capitalize",
+                                        "Capitalize"
+                                    ],
+                                    [
+                                        "uppercase",
+                                        "Uppercase"
+                                    ],
+                                    [
+                                        "lowercase",
+                                        "Lowercase"
+                                    ]
+                                ],
+                                "display": "select"
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Background",
+                        "name": "background",
+                        "help_text": "Set Button Background color",
+                        "type": "group",
+                        "children": [
+                            {
+                                "label": "Color",
+                                "name": "color",
+                                "type": "color"
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Border",
+                        "name": "border",
+                        "help_text": "Set Button Border styles",
+                        "type": "group",
+                        "children": [
+                            {
+                                "label": "Border",
+                                "name": "border",
+                                "type": "border"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "corner",
+                        "label": "Corner",
+                        "help_text": "Set Button Border Radius for each corner individually",
+                        "type": "group",
+                        "children": [
+                            {
+                                "label": "Top Left Radius",
+                                "name": "top_left_radius",
+                                "type": "number",
+                                "display": "text",
+                                "max": 100,
+                                "step": 1,
+                                "suffix": "px"
+                            },
+                            {
+                                "label": "Top Right Radius",
+                                "name": "top_right_radius",
+                                "type": "number",
+                                "display": "text",
+                                "max": 100,
+                                "step": 1,
+                                "suffix": "px"
+                            },
+                            {
+                                "label": "Bottom Left Radius",
+                                "name": "bottom_left_radius",
+                                "type": "number",
+                                "display": "text",
+                                "max": 100,
+                                "step": 1,
+                                "suffix": "px"
+                            },
+                            {
+                                "label": "Bottom Right Radius",
+                                "name": "bottom_right_radius",
+                                "type": "number",
+                                "display": "text",
+                                "max": 100,
+                                "step": 1,
+                                "suffix": "px"
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Hover",
+                        "name": "hover",
+                        "help_text": "Set Button Hover styles",
+                        "type": "group",
+                        "children": [
+                            {
+                                "label": "Text",
+                                "name": "text",
+                                "type": "group",
+                                "children": [
+                                    {
+                                        "label": "Color",
+                                        "name": "color",
+                                        "type": "color"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "Background",
+                                "name": "background",
+                                "type": "group",
+                                "children": [
+                                    {
+                                        "label": "Color",
+                                        "name": "color",
+                                        "type": "color"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "Border",
+                                "name": "border",
+                                "type": "group",
+                                "children": [
+                                    {
+                                        "label": "Border",
+                                        "name": "border",
+                                        "type": "border"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "corner",
+                                "label": "Corner",
+                                "type": "group",
+                                "children": [
+                                    {
+                                        "label": "Top Left Radius",
+                                        "name": "top_left_radius",
+                                        "type": "number",
+                                        "display": "text",
+                                        "max": 100,
+                                        "step": 1,
+                                        "suffix": "px"
+                                    },
+                                    {
+                                        "label": "Top Right Radius",
+                                        "name": "top_right_radius",
+                                        "type": "number",
+                                        "display": "text",
+                                        "max": 100,
+                                        "step": 1,
+                                        "suffix": "px"
+                                    },
+                                    {
+                                        "label": "Bottom Left Radius",
+                                        "name": "bottom_left_radius",
+                                        "type": "number",
+                                        "display": "text",
+                                        "max": 100,
+                                        "step": 1,
+                                        "suffix": "px"
+                                    },
+                                    {
+                                        "label": "Bottom Right Radius",
+                                        "name": "bottom_right_radius",
+                                        "type": "number",
+                                        "display": "text",
+                                        "max": 100,
+                                        "step": 1,
+                                        "suffix": "px"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Spacing",
+                        "name": "spacing",
+                        "help_text": "Set Button Spacing values",
+                        "type": "group",
+                        "children": [
+                            {
+                                "label": "Spacing",
+                                "name": "spacing",
+                                "type": "spacing",
+                                "visibility": {
+                                    "hidden_subfields": {
+                                        "margin": true
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "alt_button",
+                "label": "Second Button",
+                "type": "group",
+                "expanded": true,
+                "children": [
+                    {
+                        "label": "Text",
+                        "name": "text",
+                        "help_text": "Set Second Button font and transform styles",
+                        "type": "group",
+                        "children": [
+                            {
+                                "label": "Font",
+                                "name": "font",
+                                "type": "font"
+                            },
+                            {
+                                "label": "Transform",
+                                "name": "transform",
+                                "type": "choice",
+                                "choices": [
+                                    [
+                                        "none",
+                                        "None"
+                                    ],
+                                    [
+                                        "capitalize",
+                                        "Capitalize"
+                                    ],
+                                    [
+                                        "uppercase",
+                                        "Uppercase"
+                                    ],
+                                    [
+                                        "lowercase",
+                                        "Lowercase"
+                                    ]
+                                ],
+                                "display": "select"
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Background",
+                        "name": "background",
+                        "help_text": "Set Second Button Background color",
+                        "type": "group",
+                        "children": [
+                            {
+                                "label": "Color",
+                                "name": "color",
+                                "type": "color"
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Border",
+                        "name": "border",
+                        "help_text": "Set Second Button Border styles",
+                        "type": "group",
+                        "children": [
+                            {
+                                "label": "Border",
+                                "name": "border",
+                                "type": "border"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "corner",
+                        "label": "Corner",
+                        "help_text": "Set Second Button Border Radius for each corner individually",
+                        "type": "group",
+                        "children": [
+                            {
+                                "label": "Top Left Radius",
+                                "name": "top_left_radius",
+                                "type": "number",
+                                "display": "text",
+                                "max": 100,
+                                "step": 1,
+                                "suffix": "px"
+                            },
+                            {
+                                "label": "Top Right Radius",
+                                "name": "top_right_radius",
+                                "type": "number",
+                                "display": "text",
+                                "max": 100,
+                                "step": 1,
+                                "suffix": "px"
+                            },
+                            {
+                                "label": "Bottom Left Radius",
+                                "name": "bottom_left_radius",
+                                "type": "number",
+                                "display": "text",
+                                "max": 100,
+                                "step": 1,
+                                "suffix": "px"
+                            },
+                            {
+                                "label": "Bottom Right Radius",
+                                "name": "bottom_right_radius",
+                                "type": "number",
+                                "display": "text",
+                                "max": 100,
+                                "step": 1,
+                                "suffix": "px"
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Hover",
+                        "name": "hover",
+                        "help_text": "Set Second Button Hover styles",
+                        "type": "group",
+                        "children": [
+                            {
+                                "label": "Text",
+                                "name": "text",
+                                "type": "group",
+                                "children": [
+                                    {
+                                        "label": "Color",
+                                        "name": "color",
+                                        "type": "color"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "Background",
+                                "name": "background",
+                                "type": "group",
+                                "children": [
+                                    {
+                                        "label": "Color",
+                                        "name": "color",
+                                        "type": "color"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "Border",
+                                "name": "border",
+                                "type": "group",
+                                "children": [
+                                    {
+                                        "label": "Border",
+                                        "name": "border",
+                                        "type": "border"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "corner",
+                                "label": "Corner",
+                                "type": "group",
+                                "children": [
+                                    {
+                                        "label": "Top Left Radius",
+                                        "name": "top_left_radius",
+                                        "type": "number",
+                                        "display": "text",
+                                        "max": 100,
+                                        "step": 1,
+                                        "suffix": "px"
+                                    },
+                                    {
+                                        "label": "Top Right Radius",
+                                        "name": "top_right_radius",
+                                        "type": "number",
+                                        "display": "text",
+                                        "max": 100,
+                                        "step": 1,
+                                        "suffix": "px"
+                                    },
+                                    {
+                                        "label": "Bottom Left Radius",
+                                        "name": "bottom_left_radius",
+                                        "type": "number",
+                                        "display": "text",
+                                        "max": 100,
+                                        "step": 1,
+                                        "suffix": "px"
+                                    },
+                                    {
+                                        "label": "Bottom Right Radius",
+                                        "name": "bottom_right_radius",
+                                        "type": "number",
+                                        "display": "text",
+                                        "max": 100,
+                                        "step": 1,
+                                        "suffix": "px"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Spacing",
+                        "name": "spacing",
+                        "help_text": "Set Second Button Spacing values",
+                        "type": "group",
+                        "children": [
+                            {
+                                "label": "Spacing",
+                                "name": "spacing",
+                                "type": "spacing",
+                                "visibility": {
+                                    "hidden_subfields": {
+                                        "margin": true
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     }

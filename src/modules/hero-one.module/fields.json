@@ -185,7 +185,6 @@
             {
                 "label": "Image",
                 "name": "image",
-                "help_text": "Image Styles",
                 "type": "group",
                 "children": [
                     {
