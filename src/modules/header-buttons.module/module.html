@@ -1,0 +1,167 @@
+{####################################################}
+{################# Module styles ####################}
+{####################################################}
+
+{% require_css %}
+    <style>
+        {% scope_css %}
+
+          {# Button Styles #}
+
+          .header-button {
+            {% if module.styles.button.background.color.color %}
+              background-color: rgba({{ module.styles.button.background.color.color|convert_rgb }}, {{ module.styles.button.background.color.opacity / 100 }});
+            {% endif %}
+            {% if module.styles.button.corner.top_left_radius >= 0 %}
+              border-top-left-radius: {{ module.styles.button.corner.top_left_radius ~ "px" }};
+            {% endif %}
+            {% if module.styles.button.corner.top_right_radius >= 0 %}
+              border-top-right-radius: {{ module.styles.button.corner.top_right_radius ~ "px" }};
+            {% endif %}
+            {% if module.styles.button.corner.bottom_left_radius >= 0 %}
+              border-bottom-left-radius: {{ module.styles.button.corner.bottom_left_radius ~ "px" }};
+            {% endif %}
+            {% if module.styles.button.corner.bottom_right_radius >= 0 %}
+              border-bottom-right-radius: {{ module.styles.button.corner.bottom_right_radius ~ "px" }};
+            {% endif %}
+            {% if module.styles.button.text.font %}
+              {{ module.styles.button.text.font.css }}
+            {% endif %}
+            {% if module.styles.button.text.transform %}
+              text-transform: {{ module.styles.button.text.transform }};
+            {% endif %}
+            {% if module.styles.button.border.border %}
+              {{ module.styles.button.border.border.css }}
+            {% endif %}
+            {{ module.styles.button.spacing.spacing.css }}
+          }
+
+          .header-button:hover,
+          .header-button:focus,
+          .header-button:active {
+            {% if module.styles.button.hover.text.color.color %}
+              color: rgba({{ module.styles.button.hover.text.color.color|convert_rgb }}, {{ module.styles.button.hover.text.color.opacity / 100 }});
+            {% endif %}
+            {% if module.styles.button.hover.background.color.color %}
+              background-color: rgba({{ module.styles.button.hover.background.color.color|convert_rgb }}, {{ module.styles.button.hover.background.color.opacity / 100 }});
+            {% endif %}
+            {% if module.styles.button.hover.border.border %}
+              {{ module.styles.button.hover.border.border.css }}
+            {% endif %}
+            {% if module.styles.button.hover.corner.top_left_radius >= 0 %}
+              border-top-left-radius: {{ module.styles.button.hover.corner.top_left_radius ~ "px" }};
+            {% endif %}
+            {% if module.styles.button.hover.corner.top_right_radius >= 0 %}
+              border-top-right-radius: {{ module.styles.button.hover.corner.top_right_radius ~ "px" }};
+            {% endif %}
+            {% if module.styles.button.hover.corner.bottom_left_radius >= 0 %}
+              border-bottom-left-radius: {{ module.styles.button.hover.corner.bottom_left_radius ~ "px" }};
+            {% endif %}
+            {% if module.styles.button.hover.corner.bottom_right_radius >= 0 %}
+              border-bottom-right-radius: {{ module.styles.button.hover.corner.bottom_right_radius ~ "px" }};
+            {% endif %}
+          }
+
+
+          {# Alt Button Styles #}
+
+          .header-alt-button {
+          {% if module.styles.alt_button.background.color.color %}
+            background-color: rgba({{ module.styles.alt_button.background.color.color|convert_rgb }}, {{ module.styles.alt_button.background.color.opacity / 100 }});
+          {% endif %}
+          {% if module.styles.alt_button.corner.top_left_radius >= 0 %}
+            border-top-left-radius: {{ module.styles.alt_button.corner.top_left_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.alt_button.corner.top_right_radius >= 0 %}
+            border-top-right-radius: {{ module.styles.alt_button.corner.top_right_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.alt_button.corner.bottom_left_radius >= 0 %}
+            border-bottom-left-radius: {{ module.styles.alt_button.corner.bottom_left_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.alt_button.corner.bottom_right_radius >= 0 %}
+            border-bottom-right-radius: {{ module.styles.alt_button.corner.bottom_right_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.alt_button.text.font %}
+            {{ module.styles.alt_button.text.font.css }}
+          {% endif %}
+          {% if module.styles.alt_button.text.transform %}
+            text-transform: {{ module.styles.alt_button.text.transform }};
+          {% endif %}
+          {% if module.styles.alt_button.border.border %}
+            {{ module.styles.alt_button.border.border.css }}
+          {% endif %}
+          {{ module.styles.alt_button.spacing.spacing.css }}
+        }
+
+        .header-alt-button:hover,
+        .header-alt-button:focus,
+        .header-alt-button:active {
+          {% if module.styles.alt_button.hover.text.color.color %}
+            color: rgba({{ module.styles.alt_button.hover.text.color.color|convert_rgb }}, {{ module.styles.alt_button.hover.text.color.opacity / 100 }});
+          {% endif %}
+          {% if module.styles.alt_button.hover.background.color.color %}
+            background-color: rgba({{ module.styles.alt_button.hover.background.color.color|convert_rgb }}, {{ module.styles.alt_button.hover.background.color.opacity / 100 }});
+          {% endif %}
+          {% if module.styles.alt_button.hover.border.border %}
+            {{ module.styles.alt_button.hover.border.border.css }}
+          {% endif %}
+          {% if module.styles.alt_button.hover.corner.top_left_radius >= 0 %}
+            border-top-left-radius: {{ module.styles.alt_button.hover.corner.top_left_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.alt_button.hover.corner.top_right_radius >= 0 %}
+            border-top-right-radius: {{ module.styles.alt_button.hover.corner.top_right_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.alt_button.hover.corner.bottom_left_radius >= 0 %}
+            border-bottom-left-radius: {{ module.styles.alt_button.hover.corner.bottom_left_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.alt_button.hover.corner.bottom_right_radius >= 0 %}
+            border-bottom-right-radius: {{ module.styles.alt_button.hover.corner.bottom_right_radius ~ "px" }};
+          {% endif %}
+        }
+
+        {% end_scope_css %}
+    </style>
+{% end_require_css %}
+
+
+{% set href = module.link.url.href %}
+{% if module.link.url.type == "EMAIL_ADDRESS" %}
+    {% set href = "mailto:" + href %}
+{% endif %}
+{% set rel = [] %}
+{% if module.link.no_follow %}
+    {% do rel.append("nofollow") %}
+{% endif %}
+{% if module.link.open_in_new_tab %}
+    {% do rel.append("noopener") %}
+{% endif %}
+  
+{# Button #}
+<a class="header-button button" href="{{ href|escape_url }}"
+{% if module.link.open_in_new_tab %}target="_blank"{% endif %}
+{% if rel %}rel="{{ rel|join(" ")|escape_attr }}"{% endif %}
+>
+    {{ module.button_text|escape_html }}
+</a>
+
+{% if module.is_second_button %}
+    {% set href2 = module.button_two.link_two.url.href %}
+    {% if module.button_two.link_two.url.type == "EMAIL_ADDRESS" %}
+        {% set href2 = "mailto:" + href2 %}
+    {% endif %}
+    {% set rel2 = [] %}
+    {% if module.button_two.link_two.no_follow %}
+        {% do rel2.append("nofollow") %}
+    {% endif %}
+    {% if module.button_two.link_two.open_in_new_tab %}
+        {% do rel2.append("noopener") %}
+    {% endif %}
+
+    {# Button Two #}
+    <a class="header-alt-button button alternate-button" href="{{ href2|escape_url }}"
+    {% if module.button_two.link_two.open_in_new_tab %}target="_blank"{% endif %}
+    {% if rel2 %}rel="{{ rel2|join(" ")|escape_attr }}"{% endif %}
+    >
+        {{ module.button_two.button_text_two|escape_html }}
+    </a>
+{% endif %}

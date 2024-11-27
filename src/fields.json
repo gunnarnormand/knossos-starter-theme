@@ -2922,27 +2922,17 @@
       {
         "label": "Manage Buttons",
         "name": "manage_buttons",
-        "help_text": "Add, Remove, or Edit Buttons in the Header",
+        "help_text": "Manage Buttons in the Header",
         "type": "group",
         "children": [
           {
             "name": "is_buttons",
-            "label": "Enable Header Button One",
+            "label": "Enable Header Buttons",
             "required": false,
             "locked": false,
             "type": "boolean",
             "display": "toggle",
-            "inline_help_text": "Adds a button to the header when toggled on",
-            "default": true
-          },
-          {
-            "name": "is_two_buttons",
-            "label": "Enable Header Button Two",
-            "required": false,
-            "locked": false,
-            "type": "boolean",
-            "display": "toggle",
-            "inline_help_text": "Adds a second button to the header when toggled on",
+            "inline_help_text": "Adds a buttons module to the header when toggled on",
             "default": true
           }
         ]

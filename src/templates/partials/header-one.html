@@ -77,15 +77,11 @@
 
 				{% if theme.header.manage_buttons.is_buttons %}
 					<div class="mt-6 flex flex-col items-center gap-6 lg:gap-4 lg:ml-4 lg:mt-0 lg:flex-row">
-						{% module "header-one--button-one" 
-							path="../../modules/button", 
-							label="Header Button One", 
-							button_text="Button", 
-							extra_classes="w-full"
+						{% module "header-buttons" 
+							path="../../modules/header-buttons", 
+							label="Header Buttons",
+							no_wrapper=true
 						%}
-						{% if theme.header.manage_buttons.is_two_buttons %}
-								{% module "header-one--button-two" path="../../modules/button", label="Header Button Two", button_text="Button", extra_classes="w-full" %}
-						{% endif %}
 					</div>
 				{% endif %}
 
