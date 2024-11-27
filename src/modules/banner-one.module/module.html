@@ -200,9 +200,9 @@
 
 
 <div {{ module.banner_role }} id="{{ name }}" aria-labelledby="banner-one-heading__{{ name }}" aria-hidden="false" class="banner-one-module w-full">
-  <div class="banner-one-module__banner lg:px-[5%] relative flex flex-col justify-start p-4 md:flex-row md:items-center md:px-4 md:py-3">
+  <div class="banner-one-module__banner relative flex flex-col justify-start p-4 md:flex-row md:items-center md:px-4 md:py-3">
     <div class="md:flex md:flex-1 {{ module.styles.banner.content_position }} ">
-      <div class="flex items-center">
+      <div class="flex items-center mr-4 md:mr-0">
         {% if module.add_icon %}
           {% if module.icon_type == "icon" %}
             {% icon

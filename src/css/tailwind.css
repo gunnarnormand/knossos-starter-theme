@@ -2413,6 +2413,10 @@ video {
     margin-top: 2rem;
   }
 
+  .md\:mr-0 {
+    margin-right: 0px;
+  }
+
   .md\:block {
     display: block;
   }
