@@ -20,11 +20,14 @@
         </h1>
         <div class="blog-post__meta mt-6 flex items-center">
           <div class="mr-4 shrink-0">
-            <img
+            <img class="size-12 min-h-12 min-w-12 rounded-full object-cover"
+              srcset="{{ resize_image_url(content.blog_post_author.avatar, 288) }} 288w"
+              sizes="(max-width: 320px) 288px"
               src="{{ content.blog_post_author.avatar }}"
               alt="{{ content.blog_post_author.display_name }}"
-              class="size-12 min-h-12 min-w-12 rounded-full object-cover"
-            />
+              width="{{ content.blog_post_author.avatar.width }}"
+              height="{{ content.blog_post_author.avatar.height }}"
+              loading="eager">
           </div>
           <div>
             <h6 class="text-sm font-semibold mb-0">
@@ -44,11 +47,20 @@
       </div>
       {% if content.featured_image %}
         <div class="mb-12 md:mb-18 lg:mb-20">
-          <img
+          <img class="w-full object-cover"
+            srcset="{{ resize_image_url(content.featured_image, 288) }} 288w,
+            {{ resize_image_url(content.featured_image, 468) }} 468w,
+            {{ resize_image_url(content.featured_image, 736) }} 736w,
+            {{ resize_image_url(content.featured_image, 928) }} 928w"
+            sizes="(max-width: 320px) 288px,
+                  (max-width: 500px) 468px,
+                  (max-width: 768px) 736px,
+                  928px"
             src="{{ content.featured_image }}"
-            class="w-full object-cover"
             alt="{{ content.featured_image_alt_text }}"
-          />
+            width="{{ content.featured_image.width }}"
+            height="{{ content.featured_image.height }}"
+            loading="eager">
         </div>
       {% endif %}
       <article class="blog-post__body-one mb-12 md:mb-18 lg:mb-20">
@@ -96,12 +108,20 @@
             <article class="flex size-full flex-col items-center justify-start" aria-label="Blog post summary: {{ post.name|escape_attr }}">
               {% if post.featured_image %}
                 <a class="mb-6 w-full" href="{{ post.absolute_url|escape_url }}" aria-label="{% if post.featured_image_alt_text %} Featured image: {{ post.featured_image_alt_text|escape_attr }} - {% endif %}Read full post: {{ post.name|escape_attr }}">
-                  <img
+                  <img class="aspect-video size-full object-cover"
+                    srcset="{{ resize_image_url(post.featured_image|escape_url, 288) }} 288w,
+                    {{ resize_image_url(post.featured_image|escape_url, 468) }} 468w,
+                    {{ resize_image_url(post.featured_image|escape_url, 736) }} 736w,
+                    {{ resize_image_url(post.featured_image|escape_url, 928) }} 928w"
+                    sizes="(max-width: 320px) 288px,
+                          (max-width: 500px) 468px,
+                          (max-width: 768px) 736px,
+                          928px"
                     src="{{ post.featured_image|escape_url }}"
                     alt="{{ post.featured_image_alt_text|escape_attr }}"
-                    class="aspect-video size-full object-cover"
-                    loading="lazy"
-                  />
+                    width="{{ post.featured_image.width }}"
+                    height="{{ post.featured_image.height }}"
+                    loading="lazy">
                 </a>
               {% endif %}
               {% if post.tag_list %}

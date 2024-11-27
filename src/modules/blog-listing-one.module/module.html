@@ -240,12 +240,20 @@
           {% if content.featured_image and module.featured_image %}
             <div class="relative w-full overflow-hidden pt-[66%]">
               <a href="{{ content.absolute_url }}">
-                <img
-                  class="blog-listing-one__image absolute inset-0 size-full object-cover"
+                <img class="blog-listing-one__image absolute inset-0 size-full object-cover"
+                  srcset="{{ resize_image_url(content.featured_image, 288) }} 288w,
+                  {{ resize_image_url(content.featured_image, 468) }} 468w,
+                  {{ resize_image_url(content.featured_image, 736) }} 736w,
+                  {{ resize_image_url(content.featured_image, 928) }} 928w"
+                  sizes="(max-width: 320px) 288px,
+                        (max-width: 500px) 468px,
+                        (max-width: 768px) 736px,
+                        928px"
                   src="{{ content.featured_image }}"
-                  loading="lazy"
                   alt="{{ content.featured_image_alt_text }}"
-                />
+                  width="{{ content.featured_image.width }}"
+                  height="{{ content.featured_image.height }}"
+                  loading="lazy">
               </a>
             </div>
           {% endif %}
@@ -272,12 +280,14 @@
                 <div class="mt-6 flex items-center">
                   {% if content.blog_author.avatar and module.author_image %}
                     <div class="mr-4 shrink-0">
-                      <img
+                      <img class="blog-listing-one__author-image min-h-12 min-w-12 object-cover"
+                        srcset="{{ resize_image_url(content.blog_author.avatar, 288) }} 288w"
+                        sizes="(max-width: 320px) 288px"
                         src="{{ content.blog_author.avatar }}"
-                        alt="{{ module.default_text.picture_of_text }}"
-                        class="blog-listing-one__author-image min-h-12 min-w-12 object-cover"
-                        loading="lazy"
-                      />
+                        alt="{{ content.blog_author.display_name }}"
+                        width="{{ content.blog_author.avatar.width }}"
+                        height="{{ content.blog_author.avatar.height }}"
+                        loading="lazy">
                     </div>
                   {% endif %}
                   <div>
