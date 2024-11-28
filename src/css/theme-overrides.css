@@ -573,6 +573,12 @@ tfoot td {
 
 /* Header Vars */
 
+{% set header_height = theme.header.header_height.height ~ "px" %}
+
+{% set header_bg_color = color(theme.header.background.color) %}
+{% set header_border_bottom = theme.header.border_bottom.border.css %}
+{% set menu_toggle_color = color(theme.header.mobile_menu.menu_toggle_color) %}
+
 {% set lang_button_bg = color(theme.header.language_switcher.button.background.bg_color) %}
 {% set lang_button_border = theme.header.language_switcher.button.border.border.css %}
 {% set lang_top_left_corner_radius = theme.header.language_switcher.button.corner.top_left_radius ~ "px" %}
@@ -614,16 +620,28 @@ tfoot td {
 
 {% set lang_hover_dropdown_bg = color(theme.header.language_switcher.hover.dropdown.background.bg_color) %}
 {% set lang_hover_dropdown_color = color(theme.header.language_switcher.hover.dropdown.text.color) %}
-  
-{% set header_bg_color = color(theme.header.background.color) %}
-{% set header_border_bottom = theme.header.border_bottom.border.css %}
 
-#site-header {
+#site-header,
+.header-one__menu-container {
   background-color: {{ header_bg_color }};
 }
 
 #site-header > nav {
   {{ header_border_bottom }};
+}
+
+.header-one__nav {
+  min-height: {{ header_height }};
+}
+
+@media screen and (max-width: 992px) {
+  .header-one__trigger-container {
+    min-height: {{ header_height }};
+  }
+}
+
+.header-one__menu-toggle {
+  background-color: {{ menu_toggle_color }};
 }
 
 #site-header #hs_cos_wrapper_language-switcher .hs-language-switcher__button {

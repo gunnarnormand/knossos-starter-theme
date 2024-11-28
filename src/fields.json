@@ -2073,6 +2073,119 @@
     "type": "group",
     "children": [
       {
+        "label": "Header Height",
+        "name": "header_height",
+        "help_text": "Header Minimum Height Property",
+        "type": "group",
+        "children": [
+          {
+            "name": "height",
+            "label": "Height",
+            "required": false,
+            "locked": false,
+            "display": "number",
+            "min": 72,
+            "max": 320,
+            "step": 1,
+            "type": "number",
+            "prefix": "",
+            "suffix": "px",
+            "default": "100",
+            "placeholder": "100"
+          }
+        ]
+      },
+      {
+        "label": "Background",
+        "name": "background",
+        "help_text": "Header Background Color",
+        "type": "group",
+        "children": [
+          {
+            "label": "Color",
+            "name": "color",
+            "type": "color",
+            "inherited_value": {
+              "property_value_paths": {
+                "color": "theme.global_colors.secondary.color"
+              }
+            },
+            "default": {
+              "opacity": 100
+            }
+          }
+        ]
+      },
+      {
+        "label": "Border Bottom",
+        "name": "border_bottom",
+        "help_text": "Header Border Bottom Style",
+        "type": "group",
+        "children": [
+          {
+            "name": "border",
+            "label": "Border",
+            "required": false,
+            "locked": false,
+            "allow_custom_border_sides": false,
+            "type": "border",
+            "default": {
+              "bottom": {
+                "width": {
+                  "value": 1,
+                  "units": "px"
+                },
+                "opacity": 100,
+                "style": "solid",
+                "color": "#000000"
+              },
+              "top": null,
+              "left": null,
+              "right": null
+            }
+          }
+        ]
+      },
+      {
+        "label": "Mobile Menu",
+        "name": "mobile_menu",
+        "help_text": "Mobile Menu Header Styles",
+        "type": "group",
+        "children": [
+          {
+            "label": "Menu Toggle Color",
+            "name": "menu_toggle_color",
+            "type": "color",
+            "inherited_value": {
+              "property_value_paths": {
+                "color": "theme.global_colors.primary.color"
+              }
+            },
+            "default": {
+              "opacity": 100
+            }
+          }
+        ]
+      },
+      {
+        "label": "Manage Buttons",
+        "name": "manage_buttons",
+        "help_text": "Manage Buttons in the Header",
+        "type": "group",
+        "children": [
+          {
+            "name": "is_buttons",
+            "label": "Enable Header Buttons",
+            "required": false,
+            "locked": false,
+            "type": "boolean",
+            "display": "toggle",
+            "inline_help_text": "Adds a buttons module to the header when toggled on",
+            "default": true
+          }
+        ]
+      },
+      {
         "label": "Language Switcher",
         "name": "language_switcher",
         "help_text": "Header Language Switcher Styles",
@@ -3019,75 +3132,6 @@
                 ]
               }
             ]
-          }
-        ]
-      },
-      {
-        "label": "Background",
-        "name": "background",
-        "help_text": "Header Background Color",
-        "type": "group",
-        "children": [
-          {
-            "label": "Color",
-            "name": "color",
-            "type": "color",
-            "inherited_value": {
-              "property_value_paths": {
-                "color": "theme.global_colors.secondary.color"
-              }
-            },
-            "default": {
-              "opacity": 100
-            }
-          }
-        ]
-      },
-      {
-        "label": "Border Bottom",
-        "name": "border_bottom",
-        "help_text": "Header Border Bottom Style",
-        "type": "group",
-        "children": [
-          {
-            "name": "border",
-            "label": "Border",
-            "required": false,
-            "locked": false,
-            "allow_custom_border_sides": false,
-            "type": "border",
-            "default": {
-              "bottom": {
-                "width": {
-                  "value": 1,
-                  "units": "px"
-                },
-                "opacity": 100,
-                "style": "solid",
-                "color": "#000000"
-              },
-              "top": null,
-              "left": null,
-              "right": null
-            }
-          }
-        ]
-      },
-      {
-        "label": "Manage Buttons",
-        "name": "manage_buttons",
-        "help_text": "Manage Buttons in the Header",
-        "type": "group",
-        "children": [
-          {
-            "name": "is_buttons",
-            "label": "Enable Header Buttons",
-            "required": false,
-            "locked": false,
-            "type": "boolean",
-            "display": "toggle",
-            "inline_help_text": "Adds a buttons module to the header when toggled on",
-            "default": true
           }
         ]
       }
