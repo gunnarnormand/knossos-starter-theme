@@ -698,6 +698,10 @@ video {
   top: 1rem;
 }
 
+.right-full {
+  right: 100%;
+}
+
 .z-0 {
   z-index: 0;
 }
@@ -1060,6 +1064,10 @@ video {
 
 .min-h-svh {
   min-height: 100svh;
+}
+
+.min-h-full {
+  min-height: 100%;
 }
 
 .w-10 {
@@ -1969,6 +1977,10 @@ video {
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.paused {
+  animation-play-state: paused;
+}
+
 .file\:border-0::file-selector-button {
   border-width: 0px;
 }
@@ -2814,6 +2826,11 @@ video {
   .lg\:py-28 {
     padding-top: 7rem;
     padding-bottom: 7rem;
+  }
+
+  .lg\:py-0 {
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
 
   .lg\:pb-20 {

@@ -146,9 +146,9 @@
               fill="currentColor"></path>
           </svg>
         </button>
-        <ul class="menu__submenu menu__submenu--level-{{ next_depth|escape_attr }} lg:absolute w-full lg:w-48 bg-white border hidden 
+        <ul class="menu__submenu menu__submenu--level-{{ next_depth|escape_attr }} lg:absolute w-full lg:w-48 border hidden 
                    {{ 'left-0 lg:group-hover/level-1:block' if depth == 1 }} 
-                   {{ 'top-0 left-full lg:group-hover/level-2:block' if depth == 2 }}">
+                   {{ 'top-0 right-full lg:group-hover/level-2:block' if depth == 2 }}">
           {% for sublink in link.children %}
             {{ render_link_item(sublink, next_depth) }}
           {% endfor %}
@@ -197,7 +197,7 @@
 
 {# Menu #}
 
-<nav class="menu-one pt-4 lg:pt-0 relative z-[999]" aria-label="Main menu">
+<nav class="menu-one relative z-[999]" aria-label="Main menu">
   <ul class="menu-one__wrapper no-list flex flex-col lg:flex-row items-start lg:items-center space-y-2 lg:space-y-0 lg:space-x-2">
     {{ menu_one_items() }}
   </ul>

@@ -6,14 +6,15 @@
 
     const menuContainer = document.querySelector('.header-one__menu-container');
   
-    const triggerContainer = document.querySelector('.header-one__trigger-container');
-    
+    const headerEl = document.querySelector('.header-one');
+
     // dynamically update the (--height-open) css variable for the menu height. 
     const rootStyles = document.querySelector(':root'); 
     const viewportHeight = window.innerHeight;
-    const triggerContainerHeight = Math.round(triggerContainer.getBoundingClientRect().height);
-    const menuHeight = viewportHeight - triggerContainerHeight;
+    const headerElHeight = Math.round(headerEl.getBoundingClientRect().height);
+    const menuHeight = viewportHeight - headerElHeight;
     rootStyles.style.setProperty('--height-open', `${menuHeight}px`);
+
 
     // Functions
   
@@ -28,17 +29,51 @@
   
     // Function to toggle main navigation menu on mobile screens
     function toggleNav() {
-        menuTrigger.addEventListener('click', () => {
-            const isOpen = menuTrigger.getAttribute('data-menu-state') === 'open';
-            isOpen ? menuTrigger.setAttribute('data-menu-state', 'closed') : menuTrigger.setAttribute('data-menu-state', 'open');
-            menuContainer.style.height = isOpen ? 'var(--height-closed)' : 'var(--height-open)';
-            
-            menuContainer.classList.toggle('hidden');
-            menuTrigger.classList.toggle('open');
 
-            // @TODO: animate hamburger style on toggle 
+      const menuToggleTop = headerEl.querySelector('.menu-toggle--top');
+      const menuToggleBot = headerEl.querySelector('.menu-toggle--bottom');
+      const menuToggleMid = headerEl.querySelector('.menu-toggle--middle');
+      const menuItems = menuContainer.querySelector('.menu-one__wrapper')?.children ?? [];
+      const menuButtons = menuContainer.querySelector('.header-one__buttons-container')?.children ?? [];
+      const langButton = menuContainer.querySelector('.header-one__language-switcher');
+      const menuItemsArray = Array.from(menuItems);
+      const menuButtonsArray = Array.from(menuButtons);
+      const allMenuItemsArray = [...menuItemsArray, ...menuButtonsArray, langButton];
+      const tl = gsap.timeline({ paused: true, smoothChildTiming: true });
 
-        });
+      tl
+        .to(menuToggleTop, { y: 8 }, 'start')
+        .to(menuToggleBot, { y: -8 }, 'start')
+        .to(menuToggleTop, { rotation:135, ease: "slow(0.1,2,false)" }, 'start+=0.3')
+        .to(menuToggleMid, { rotation:135, ease: "slow(0.1,2,false)" }, 'start+=0.3')
+        .to(menuToggleBot, { rotation:225, ease: "slow(0.1,2,false)" }, 'start+=0.3')
+        .fromTo(allMenuItemsArray, {
+          autoAlpha: 0,
+          y: 20
+        },{
+          autoAlpha: 1,
+          y: 0,
+          stagger: 0.1,
+          duration: 1.5
+        }, 'start+=0.3');
+
+      tl.reverse();
+
+      menuTrigger.addEventListener('click', () => {
+          const isOpen = menuTrigger.getAttribute('data-menu-state') === 'open';
+          isOpen ? menuTrigger.setAttribute('data-menu-state', 'closed') : menuTrigger.setAttribute('data-menu-state', 'open');
+
+          menuContainer.style.minHeight = isOpen ? 'var(--height-closed)' : 'var(--height-open)';
+          menuContainer.classList.toggle('hidden');
+          menuTrigger.classList.toggle('open');
+
+          if (tl.reversed()) {
+            tl.play();
+          } else {
+            tl.reverse(.5, false);
+          }
+
+      });
     }
   
     // Function to disable the other checkbox inputs on the email subscription system page template
@@ -229,8 +264,8 @@
         return;
       } else {
 
-        // Function dependent on navigation menu
-        if (menuTrigger && menuContainer) {
+        // Function dependent on navigation menu and mobile width
+        if (menuTrigger && menuContainer && window.innerWidth < 992) {
             toggleNav();
         }
 
