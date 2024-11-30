@@ -1,0 +1,426 @@
+[
+  {
+    "name": "banner_item",
+    "display_width": null,
+    "label": "Banner Item",
+    "required": false,
+    "locked": false,
+    "occurrence": {
+      "min": 4,
+      "max": null,
+      "sorting_label_field": "banner_heading",
+      "default": 4
+    },
+    "children": [
+      {
+        "name": "add_icon",
+        "display_width": null,
+        "label": "Add Icon/Image",
+        "help_text": "Adds an icon or image to the banner when selected",
+        "required": false,
+        "locked": false,
+        "display": "toggle",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "name": "icon_type",
+        "display_width": null,
+        "label": "Icon Type",
+        "help_text": "Choose to use a icon from the icon library or a custom image",
+        "required": false,
+        "locked": false,
+        "visibility": {
+          "controlling_field": null,
+          "controlling_field_path": "banner_item.add_icon",
+          "controlling_value_regex": "true",
+          "property": null,
+          "operator": "EQUAL",
+          "access": null
+        },
+        "display": "select",
+        "choices": [
+          [
+            "icon",
+            "Library Icon"
+          ],
+          [
+            "image",
+            "Custom Image"
+          ]
+        ],
+        "multiple": false,
+        "reordering_enabled": true,
+        "preset": null,
+        "type": "choice",
+        "default": "image"
+      },
+      {
+        "name": "icon_field",
+        "label": "Icon",
+        "type": "icon",
+        "icon_set": "fontawesome-6.4.2",
+        "display_width": null,
+        "required": false,
+        "locked": false,
+        "visibility_rules": "ADVANCED",
+        "advanced_visibility": {
+          "boolean_operator": "AND",
+          "criteria": [
+            {
+              "controlling_field_path": "banner_item.add_icon",
+              "controlling_value_regex": "true",
+              "operator": "MATCHES_REGEX"
+            },
+            {
+              "controlling_field_path": "banner_item.icon_type",
+              "controlling_value_regex": "icon",
+              "operator": "MATCHES_REGEX"
+            }
+          ]
+        }
+      },
+      {
+        "name": "image_field",
+        "label": "Image",
+        "help_text": "Works best using images with an aspect-ratio of 3/2",
+        "required": false,
+        "locked": false,
+        "display_width": null,
+        "visibility_rules": "ADVANCED",
+        "advanced_visibility": {
+          "boolean_operator": "AND",
+          "criteria": [
+            {
+              "controlling_field_path": "banner_item.add_icon",
+              "controlling_value_regex": "true",
+              "operator": "MATCHES_REGEX"
+            },
+            {
+              "controlling_field_path": "banner_item.icon_type",
+              "controlling_value_regex": "image",
+              "operator": "MATCHES_REGEX"
+            }
+          ]
+        },
+        "responsive": true,
+        "resizable": false,
+        "show_loading": false,
+        "type": "image",
+        "default": {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/placeholder-image.svg",
+          "alt": "placeholder-image",
+          "loading": "lazy"
+        }
+      },
+      {
+        "name": "banner_heading",
+        "display_width": null,
+        "label": "Banner Heading",
+        "help_text": "Main banner heading text",
+        "required": true,
+        "locked": false,
+        "validation_regex": "",
+        "allow_new_line": false,
+        "show_emoji_picker": true,
+        "type": "text",
+        "default": "Knossos Marquee"
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "default": [
+      {
+        "add_icon": true,
+        "icon_type": "image",
+        "icon_field": {
+          "name": "Mountain",
+          "unicode": "f6fc",
+          "type": "SOLID"
+        },
+        "image_field": {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/placeholder-image.svg",
+          "alt": "placeholder-image",
+          "loading": "lazy"
+        },
+        "banner_heading": "Knossos Marquee"
+      },
+      {
+        "add_icon": true,
+        "icon_type": "image",
+        "icon_field": {
+          "name": "Mountain",
+          "unicode": "f6fc",
+          "type": "SOLID"
+        },
+        "image_field": {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/placeholder-image.svg",
+          "alt": "placeholder-image",
+          "loading": "lazy"
+        },
+        "banner_heading": "Knossos Marquee"
+      },
+      {
+        "add_icon": true,
+        "icon_type": "image",
+        "icon_field": {
+          "name": "Mountain",
+          "unicode": "f6fc",
+          "type": "SOLID"
+        },
+        "image_field": {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/placeholder-image.svg",
+          "alt": "placeholder-image",
+          "loading": "lazy"
+        },
+        "banner_heading": "Knossos Marquee"
+      },
+      {
+        "add_icon": true,
+        "icon_type": "image",
+        "icon_field": {
+          "name": "Mountain",
+          "unicode": "f6fc",
+          "type": "SOLID"
+        },
+        "image_field": {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/placeholder-image.svg",
+          "alt": "placeholder-image",
+          "loading": "lazy"
+        },
+        "banner_heading": "Knossos Marquee"
+      }
+    ]
+  },
+  {
+    "id": "styles",
+    "label": "Styles",
+    "name": "styles",
+    "display_width": null,
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "locked": false,
+    "required": false,
+    "tab": "STYLE",
+    "type": "group",
+    "children": [
+      {
+        "name": "spacing",
+        "label": "Spacing",
+        "required": false,
+        "locked": false,
+        "min": 5,
+        "max": 500,
+        "step": 1,
+        "type": "number",
+        "prefix": "",
+        "suffix": "px",
+        "default": "32",
+        "placeholder": "32px"
+      },
+      {
+        "name": "banner",
+        "label": "Banner",
+        "type": "group",
+        "expanded": true,
+        "children": [
+          {
+            "name": "background",
+            "label": "Background",
+            "help_text": "Banner Background Color",
+            "type": "group",
+            "children": [
+              {
+                "name": "bg_color",
+                "label": "Background color",
+                "required": false,
+                "locked": false,
+                "type": "color",
+                "default": {
+                  "color": "#ffffff",
+                  "opacity": 100
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "icon_image",
+        "label": "Icon/Image",
+        "type": "group",
+        "expanded": true,
+        "children": [
+          {
+            "label": "Icon",
+            "name": "icon",
+            "help_text": "Icon Styles",
+            "type": "group",
+            "children": [
+              {
+                "name": "icon_size",
+                "label": "Size",
+                "required": false,
+                "locked": false,
+                "min": 32,
+                "max": 144,
+                "step": 1,
+                "type": "number",
+                "prefix": "",
+                "suffix": "px",
+                "default": "65",
+                "placeholder": "65px"
+              },
+              {
+                "name": "color",
+                "label": "Color",
+                "required": false,
+                "locked": false,
+                "type": "color",
+                "default": {
+                  "color": "#000000",
+                  "opacity": 100
+                }
+              }
+            ]
+          },
+          {
+            "label": "Image",
+            "name": "image",
+            "help_text": "Image Styles",
+            "type": "group",
+            "children": [
+              {
+                "name": "image_size",
+                "label": "Size",
+                "required": false,
+                "locked": false,
+                "min": 32,
+                "max": 144,
+                "step": 1,
+                "type": "number",
+                "prefix": "",
+                "suffix": "px",
+                "default": "144",
+                "placeholder": "144px"
+              },
+              {
+                "name": "corner",
+                "label": "Corner",
+                "help_text": "Image Border Radius",
+                "type": "group",
+                "children": [
+                  {
+                    "label": "Top Left Radius",
+                    "name": "top_left_radius",
+                    "type": "number",
+                    "display": "text",
+                    "max": 100,
+                    "step": 1,
+                    "suffix": "px",
+                    "default": 0
+                  },
+                  {
+                    "label": "Top Right Radius",
+                    "name": "top_right_radius",
+                    "type": "number",
+                    "display": "text",
+                    "max": 100,
+                    "step": 1,
+                    "suffix": "px",
+                    "default": 0
+                  },
+                  {
+                    "label": "Bottom Left Radius",
+                    "name": "bottom_left_radius",
+                    "type": "number",
+                    "display": "text",
+                    "max": 100,
+                    "step": 1,
+                    "suffix": "px",
+                    "default": 0
+                  },
+                  {
+                    "label": "Bottom Right Radius",
+                    "name": "bottom_right_radius",
+                    "type": "number",
+                    "display": "text",
+                    "max": 100,
+                    "step": 1,
+                    "suffix": "px",
+                    "default": 0
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "heading",
+        "label": "Heading",
+        "type": "group",
+        "expanded": true,
+        "children": [
+          {
+            "label": "Text",
+            "name": "text",
+            "help_text": "Heading Text Styles",
+            "type": "group",
+            "children": [
+              {
+                "label": "Font",
+                "name": "font",
+                "type": "font",
+                "default": {
+                  "fallback": "serif",
+                  "font": "DM Serif Display",
+                  "font_set": "GOOGLE",
+                  "color": "#000000",
+                  "size": 56,
+                  "size_unit": "px",
+                  "styles": {
+                    "text-decoration": "none"
+                  },
+                  "variant": 700
+                }
+              },
+              {
+                "label": "Transform",
+                "name": "transform",
+                "type": "choice",
+                "choices": [
+                  [
+                    "none",
+                    "None"
+                  ],
+                  [
+                    "capitalize",
+                    "Capitalize"
+                  ],
+                  [
+                    "uppercase",
+                    "Uppercase"
+                  ],
+                  [
+                    "lowercase",
+                    "Lowercase"
+                  ]
+                ],
+                "display": "select",
+                "default": "none"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

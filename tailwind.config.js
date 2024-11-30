@@ -14,7 +14,9 @@ module.exports = {
     'lg:grid-cols-5',
     'lg:grid-cols-6',
     'order-first',
-    'order-last'
+    'order-last',
+    'animate-marquee-right',
+    'animate-marquee-left'
   ],
   theme: {
     screens: {

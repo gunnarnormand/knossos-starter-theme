@@ -1,0 +1,157 @@
+{####################################################}
+{################# Module styles ####################}
+{####################################################}
+
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+      {# Banner Styles #}
+      {% if module.styles.banner.background.bg_color %}
+        .banner-marquee-module {
+          background-color: rgba({{ module.styles.banner.background.bg_color.color|convert_rgb }}, {{ module.styles.banner.background.bg_color.opacity / 100 }});
+        }  
+      {% endif %}
+
+      {# Icon/Image Styles #}
+      {% if module.styles.icon_image.icon.icon_size %}
+        .banner-marquee-module__icon {
+          width: {{ module.styles.icon_image.icon.icon_size ~ "px" }};
+          height: auto;
+        }
+      {% endif %}
+      {% if module.styles.icon_image.icon.color %}
+        .banner-marquee-module__icon {
+          fill: rgba({{ module.styles.icon_image.icon.color.color|convert_rgb }}, {{ module.styles.icon_image.icon.color.opacity / 100 }});
+        }
+      {% endif %}
+
+      {% if module.styles.icon_image.image.image_size %}
+        .banner-marquee-module__image img {
+          width: {{ module.styles.icon_image.image.image_size ~ "px" }};
+          height: auto;
+        }
+      {% endif %}
+
+      {% if module.styles.icon_image.image.corner %}
+        .banner-marquee-module__image img {
+          border-top-left-radius: {{ module.styles.icon_image.image.corner.top_left_radius ~ "px" }};
+          border-top-right-radius: {{ module.styles.icon_image.image.corner.top_right_radius ~ "px" }};
+          border-bottom-left-radius: {{ module.styles.icon_image.image.corner.bottom_left_radius ~ "px" }};
+          border-bottom-right-radius: {{ module.styles.icon_image.image.corner.bottom_right_radius ~ "px" }};
+        }
+      {% endif %}
+
+      {# Heading Styles #} 
+
+      {% if module.styles.spacing %}
+        .banner-marquee-module__heading-wrapper {
+          padding-left: {{ module.styles.spacing ~ "px" }};
+          padding-right: {{ module.styles.spacing ~ "px" }};
+        }
+      {% endif %}
+
+      .banner-marquee-module__heading {
+        line-height: 1.2;
+        {% if module.styles.heading.text.font %}
+          {{ module.styles.heading.text.font.style }};
+          font-size: {{ module.styles.heading.text.font.size ~ module.styles.heading.text.font.size_unit }};
+          color: {{ module.styles.heading.text.font.color }};
+        {% endif %}
+        {% if module.styles.heading.text.transform %}
+          text-transform: {{ module.styles.heading.text.transform }};
+        {% endif %}
+        {% if module.styles.heading.text.alignment %}
+          {{ module.styles.heading.text.alignment.css }};
+        {% endif %}
+      }
+    
+      
+
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+{####################################################}
+{################# Module layout ####################}
+{####################################################}
+
+<div class="banner-marquee-module flex w-screen max-w-full justify-end overflow-hidden">
+  <div class="flex justify-end">
+    <div class="grid animate-marquee-right auto-cols-max grid-flow-col grid-cols-[max-content] items-center justify-around py-4">
+    {% for item in module.banner_item %}
+      {% if item.banner_heading %}
+        <div class="banner-marquee-module__heading-wrapper flex items-center justify-center whitespace-nowrap text-center lg:text-left">
+          <h2 class="banner-marquee-module__heading mb-0">{% inline_text field="banner_heading" value="{{ item.banner_heading }}" no_wrapper=true %}</h2>
+        </div>
+      {% endif %}
+      {% if item.add_icon %}
+        {% if item.icon_type == "icon" %}
+          <div class="relative aspect-[3/2] w-full object-cover banner-marquee-module__icon">
+            {% icon
+              name="{{ item.icon_field.name }}"
+              style="{{ item.icon_field.type }}"
+              unicode="{{ item.icon_field.unicode }}"
+              icon_set="{{ item.icon_field.icon_set }}"
+              extra_classes="aspect-[3/2] max-h-24 object-cover block"
+            %}
+          </div>
+        {% endif %}
+        {% if item.icon_type == "image" and item.image_field.src %}
+          <div class="relative aspect-[3/2] w-full overflow-hidden object-cover banner-marquee-module__image">
+            {% set loadingAttr = item.image_field.loading != 'disabled' ? 'loading="{{ item.image_field.loading }}"' : '' %}
+            <img class="aspect-[3/2] max-h-24 object-cover"
+              srcset="{{ resize_image_url(item.image_field.src, 288) }} 288w,
+              {{ resize_image_url(item.image_field.src, 468) }} 468w"
+              sizes="(max-width: 320px) 288px,
+              (max-width: 500px) 468px"
+              src="{{ item.image_field.src }}"
+              alt="{{ item.image_field.alt }}"
+              width="{{ item.image_field.width }}"
+              height="{{ item.image_field.height }}"
+              {{ loadingAttr }}>
+          </div>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+    </div>
+    <div class="grid animate-marquee-right auto-cols-max grid-flow-col grid-cols-[max-content] items-center justify-around py-4">
+    {% for item in module.banner_item %}
+      {% if item.banner_heading %}
+        <div class="banner-marquee-module__heading-wrapper flex items-center justify-center whitespace-nowrap text-center lg:text-left">
+          <h2 class="banner-marquee-module__heading mb-0">{% inline_text field="banner_heading" value="{{ item.banner_heading }}" no_wrapper=true %}</h2>
+        </div>
+      {% endif %}
+      {% if item.add_icon %}
+        {% if item.icon_type == "icon" %}
+          <div class="relative aspect-[3/2] w-full object-cover banner-marquee-module__icon">
+            {% icon
+              name="{{ item.icon_field.name }}"
+              style="{{ item.icon_field.type }}"
+              unicode="{{ item.icon_field.unicode }}"
+              icon_set="{{ item.icon_field.icon_set }}"
+              extra_classes="aspect-[3/2] max-h-24 object-cover block"
+            %}
+          </div>
+        {% endif %}
+        {% if item.icon_type == "image" and item.image_field.src %}
+          <div class="relative aspect-[3/2] w-full overflow-hidden object-cover banner-marquee-module__image">
+            {% set loadingAttr = item.image_field.loading != 'disabled' ? 'loading="{{ item.image_field.loading }}"' : '' %}
+            <img class="aspect-[3/2] max-h-24 object-cover"
+              srcset="{{ resize_image_url(item.image_field.src, 288) }} 288w,
+              {{ resize_image_url(item.image_field.src, 468) }} 468w"
+              sizes="(max-width: 320px) 288px,
+              (max-width: 500px) 468px"
+              src="{{ item.image_field.src }}"
+              alt="{{ item.image_field.alt }}"
+              width="{{ item.image_field.width }}"
+              height="{{ item.image_field.height }}"
+              {{ loadingAttr }}>
+          </div>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+    </div>
+  </div>
+</div>

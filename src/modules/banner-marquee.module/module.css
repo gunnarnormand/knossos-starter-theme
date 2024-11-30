@@ -1,0 +1,4 @@
+.banner-marquee-module__image,
+.banner-marquee-module__icon {
+    will-change: transform;
+}
