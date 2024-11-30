@@ -1,0 +1,51 @@
+<section class="logo-list-marquee-module overflow-hidden py-12 md:py-16 lg:py-20">
+  <div class="container mb-8 w-full max-w-lg px-[5%] md:mb-10 lg:mb-12">
+    <h1 class="text-center text-base font-bold leading-[1.2] md:text-md md:leading-[1.2]">{% inline_rich_text field="heading" value="{{ module.heading }}" %}</h1>
+  </div>
+  <div class="flex items-center pt-7 md:pt-0">
+    <div class="flex shrink-0 animate-loop-horizontally items-center">
+    {% for item in module.logos %}
+
+      {% if item.image_field.src %}
+
+        {% set loadingAttr = item.image_field.loading != 'disabled' ? 'loading="{{ item.image_field.loading }}"' : '' %}
+
+          <img class="mx-7 max-h-12 shrink-0 md:mx-10 md:max-h-14"
+              srcset="{{ resize_image_url(item.image_field.src, 288) }} 288w,
+              {{ resize_image_url(item.image_field.src, 468) }} 468w"
+              sizes="(max-width: 320px) 288px,
+              (max-width: 500px) 468px"
+              src="{{ item.image_field.src }}"
+              alt="{{ item.image_field.alt }}"
+              width="{{ item.image_field.width }}"
+              height="{{ item.image_field.height }}"
+          {{ loadingAttr }}>
+        
+      {% endif %}
+
+    {% endfor %}
+    </div>
+    <div class="flex shrink-0 animate-loop-horizontally items-center">
+    {% for item in module.logos %}
+
+      {% if item.image_field.src %}
+
+        {% set loadingAttr = item.image_field.loading != 'disabled' ? 'loading="{{ item.image_field.loading }}"' : '' %}
+
+          <img class="mx-7 max-h-12 shrink-0 md:mx-10 md:max-h-14"
+              srcset="{{ resize_image_url(item.image_field.src, 288) }} 288w,
+              {{ resize_image_url(item.image_field.src, 468) }} 468w"
+              sizes="(max-width: 320px) 288px,
+              (max-width: 500px) 468px"
+              src="{{ item.image_field.src }}"
+              alt="{{ item.image_field.alt }}"
+              width="{{ item.image_field.width }}"
+              height="{{ item.image_field.height }}"
+          {{ loadingAttr }}>
+        
+      {% endif %}
+
+    {% endfor %}
+    </div>
+  </div>
+</section>
