@@ -1,0 +1,365 @@
+{####################################################}
+{################# Module scripts ###################}
+{####################################################}
+
+{% require_js %}
+  <script defer>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (typeof window.hsInEditor === 'undefined' && window.innerWidth >= 992) {
+        const widgetId = "{{ name }}";
+        const ctaModule = document.getElementById(`${widgetId}`);
+        const map = (x, a, b, c, d) => (x - a) * (d - c) / (b - a) + c;
+        const lerp = (a, b, n) => (1 - n) * a + n * b;
+        const clamp = (num, min, max) => num <= min ? min : num >= max ? max : num;
+        const getMousePos = (e) => {
+            let posx = 0;
+            let posy = 0;
+            if (!e) e = window.event;
+            if (e.pageX || e.pageY) {
+                posx = e.pageX;
+                posy = e.pageY;
+            }
+            else if (e.clientX || e.clientY)    {
+                posx = e.clientX + body.scrollLeft + document.documentElement.scrollLeft;
+                posy = e.clientY + body.scrollTop + document.documentElement.scrollTop;
+            }
+            return { x : posx, y : posy };
+        };
+
+        class Link {
+          constructor(el) {
+            this.DOM = {el: el};
+            this.DOM.linkItems = this.DOM.el.querySelectorAll('.cta-hover-image-links-grid-module__link')
+            this.animatableProperties = {
+                tx: {previous: 0, current: 0, amt: 0.08},
+                ty: {previous: 0, current: 0, amt: 0.08},
+                rotation: {previous: 0, current: 0, amt: 0.08}
+            };
+            this.linkItems = [];
+            [...this.DOM.linkItems].forEach((item, pos) => {
+              this.linkItems.push(new LinkItem(item, pos, this.animatableProperties));
+            });
+          }
+        }
+
+        class LinkItem {
+          constructor(el, inMenuPosition, animatableProperties) {
+            this.DOM = {el: el};
+            this.inMenuPosition = inMenuPosition;
+            this.animatableProperties = animatableProperties;
+            this.DOM.textInner = this.DOM.el.querySelector('.cta-hover-image-links-grid-module__link-textinner');
+            this.layout();
+            this.initEvents();
+          }
+
+          layout() {
+            this.DOM.reveal = document.createElement('div');
+            this.DOM.reveal.className = 'hover-reveal';
+            this.DOM.revealInner = document.createElement('div');
+            this.DOM.revealInner.className = 'hover-reveal__inner';
+            this.DOM.revealImage = document.createElement('div');
+            this.DOM.revealImage.className = 'hover-reveal__img';
+            this.DOM.revealImage.style.backgroundImage = `url(${imageLinks[this.inMenuPosition][1]})`;
+            this.DOM.revealInner.append(this.DOM.revealImage);
+            this.DOM.reveal.append(this.DOM.revealInner);
+            this.DOM.el.prepend(this.DOM.reveal);
+          }
+
+          calcBounds() {
+            this.bounds = {
+              el: this.DOM.el.getBoundingClientRect(),
+              reveal: this.DOM.reveal.getBoundingClientRect()
+            };
+          }
+
+          initEvents() {
+            this.mouseenterFn = (ev) => {
+              this.showImage();
+              this.firstRAFCycle = true;
+              this.loopRender();
+            };
+
+            this.mouseleaveFn = () => {
+              this.stopRendering();
+              this.hideImage();
+            };
+
+            this.DOM.el.addEventListener('mouseenter', this.mouseenterFn);
+            this.DOM.el.addEventListener('mouseleave', this.mouseleaveFn);
+          }
+
+          showImage() {
+            gsap.killTweensOf(this.DOM.revealInner);
+            gsap.killTweensOf(this.DOM.revealImage);
+            this.tl = gsap.timeline({
+              onStart: () => {
+                this.DOM.reveal.style.opacity = 1;
+                this.DOM.reveal.style.visibility = "visible";
+                this.DOM.reveal.style.zIndex = `${imageLinks.length}`;
+                gsap.set(this.DOM.textInner, {zIndex: imageLinks.length});
+              }
+            })
+            .to(this.DOM.revealInner, {
+              startAt: {y: direction.y < 0 ? '-100%' : '100%'},
+              y: '0%',
+              duration: 1,
+              ease: "expoScale(0.5,7,none)"
+            })
+            .to(this.DOM.revealImage, {
+              startAt: {y: direction.y < 0 ? '100%': '-100%'},
+              y: '0%',
+              duration: 1,
+              ease: "expoScale(0.5,7,none)"
+            }, 0);
+          }
+
+          hideImage() {
+            gsap.killTweensOf(this.DOM.revealInner);
+            gsap.killTweensOf(this.DOM.revealImage);
+
+            this.tl = gsap.timeline({
+              onStart: () => {
+                gsap.set(this.DOM.textInner, {zIndex: 1});
+              },
+              onComplete: () => {
+                gsap.set(this.DOM.reveal, {autoAlpha: 0});
+              }
+            })
+            .to(this.DOM.revealInner, {
+              y: direction.y < 0 ? '100%' : '-100%',
+              duration: 0.2,
+              ease: "expoScale(0.5,7,none)"
+            })
+            .to(this.DOM.revealImage, {
+              y: direction.y < 0 ? '-100%' : '100%',
+              duration: 0.2,
+              ease: "expoScale(0.5,7,none)"
+            }, 0);
+          }
+
+          loopRender() {
+            if ( !this.requestId ) {
+              this.requestId = requestAnimationFrame(() => this.render());
+            }
+          }
+
+          stopRendering() {
+            if ( this.requestId ) {
+              window.cancelAnimationFrame(this.requestId);
+              this.requestId = undefined;
+            }
+          }
+
+          render() {
+            this.requestId = undefined;
+            if ( this.firstRAFCycle ) {
+              this.calcBounds();
+            }
+            const mouseDistanceX = clamp(Math.abs(mousePosCache.x - mousepos.x), 0, 100);
+            direction = {x: mousePosCache.x-mousepos.x, y: mousePosCache.y-mousepos.y};
+            mousePosCache = {x: mousepos.x, y: mousepos.y};
+
+            this.animatableProperties.tx.current = mousepos.x - this.bounds.reveal.width/2 + 500;
+            this.animatableProperties.ty.current = mousepos.y - this.bounds.reveal.height/2;
+            this.animatableProperties.rotation.current = this.firstRAFCycle ? 0 : map(mouseDistanceX,0,100,0,direction.x < 0 ? 60 : -60);
+            this.animatableProperties.tx.previous = this.firstRAFCycle ? this.animatableProperties.tx.current : lerp(this.animatableProperties.tx.previous, this.animatableProperties.tx.current, this.animatableProperties.tx.amt);
+            this.animatableProperties.ty.previous = this.firstRAFCycle ? this.animatableProperties.ty.current : lerp(this.animatableProperties.ty.previous, this.animatableProperties.ty.current, this.animatableProperties.ty.amt);
+            this.animatableProperties.rotation.previous = this.firstRAFCycle ? this.animatableProperties.rotation.current : lerp(this.animatableProperties.rotation.previous, this.animatableProperties.rotation.current, this.animatableProperties.rotation.amt);
+
+            gsap.set(this.DOM.reveal, {
+              x: this.animatableProperties.tx.previous,
+              y: this.animatableProperties.ty.previous,
+              rotation: this.animatableProperties.rotation.previous
+            });
+
+            this.firstRAFCycle = false;
+            this.loopRender();
+          }
+        }
+
+        const linksWrapper = ctaModule.querySelector('.cta-hover-image-links-grid-module__links-wrapper');
+        const ctaLinks = ctaModule.querySelectorAll('.cta-hover-image-links-grid-module__link');
+        let imagesArr = [];
+        ctaLinks.forEach(image => {
+          imagesArr.push(image.dataset.img);
+        });
+        const imageLinks = Object.entries(imagesArr);
+        let mousepos = {x: 0, y: 0};
+        let mousePosCache = mousepos;
+        let direction = {x: mousePosCache.x-mousepos.x, y: mousePosCache.y-mousepos.y};
+        window.addEventListener('mousemove', ev => mousepos = getMousePos(ev));
+        new Link(linksWrapper);
+      }
+    });
+  </script>
+{% end_require_js %}
+
+
+{####################################################}
+{################# Module styles ####################}
+{####################################################}
+
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+      .cta-hover-image-links-grid-module__links-wrapper {
+        counter-reset: counter;
+      }
+
+      .cta-hover-image-links-grid-module__link {
+        text-decoration: none;
+      }
+
+      .cta-hover-image-links-grid-module__link-textinner {
+        {% if module.styles.link.text.font %}
+          {{ module.styles.link.text.font.css }}
+        {% endif %}
+        {% if module.styles.link.text.transform %}
+          text-transform: {{ module.styles.link.text.transform }};
+        {% endif %}
+        {% if module.styles.link.background.color.color %}
+          background-color: rgba({{ module.styles.link.background.color.color|convert_rgb }}, {{ module.styles.link.background.color.opacity / 100 }});
+        {% endif %}
+        {% if module.styles.link.border.border %}
+          {{ module.styles.link.border.border.css }}
+        {% endif %}
+        {% if module.styles.link.corner.top_left_radius >= 0 %}
+          border-top-left-radius: {{ module.styles.link.corner.top_left_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.link.corner.top_right_radius >= 0 %}
+          border-top-right-radius: {{ module.styles.link.corner.top_right_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.link.corner.bottom_left_radius >= 0 %}
+          border-bottom-left-radius: {{ module.styles.link.corner.bottom_left_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.link.corner.bottom_right_radius >= 0 %}
+          border-bottom-right-radius: {{ module.styles.link.corner.bottom_right_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.link.spacing.spacing %}
+          {{ module.styles.link.spacing.spacing.css }}
+        {% endif %}
+      }
+
+      .cta-hover-image-links-grid-module__link-textinner:hover,
+      .cta-hover-image-links-grid-module__link-textinner:focus,
+      .cta-hover-image-links-grid-module__link-textinner:active {
+        {% if module.styles.link.hover.text.color.color %}
+          color: rgba({{ module.styles.link.hover.text.color.color|convert_rgb }}, {{ module.styles.link.hover.text.color.opacity / 100 }});
+        {% endif %}
+        {% if module.styles.link.hover.background.color.color %}
+          background-color: rgba({{ module.styles.link.hover.background.color.color|convert_rgb }}, {{ module.styles.link.hover.background.color.opacity / 100 }});
+        {% endif %}
+        {% if module.styles.link.hover.border.border %}
+          {{ module.styles.link.hover.border.border.css }}
+        {% endif %}
+        {% if module.styles.link.hover.corner.top_left_radius >= 0 %}
+          border-top-left-radius: {{ module.styles.link.hover.corner.top_left_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.link.hover.corner.top_right_radius >= 0 %}
+          border-top-right-radius: {{ module.styles.link.hover.corner.top_right_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.link.hover.corner.bottom_left_radius >= 0 %}
+          border-bottom-left-radius: {{ module.styles.link.hover.corner.bottom_left_radius ~ "px" }};
+        {% endif %}
+        {% if module.styles.link.hover.corner.bottom_right_radius >= 0 %}
+          border-bottom-right-radius: {{ module.styles.link.hover.corner.bottom_right_radius ~ "px" }};
+        {% endif %}
+      }
+
+      .cta-hover-image-links-grid-module__link-textinner::before:hover,
+      .cta-hover-image-links-grid-module__link-textinner::before:focus {
+        {% if module.styles.link.hover.text.color.color %}
+          color: rgba({{ module.styles.link.hover.text.color.color|convert_rgb }}, {{ module.styles.link.hover.text.color.opacity / 100 }});
+        {% endif %}
+      }
+
+      .cta-hover-image-links-grid-module__link-textinner::before {
+        counter-increment: counter;
+        content: counters(counter, ".", decimal-leading-zero);
+        margin-right: 1.5rem;
+        white-space: nowrap;
+        line-height: 1.4;
+        {% if module.styles.counter.text.font %}
+          {{ module.styles.counter.text.font.css }}
+        {% endif %}
+        {% if module.styles.counter.text.transform %}
+          text-transform: {{ module.styles.counter.text.transform }};
+        {% endif %}
+      }
+
+      {# Image Styles #}
+
+      .hover-reveal {
+        position: absolute;
+        z-index: -1;
+        {% if module.styles.image.image.image_size %}
+          width: {{ module.styles.image.image.image_size ~ "px" }};
+          height: {{ module.styles.image.image.image_size ~ "px" }};
+        {% endif %}
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        opacity: 0;
+      }
+
+      .hover-reveal__inner {
+        overflow: hidden;
+      }
+
+      .hover-reveal__img,
+      .hover-reveal__inner {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+
+      .hover-reveal__img {
+        background-size: cover;
+        background-position: 50% 50%;
+        {% if module.styles.image.image.corner %}
+          border-top-left-radius: {{ module.styles.image.image.corner.top_left_radius ~ "px" }};
+          border-top-right-radius: {{ module.styles.image.image.corner.top_right_radius ~ "px" }};
+          border-bottom-left-radius: {{ module.styles.image.image.corner.bottom_left_radius ~ "px" }};
+          border-bottom-right-radius: {{ module.styles.image.image.corner.bottom_right_radius ~ "px" }};
+        {% endif %}
+      }
+
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+<section id="{{ name }}" class="cta-hover-image-links-grid-module px-[5%] py-16 md:py-24 lg:py-28">
+  <div class="container">
+    {% inline_rich_text field="title" value="{{ module.title }}" %}
+    <div class="cta-hover-image-links-grid-module__links-wrapper group">
+      {% for item in module.links %}
+        {% set href = item.link.url.href %}
+        {% if item.link.url.type == "EMAIL_ADDRESS" %}
+          {% set href = "mailto:" + href %}
+        {% endif %}
+        {% set rel = [] %}
+        {% if item.link.no_follow %}
+          {% do rel.append("nofollow") %}
+        {% endif %}
+        {% if item.link.open_in_new_tab %}
+          {% do rel.append("noopener") %}
+        {% endif %}
+
+      <a href="{{ href|escape_url }}" 
+        {% if module.link.open_in_new_tab %}target="_blank"{% endif %}
+        {% if rel %}rel="{{ rel|join(" ")|escape_attr }}"{% endif %}
+        class="cta-hover-image-links-grid-module__link flex items-center justify-start"
+        {% if item.image_field.src %}
+          data-img="{{ resize_image_url(item.image_field.src, module.styles.image.image.image_size, module.styles.image.image.image_size, 928) }}" 
+        {% endif %}
+        >
+        <h3 class="cta-hover-image-links-grid-module__link-textinner flex items-center justify-start mb-0 w-full text-5xl font-bold md:text-9xl lg:text-10xl transition-all ease-in-out duration-500 group-hover:opacity-15 group-hover:hover:opacity-100">
+          {{ item.link_text|escape_html }}
+        </h3>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
