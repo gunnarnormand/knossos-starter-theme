@@ -1,0 +1,31 @@
+<!--
+  templateType: error_page
+  isAvailableForNewContent: true
+  label: Knossos - 500 Error
+  screenshotPath: ../../images/template-previews/404.png
+-->
+{% set template_css = "../../css/templates/system-one.css" %}
+{% extends "../layouts/base-one.html" %}
+{# pageTitle is used on system templates for setting a value for the title tag #}
+{% set pageTitle = "Error 500 | Server error" %}
+
+{% block body %}
+
+    <section class="error-page-one px-[5%] py-16 md:py-24 lg:py-28">
+        <div class="container max-w-lg text-center">
+            {% module "content_tagline"
+                path="@hubspot/rich_text",
+                html="<p class='mb-3 font-semibold md:mb-4'>Whoops! Something went wrong on our end.</p>"
+            %}
+            {% module "content_header"
+                path="@hubspot/rich_text",
+                html="<h1 class='mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl'>Error 500: Server error.</h1>"
+            %}
+            {% module "content_body"
+                path="@hubspot/rich_text",
+                html="<p class='md:text-md'>Internal server error. We're working to fix the issue.</p>"
+            %}
+        </div>
+    </section>
+
+{% endblock body %}

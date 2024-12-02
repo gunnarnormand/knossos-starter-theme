@@ -1,0 +1,46 @@
+<!--
+  templateType: error_page
+  isAvailableForNewContent: true
+  label: Knossos - 404 Error
+  screenshotPath: ../../images/template-previews/404.png
+-->
+{% set template_css = "../../css/templates/system-one.css" %}
+{% extends "../layouts/base-one.html" %}
+{# pageTitle is used on system templates for setting a value for the title tag #}
+{% set pageTitle = "Error 404 | Page not found" %}
+
+{% block body %}
+
+    <section class="error-page-one px-[5%] py-16 md:py-24 lg:py-28">
+        <div class="container max-w-lg text-center">
+            {% module "content_tagline"
+                path="@hubspot/rich_text",
+                html="<p class='mb-3 font-semibold md:mb-4'>Oops! Looks like you've taken a wrong turn.</p>"
+            %}
+            {% module "content_header"
+                path="@hubspot/rich_text",
+                html="<h1 class='mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl'>404 Error: Page not found.</h1>"
+            %}
+            {% module "content_body"
+                path="@hubspot/rich_text",
+                html="<p class='md:text-md'>The page you're looking for isn't here. Let's go home.</p>"
+            %}
+            <div class="mt-6 flex items-center justify-center gap-x-4 md:mt-8">
+                {% module "button"
+                    path="../../modules/button",
+                    button_text="Go Home"
+                    link={
+                    "url":
+                        {
+                        "type": "EXTERNAL",
+                        "href": "/"
+                        },
+                        "open_in_new_tab": false,
+                        "no_follow": false
+                    }
+                %}
+            </div>
+        </div>
+    </section>
+
+{% endblock body %}
