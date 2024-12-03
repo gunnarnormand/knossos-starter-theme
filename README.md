@@ -14,9 +14,8 @@
 <ul>
   <li><strong>TODOS:</strong></li>
   <li>mobile font size theme settings and menu settings</li>
-  <li>header (nav min-height) theme setting</li>
-  <li>add DND sections to header/footer per theme guidelines</li>
   <li>add box-shadow styles to button theme settings and module for base and hover</li>
   <li>add radio accessibilty https://www.w3.org/WAI/ARIA/apg/patterns/radio/</li>
   <li>add checkbox accessibilty https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/</li>
+  <li>test forms for no-js add styles for it</li>
 </ul>
