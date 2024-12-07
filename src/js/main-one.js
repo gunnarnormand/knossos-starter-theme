@@ -170,6 +170,12 @@
           
           const radioId = radioInput.getAttribute('id');
           radioLabel = formElement.querySelector(`[for="${radioId}"]`);
+          const parentUl = radioLabel.closest('ul.inputs-list');
+          parentUl.setAttribute('role', 'radiogroup');
+          parentUl.setAttribute('aria-label', 'radio group');
+          radioLabel.setAttribute('role', 'radio');
+          radioLabel.setAttribute('aria-label', 'radio button');
+          radioLabel.setAttribute('aria-checked', 'false');
 
           radioLabel.addEventListener('click', (e) => {
             const currentLabel = e.currentTarget;
@@ -177,15 +183,34 @@
               e.preventDefault();
               return;
             }
-            const currentParentUl = currentLabel.closest('ul[role="checkbox"]');
+            const currentParentUl = currentLabel.closest('ul.inputs-list');
             const allCurrentLabels = currentParentUl.querySelectorAll('label');
             allCurrentLabels.forEach(label => {
               label.classList.remove('checked');
-              label.querySelector('input[type="radio"]').checked === false;
+              label.setAttribute('aria-checked', 'false');
+              label.querySelector('input[type="radio"]').checked = false;
             });
             currentLabel.classList.add('checked');
-            currentLabel.querySelector('input[type="radio"]').checked === true;
+            currentLabel.querySelector('input[type="radio"]').checked = true;
+            currentLabel.setAttribute('aria-checked', 'true');
           });
+
+          // allow spacebar to select radio for accessibility
+          radioLabel.addEventListener('keydown', (e) => {
+            if(e.key == ' '){
+              const currentLabel = e.currentTarget;
+              const currentParentUl = currentLabel.closest('ul.inputs-list');
+              const allCurrentLabels = currentParentUl.querySelectorAll('label');
+              allCurrentLabels.forEach(label => {
+                label.classList.remove('checked');
+                label.setAttribute('aria-checked', 'false');
+                label.querySelector('input[type="radio"]').checked = false;
+              });
+              currentLabel.classList.add('checked');
+              currentLabel.querySelector('input[type="radio"]').checked = true;
+              currentLabel.setAttribute('aria-checked', 'true');
+            }
+        });
 
           radioInput.addEventListener('focus', (e) => {
             let currentRadioId = e.currentTarget.id;
