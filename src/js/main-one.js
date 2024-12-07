@@ -164,17 +164,15 @@
 
         });
       } 
-      if (radioInputs.length) {
-        
+      if (radioInputs.length) {      
         radioInputs.forEach((radioInput) => {
-          
           const radioId = radioInput.getAttribute('id');
           radioLabel = formElement.querySelector(`[for="${radioId}"]`);
           const parentUl = radioLabel.closest('ul.inputs-list');
           parentUl.setAttribute('role', 'radiogroup');
           parentUl.setAttribute('aria-label', 'radio group');
           radioLabel.setAttribute('role', 'radio');
-          radioLabel.setAttribute('aria-label', 'radio button');
+          radioLabel.setAttribute('aria-label', 'radio');
           radioLabel.setAttribute('aria-checked', 'false');
 
           radioLabel.addEventListener('click', (e) => {
@@ -210,7 +208,7 @@
               currentLabel.querySelector('input[type="radio"]').checked = true;
               currentLabel.setAttribute('aria-checked', 'true');
             }
-        });
+          });
 
           radioInput.addEventListener('focus', (e) => {
             let currentRadioId = e.currentTarget.id;
@@ -238,9 +236,17 @@
 
           const checkboxId = checkboxInput.getAttribute('id');
           checkboxLabel = formElement.querySelector(`[for="${checkboxId}"]`);
+          checkboxLabel.setAttribute('role', 'checkbox');
+          checkboxLabel.setAttribute('aria-label', 'checkbox');
+          checkboxLabel.setAttribute('aria-checked', 'false');
 
-          let canRun = true;
-          
+          const checkboxGroup = checkboxLabel.closest('.hs-fieldtype-checkbox');
+          if (checkboxGroup) {
+            checkboxGroup.setAttribute('role', 'group');
+            const labelWithId = checkboxGroup.querySelector('label[id]');
+            checkboxGroup.setAttribute('aria-labelledby', `${labelWithId.id}`);
+          }
+
           checkboxLabel.addEventListener('click', (e) => {
             const currentLabel = e.currentTarget;
             if (e.target !== currentLabel) {
@@ -249,17 +255,34 @@
             }
             if (currentLabel.querySelector('input[type="checkbox"]').checked === false) {
               currentLabel.querySelector('input[type="checkbox"]').checked === true;
+              currentLabel.setAttribute('aria-checked', 'true');
               currentLabel.classList.add('checked');
             } else {
               currentLabel.querySelector('input[type="checkbox"]').checked === false;
+              currentLabel.setAttribute('aria-checked', 'false');
               currentLabel.classList.remove('checked');
+            }
+          });
+
+          // allow spacebar to check the checkbox for accessibility
+          checkboxLabel.addEventListener('keydown', (e) => {
+            if(e.key == ' '){
+              const currentLabel = e.currentTarget;
+              if (currentLabel.querySelector('input[type="checkbox"]').checked === false) {
+                currentLabel.querySelector('input[type="checkbox"]').checked === true;
+                currentLabel.setAttribute('aria-checked', 'true');
+                currentLabel.classList.add('checked');
+              } else {
+                currentLabel.querySelector('input[type="checkbox"]').checked === false;
+                currentLabel.setAttribute('aria-checked', 'false');
+                currentLabel.classList.remove('checked');
+              }
             }
           });
 
           checkboxInput.addEventListener('focus', (e) => {
             let currentCheckboxId = e.currentTarget.id;
             let currentLabel = formElement.querySelector(`[for="${currentCheckboxId}"]`);
-
             if (currentLabel) {
               currentLabel.classList.add('focus-visible');
             }
@@ -268,7 +291,6 @@
           checkboxInput.addEventListener('blur', (e) => {
             let currentCheckboxId = e.currentTarget.id;
             let currentLabel = formElement.querySelector(`[for="${currentCheckboxId}"]`);
-
             if (currentLabel) {
               currentLabel.classList.remove('focus-visible');
             }
