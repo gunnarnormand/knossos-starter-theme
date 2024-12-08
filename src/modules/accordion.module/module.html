@@ -50,61 +50,75 @@
         {% scope_css %}
 
             {# Spacing #}
+
             {% if module.styles.spacing %}
                 .accordion-module {
                     {{ module.styles.spacing.css }}
                 }
             {% endif %}
 
+
             {# Accordion Styles #}
 
-            .accordion-module {
-                {% if module.styles.accordion.background.bg_color %}
+            {% if module.styles.accordion.background.bg_color %}
+                .accordion-module {
                     background-color: rgba({{ module.styles.accordion.background.bg_color.color|convert_rgb }}, {{ module.styles.accordion.background.bg_color.opacity / 100 }});
-                {% endif %}
-                {% if module.styles.accordion.border.border %}
-                {{ module.styles.accordion.border.border.css }}
-                {% endif %}
-                {% if module.styles.accordion.corner %}
+                }
+            {% endif %}
+
+            {% if module.styles.accordion.border.border %}
+                .accordion-module {
+                    {{ module.styles.accordion.border.border.css }}
+                } 
+            {% endif %}
+
+            {% if module.styles.accordion.corner %}
+                .accordion-module {
                     border-top-left-radius: {{ module.styles.accordion.corner.top_left_radius ~ "px" }};
                     border-top-right-radius: {{ module.styles.accordion.corner.top_right_radius ~ "px" }};
                     border-bottom-left-radius: {{ module.styles.accordion.corner.bottom_left_radius ~ "px" }};
                     border-bottom-right-radius: {{ module.styles.accordion.corner.bottom_right_radius ~ "px" }};
-                {% endif %}
-                {% if module.styles.accordion.box_shadow.box_shadow %}
+                }
+            {% endif %}
+
+            {% if module.styles.accordion.box_shadow.box_shadow %}
+                .accordion-module {
                     box-shadow: {{ module.styles.accordion.box_shadow.box_shadow }};
-                {% endif %}
-            }
+                }
+            {% endif %}
 
 
             {# Question Styles #} 
 
-            .accordion-module__question {
-                {% if module.styles.question_text.text.font %}
+            {% if module.styles.question_text.text.font %}
+                .accordion-module__question {
                     {{ module.styles.question_text.text.font.style }};
                     font-size: {{ module.styles.question_text.text.font.size ~ module.styles.question_text.text.font.size_unit }};
                     color: {{ module.styles.question_text.text.font.color }};
-                {% endif %}
-                {% if module.styles.question_text.text.transform %}
+                }
+            {% endif %}
+
+            {% if module.styles.question_text.text.transform %}
+                .accordion-module__question {
                     text-transform: {{ module.styles.question_text.text.transform }};
-                {% endif %}
-            }
+                }
+            {% endif %}
 
 
             {# Expand/Close Button Styles #}
 
-            .accordion-module__expand_button {
-                {% if module.styles.expand_button.size %}
+            {% if module.styles.expand_button.size %}
+                .accordion-module__expand_button {
                     width: {{ module.styles.expand_button.size ~ "px" }};
                     height: {{ module.styles.expand_button.size ~ "px" }};
-                {% endif %}
-            }
+                }
+            {% endif %}
 
-            .accordion-module__expand_button path {
-                {% if module.styles.expand_button.color %}
+            {% if module.styles.expand_button.color %}
+                .accordion-module__expand_button path {
                     fill: rgba({{ module.styles.expand_button.color.color|convert_rgb }}, {{ module.styles.expand_button.color.opacity / 100 }});
-                {% endif %}
-            }
+                }
+            {% endif %}
 
         {% end_scope_css %}
     </style>

@@ -32,8 +32,6 @@
   </script>
 {% end_require_js %}
 
-
-
 {####################################################}
 {################# Module styles ####################}
 {####################################################}
@@ -41,153 +39,173 @@
 {% require_css %}
   <style>
     {% scope_css %}
+      {% if module.styles %}
 
-      {# Banner Styles #}
+        {# Banner Styles #}
 
-      .banner-one-module__banner {
         {% if module.styles.banner.background.bg_color %}
-          background-color: rgba({{ module.styles.banner.background.bg_color.color|convert_rgb }}, {{ module.styles.banner.background.bg_color.opacity / 100 }});
+          .banner-one-module__banner {
+            background-color: rgba({{ module.styles.banner.background.bg_color.color|convert_rgb }}, {{ module.styles.banner.background.bg_color.opacity / 100 }});
+          }
         {% endif %}
         {% if module.styles.banner.border.border %}
-          {{ module.styles.banner.border.border.css }}
+          .banner-one-module__banner {
+            {{ module.styles.banner.border.border.css }}
+          }
         {% endif %}
         {% if module.styles.banner.corner %}
-          border-top-left-radius: {{ module.styles.banner.corner.top_left_radius ~ "px" }};
-          border-top-right-radius: {{ module.styles.banner.corner.top_right_radius ~ "px" }};
-          border-bottom-left-radius: {{ module.styles.banner.corner.bottom_left_radius ~ "px" }};
-          border-bottom-right-radius: {{ module.styles.banner.corner.bottom_right_radius ~ "px" }};
+          .banner-one-module__banner {
+            border-top-left-radius: {{ module.styles.banner.corner.top_left_radius ~ "px" }};
+            border-top-right-radius: {{ module.styles.banner.corner.top_right_radius ~ "px" }};
+            border-bottom-left-radius: {{ module.styles.banner.corner.bottom_left_radius ~ "px" }};
+            border-bottom-right-radius: {{ module.styles.banner.corner.bottom_right_radius ~ "px" }};
+          }
         {% endif %}
         {% if module.styles.banner.box_shadow.box_shadow %}
-          box-shadow: {{ module.styles.banner.box_shadow.box_shadow }};
+          .banner-one-module__banner {
+            box-shadow: {{ module.styles.banner.box_shadow.box_shadow }};
+          }
         {% endif %}
-      }
 
 
-      {# Icon/Image Styles #}
+        {# Icon/Image Styles #}
 
-      .banner-one-module__icon {
         {% if module.styles.icon_image.icon.icon_size %}
-          width: {{ module.styles.icon_image.icon.icon_size ~ "px" }};
-          height: {{ module.styles.icon_image.icon.icon_size ~ "px" }};
+          .banner-one-module__icon {
+            width: {{ module.styles.icon_image.icon.icon_size ~ "px" }};
+            height: {{ module.styles.icon_image.icon.icon_size ~ "px" }};
+          }
         {% endif %}
-      }
 
-      .banner-one-module__icon svg {
         {% if module.styles.icon_image.icon.color %}
-          fill: rgba({{ module.styles.icon_image.icon.color.color|convert_rgb }}, {{ module.styles.icon_image.icon.color.opacity / 100 }});
+          .banner-one-module__icon svg {
+            fill: rgba({{ module.styles.icon_image.icon.color.color|convert_rgb }}, {{ module.styles.icon_image.icon.color.opacity / 100 }});
+          }
         {% endif %}
-      }
 
-      .banner-one-module__image {
         {% if module.styles.icon_image.image.image_size %}
-          width: {{ module.styles.icon_image.image.image_size ~ "px" }};
+          .banner-one-module__image {
+            width: {{ module.styles.icon_image.image.image_size ~ "px" }};
+          }
         {% endif %}
         {% if module.styles.icon_image.image.image_border_radius %}
-          border-radius: {{ module.styles.icon_image.image.image_border_radius }};
+          .banner-one-module__image {
+            border-radius: {{ module.styles.icon_image.image.image_border_radius }};
+          }
         {% endif %}
-      }
-
-      
-      {# Heading Styles #} 
-
-      .banner-one-module__heading {
-        {% if module.styles.heading.text.font %}
-          {{ module.styles.heading.text.font.style }};
-          font-size: {{ module.styles.heading.text.font.size ~ module.styles.heading.text.font.size_unit }};
-          color: {{ module.styles.heading.text.font.color }};
-        {% endif %}
-        {% if module.styles.heading.text.transform %}
-          text-transform: {{ module.styles.heading.text.transform }};
-        {% endif %}
-        {% if module.styles.heading.text.alignment %}
-          {{ module.styles.heading.text.alignment.css }};
-        {% endif %}
-      }
-
-      .banner-one-module__subheading {
-        {% if module.styles.subheading.text.font %}
-          {{ module.styles.subheading.text.font.style }};
-          font-size: {{ module.styles.subheading.text.font.size ~ module.styles.subheading.text.font.size_unit }};
-          color: {{ module.styles.subheading.text.font.color }};
-        {% endif %}
-        {% if module.styles.subheading.text.transform %}
-          text-transform: {{ module.styles.subheading.text.transform }};
-        {% endif %}
-        {% if module.styles.subheading.text.alignment %}
-          {{ module.styles.subheading.text.alignment.css }};
-        {% endif %}
-      }
 
 
-      {# Button Styles #}
+        {# Heading Styles #} 
 
-      .banner-one-module__button {
-        {% if module.styles.button.background.color.color %}
-          background-color: rgba({{ module.styles.button.background.color.color|convert_rgb }}, {{ module.styles.button.background.color.opacity / 100 }});
+        {% if module.styles.heading %}
+          .banner-one-module__heading {
+            {% if module.styles.heading.text.font %}
+              {{ module.styles.heading.text.font.style }};
+              font-size: {{ module.styles.heading.text.font.size ~ module.styles.heading.text.font.size_unit }};
+              color: {{ module.styles.heading.text.font.color }};
+            {% endif %}
+            {% if module.styles.heading.text.transform %}
+              text-transform: {{ module.styles.heading.text.transform }};
+            {% endif %}
+            {% if module.styles.heading.text.alignment %}
+              {{ module.styles.heading.text.alignment.css }};
+            {% endif %}
+          }
         {% endif %}
-        {% if module.styles.button.corner.top_left_radius >= 0 %}
-          border-top-left-radius: {{ module.styles.button.corner.top_left_radius ~ "px" }};
-        {% endif %}
-        {% if module.styles.button.corner.top_right_radius >= 0 %}
-          border-top-right-radius: {{ module.styles.button.corner.top_right_radius ~ "px" }};
-        {% endif %}
-        {% if module.styles.button.corner.bottom_left_radius >= 0 %}
-          border-bottom-left-radius: {{ module.styles.button.corner.bottom_left_radius ~ "px" }};
-        {% endif %}
-        {% if module.styles.button.corner.bottom_right_radius >= 0 %}
-          border-bottom-right-radius: {{ module.styles.button.corner.bottom_right_radius ~ "px" }};
-        {% endif %}
-        {% if module.styles.button.text.font %}
-        {{ module.styles.button.text.font.css }}
-        {% endif %}
-        {% if module.styles.button.text.transform %}
-          text-transform: {{ module.styles.button.text.transform }};
-        {% endif %}
-        {% if module.styles.button.border.border %}
-          {{ module.styles.button.border.border.css }}
-        {% endif %}
-        {{ module.styles.button.spacing.spacing.css }}
-      }
 
-      .banner-one-module__button:hover,
-      .banner-one-module__button:focus,
-      .banner-one-module__button:active {
-        {% if module.styles.button.hover.text.color.color %}
-          color: rgba({{ module.styles.button.hover.text.color.color|convert_rgb }}, {{ module.styles.button.hover.text.color.opacity / 100 }});
+        {% if module.styles.subheading %}
+          .banner-one-module__subheading {
+            {% if module.styles.subheading.text.font %}
+              {{ module.styles.subheading.text.font.style }};
+              font-size: {{ module.styles.subheading.text.font.size ~ module.styles.subheading.text.font.size_unit }};
+              color: {{ module.styles.subheading.text.font.color }};
+            {% endif %}
+            {% if module.styles.subheading.text.transform %}
+              text-transform: {{ module.styles.subheading.text.transform }};
+            {% endif %}
+            {% if module.styles.subheading.text.alignment %}
+              {{ module.styles.subheading.text.alignment.css }};
+            {% endif %}
+          }
         {% endif %}
-        {% if module.styles.button.hover.background.color.color %}
-          background-color: rgba({{ module.styles.button.hover.background.color.color|convert_rgb }}, {{ module.styles.button.hover.background.color.opacity / 100 }});
-        {% endif %}
-        {% if module.styles.button.hover.border.border %}
-          {{ module.styles.button.hover.border.border.css }}
-        {% endif %}
-        {% if module.styles.button.hover.corner.top_left_radius >= 0 %}
-          border-top-left-radius: {{ module.styles.button.hover.corner.top_left_radius ~ "px" }};
-        {% endif %}
-        {% if module.styles.button.hover.corner.top_right_radius >= 0 %}
-          border-top-right-radius: {{ module.styles.button.hover.corner.top_right_radius ~ "px" }};
-        {% endif %}
-        {% if module.styles.button.hover.corner.bottom_left_radius >= 0 %}
-          border-bottom-left-radius: {{ module.styles.button.hover.corner.bottom_left_radius ~ "px" }};
-        {% endif %}
-        {% if module.styles.button.hover.corner.bottom_right_radius >= 0 %}
-          border-bottom-right-radius: {{ module.styles.button.hover.corner.bottom_right_radius ~ "px" }};
-        {% endif %}
-      }
 
-      .banner-one-module__close-button svg {
-        {% if module.styles.close_button.size %}
-          width: {{ module.styles.close_button.size ~ "px" }};
-          height: {{ module.styles.close_button.size ~ "px" }};
-        {% endif %}
-      }
 
-      .banner-one-module__close-button path {
-        {% if module.styles.close_button.color %}
-          fill: rgba({{ module.styles.close_button.color.color|convert_rgb }}, {{ module.styles.close_button.color.opacity / 100 }});
-        {% endif %}
-      }
+        {# Button Styles #}
 
+        {% if module.styles.button %}
+          .banner-one-module__button {
+            {% if module.styles.button.background.color.color %}
+              background-color: rgba({{ module.styles.button.background.color.color|convert_rgb }}, {{ module.styles.button.background.color.opacity / 100 }});
+            {% endif %}
+            {% if module.styles.button.corner.top_left_radius >= 0 %}
+              border-top-left-radius: {{ module.styles.button.corner.top_left_radius ~ "px" }};
+            {% endif %}
+            {% if module.styles.button.corner.top_right_radius >= 0 %}
+              border-top-right-radius: {{ module.styles.button.corner.top_right_radius ~ "px" }};
+            {% endif %}
+            {% if module.styles.button.corner.bottom_left_radius >= 0 %}
+              border-bottom-left-radius: {{ module.styles.button.corner.bottom_left_radius ~ "px" }};
+            {% endif %}
+            {% if module.styles.button.corner.bottom_right_radius >= 0 %}
+              border-bottom-right-radius: {{ module.styles.button.corner.bottom_right_radius ~ "px" }};
+            {% endif %}
+            {% if module.styles.button.text.font %}
+            {{ module.styles.button.text.font.css }}
+            {% endif %}
+            {% if module.styles.button.text.transform %}
+              text-transform: {{ module.styles.button.text.transform }};
+            {% endif %}
+            {% if module.styles.button.border.border %}
+              {{ module.styles.button.border.border.css }}
+            {% endif %}
+            {{ module.styles.button.spacing.spacing.css }}
+          }
+
+          .banner-one-module__button:hover,
+          .banner-one-module__button:focus,
+          .banner-one-module__button:active {
+            {% if module.styles.button.hover.text.color.color %}
+              color: rgba({{ module.styles.button.hover.text.color.color|convert_rgb }}, {{ module.styles.button.hover.text.color.opacity / 100 }});
+            {% endif %}
+            {% if module.styles.button.hover.background.color.color %}
+              background-color: rgba({{ module.styles.button.hover.background.color.color|convert_rgb }}, {{ module.styles.button.hover.background.color.opacity / 100 }});
+            {% endif %}
+            {% if module.styles.button.hover.border.border %}
+              {{ module.styles.button.hover.border.border.css }}
+            {% endif %}
+            {% if module.styles.button.hover.corner.top_left_radius >= 0 %}
+              border-top-left-radius: {{ module.styles.button.hover.corner.top_left_radius ~ "px" }};
+            {% endif %}
+            {% if module.styles.button.hover.corner.top_right_radius >= 0 %}
+              border-top-right-radius: {{ module.styles.button.hover.corner.top_right_radius ~ "px" }};
+            {% endif %}
+            {% if module.styles.button.hover.corner.bottom_left_radius >= 0 %}
+              border-bottom-left-radius: {{ module.styles.button.hover.corner.bottom_left_radius ~ "px" }};
+            {% endif %}
+            {% if module.styles.button.hover.corner.bottom_right_radius >= 0 %}
+              border-bottom-right-radius: {{ module.styles.button.hover.corner.bottom_right_radius ~ "px" }};
+            {% endif %}
+          }
+        {% endif %}
+
+
+        {# Close Button Styles #}
+
+        {% if module.styles.close_button %}
+          .banner-one-module__close-button svg {
+            {% if module.styles.close_button.size %}
+              width: {{ module.styles.close_button.size ~ "px" }};
+              height: {{ module.styles.close_button.size ~ "px" }};
+            {% endif %}
+          }
+
+          .banner-one-module__close-button path {
+            {% if module.styles.close_button.color %}
+              fill: rgba({{ module.styles.close_button.color.color|convert_rgb }}, {{ module.styles.close_button.color.opacity / 100 }});
+            {% endif %}
+          }
+        {% endif %}
+      {% endif %}
     {% end_scope_css %}
   </style>
 {% end_require_css %}
