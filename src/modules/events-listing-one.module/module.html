@@ -1,0 +1,357 @@
+{####################################################}
+{################# Module styles ####################}
+{####################################################}
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+      {# Card Styles #}
+      {% if module.styles.event_card %}
+        .events-listing-one-module__event {
+          {% if module.styles.event_card.background.bg_color %}
+            background-color: rgba({{ module.styles.event_card.background.bg_color.color|convert_rgb }}, {{ module.styles.event_card.background.bg_color.opacity / 100 }});
+          {% endif %}
+          {% if module.styles.event_card.border.border %}
+            {{ module.styles.event_card.border.border.css }}
+          {% endif %}
+          {% if module.styles.event_card.corner %}
+            border-top-left-radius: {{ module.styles.event_card.corner.top_left_radius ~ "px" }};
+            border-top-right-radius: {{ module.styles.event_card.corner.top_right_radius ~ "px" }};
+            border-bottom-left-radius: {{ module.styles.event_card.corner.bottom_left_radius ~ "px" }};
+            border-bottom-right-radius: {{ module.styles.event_card.corner.bottom_right_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.event_card.box_shadow.box_shadow %}
+            box-shadow: {{ module.styles.event_card.box_shadow.box_shadow }};
+          {% endif %}
+        }
+      {% endif %}
+      {% if module.styles.event_card.hover %}
+        .events-listing-one-module__event:hover {
+          {% if module.styles.event_card.hover.box_shadow.box_shadow %}
+            box-shadow: {{ module.styles.event_card.hover.box_shadow.box_shadow }};
+          {% endif %}
+          {% if module.styles.event_card.hover.background.bg_color %}
+            background-color: rgba({{ module.styles.event_card.hover.background.bg_color.color|convert_rgb }}, {{ module.styles.event_card.hover.background.bg_color.opacity / 100 }});
+          {% endif %}
+        }
+      {% endif %}
+
+
+      {# Image Styles #}
+      {% if module.styles.image.corner %}
+        .events-listing-one-module__event-image {
+          border-top-left-radius: {{ module.styles.image.corner.top_left_radius ~ "px" }};
+          border-top-right-radius: {{ module.styles.image.corner.top_right_radius ~ "px" }};
+          border-bottom-left-radius: {{ module.styles.image.corner.bottom_left_radius ~ "px" }};
+          border-bottom-right-radius: {{ module.styles.image.corner.bottom_right_radius ~ "px" }};
+        }
+      {% endif %}
+
+
+      {# Date Styles #}
+      {% if module.styles.date %}
+        .events-listing-one-module__event-date {
+          {% if module.styles.date.background.bg_color %}
+            background-color: rgba({{ module.styles.date.background.bg_color.color|convert_rgb }}, {{ module.styles.date.background.bg_color.opacity / 100 }});
+          {% endif %}
+          {% if module.styles.date.border.border %}
+            {{ module.styles.date.border.border.css }}
+          {% endif %}
+          {% if module.styles.date.corner %}
+            border-top-left-radius: {{ module.styles.date.corner.top_left_radius ~ "px" }};
+            border-top-right-radius: {{ module.styles.date.corner.top_right_radius ~ "px" }};
+            border-bottom-left-radius: {{ module.styles.date.corner.bottom_left_radius ~ "px" }};
+            border-bottom-right-radius: {{ module.styles.date.corner.bottom_right_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.date.box_shadow.box_shadow %}
+            box-shadow: {{ module.styles.date.box_shadow.box_shadow }};
+          {% endif %}
+        }
+        {% if module.styles.date.text.weekday_font %}
+          .events-listing-one-module__event-date-weekday {
+            {{ module.styles.date.text.weekday_font.style }};
+            color: {{ module.styles.date.text.weekday_font.color }};
+          }
+        {% endif %}
+        {% if module.styles.date.text.day_font %}
+          .events-listing-one-module__event-date-day {
+            {{ module.styles.date.text.day_font.style }};
+            color: {{ module.styles.date.text.day_font.color }};
+          }
+        {% endif %}
+        {% if module.styles.date.text.month_year_font %}
+          .events-listing-one-module__event-date-month-year {
+            {{ module.styles.date.text.month_year_font.style }};
+            color: {{ module.styles.date.text.month_year_font.color }};
+          }
+        {% endif %}
+        {% if module.styles.date.text.transform %}
+          .events-listing-one-module__event-date-weekday,
+          .events-listing-one-module__event-date-day,
+          .events-listing-one-module__event-date-month-year {
+            text-transform: {{ module.styles.date.text.transform }};
+          }
+        {% endif %}
+      {% endif %}
+
+
+      {# Card Title Styles #}
+      .events-listing-one-module__event-title {
+        line-height: 1.4;
+        {% if module.styles.event_title.font %}
+          {{ module.styles.event_title.font.style }};
+          font-size: {{ module.styles.event_title.font.size ~ module.styles.event_title.font.size_unit }};
+          color: {{ module.styles.event_title.font.color }};
+        {% endif %}
+        {% if module.styles.event_title.transform %}
+          text-transform: {{ module.styles.event_title.transform }};
+        {% endif %}
+      }
+
+
+      {# Card Location Styles #}
+      {% if module.styles.event_location %}
+        .events-listing-one-module__event-location {
+          {% if module.styles.event_location.font %}
+            {{ module.styles.event_location.font.style }};
+            font-size: {{ module.styles.event_location.font.size ~ module.styles.event_location.font.size_unit }};
+            color: {{ module.styles.event_location.font.color }};
+          {% endif %}
+          {% if module.styles.event_location.transform %}
+            text-transform: {{ module.styles.event_location.transform }};
+          {% endif %}
+        }
+        .events-listing-one-module__event-location-icon {
+          fill: {{ module.styles.event_location.font.color }};
+          width: {{ module.styles.event_location.font.size ~ module.styles.event_location.font.size_unit }};
+          height: {{ module.styles.event_location.font.size ~ module.styles.event_location.font.size_unit }};
+        }
+      {% endif %}
+
+
+      {# Button Styles #}
+      {% if module.styles.button %}
+        {% if module.styles.button.alignment.alignment %}
+          .events-listing-one-module__event-button-wrapper {
+            text-align: {{ module.styles.button.alignment.alignment.horizontal_align }};
+          }
+        {% endif %}
+        .events-listing-one-module__event-button {
+          {% if module.styles.button.alignment.is_full_width %}
+              width: 100%;
+          {% endif %}
+          {% if module.styles.button.background.color.color %}
+            background-color: rgba({{ module.styles.button.background.color.color|convert_rgb }}, {{ module.styles.button.background.color.opacity / 100 }});
+          {% endif %}
+          {% if module.styles.button.corner.top_left_radius >= 0 %}
+            border-top-left-radius: {{ module.styles.button.corner.top_left_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.button.corner.top_right_radius >= 0 %}
+            border-top-right-radius: {{ module.styles.button.corner.top_right_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.button.corner.bottom_left_radius >= 0 %}
+            border-bottom-left-radius: {{ module.styles.button.corner.bottom_left_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.button.corner.bottom_right_radius >= 0 %}
+            border-bottom-right-radius: {{ module.styles.button.corner.bottom_right_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.button.text.font %}
+            {{ module.styles.button.text.font.css }}
+          {% endif %}
+          {% if module.styles.button.text.transform %}
+            text-transform: {{ module.styles.button.text.transform }};
+          {% endif %}
+          {% if module.styles.button.border.border %}
+            {{ module.styles.button.border.border.css }}
+          {% endif %}
+          {{ module.styles.button.spacing.spacing.css }}
+        }
+      {% endif %}
+      {% if module.styles.button.hover %}
+        .events-listing-one-module__event-button:hover,
+        .events-listing-one-module__event-button:focus,
+        .events-listing-one-module__event-button:active {
+          {% if module.styles.button.hover.text.color.color %}
+            color: rgba({{ module.styles.button.hover.text.color.color|convert_rgb }}, {{ module.styles.button.hover.text.color.opacity / 100 }});
+          {% endif %}
+          {% if module.styles.button.hover.background.color.color %}
+            background-color: rgba({{ module.styles.button.hover.background.color.color|convert_rgb }}, {{ module.styles.button.hover.background.color.opacity / 100 }});
+          {% endif %}
+          {% if module.styles.button.hover.border.border %}
+            {{ module.styles.button.hover.border.border.css }}
+          {% endif %}
+          {% if module.styles.button.hover.corner.top_left_radius >= 0 %}
+            border-top-left-radius: {{ module.styles.button.hover.corner.top_left_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.button.hover.corner.top_right_radius >= 0 %}
+            border-top-right-radius: {{ module.styles.button.hover.corner.top_right_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.button.hover.corner.bottom_left_radius >= 0 %}
+            border-bottom-left-radius: {{ module.styles.button.hover.corner.bottom_left_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.button.hover.corner.bottom_right_radius >= 0 %}
+            border-bottom-right-radius: {{ module.styles.button.hover.corner.bottom_right_radius ~ "px" }};
+          {% endif %}
+        }
+      {% endif %}
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+{% set alignment_class_top = '' %}
+
+{% if module.styles.alignment.top_alignment.horizontal_align == 'CENTER' %}
+    {% set alignment_class_top = 'flex flex-col items-center text-center mx-auto' %}
+{% elif module.styles.alignment.top_alignment.horizontal_align == 'LEFT' %}
+    {% set alignment_class_top = 'flex flex-col items-start text-left mr-auto' %}
+{% elif module.styles.alignment.top_alignment.horizontal_align == 'RIGHT' %}
+    {% set alignment_class_top = 'flex flex-col items-end text-right ml-auto' %}
+{% endif %}
+
+{% set alignment_class_bottom = '' %}
+
+{% if module.styles.alignment.bottom_alignment.horizontal_align == 'CENTER' %}
+    {% set alignment_class_bottom = 'flex flex-col items-center text-center mx-auto' %}
+{% elif module.styles.alignment.bottom_alignment.horizontal_align == 'LEFT' %}
+    {% set alignment_class_bottom = 'text-left' %}
+{% elif module.styles.alignment.bottom_alignment.horizontal_align == 'RIGHT' %}
+    {% set alignment_class_bottom = 'flex flex-col items-end text-right ml-auto' %}
+{% endif %}
+
+{####################################################}
+{################ Module layout ###################}
+{####################################################}
+
+<section class="events-listing-one-module px-[5%] py-16 md:py-24 lg:py-28">
+  <div class="container">
+    <div class="mb-12 md:mb-18 lg:mb-20">
+      <div class="max-w-lg {{ alignment_class_top }}">
+        {% inline_rich_text field="tagline" value="{{ module.tagline }}" %}
+        {% inline_rich_text field="heading" value="{{ module.heading }}" %}
+        {% inline_rich_text field="content" value="{{ module.content }}" %}
+      </div>
+    </div>
+    <div class="grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2 md:gap-y-16 lg:{{module.grid_column_count}}">
+      {% for item in module.events %}
+        {% set date = item.date_field %}
+        {% set href = item.event_link.url.href %}
+        {% if item.event_link.url.type is equalto "EMAIL_ADDRESS" %}
+          {% set href = "mailto:" + href %}
+        {% endif %}
+        <div class="events-listing-one-module__event flex flex-col items-start overflow-hidden transition-all">
+          <a class="relative block aspect-[3/2] w-full"
+            {% if item.event_link.url.type is equalto "CALL_TO_ACTION"  %}
+              href="{{ href }}" {# The href here is not escaped as it is not editable and functions as a JavaScript call to the associated CTA #}
+            {% else %}
+              href="{{ href|escape_url }}"
+            {% endif %}
+            {% if item.event_link.open_in_new_tab %}
+              target="_blank"
+            {% endif %}
+            {% if item.event_link.rel %}
+              rel="{{ item.event_link.rel|escape_attr }}"
+            {% endif %}
+          >
+            {% if item.image_field.src %}
+              {% set loadingAttr = item.image_field.loading != 'disabled' ? 'loading="{{ item.image_field.loading|escape_attr }}"' : '' %}
+              <img class="events-listing-one-module__event-image absolute size-full object-cover"
+                  srcset="{{ resize_image_url(item.image_field.src, 288) }} 288w,
+                          {{ resize_image_url(item.image_field.src, 468) }} 468w,
+                          {{ resize_image_url(item.image_field.src, 736) }} 736w"
+                  sizes="(max-width: 320px) 288px,
+                          (max-width: 500px) 468px,
+                          (max-width: 768px) 736px"
+                  src="{{ item.image_field.src }}"
+                  alt="{{ item.image_field.alt }}"
+                  width="{{ item.image_field.width }}"
+                  height="{{ item.image_field.height }}"
+                  {{ loadingAttr }}>
+            {% endif %}
+            <div class="events-listing-one-module__event-date absolute right-4 top-4 flex min-w-28 flex-col items-center px-1 py-3 text-sm">
+              <span class="events-listing-one-module__event-date-weekday">{{ date|datetimeformat('%A') }}</span>
+              <span class="events-listing-one-module__event-date-day text-2xl font-bold md:text-3xl lg:text-4xl">{{ date|datetimeformat('%d') }}</span>
+              <span class="events-listing-one-module__event-date-month-year">{{ date|datetimeformat('%b %Y') }}</span>
+            </div>
+          </a>
+          <div class="flex flex-col items-start p-6">
+            {% if item.event_title %}
+              <h2 class="leading-none">
+                <a class="events-listing-one-module__event-title"
+                  {% if item.event_link.url.type is equalto "CALL_TO_ACTION"  %}
+                    href="{{ href }}" {# The href here is not escaped as it is not editable and functions as a JavaScript call to the associated CTA #}
+                  {% else %}
+                    href="{{ href|escape_url }}"
+                  {% endif %}
+                  {% if item.event_link.open_in_new_tab %}
+                    target="_blank"
+                  {% endif %}
+                  {% if item.event_link.rel %}
+                    rel="{{ item.event_link.rel|escape_attr }}"
+                  {% endif %}
+                >
+                  {% inline_text field="event_title" value="{{ item.event_title }}" no_wrapper=true %}
+                </a>
+              </h2>
+            {% endif %}
+            {% if item.event_location %}
+              <div class="flex items-center gap-3 mb-2">
+                <div class="flex-none self-start mt-0.5">
+                  <svg class="events-listing-one-module__event-location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+                <p class="events-listing-one-module__event-location mb-0">{% inline_text field="event_location" value="{{ item.event_location }}" no_wrapper=true %}</p>
+              </div>
+            {% endif %}
+            {% if item.event_content %}
+              {% inline_rich_text field="event_content" value="{{ item.event_content }}" %}
+            {% endif %}
+            {% if item.add_button %}
+              <div class="events-listing-one-module__event-button-wrapper w-full mt-5 md:mt-6">
+                <a class="button events-listing-one-module__event-button"
+                  {% if item.event_link.url.type is equalto "CALL_TO_ACTION"  %}
+                    href="{{ href }}" {# The href here is not escaped as it is not editable and functions as a JavaScript call to the associated CTA #}
+                  {% else %}
+                    href="{{ href|escape_url }}"
+                  {% endif %}
+                  {% if item.event_link.open_in_new_tab %}
+                    target="_blank"
+                  {% endif %}
+                  {% if item.event_link.rel %}
+                    rel="{{ item.event_link.rel|escape_attr }}"
+                  {% endif %}
+                  >
+                    {{ item.link_text|escape_html }}
+                </a>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    {% if module.add_button %}
+      <div class="events-listing-one-module__button-wrapper mt-12 md:mt-18 lg:mt-20 w-full max-w-lg {{ alignment_class_bottom }}">
+        {% set href2 = module.link.url.href %}
+        {% if module.link.url.type is equalto "EMAIL_ADDRESS" %}
+          {% set href2 = "mailto:" + href2 %}
+        {% endif %}
+        <a class="button events-listing-one-module__button"
+          {% if module.link.url.type is equalto "CALL_TO_ACTION"  %}
+            href="{{ href2 }}" {# The href here is not escaped as it is not editable and functions as a JavaScript call to the associated CTA #}
+          {% else %}
+            href="{{ href2|escape_url }}"
+          {% endif %}
+          {% if module.link.open_in_new_tab %}
+            target="_blank"
+          {% endif %}
+          {% if module.link.rel %}
+            rel="{{ module.link.rel|escape_attr }}"
+          {% endif %}
+          >
+            {{ module.link_text|escape_html }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</section>

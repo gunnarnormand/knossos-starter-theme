@@ -1,0 +1,1312 @@
+[
+  {
+    "id": "grid_column_count",
+    "name": "grid_column_count",
+    "display_width": null,
+    "label": "Grid Columns",
+    "required": false,
+    "locked": false,
+    "display": "select",
+    "choices": [
+      [
+        "grid-cols-3",
+        "3 Columns"
+      ],
+      [
+        "grid-cols-4",
+        "4 Columns"
+      ]
+    ],
+    "multiple": false,
+    "reordering_enabled": true,
+    "preset": null,
+    "type": "choice",
+    "default": "grid-cols-3"
+  },
+  {
+    "id": "tagline",
+    "name": "tagline",
+    "display_width": null,
+    "label": "Tagline",
+    "help_text": "Tagline text that goes above the heading",
+    "required": false,
+    "locked": false,
+    "type": "richtext",
+    "default": "<p class='font-semibold mb-3 md:mb-4'>Tagline</p>"
+  },
+  {
+    "id": "heading",
+    "name": "heading",
+    "display_width": null,
+    "label": "Heading",
+    "help_text": "Heading for module",
+    "required": false,
+    "locked": false,
+    "type": "richtext",
+    "default": "<h2 class='mt-3 text-5xl font-bold md:mt-4 md:text-7xl lg:text-8xl'>Events</h2>"
+  },
+  {
+    "id": "content",
+    "name": "content",
+    "display_width": null,
+    "label": "Content",
+    "help_text": "Content for feature section",
+    "required": false,
+    "locked": false,
+    "type": "richtext",
+    "default": "<p class='mt-5 mb-0 text-base md:mt-6 md:text-md'>Highlight upcoming events that your audience wont want to miss.</p>"
+  },
+  {
+    "name": "events",
+    "display_width": null,
+    "label": "Events",
+    "required": false,
+    "locked": false,
+    "occurrence": {
+      "min": 1,
+      "max": null,
+      "sorting_label_field": "events.event_title",
+      "default": 3
+    },
+    "children": [
+      {
+        "name": "date_field",
+        "display_width": null,
+        "label": "Date",
+        "help_text": "Choose a date for the event",
+        "required": false,
+        "locked": false,
+        "type": "date",
+        "default": 1766638800000
+      },
+      {
+        "name": "image_field",
+        "label": "Event Image",
+        "type": "image",
+        "display_width": null,
+        "required": false,
+        "locked": false,
+        "responsive": true,
+        "resizable": false,
+        "show_loading": true,
+        "default": {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/placeholder-image-landscape.svg",
+          "alt": null,
+          "loading": "lazy"
+        }
+      },
+      {
+        "name": "event_title",
+        "display_width": null,
+        "label": "Event Title Heading",
+        "required": false,
+        "locked": false,
+        "validation_regex": "",
+        "allow_new_line": false,
+        "show_emoji_picker": false,
+        "type": "text",
+        "default": "Event title heading"
+      },
+      {
+        "name": "event_location",
+        "display_width": null,
+        "label": "Event Location",
+        "required": false,
+        "locked": false,
+        "validation_regex": "",
+        "allow_new_line": false,
+        "show_emoji_picker": false,
+        "type": "text",
+        "default": "001 Workshop Lane, North Pole"
+      },
+      {
+        "name": "event_content",
+        "display_width": null,
+        "label": "Event Content",
+        "help_text": "Content for event card",
+        "required": false,
+        "locked": false,
+        "type": "richtext",
+        "default": "<p class='text-base mb-0'>Describe the event and what attendees can look forward to, highlight what makes this event exciting and valuable.</p>"
+      },
+      {
+        "id": "events.add_button",
+        "name": "add_button",
+        "display_width": null,
+        "label": "Add Button",
+        "help_text": "Adds a button to the event card when selected",
+        "required": false,
+        "locked": false,
+        "display": "toggle",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "name": "event_link",
+        "display_width": null,
+        "label": "Event Link",
+        "required": true,
+        "locked": false,
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG",
+          "CALL_TO_ACTION",
+          "PHONE_NUMBER",
+          "WHATSAPP_NUMBER",
+          "PAYMENT"
+        ],
+        "show_advanced_rel_options": false,
+        "type": "link",
+        "visibility": {
+          "controlling_field": null,
+          "controlling_field_path": "events.add_button",
+          "controlling_value_regex": "true",
+          "property": null,
+          "operator": "EQUAL",
+          "access": null
+        },
+        "default": {
+          "url": {
+            "content_id": null,
+            "type": "EXTERNAL",
+            "href": "https://google.com"
+          },
+          "open_in_new_tab": false,
+          "no_follow": false
+        }
+      },
+      {
+        "label": "Link Text",
+        "name": "link_text",
+        "type": "text",
+        "required": true,
+        "visibility": {
+          "controlling_field": null,
+          "controlling_field_path": "events.add_button",
+          "controlling_value_regex": "true",
+          "property": null,
+          "operator": "EQUAL",
+          "access": null
+        },
+        "default": "Button"
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "default": [
+      {
+        "date_field": 1766638800000,
+        "image_field": {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/placeholder-image-landscape.svg",
+          "alt": "placeholder-image-landscape",
+          "loading": "lazy"
+        },
+        "event_title": "Event title heading",
+        "event_location": "001 Workshop Lane, North Pole",
+        "event_content": "<p class='text-base mb-0'>Describe the event and what attendees can look forward to, highlight what makes this event exciting and valuable.</p>",
+        "add_button": true,
+        "event_link": {
+          "url": {
+            "content_id": null,
+            "type": "EXTERNAL",
+            "href": "https://google.com"
+          },
+          "open_in_new_tab": false,
+          "no_follow": false
+        },
+        "link_text": "View Event"
+      },
+      {
+        "date_field": 1766638800000,
+        "image_field": {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/placeholder-image-landscape.svg",
+          "alt": "placeholder-image-landscape",
+          "loading": "lazy"
+        },
+        "event_title": "Event title heading",
+        "event_location": "001 Workshop Lane, North Pole",
+        "event_content": "<p class='text-base mb-0'>Describe the event and what attendees can look forward to, highlight what makes this event exciting and valuable.</p>",
+        "add_button": true,
+        "event_link": {
+          "url": {
+            "content_id": null,
+            "type": "EXTERNAL",
+            "href": "https://google.com"
+          },
+          "open_in_new_tab": false,
+          "no_follow": false
+        },
+        "link_text": "View Event"
+      },
+      {
+        "date_field": 1766638800000,
+        "image_field": {
+          "size_type": "auto",
+          "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/placeholder-image-landscape.svg",
+          "alt": "placeholder-image-landscape",
+          "loading": "lazy"
+        },
+        "event_title": "Event title heading",
+        "event_location": "001 Workshop Lane, North Pole",
+        "event_content": "<p class='text-base mb-0'>Describe the event and what attendees can look forward to, highlight what makes this event exciting and valuable.</p>",
+        "add_button": true,
+        "event_link": {
+          "url": {
+            "content_id": null,
+            "type": "EXTERNAL",
+            "href": "https://google.com"
+          },
+          "open_in_new_tab": false,
+          "no_follow": false
+        },
+        "link_text": "View Event"
+      }
+    ]
+  },
+  {
+    "id": "add_button",
+    "name": "add_button",
+    "display_width": null,
+    "label": "Add Bottom CTA Button",
+    "help_text": "Adds a button to the bottom of the module when selected",
+    "required": false,
+    "locked": false,
+    "display": "toggle",
+    "type": "boolean",
+    "default": true
+  },
+  {
+    "name": "link",
+    "display_width": null,
+    "label": "Link",
+    "required": true,
+    "locked": false,
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG",
+      "CALL_TO_ACTION",
+      "PHONE_NUMBER",
+      "WHATSAPP_NUMBER",
+      "PAYMENT"
+    ],
+    "show_advanced_rel_options": false,
+    "type": "link",
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "add_button",
+      "controlling_value_regex": "true",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    },
+    "default": {
+      "url": {
+        "content_id": null,
+        "type": "EXTERNAL",
+        "href": "https://bing.com"
+      },
+      "open_in_new_tab": false,
+      "no_follow": false
+    }
+  },
+  {
+    "label": "Link Text",
+    "name": "link_text",
+    "type": "text",
+    "required": true,
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "add_button",
+      "controlling_value_regex": "true",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    },
+    "default": "Call To Action"
+  },
+  {
+    "id": "styles",
+    "label": "Styles",
+    "name": "styles",
+    "display_width": null,
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "locked": false,
+    "required": false,
+    "tab": "STYLE",
+    "type": "group",
+    "children": [
+      {
+        "name": "alignment",
+        "label": "Content Alignment",
+        "type": "group",
+        "expanded": false,
+        "children": [
+          {
+            "name": "top_alignment",
+            "label": "Top Content Alignment",
+            "help_text": "Position the top content within its container.",
+            "required": false,
+            "type": "alignment",
+            "alignment_direction": "HORIZONTAL",
+            "default": {
+              "horizontal_align": "CENTER"
+            }
+          },
+          {
+            "name": "bottom_alignment",
+            "label": "Bottom Content Alignment",
+            "help_text": "Position the bottom content within its container.",
+            "required": false,
+            "type": "alignment",
+            "alignment_direction": "HORIZONTAL",
+            "default": {
+              "horizontal_align": "CENTER"
+            }
+          }
+        ]
+      },
+      {
+        "name": "event_card",
+        "label": "Event Card Styles",
+        "type": "group",
+        "expanded": false,
+        "children": [
+          {
+            "name": "background",
+            "label": "Background",
+            "help_text": "Card Background Color",
+            "type": "group",
+            "children": [
+              {
+                "name": "bg_color",
+                "label": "Background color",
+                "required": false,
+                "locked": false,
+                "type": "color",
+                "default": {
+                  "color": "#ffffff",
+                  "opacity": 100
+                }
+              }
+            ]
+          },
+          {
+            "name": "border",
+            "label": "Border",
+            "help_text": "Card Border Style",
+            "type": "group",
+            "children": [
+              {
+                "name": "border",
+                "label": "Border",
+                "required": false,
+                "locked": false,
+                "allow_custom_border_sides": false,
+                "type": "border",
+                "default": {
+                  "top": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  },
+                  "bottom": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  },
+                  "left": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  },
+                  "right": {
+                    "width": {
+                      "value": 1,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "name": "corner",
+            "label": "Corner",
+            "help_text": "Card Border Radius",
+            "type": "group",
+            "children": [
+              {
+                "label": "Top Left Radius",
+                "name": "top_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Top Right Radius",
+                "name": "top_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Bottom Left Radius",
+                "name": "bottom_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Bottom Right Radius",
+                "name": "bottom_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              }
+            ]
+          },
+          {
+            "name": "box_shadow",
+            "label": "Box Shadow",
+            "help_text": "Card Box Shadow Style",
+            "type": "group",
+            "children": [
+              {
+                "name": "box_shadow",
+                "label": "Box Shadow",
+                "type": "choice",
+                "choices": [
+                  [
+                    "none",
+                    "None"
+                  ],
+                  [
+                    "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+                    "Small Shadow"
+                  ],
+                  [
+                    "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+                    "Regular Shadow"
+                  ],
+                  [
+                    "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+                    "Medium Shadow"
+                  ],
+                  [
+                    "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+                    "Large Shadow"
+                  ],
+                  [
+                    "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+                    "XL Shadow"
+                  ],
+                  [
+                    "0 25px 50px -12px rgb(0 0 0 / 0.25)",
+                    "2XL Shadow"
+                  ],
+                  [
+                    "inset 0 2px 4px 0 rgb(0 0 0 / 0.05)",
+                    "Shadow Inner"
+                  ]
+                ],
+                "default": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)"
+              }
+            ]
+          },
+          {
+            "name": "hover",
+            "label": "Hover",
+            "type": "group",
+            "expanded": true,
+            "children": [
+              {
+                "name": "box_shadow",
+                "label": "Box Shadow",
+                "help_text": "Card Box Shadow Hover Style",
+                "type": "group",
+                "children": [
+                  {
+                    "name": "box_shadow",
+                    "label": "Box Shadow",
+                    "type": "choice",
+                    "choices": [
+                      [
+                        "none",
+                        "None"
+                      ],
+                      [
+                        "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+                        "Small Shadow"
+                      ],
+                      [
+                        "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+                        "Regular Shadow"
+                      ],
+                      [
+                        "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+                        "Medium Shadow"
+                      ],
+                      [
+                        "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+                        "Large Shadow"
+                      ],
+                      [
+                        "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+                        "XL Shadow"
+                      ],
+                      [
+                        "0 25px 50px -12px rgb(0 0 0 / 0.25)",
+                        "2XL Shadow"
+                      ],
+                      [
+                        "inset 0 2px 4px 0 rgb(0 0 0 / 0.05)",
+                        "Shadow Inner"
+                      ]
+                    ],
+                    "default": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)"
+                  }
+                ]
+              },
+              {
+                "name": "background",
+                "label": "Background",
+                "help_text": "Card Background Hover Color",
+                "type": "group",
+                "children": [
+                  {
+                    "name": "bg_color",
+                    "label": "Background color",
+                    "required": false,
+                    "locked": false,
+                    "type": "color",
+                    "default": {
+                      "color": "#ffffff",
+                      "opacity": 100
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Event Date",
+        "name": "date",
+        "help_text": "Event Date Styles",
+        "type": "group",
+        "children": [
+          {
+            "label": "Text",
+            "name": "text",
+            "help_text": "Event Date Text Styles",
+            "type": "group",
+            "children": [
+              {
+                "label": "Weekday Font",
+                "name": "weekday_font",
+                "help_text": "Top Weekday Text Styles",
+                "type": "font",
+                "default": {
+                  "fallback": "serif",
+                  "font": "DM Sans",
+                  "font_set": "GOOGLE",
+                  "color": "#000000",
+                  "styles": {
+                    "text-decoration": "none"
+                  },
+                  "variant": "regular"
+                },
+                "visibility": {
+                  "hidden_subfields": {
+                    "size": true,
+                    "size_unit": true
+                  }
+                }
+              },
+              {
+                "label": "Day Font",
+                "name": "day_font",
+                "help_text": "Middle Day Text Styles",
+                "type": "font",
+                "default": {
+                  "fallback": "serif",
+                  "font": "DM Serif Display",
+                  "font_set": "GOOGLE",
+                  "color": "#000000",
+                  "styles": {
+                    "text-decoration": "none"
+                  },
+                  "variant": "700"
+                },
+                "visibility": {
+                  "hidden_subfields": {
+                    "size": true,
+                    "size_unit": true
+                  }
+                }
+              },
+              {
+                "label": "Month Year Font",
+                "name": "month_year_font",
+                "help_text": "Bottom Month Year Text Styles",
+                "type": "font",
+                "default": {
+                  "fallback": "serif",
+                  "font": "DM Sans",
+                  "font_set": "GOOGLE",
+                  "color": "#000000",
+                  "styles": {
+                    "text-decoration": "none"
+                  },
+                  "variant": "regular"
+                },
+                "visibility": {
+                  "hidden_subfields": {
+                    "size": true,
+                    "size_unit": true
+                  }
+                }
+              },
+              {
+                "label": "Transform",
+                "name": "transform",
+                "type": "choice",
+                "choices": [
+                  [
+                    "none",
+                    "None"
+                  ],
+                  [
+                    "capitalize",
+                    "Capitalize"
+                  ],
+                  [
+                    "uppercase",
+                    "Uppercase"
+                  ],
+                  [
+                    "lowercase",
+                    "Lowercase"
+                  ]
+                ],
+                "display": "select",
+                "default": "none"
+              }
+            ]
+          },
+          {
+            "name": "background",
+            "label": "Background",
+            "help_text": "Date Card Background Color",
+            "type": "group",
+            "children": [
+              {
+                "name": "bg_color",
+                "label": "Background color",
+                "required": false,
+                "locked": false,
+                "type": "color",
+                "default": {
+                  "color": "#ffffff",
+                  "opacity": 100
+                }
+              }
+            ]
+          },
+          {
+            "name": "border",
+            "label": "Border",
+            "help_text": "Date Card Border Style",
+            "type": "group",
+            "children": [
+              {
+                "name": "border",
+                "label": "Border",
+                "required": false,
+                "locked": false,
+                "allow_custom_border_sides": false,
+                "type": "border",
+                "default": {
+                  "top": {
+                    "width": {
+                      "value": 0,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  },
+                  "bottom": {
+                    "width": {
+                      "value": 0,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  },
+                  "left": {
+                    "width": {
+                      "value": 0,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  },
+                  "right": {
+                    "width": {
+                      "value": 0,
+                      "units": "px"
+                    },
+                    "opacity": 100,
+                    "style": "solid",
+                    "color": "#000000"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "name": "corner",
+            "label": "Corner",
+            "help_text": "Date Card Border Radius",
+            "type": "group",
+            "children": [
+              {
+                "label": "Top Left Radius",
+                "name": "top_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Top Right Radius",
+                "name": "top_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Bottom Left Radius",
+                "name": "bottom_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Bottom Right Radius",
+                "name": "bottom_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              }
+            ]
+          },
+          {
+            "name": "box_shadow",
+            "label": "Box Shadow",
+            "help_text": "Date Card Box Shadow Style",
+            "type": "group",
+            "children": [
+              {
+                "name": "box_shadow",
+                "label": "Box Shadow",
+                "type": "choice",
+                "choices": [
+                  [
+                    "none",
+                    "None"
+                  ],
+                  [
+                    "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+                    "Small Shadow"
+                  ],
+                  [
+                    "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+                    "Regular Shadow"
+                  ],
+                  [
+                    "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+                    "Medium Shadow"
+                  ],
+                  [
+                    "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+                    "Large Shadow"
+                  ],
+                  [
+                    "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+                    "XL Shadow"
+                  ],
+                  [
+                    "0 25px 50px -12px rgb(0 0 0 / 0.25)",
+                    "2XL Shadow"
+                  ],
+                  [
+                    "inset 0 2px 4px 0 rgb(0 0 0 / 0.05)",
+                    "Shadow Inner"
+                  ]
+                ],
+                "default": "none"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Event Card Image",
+        "name": "image",
+        "help_text": "Event Card Image Styles",
+        "type": "group",
+        "children": [
+          {
+            "name": "corner",
+            "label": "Corner",
+            "help_text": "Image Border Radius",
+            "type": "group",
+            "children": [
+              {
+                "label": "Top Left Radius",
+                "name": "top_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Top Right Radius",
+                "name": "top_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Bottom Left Radius",
+                "name": "bottom_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              },
+              {
+                "label": "Bottom Right Radius",
+                "name": "bottom_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px",
+                "default": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Event Card Title",
+        "name": "event_title",
+        "help_text": "Event title heading Styles",
+        "type": "group",
+        "children": [
+          {
+            "label": "Font",
+            "name": "font",
+            "type": "font",
+            "default": {
+              "fallback": "serif",
+              "font": "DM Serif Display",
+              "font_set": "GOOGLE",
+              "color": "#000000",
+              "size": 24,
+              "size_unit": "px",
+              "styles": {
+                "text-decoration": "none"
+              },
+              "variant": "700"
+            }
+          },
+          {
+            "label": "Transform",
+            "name": "transform",
+            "type": "choice",
+            "choices": [
+              [
+                "none",
+                "None"
+              ],
+              [
+                "capitalize",
+                "Capitalize"
+              ],
+              [
+                "uppercase",
+                "Uppercase"
+              ],
+              [
+                "lowercase",
+                "Lowercase"
+              ]
+            ],
+            "display": "select",
+            "default": "none"
+          }
+        ]
+      },
+      {
+        "label": "Event Card Location Text",
+        "name": "event_location",
+        "help_text": "Event location text styles",
+        "type": "group",
+        "children": [
+          {
+            "label": "Font",
+            "name": "font",
+            "type": "font",
+            "default": {
+              "fallback": "serif",
+              "font": "DM Sans",
+              "font_set": "GOOGLE",
+              "color": "#000000",
+              "size": 16,
+              "size_unit": "px",
+              "styles": {
+                "text-decoration": "none"
+              },
+              "variant": "regular"
+            }
+          },
+          {
+            "label": "Transform",
+            "name": "transform",
+            "type": "choice",
+            "choices": [
+              [
+                "none",
+                "None"
+              ],
+              [
+                "capitalize",
+                "Capitalize"
+              ],
+              [
+                "uppercase",
+                "Uppercase"
+              ],
+              [
+                "lowercase",
+                "Lowercase"
+              ]
+            ],
+            "display": "select",
+            "default": "none"
+          }
+        ]
+      },
+      {
+        "name": "button",
+        "label": "Event Card Button",
+        "type": "group",
+        "expanded": true,
+        "children": [
+          {
+            "label": "Text",
+            "name": "text",
+            "help_text": "Set Button font and transform styles",
+            "type": "group",
+            "children": [
+              {
+                "label": "Font",
+                "name": "font",
+                "type": "font"
+              },
+              {
+                "label": "Transform",
+                "name": "transform",
+                "type": "choice",
+                "choices": [
+                  [
+                    "none",
+                    "None"
+                  ],
+                  [
+                    "capitalize",
+                    "Capitalize"
+                  ],
+                  [
+                    "uppercase",
+                    "Uppercase"
+                  ],
+                  [
+                    "lowercase",
+                    "Lowercase"
+                  ]
+                ],
+                "display": "select"
+              }
+            ]
+          },
+          {
+            "label": "Background",
+            "name": "background",
+            "help_text": "Set Button Background color",
+            "type": "group",
+            "children": [
+              {
+                "label": "Color",
+                "name": "color",
+                "type": "color"
+              }
+            ]
+          },
+          {
+            "label": "Border",
+            "name": "border",
+            "help_text": "Set Button Border styles",
+            "type": "group",
+            "children": [
+              {
+                "label": "Border",
+                "name": "border",
+                "type": "border"
+              }
+            ]
+          },
+          {
+            "name": "corner",
+            "label": "Corner",
+            "help_text": "Set Button Border Radius for each corner individually",
+            "type": "group",
+            "children": [
+              {
+                "label": "Top Left Radius",
+                "name": "top_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px"
+              },
+              {
+                "label": "Top Right Radius",
+                "name": "top_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px"
+              },
+              {
+                "label": "Bottom Left Radius",
+                "name": "bottom_left_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px"
+              },
+              {
+                "label": "Bottom Right Radius",
+                "name": "bottom_right_radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px"
+              }
+            ]
+          },
+          {
+            "label": "Hover",
+            "name": "hover",
+            "help_text": "Set Button Hover styles",
+            "type": "group",
+            "children": [
+              {
+                "label": "Text",
+                "name": "text",
+                "type": "group",
+                "children": [
+                  {
+                    "label": "Color",
+                    "name": "color",
+                    "type": "color"
+                  }
+                ]
+              },
+              {
+                "label": "Background",
+                "name": "background",
+                "type": "group",
+                "children": [
+                  {
+                    "label": "Color",
+                    "name": "color",
+                    "type": "color"
+                  }
+                ]
+              },
+              {
+                "label": "Border",
+                "name": "border",
+                "type": "group",
+                "children": [
+                  {
+                    "label": "Border",
+                    "name": "border",
+                    "type": "border"
+                  }
+                ]
+              },
+              {
+                "name": "corner",
+                "label": "Corner",
+                "type": "group",
+                "children": [
+                  {
+                    "label": "Top Left Radius",
+                    "name": "top_left_radius",
+                    "type": "number",
+                    "display": "text",
+                    "max": 100,
+                    "step": 1,
+                    "suffix": "px"
+                  },
+                  {
+                    "label": "Top Right Radius",
+                    "name": "top_right_radius",
+                    "type": "number",
+                    "display": "text",
+                    "max": 100,
+                    "step": 1,
+                    "suffix": "px"
+                  },
+                  {
+                    "label": "Bottom Left Radius",
+                    "name": "bottom_left_radius",
+                    "type": "number",
+                    "display": "text",
+                    "max": 100,
+                    "step": 1,
+                    "suffix": "px"
+                  },
+                  {
+                    "label": "Bottom Right Radius",
+                    "name": "bottom_right_radius",
+                    "type": "number",
+                    "display": "text",
+                    "max": 100,
+                    "step": 1,
+                    "suffix": "px"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "label": "Spacing",
+            "name": "spacing",
+            "help_text": "Set Button Spacing values",
+            "type": "group",
+            "children": [
+              {
+                "label": "Spacing",
+                "name": "spacing",
+                "type": "spacing",
+                "visibility": {
+                  "hidden_subfields": {
+                    "margin": true
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "label": "Alignment",
+            "name": "alignment",
+            "help_text": "Set Button Alignment",
+            "type": "group",
+            "children": [
+              {
+                "label": "Alignment",
+                "name": "alignment",
+                "type": "alignment",
+                "display_width": "half_width",
+                "alignment_direction": "HORIZONTAL"
+              },
+              {
+                "name": "is_full_width",
+                "label": "Full Width",
+                "required": false,
+                "locked": false,
+                "type": "boolean",
+                "display_width": "half_width",
+                "display": "toggle",
+                "help_text": "Makes button full width when enabled",
+                "default": false
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
