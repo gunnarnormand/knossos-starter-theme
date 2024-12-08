@@ -6,132 +6,143 @@
     {% scope_css %}
 
       {# Card Styles #}
-
-      .feature-one-module__card {
-        {% if module.styles.card.background.bg_color %}
-          background-color: rgba({{ module.styles.card.background.bg_color.color|convert_rgb }}, {{ module.styles.card.background.bg_color.opacity / 100 }});
-        {% endif %}
-        {% if module.styles.card.border.border %}
-          {{ module.styles.card.border.border.css }}
-        {% endif %}
-        {% if module.styles.card.corner %}
-          border-top-left-radius: {{ module.styles.card.corner.top_left_radius ~ "px" }};
-          border-top-right-radius: {{ module.styles.card.corner.top_right_radius ~ "px" }};
-          border-bottom-left-radius: {{ module.styles.card.corner.bottom_left_radius ~ "px" }};
-          border-bottom-right-radius: {{ module.styles.card.corner.bottom_right_radius ~ "px" }};
-        {% endif %}
-        {% if module.styles.card.box_shadow.box_shadow %}
-          box-shadow: {{ module.styles.card.box_shadow.box_shadow }};
-        {% endif %}
-      }
-      
-      .feature-one-module__card:hover {
-        {% if module.styles.card.hover.box_shadow.box_shadow %}
-          box-shadow: {{ module.styles.card.hover.box_shadow.box_shadow }};
-        {% endif %}
-        {% if module.styles.card.hover.background.bg_color %}
-          background-color: rgba({{ module.styles.card.hover.background.bg_color.color|convert_rgb }}, {{ module.styles.card.hover.background.bg_color.opacity / 100 }});
-        {% endif %}
-      }
-
-
-      {# Icon/Image Styles #}
-
-      .feature-one-module__icon {
-        {% if module.styles.icon_image.icon.icon_size %}
-          width: {{ module.styles.icon_image.icon.icon_size ~ "px" }};
-          height: {{ module.styles.icon_image.icon.icon_size ~ "px" }};
-        {% endif %}
-      }
-
-      .feature-one-module__icon svg {
-        {% if module.styles.icon_image.icon.color %}
-          fill: rgba({{ module.styles.icon_image.icon.color.color|convert_rgb }}, {{ module.styles.icon_image.icon.color.opacity / 100 }});
-        {% endif %}
-      }
-
-      .feature-one-module__image {
-        {% if module.styles.icon_image.image.image_size %}
-          width: {{ module.styles.icon_image.image.image_size ~ "px" }};
-          height: auto;
-        {% endif %}
-        {% if module.styles.image.corner %}
-          border-top-left-radius: {{ module.styles.icon_image.image.corner.top_left_radius ~ "px" }};
-          border-top-right-radius: {{ module.styles.icon_image.image.corner.top_right_radius ~ "px" }};
-          border-bottom-left-radius: {{ module.styles.icon_image.image.corner.bottom_left_radius ~ "px" }};
-          border-bottom-right-radius: {{ module.styles.icon_image.image.corner.bottom_right_radius ~ "px" }};
-        {% endif %}
-      }
-
-
-      {# Button Styles #}
-
-      {% if module.styles.button.alignment.alignment %}
-        .feature-one-module__button-wrapper {
-          text-align: {{ module.styles.button.alignment.alignment.horizontal_align }};
+      {% if module.styles.card %}
+        .feature-one-module__card {
+          {% if module.styles.card.background.bg_color %}
+            background-color: rgba({{ module.styles.card.background.bg_color.color|convert_rgb }}, {{ module.styles.card.background.bg_color.opacity / 100 }});
+          {% endif %}
+          {% if module.styles.card.border.border %}
+            {{ module.styles.card.border.border.css }}
+          {% endif %}
+          {% if module.styles.card.corner %}
+            border-top-left-radius: {{ module.styles.card.corner.top_left_radius ~ "px" }};
+            border-top-right-radius: {{ module.styles.card.corner.top_right_radius ~ "px" }};
+            border-bottom-left-radius: {{ module.styles.card.corner.bottom_left_radius ~ "px" }};
+            border-bottom-right-radius: {{ module.styles.card.corner.bottom_right_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.card.box_shadow.box_shadow %}
+            box-shadow: {{ module.styles.card.box_shadow.box_shadow }};
+          {% endif %}
+        }
+      {% endif %}
+      {% if module.styles.card.hover %}
+        .feature-one-module__card:hover {
+          {% if module.styles.card.hover.box_shadow.box_shadow %}
+            box-shadow: {{ module.styles.card.hover.box_shadow.box_shadow }};
+          {% endif %}
+          {% if module.styles.card.hover.background.bg_color %}
+            background-color: rgba({{ module.styles.card.hover.background.bg_color.color|convert_rgb }}, {{ module.styles.card.hover.background.bg_color.opacity / 100 }});
+          {% endif %}
         }
       {% endif %}
 
-      .feature-one-module__button {
-        {% if module.styles.button.alignment.is_full_width %}
-            width: 100%;
-        {% endif %}
-        {% if module.styles.button.background.color.color %}
-          background-color: rgba({{ module.styles.button.background.color.color|convert_rgb }}, {{ module.styles.button.background.color.opacity / 100 }});
-        {% endif %}
-        {% if module.styles.button.corner.top_left_radius >= 0 %}
-          border-top-left-radius: {{ module.styles.button.corner.top_left_radius ~ "px" }};
-        {% endif %}
-        {% if module.styles.button.corner.top_right_radius >= 0 %}
-          border-top-right-radius: {{ module.styles.button.corner.top_right_radius ~ "px" }};
-        {% endif %}
-        {% if module.styles.button.corner.bottom_left_radius >= 0 %}
-          border-bottom-left-radius: {{ module.styles.button.corner.bottom_left_radius ~ "px" }};
-        {% endif %}
-        {% if module.styles.button.corner.bottom_right_radius >= 0 %}
-          border-bottom-right-radius: {{ module.styles.button.corner.bottom_right_radius ~ "px" }};
-        {% endif %}
-        {% if module.styles.button.text.font %}
-          {{ module.styles.button.text.font.css }}
-        {% endif %}
-        {% if module.styles.button.text.transform %}
-          text-transform: {{ module.styles.button.text.transform }};
-        {% endif %}
-        {% if module.styles.button.border.border %}
-          {{ module.styles.button.border.border.css }}
-        {% endif %}
-        {{ module.styles.button.spacing.spacing.css }}
-      }
+      {# Icon/Image Styles #}
+      {% if module.styles.icon_image %}
+        .feature-one-module__icon {
+          {% if module.styles.icon_image.icon.icon_size %}
+            width: {{ module.styles.icon_image.icon.icon_size ~ "px" }};
+            height: {{ module.styles.icon_image.icon.icon_size ~ "px" }};
+          {% endif %}
+        }
 
-      .feature-one-module__button:hover,
-      .feature-one-module__button:focus,
-      .feature-one-module__button:active {
-        {% if module.styles.button.hover.text.color.color %}
-          color: rgba({{ module.styles.button.hover.text.color.color|convert_rgb }}, {{ module.styles.button.hover.text.color.opacity / 100 }});
+        .feature-one-module__icon svg {
+          {% if module.styles.icon_image.icon.color %}
+            fill: rgba({{ module.styles.icon_image.icon.color.color|convert_rgb }}, {{ module.styles.icon_image.icon.color.opacity / 100 }});
+          {% endif %}
+        }
+
+        .feature-one-module__image {
+          {% if module.styles.icon_image.image.image_size %}
+            width: {{ module.styles.icon_image.image.image_size ~ "px" }};
+            height: auto;
+          {% endif %}
+          {% if module.styles.image.corner %}
+            border-top-left-radius: {{ module.styles.icon_image.image.corner.top_left_radius ~ "px" }};
+            border-top-right-radius: {{ module.styles.icon_image.image.corner.top_right_radius ~ "px" }};
+            border-bottom-left-radius: {{ module.styles.icon_image.image.corner.bottom_left_radius ~ "px" }};
+            border-bottom-right-radius: {{ module.styles.icon_image.image.corner.bottom_right_radius ~ "px" }};
+          {% endif %}
+        }
+      {% endif %}
+
+      {# Button Styles #}
+      {% if module.styles.button %}
+        {% if module.styles.button.alignment.alignment %}
+          .feature-one-module__button-wrapper {
+            text-align: {{ module.styles.button.alignment.alignment.horizontal_align }};
+          }
         {% endif %}
-        {% if module.styles.button.hover.background.color.color %}
-          background-color: rgba({{ module.styles.button.hover.background.color.color|convert_rgb }}, {{ module.styles.button.hover.background.color.opacity / 100 }});
-        {% endif %}
-        {% if module.styles.button.hover.border.border %}
-          {{ module.styles.button.hover.border.border.css }}
-        {% endif %}
-        {% if module.styles.button.hover.corner.top_left_radius >= 0 %}
-          border-top-left-radius: {{ module.styles.button.hover.corner.top_left_radius ~ "px" }};
-        {% endif %}
-        {% if module.styles.button.hover.corner.top_right_radius >= 0 %}
-          border-top-right-radius: {{ module.styles.button.hover.corner.top_right_radius ~ "px" }};
-        {% endif %}
-        {% if module.styles.button.hover.corner.bottom_left_radius >= 0 %}
-          border-bottom-left-radius: {{ module.styles.button.hover.corner.bottom_left_radius ~ "px" }};
-        {% endif %}
-        {% if module.styles.button.hover.corner.bottom_right_radius >= 0 %}
-          border-bottom-right-radius: {{ module.styles.button.hover.corner.bottom_right_radius ~ "px" }};
-        {% endif %}
-      }
+        .feature-one-module__button {
+          {% if module.styles.button.alignment.is_full_width %}
+              width: 100%;
+          {% endif %}
+          {% if module.styles.button.background.color.color %}
+            background-color: rgba({{ module.styles.button.background.color.color|convert_rgb }}, {{ module.styles.button.background.color.opacity / 100 }});
+          {% endif %}
+          {% if module.styles.button.corner.top_left_radius >= 0 %}
+            border-top-left-radius: {{ module.styles.button.corner.top_left_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.button.corner.top_right_radius >= 0 %}
+            border-top-right-radius: {{ module.styles.button.corner.top_right_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.button.corner.bottom_left_radius >= 0 %}
+            border-bottom-left-radius: {{ module.styles.button.corner.bottom_left_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.button.corner.bottom_right_radius >= 0 %}
+            border-bottom-right-radius: {{ module.styles.button.corner.bottom_right_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.button.text.font %}
+            {{ module.styles.button.text.font.css }}
+          {% endif %}
+          {% if module.styles.button.text.transform %}
+            text-transform: {{ module.styles.button.text.transform }};
+          {% endif %}
+          {% if module.styles.button.border.border %}
+            {{ module.styles.button.border.border.css }}
+          {% endif %}
+          {{ module.styles.button.spacing.spacing.css }}
+        }
+      {% endif %}
+      {% if module.styles.button.hover %}
+        .feature-one-module__button:hover,
+        .feature-one-module__button:focus,
+        .feature-one-module__button:active {
+          {% if module.styles.button.hover.text.color.color %}
+            color: rgba({{ module.styles.button.hover.text.color.color|convert_rgb }}, {{ module.styles.button.hover.text.color.opacity / 100 }});
+          {% endif %}
+          {% if module.styles.button.hover.background.color.color %}
+            background-color: rgba({{ module.styles.button.hover.background.color.color|convert_rgb }}, {{ module.styles.button.hover.background.color.opacity / 100 }});
+          {% endif %}
+          {% if module.styles.button.hover.border.border %}
+            {{ module.styles.button.hover.border.border.css }}
+          {% endif %}
+          {% if module.styles.button.hover.corner.top_left_radius >= 0 %}
+            border-top-left-radius: {{ module.styles.button.hover.corner.top_left_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.button.hover.corner.top_right_radius >= 0 %}
+            border-top-right-radius: {{ module.styles.button.hover.corner.top_right_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.button.hover.corner.bottom_left_radius >= 0 %}
+            border-bottom-left-radius: {{ module.styles.button.hover.corner.bottom_left_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.button.hover.corner.bottom_right_radius >= 0 %}
+            border-bottom-right-radius: {{ module.styles.button.hover.corner.bottom_right_radius ~ "px" }};
+          {% endif %}
+        }
+      {% endif %}
 
     {% end_scope_css %}
   </style>
 {% end_require_css %}
+
+{% set alignment_class = '' %}
+{% if module.styles.alignment.horizontal_align == 'CENTER' %}
+    {% set alignment_class = 'flex flex-col items-center text-center mx-auto' %}
+{% elif module.styles.alignment.horizontal_align == 'LEFT' %}
+    {% set alignment_class = 'flex flex-col items-start text-left mr-auto' %}
+{% elif module.styles.alignment.horizontal_align == 'RIGHT' %}
+    {% set alignment_class = 'flex flex-col items-end text-right ml-auto' %}
+{% endif %}
 
 {####################################################}
 {################ Module layout ###################}
@@ -139,7 +150,7 @@
 
 <section class="feature-one-module px-[5%] py-16 md:py-24 lg:py-28">
   <div class="container">
-    <div class="mx-auto mb-12 w-full max-w-lg text-center md:mb-18 lg:mb-20">
+    <div class="mb-12 w-full max-w-lg md:mb-18 lg:mb-20 {{ alignment_class }}">
       {% inline_rich_text field="tagline" value="{{ module.tagline }}" %}
       {% inline_rich_text field="heading" value="{{ module.heading }}" %}
       {% inline_rich_text field="content" value="{{ module.content }}" %}

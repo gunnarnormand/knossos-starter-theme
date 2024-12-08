@@ -45,7 +45,7 @@
     "required": false,
     "locked": false,
     "type": "richtext",
-    "default": "<h1 class=\"mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl\">Short heading goes here</h1>"
+    "default": "<h2 class='rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl'>Short heading goes here</h2>"
   },
   {
     "name": "content",
@@ -314,6 +314,17 @@
     "tab": "STYLE",
     "type": "group",
     "children": [
+      {
+        "name": "alignment",
+        "label": "Title Content Alignment",
+        "help_text": "Position the title content within its container.",
+        "required": false,
+        "type": "alignment",
+        "alignment_direction": "HORIZONTAL",
+        "default": {
+          "horizontal_align": "CENTER"
+        }
+      },
       {
         "name": "card",
         "label": "Feature Card",
