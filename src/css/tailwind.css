@@ -2562,6 +2562,10 @@ video {
     display: flex;
   }
 
+  .md\:grid {
+    display: grid;
+  }
+
   .md\:size-8 {
     width: 2rem;
     height: 2rem;
@@ -2797,6 +2801,26 @@ video {
     order: 9999;
   }
 
+  .lg\:order-none {
+    order: 0;
+  }
+
+  .lg\:col-start-1 {
+    grid-column-start: 1;
+  }
+
+  .lg\:col-end-2 {
+    grid-column-end: 2;
+  }
+
+  .lg\:row-start-1 {
+    grid-row-start: 1;
+  }
+
+  .lg\:row-end-3 {
+    grid-row-end: 3;
+  }
+
   .lg\:mb-12 {
     margin-bottom: 3rem;
   }
@@ -2954,6 +2978,10 @@ video {
 
   .lg\:justify-self-end {
     justify-self: end;
+  }
+
+  .lg\:p-12 {
+    padding: 3rem;
   }
 
   .lg\:p-8 {
