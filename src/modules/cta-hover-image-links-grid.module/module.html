@@ -211,68 +211,70 @@
         text-decoration: none;
       }
 
-      .cta-hover-image-links-grid-module__link-textinner {
-        {% if module.styles.link.text.font %}
-          {{ module.styles.link.text.font.css }}
-        {% endif %}
-        {% if module.styles.link.text.transform %}
-          text-transform: {{ module.styles.link.text.transform }};
-        {% endif %}
-        {% if module.styles.link.background.color.color %}
-          background-color: rgba({{ module.styles.link.background.color.color|convert_rgb }}, {{ module.styles.link.background.color.opacity / 100 }});
-        {% endif %}
-        {% if module.styles.link.border.border %}
-          {{ module.styles.link.border.border.css }}
-        {% endif %}
-        {% if module.styles.link.corner.top_left_radius >= 0 %}
-          border-top-left-radius: {{ module.styles.link.corner.top_left_radius ~ "px" }};
-        {% endif %}
-        {% if module.styles.link.corner.top_right_radius >= 0 %}
-          border-top-right-radius: {{ module.styles.link.corner.top_right_radius ~ "px" }};
-        {% endif %}
-        {% if module.styles.link.corner.bottom_left_radius >= 0 %}
-          border-bottom-left-radius: {{ module.styles.link.corner.bottom_left_radius ~ "px" }};
-        {% endif %}
-        {% if module.styles.link.corner.bottom_right_radius >= 0 %}
-          border-bottom-right-radius: {{ module.styles.link.corner.bottom_right_radius ~ "px" }};
-        {% endif %}
-        {% if module.styles.link.spacing.spacing %}
-          {{ module.styles.link.spacing.spacing.css }}
-        {% endif %}
-      }
+      {% if module.styles.link %}
+        .cta-hover-image-links-grid-module__link-textinner {
+          {% if module.styles.link.text.font %}
+            {{ module.styles.link.text.font.css }}
+          {% endif %}
+          {% if module.styles.link.text.transform %}
+            text-transform: {{ module.styles.link.text.transform }};
+          {% endif %}
+          {% if module.styles.link.background.color.color %}
+            background-color: rgba({{ module.styles.link.background.color.color|convert_rgb }}, {{ module.styles.link.background.color.opacity / 100 }});
+          {% endif %}
+          {% if module.styles.link.border.border %}
+            {{ module.styles.link.border.border.css }}
+          {% endif %}
+          {% if module.styles.link.corner.top_left_radius >= 0 %}
+            border-top-left-radius: {{ module.styles.link.corner.top_left_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.link.corner.top_right_radius >= 0 %}
+            border-top-right-radius: {{ module.styles.link.corner.top_right_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.link.corner.bottom_left_radius >= 0 %}
+            border-bottom-left-radius: {{ module.styles.link.corner.bottom_left_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.link.corner.bottom_right_radius >= 0 %}
+            border-bottom-right-radius: {{ module.styles.link.corner.bottom_right_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.link.spacing.spacing %}
+            {{ module.styles.link.spacing.spacing.css }}
+          {% endif %}
+        }
 
-      .cta-hover-image-links-grid-module__link-textinner:hover,
-      .cta-hover-image-links-grid-module__link-textinner:focus,
-      .cta-hover-image-links-grid-module__link-textinner:active {
-        {% if module.styles.link.hover.text.color.color %}
-          color: rgba({{ module.styles.link.hover.text.color.color|convert_rgb }}, {{ module.styles.link.hover.text.color.opacity / 100 }});
-        {% endif %}
-        {% if module.styles.link.hover.background.color.color %}
-          background-color: rgba({{ module.styles.link.hover.background.color.color|convert_rgb }}, {{ module.styles.link.hover.background.color.opacity / 100 }});
-        {% endif %}
-        {% if module.styles.link.hover.border.border %}
-          {{ module.styles.link.hover.border.border.css }}
-        {% endif %}
-        {% if module.styles.link.hover.corner.top_left_radius >= 0 %}
-          border-top-left-radius: {{ module.styles.link.hover.corner.top_left_radius ~ "px" }};
-        {% endif %}
-        {% if module.styles.link.hover.corner.top_right_radius >= 0 %}
-          border-top-right-radius: {{ module.styles.link.hover.corner.top_right_radius ~ "px" }};
-        {% endif %}
-        {% if module.styles.link.hover.corner.bottom_left_radius >= 0 %}
-          border-bottom-left-radius: {{ module.styles.link.hover.corner.bottom_left_radius ~ "px" }};
-        {% endif %}
-        {% if module.styles.link.hover.corner.bottom_right_radius >= 0 %}
-          border-bottom-right-radius: {{ module.styles.link.hover.corner.bottom_right_radius ~ "px" }};
-        {% endif %}
-      }
+        .cta-hover-image-links-grid-module__link-textinner:hover,
+        .cta-hover-image-links-grid-module__link-textinner:focus,
+        .cta-hover-image-links-grid-module__link-textinner:active {
+          {% if module.styles.link.hover.text.color.color %}
+            color: rgba({{ module.styles.link.hover.text.color.color|convert_rgb }}, {{ module.styles.link.hover.text.color.opacity / 100 }});
+          {% endif %}
+          {% if module.styles.link.hover.background.color.color %}
+            background-color: rgba({{ module.styles.link.hover.background.color.color|convert_rgb }}, {{ module.styles.link.hover.background.color.opacity / 100 }});
+          {% endif %}
+          {% if module.styles.link.hover.border.border %}
+            {{ module.styles.link.hover.border.border.css }}
+          {% endif %}
+          {% if module.styles.link.hover.corner.top_left_radius >= 0 %}
+            border-top-left-radius: {{ module.styles.link.hover.corner.top_left_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.link.hover.corner.top_right_radius >= 0 %}
+            border-top-right-radius: {{ module.styles.link.hover.corner.top_right_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.link.hover.corner.bottom_left_radius >= 0 %}
+            border-bottom-left-radius: {{ module.styles.link.hover.corner.bottom_left_radius ~ "px" }};
+          {% endif %}
+          {% if module.styles.link.hover.corner.bottom_right_radius >= 0 %}
+            border-bottom-right-radius: {{ module.styles.link.hover.corner.bottom_right_radius ~ "px" }};
+          {% endif %}
+        }
 
-      .cta-hover-image-links-grid-module__link-textinner::before:hover,
-      .cta-hover-image-links-grid-module__link-textinner::before:focus {
-        {% if module.styles.link.hover.text.color.color %}
-          color: rgba({{ module.styles.link.hover.text.color.color|convert_rgb }}, {{ module.styles.link.hover.text.color.opacity / 100 }});
-        {% endif %}
-      }
+        .cta-hover-image-links-grid-module__link-textinner::before:hover,
+        .cta-hover-image-links-grid-module__link-textinner::before:focus {
+          {% if module.styles.link.hover.text.color.color %}
+            color: rgba({{ module.styles.link.hover.text.color.color|convert_rgb }}, {{ module.styles.link.hover.text.color.opacity / 100 }});
+          {% endif %}
+        }
+      {% endif %}
 
       .cta-hover-image-links-grid-module__link-textinner::before {
         counter-increment: counter;
@@ -289,7 +291,6 @@
       }
 
       {# Image Styles #}
-
       .hover-reveal {
         position: absolute;
         z-index: -1;
@@ -324,7 +325,6 @@
           border-bottom-right-radius: {{ module.styles.image.image.corner.bottom_right_radius ~ "px" }};
         {% endif %}
       }
-
 
     {% end_scope_css %}
   </style>

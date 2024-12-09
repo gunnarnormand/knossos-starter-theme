@@ -7,117 +7,118 @@
         {% scope_css %}
 
           {# Button Styles #}
-
-          .cta-one-module__button {
-            {% if module.styles.button.background.color.color %}
-              background-color: rgba({{ module.styles.button.background.color.color|convert_rgb }}, {{ module.styles.button.background.color.opacity / 100 }});
-            {% endif %}
-            {% if module.styles.button.corner.top_left_radius >= 0 %}
-              border-top-left-radius: {{ module.styles.button.corner.top_left_radius ~ "px" }};
-            {% endif %}
-            {% if module.styles.button.corner.top_right_radius >= 0 %}
-              border-top-right-radius: {{ module.styles.button.corner.top_right_radius ~ "px" }};
-            {% endif %}
-            {% if module.styles.button.corner.bottom_left_radius >= 0 %}
-              border-bottom-left-radius: {{ module.styles.button.corner.bottom_left_radius ~ "px" }};
-            {% endif %}
-            {% if module.styles.button.corner.bottom_right_radius >= 0 %}
-              border-bottom-right-radius: {{ module.styles.button.corner.bottom_right_radius ~ "px" }};
-            {% endif %}
-            {% if module.styles.button.text.font %}
-              {{ module.styles.button.text.font.css }}
-            {% endif %}
-            {% if module.styles.button.text.transform %}
-              text-transform: {{ module.styles.button.text.transform }};
-            {% endif %}
-            {% if module.styles.button.border.border %}
-              {{ module.styles.button.border.border.css }}
-            {% endif %}
-            {{ module.styles.button.spacing.spacing.css }}
-          }
-
-          .cta-one-module__button:hover,
-          .cta-one-module__button:focus,
-          .cta-one-module__button:active {
-            {% if module.styles.button.hover.text.color.color %}
-              color: rgba({{ module.styles.button.hover.text.color.color|convert_rgb }}, {{ module.styles.button.hover.text.color.opacity / 100 }});
-            {% endif %}
-            {% if module.styles.button.hover.background.color.color %}
-              background-color: rgba({{ module.styles.button.hover.background.color.color|convert_rgb }}, {{ module.styles.button.hover.background.color.opacity / 100 }});
-            {% endif %}
-            {% if module.styles.button.hover.border.border %}
-              {{ module.styles.button.hover.border.border.css }}
-            {% endif %}
-            {% if module.styles.button.hover.corner.top_left_radius >= 0 %}
-              border-top-left-radius: {{ module.styles.button.hover.corner.top_left_radius ~ "px" }};
-            {% endif %}
-            {% if module.styles.button.hover.corner.top_right_radius >= 0 %}
-              border-top-right-radius: {{ module.styles.button.hover.corner.top_right_radius ~ "px" }};
-            {% endif %}
-            {% if module.styles.button.hover.corner.bottom_left_radius >= 0 %}
-              border-bottom-left-radius: {{ module.styles.button.hover.corner.bottom_left_radius ~ "px" }};
-            {% endif %}
-            {% if module.styles.button.hover.corner.bottom_right_radius >= 0 %}
-              border-bottom-right-radius: {{ module.styles.button.hover.corner.bottom_right_radius ~ "px" }};
-            {% endif %}
-          }
-
+          {% if module.styles.button %}
+            .cta-one-module__button {
+              {% if module.styles.button.background.color.color %}
+                background-color: rgba({{ module.styles.button.background.color.color|convert_rgb }}, {{ module.styles.button.background.color.opacity / 100 }});
+              {% endif %}
+              {% if module.styles.button.corner.top_left_radius >= 0 %}
+                border-top-left-radius: {{ module.styles.button.corner.top_left_radius ~ "px" }};
+              {% endif %}
+              {% if module.styles.button.corner.top_right_radius >= 0 %}
+                border-top-right-radius: {{ module.styles.button.corner.top_right_radius ~ "px" }};
+              {% endif %}
+              {% if module.styles.button.corner.bottom_left_radius >= 0 %}
+                border-bottom-left-radius: {{ module.styles.button.corner.bottom_left_radius ~ "px" }};
+              {% endif %}
+              {% if module.styles.button.corner.bottom_right_radius >= 0 %}
+                border-bottom-right-radius: {{ module.styles.button.corner.bottom_right_radius ~ "px" }};
+              {% endif %}
+              {% if module.styles.button.text.font %}
+                {{ module.styles.button.text.font.css }}
+              {% endif %}
+              {% if module.styles.button.text.transform %}
+                text-transform: {{ module.styles.button.text.transform }};
+              {% endif %}
+              {% if module.styles.button.border.border %}
+                {{ module.styles.button.border.border.css }}
+              {% endif %}
+              {{ module.styles.button.spacing.spacing.css }}
+            }
+            
+            .cta-one-module__button:hover,
+            .cta-one-module__button:focus,
+            .cta-one-module__button:active {
+              {% if module.styles.button.hover.text.color.color %}
+                color: rgba({{ module.styles.button.hover.text.color.color|convert_rgb }}, {{ module.styles.button.hover.text.color.opacity / 100 }});
+              {% endif %}
+              {% if module.styles.button.hover.background.color.color %}
+                background-color: rgba({{ module.styles.button.hover.background.color.color|convert_rgb }}, {{ module.styles.button.hover.background.color.opacity / 100 }});
+              {% endif %}
+              {% if module.styles.button.hover.border.border %}
+                {{ module.styles.button.hover.border.border.css }}
+              {% endif %}
+              {% if module.styles.button.hover.corner.top_left_radius >= 0 %}
+                border-top-left-radius: {{ module.styles.button.hover.corner.top_left_radius ~ "px" }};
+              {% endif %}
+              {% if module.styles.button.hover.corner.top_right_radius >= 0 %}
+                border-top-right-radius: {{ module.styles.button.hover.corner.top_right_radius ~ "px" }};
+              {% endif %}
+              {% if module.styles.button.hover.corner.bottom_left_radius >= 0 %}
+                border-bottom-left-radius: {{ module.styles.button.hover.corner.bottom_left_radius ~ "px" }};
+              {% endif %}
+              {% if module.styles.button.hover.corner.bottom_right_radius >= 0 %}
+                border-bottom-right-radius: {{ module.styles.button.hover.corner.bottom_right_radius ~ "px" }};
+              {% endif %}
+            }
+          {% endif %}
 
           {# Alt Button Styles #}
+          {% if module.styles.alt_button %}
+            .cta-one-module__alt-button {
+              {% if module.styles.alt_button.background.color.color %}
+                background-color: rgba({{ module.styles.alt_button.background.color.color|convert_rgb }}, {{ module.styles.alt_button.background.color.opacity / 100 }});
+              {% endif %}
+              {% if module.styles.alt_button.corner.top_left_radius >= 0 %}
+                border-top-left-radius: {{ module.styles.alt_button.corner.top_left_radius ~ "px" }};
+              {% endif %}
+              {% if module.styles.alt_button.corner.top_right_radius >= 0 %}
+                border-top-right-radius: {{ module.styles.alt_button.corner.top_right_radius ~ "px" }};
+              {% endif %}
+              {% if module.styles.alt_button.corner.bottom_left_radius >= 0 %}
+                border-bottom-left-radius: {{ module.styles.alt_button.corner.bottom_left_radius ~ "px" }};
+              {% endif %}
+              {% if module.styles.alt_button.corner.bottom_right_radius >= 0 %}
+                border-bottom-right-radius: {{ module.styles.alt_button.corner.bottom_right_radius ~ "px" }};
+              {% endif %}
+              {% if module.styles.alt_button.text.font %}
+                {{ module.styles.alt_button.text.font.css }}
+              {% endif %}
+              {% if module.styles.alt_button.text.transform %}
+                text-transform: {{ module.styles.alt_button.text.transform }};
+              {% endif %}
+              {% if module.styles.alt_button.border.border %}
+                {{ module.styles.alt_button.border.border.css }}
+              {% endif %}
+              {{ module.styles.alt_button.spacing.spacing.css }}
+            }
 
-          .cta-one-module__alt-button {
-          {% if module.styles.alt_button.background.color.color %}
-            background-color: rgba({{ module.styles.alt_button.background.color.color|convert_rgb }}, {{ module.styles.alt_button.background.color.opacity / 100 }});
+            .cta-one-module__alt-button:hover,
+            .cta-one-module__alt-button:focus,
+            .cta-one-module__alt-button:active {
+              {% if module.styles.alt_button.hover.text.color.color %}
+                color: rgba({{ module.styles.alt_button.hover.text.color.color|convert_rgb }}, {{ module.styles.alt_button.hover.text.color.opacity / 100 }});
+              {% endif %}
+              {% if module.styles.alt_button.hover.background.color.color %}
+                background-color: rgba({{ module.styles.alt_button.hover.background.color.color|convert_rgb }}, {{ module.styles.alt_button.hover.background.color.opacity / 100 }});
+              {% endif %}
+              {% if module.styles.alt_button.hover.border.border %}
+                {{ module.styles.alt_button.hover.border.border.css }}
+              {% endif %}
+              {% if module.styles.alt_button.hover.corner.top_left_radius >= 0 %}
+                border-top-left-radius: {{ module.styles.alt_button.hover.corner.top_left_radius ~ "px" }};
+              {% endif %}
+              {% if module.styles.alt_button.hover.corner.top_right_radius >= 0 %}
+                border-top-right-radius: {{ module.styles.alt_button.hover.corner.top_right_radius ~ "px" }};
+              {% endif %}
+              {% if module.styles.alt_button.hover.corner.bottom_left_radius >= 0 %}
+                border-bottom-left-radius: {{ module.styles.alt_button.hover.corner.bottom_left_radius ~ "px" }};
+              {% endif %}
+              {% if module.styles.alt_button.hover.corner.bottom_right_radius >= 0 %}
+                border-bottom-right-radius: {{ module.styles.alt_button.hover.corner.bottom_right_radius ~ "px" }};
+              {% endif %}
+            }
           {% endif %}
-          {% if module.styles.alt_button.corner.top_left_radius >= 0 %}
-            border-top-left-radius: {{ module.styles.alt_button.corner.top_left_radius ~ "px" }};
-          {% endif %}
-          {% if module.styles.alt_button.corner.top_right_radius >= 0 %}
-            border-top-right-radius: {{ module.styles.alt_button.corner.top_right_radius ~ "px" }};
-          {% endif %}
-          {% if module.styles.alt_button.corner.bottom_left_radius >= 0 %}
-            border-bottom-left-radius: {{ module.styles.alt_button.corner.bottom_left_radius ~ "px" }};
-          {% endif %}
-          {% if module.styles.alt_button.corner.bottom_right_radius >= 0 %}
-            border-bottom-right-radius: {{ module.styles.alt_button.corner.bottom_right_radius ~ "px" }};
-          {% endif %}
-          {% if module.styles.alt_button.text.font %}
-            {{ module.styles.alt_button.text.font.css }}
-          {% endif %}
-          {% if module.styles.alt_button.text.transform %}
-            text-transform: {{ module.styles.alt_button.text.transform }};
-          {% endif %}
-          {% if module.styles.alt_button.border.border %}
-            {{ module.styles.alt_button.border.border.css }}
-          {% endif %}
-          {{ module.styles.alt_button.spacing.spacing.css }}
-        }
-
-        .cta-one-module__alt-button:hover,
-        .cta-one-module__alt-button:focus,
-        .cta-one-module__alt-button:active {
-          {% if module.styles.alt_button.hover.text.color.color %}
-            color: rgba({{ module.styles.alt_button.hover.text.color.color|convert_rgb }}, {{ module.styles.alt_button.hover.text.color.opacity / 100 }});
-          {% endif %}
-          {% if module.styles.alt_button.hover.background.color.color %}
-            background-color: rgba({{ module.styles.alt_button.hover.background.color.color|convert_rgb }}, {{ module.styles.alt_button.hover.background.color.opacity / 100 }});
-          {% endif %}
-          {% if module.styles.alt_button.hover.border.border %}
-            {{ module.styles.alt_button.hover.border.border.css }}
-          {% endif %}
-          {% if module.styles.alt_button.hover.corner.top_left_radius >= 0 %}
-            border-top-left-radius: {{ module.styles.alt_button.hover.corner.top_left_radius ~ "px" }};
-          {% endif %}
-          {% if module.styles.alt_button.hover.corner.top_right_radius >= 0 %}
-            border-top-right-radius: {{ module.styles.alt_button.hover.corner.top_right_radius ~ "px" }};
-          {% endif %}
-          {% if module.styles.alt_button.hover.corner.bottom_left_radius >= 0 %}
-            border-bottom-left-radius: {{ module.styles.alt_button.hover.corner.bottom_left_radius ~ "px" }};
-          {% endif %}
-          {% if module.styles.alt_button.hover.corner.bottom_right_radius >= 0 %}
-            border-bottom-right-radius: {{ module.styles.alt_button.hover.corner.bottom_right_radius ~ "px" }};
-          {% endif %}
-        }
 
         {% end_scope_css %}
     </style>
