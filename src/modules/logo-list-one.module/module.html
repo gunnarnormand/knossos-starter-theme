@@ -10,9 +10,11 @@
 
             <img class="max-h-12 md:max-h-14"
                 srcset="{{ resize_image_url(item.image_field.src, 288) }} 288w,
-                {{ resize_image_url(item.image_field.src, 468) }} 468w"
+                        {{ resize_image_url(item.image_field.src, 468) }} 468w,
+                        {{ resize_image_url(item.image_field.src, 736) }} 736w"
                 sizes="(max-width: 320px) 288px,
-                (max-width: 500px) 468px"
+                       (max-width: 500px) 468px,
+                       (max-width: 768px) 736px"
                 src="{{ item.image_field.src }}"
                 alt="{{ item.image_field.alt }}"
                 width="{{ item.image_field.width }}"
