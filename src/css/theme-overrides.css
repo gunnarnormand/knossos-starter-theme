@@ -860,8 +860,32 @@ tfoot td {
 {##########################   10. System pages   ###########################}
 {###########################################################################}
 
-.hs-search-results__title {
+/* Search Results Pages */
+
+#main-content .hs-search-results .hs-search-results__title {
   {{ h1_font.style }};
+  color: {{ h1_font.color }};
+}
+
+#main-content .hs-search-results .hs-search-results__listing__item {
+  border-bottom-width: 1px;
+  border-top-width: 0;
+  border-color: {{ h1_font.color }};
+  padding-bottom: 2rem;
+}
+
+#main-content .hs-search-results .hs-search-results__listing__item .hs-search-results__description {
+  margin-bottom: 0;
+}
+
+#main-content .hs-search-results .hs-search-results__pagination {
+    margin-top: 2em;
+}
+
+#main-content .hs-search-results .hs-search-results__pagination__link, 
+#main-content .hs-search-results .hs-search-results__pagination__link--number, 
+#main-content .hs-search-results .hs-search-results__pagination__link--active {
+  border: none;
   color: {{ h1_font.color }};
 }
 
