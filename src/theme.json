@@ -19,5 +19,15 @@
         "value": 477
       }
     }
+  ],
+  "hidden_modules": [
+    "@hubspot/social_sharing",
+    "@hubspot/content_library",
+    "@hubspot/page_footer",
+    "@hubspot/section_header",
+    "@hubspot/language_switcher",
+    "@hubspot/simple_menu",
+    "@hubspot/menu",
+    "@hubspot/button"
   ]
 }
