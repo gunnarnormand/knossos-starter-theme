@@ -783,7 +783,7 @@
                                 "display_width": "half_width",
                                 "display": "toggle",
                                 "help_text": "Makes button full width when enabled",
-                                "default": true
+                                "default": false
                             }
                         ]
                     }
