@@ -1,9 +1,13 @@
 {####################################################}
-{################# Module scripts ###################}
+{################# Hubl Variables ###################}
 {####################################################}
 
 {% set date_to_countdown = module.event_start %}
 {% set times_up_text = module.times_up_text %}
+
+{####################################################}
+{################# Module scripts ###################}
+{####################################################}
 
 {% require_js %}
     <script defer>
@@ -145,6 +149,19 @@
             {% endif %}
 
 
+            {# Divider Styles #} 
+
+            {% if module.styles.divider.divider_color %}
+                .countdown-divider {
+                    background-color: rgba({{ module.styles.divider.divider_color.color|convert_rgb }}, {{ module.styles.divider.divider_color.opacity / 100 }});
+                }
+            {% endif %}
+            {% if module.styles.divider.divider_width %}
+                .countdown-divider {
+                    width: {{ module.styles.divider.divider_width ~ "px" }};
+                }
+            {% endif %}
+
         {% end_scope_css %}
     </style>
 {% end_require_css %}
@@ -154,22 +171,22 @@
 {################ Module layout ###################}
 {####################################################}
 
-<div id="{{ name }}" class="countdown-module flex flex-wrap justify-center gap-4 sm:flex-nowrap">
+<div id="{{ name }}" class="countdown-module flex-wrap justify-center gap-4 sm:flex-nowrap {{ module.display_style }}">
     <div class="flex min-w-18 flex-col items-center">
         <span class="countdown-value leading-[1.2]">00</span>
         <span class="countdown-label">Days</span>
     </div>
-    <div class="hidden w-px sm:block"></div>
+    <div class="countdown-divider hidden sm:block"></div>
     <div class="flex min-w-18 flex-col items-center">
         <span class="countdown-value leading-[1.2]">00</span>
         <span class="countdown-label">Hours</span>
     </div>
-    <div class="hidden w-px sm:block"></div>
+    <div class="countdown-divider hidden sm:block"></div>
     <div class="flex min-w-18 flex-col items-center">
         <span class="countdown-value leading-[1.2]">00</span>
         <span class="countdown-label">Mins</span>
     </div>
-    <div class="hidden w-px sm:block"></div>
+    <div class="countdown-divider hidden sm:block"></div>
     <div class="flex min-w-18 flex-col items-center">
         <span class="countdown-value leading-[1.2]">00</span>
         <span class="countdown-label">Secs</span>
