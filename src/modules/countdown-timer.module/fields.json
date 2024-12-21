@@ -1,0 +1,390 @@
+[
+    {
+        "name": "event_start",
+        "label": "Event Start",
+        "help_text": "Choose a start date and time for the countdown timer",
+        "display_width": null,
+        "required": true,
+        "locked": false,
+        "type": "datetime",
+        "default": 1766638800000
+    },
+    {
+        "name": "times_up_text",
+        "label": "Time's Up Text",
+        "help_text": "Text to display in the timer when the event time is up.",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "show_emoji_picker": true,
+        "type": "text",
+        "default": "Time's Up! 🎉"
+    },
+    {
+        "label": "Styles",
+        "name": "styles",
+        "type": "group",
+        "tab": "STYLE",
+        "children": [
+            {
+                "name": "spacing",
+                "label": "Spacing",
+                "type": "group",
+                "expanded": false,
+                "children": [
+                    {
+                        "label": "Spacing around the countdown timer",
+                        "name": "spacing",
+                        "type": "spacing",
+                        "default": {
+                            "padding": {
+                                "top": {
+                                    "value": 16,
+                                    "units": "px"
+                                },
+                                "bottom": {
+                                    "value": 16,
+                                    "units": "px"
+                                },
+                                "left": {
+                                    "value": 24,
+                                    "units": "px"
+                                },
+                                "right": {
+                                    "value": 24,
+                                    "units": "px"
+                                }
+                            },
+                            "margin": {
+                                "top": {
+                                    "value": 32,
+                                    "units": "px"
+                                },
+                                "bottom": {
+                                    "value": 0,
+                                    "units": "px"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "countdown",
+                "label": "Countdown",
+                "type": "group",
+                "expanded": true,
+                "children": [
+                    {
+                        "name": "background",
+                        "label": "Background",
+                        "help_text": "Countdown Background Color",
+                        "type": "group",
+                        "children": [
+                            {
+                                "name": "bg_color",
+                                "label": "Background color",
+                                "required": false,
+                                "locked": false,
+                                "type": "color",
+                                "default": {
+                                    "color": "#ffffff",
+                                    "opacity": 100
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "border",
+                        "label": "Border",
+                        "help_text": "Countdown Border Style",
+                        "type": "group",
+                        "children": [
+                            {
+                                "name": "border",
+                                "label": "Border",
+                                "required": false,
+                                "locked": false,
+                                "allow_custom_border_sides": true,
+                                "type": "border",
+                                "default": {
+                                    "top": {
+                                        "width": {
+                                            "value": 1,
+                                            "units": "px"
+                                        },
+                                        "opacity": 100,
+                                        "style": "solid",
+                                        "color": "#000000"
+                                    },
+                                    "bottom": {
+                                        "width": {
+                                            "value": 1,
+                                            "units": "px"
+                                        },
+                                        "opacity": 100,
+                                        "style": "solid",
+                                        "color": "#000000"
+                                    },
+                                    "left": {
+                                        "width": {
+                                            "value": 1,
+                                            "units": "px"
+                                        },
+                                        "opacity": 100,
+                                        "style": "solid",
+                                        "color": "#000000"
+                                    },
+                                    "right": {
+                                        "width": {
+                                            "value": 1,
+                                            "units": "px"
+                                        },
+                                        "opacity": 100,
+                                        "style": "solid",
+                                        "color": "#000000"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "corner",
+                        "label": "Corner",
+                        "help_text": "Countdown Border Radius",
+                        "type": "group",
+                        "children": [
+                            {
+                                "label": "Top Left Radius",
+                                "name": "top_left_radius",
+                                "type": "number",
+                                "display": "text",
+                                "max": 100,
+                                "step": 1,
+                                "suffix": "px",
+                                "default": 0
+                            },
+                            {
+                                "label": "Top Right Radius",
+                                "name": "top_right_radius",
+                                "type": "number",
+                                "display": "text",
+                                "max": 100,
+                                "step": 1,
+                                "suffix": "px",
+                                "default": 0
+                            },
+                            {
+                                "label": "Bottom Left Radius",
+                                "name": "bottom_left_radius",
+                                "type": "number",
+                                "display": "text",
+                                "max": 100,
+                                "step": 1,
+                                "suffix": "px",
+                                "default": 0
+                            },
+                            {
+                                "label": "Bottom Right Radius",
+                                "name": "bottom_right_radius",
+                                "type": "number",
+                                "display": "text",
+                                "max": 100,
+                                "step": 1,
+                                "suffix": "px",
+                                "default": 0
+                            }
+                        ]
+                    },
+                    {
+                        "name": "box_shadow",
+                        "label": "Box Shadow",
+                        "help_text": "Countdown Box Shadow Style",
+                        "type": "group",
+                        "children": [
+                            {
+                                "name": "box_shadow",
+                                "label": "Box Shadow",
+                                "type": "choice",
+                                "choices": [
+                                    [
+                                        "none",
+                                        "None"
+                                    ],
+                                    [
+                                        "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+                                        "Small Shadow"
+                                    ],
+                                    [
+                                        "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+                                        "Regular Shadow"
+                                    ],
+                                    [
+                                        "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+                                        "Medium Shadow"
+                                    ],
+                                    [
+                                        "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+                                        "Large Shadow"
+                                    ],
+                                    [
+                                        "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+                                        "XL Shadow"
+                                    ],
+                                    [
+                                        "0 25px 50px -12px rgb(0 0 0 / 0.25)",
+                                        "2XL Shadow"
+                                    ],
+                                    [
+                                        "inset 0 2px 4px 0 rgb(0 0 0 / 0.05)",
+                                        "Shadow Inner"
+                                    ]
+                                ],
+                                "default": "none"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "countdown_value_text",
+                "label": "Countdown Value Text",
+                "type": "group",
+                "expanded": true,
+                "children": [
+                    {
+                        "label": "Text",
+                        "name": "text",
+                        "help_text": "Countdown Value Text Styles",
+                        "type": "group",
+                        "children": [
+                            {
+                                "label": "Font",
+                                "name": "font",
+                                "type": "font",
+                                "default": {
+                                    "color": "#000000",
+                                    "size": 40,
+                                    "size_unit": "px",
+                                    "styles": {
+                                        "text-decoration": "none"
+                                    },
+                                    "variant": 700
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "countdown_label_text",
+                "label": "Countdown Label Text",
+                "type": "group",
+                "expanded": true,
+                "children": [
+                    {
+                        "label": "Text",
+                        "name": "text",
+                        "help_text": "Countdown Label Text Styles",
+                        "type": "group",
+                        "children": [
+                            {
+                                "label": "Font",
+                                "name": "font",
+                                "type": "font",
+                                "default": {
+                                    "size": 16,
+                                    "size_unit": "px",
+                                    "styles": {
+                                        "text-decoration": "none"
+                                    },
+                                    "variant": "regular"
+                                }
+                            },
+                            {
+                                "label": "Transform",
+                                "name": "transform",
+                                "type": "choice",
+                                "choices": [
+                                    [
+                                        "none",
+                                        "None"
+                                    ],
+                                    [
+                                        "capitalize",
+                                        "Capitalize"
+                                    ],
+                                    [
+                                        "uppercase",
+                                        "Uppercase"
+                                    ],
+                                    [
+                                        "lowercase",
+                                        "Lowercase"
+                                    ]
+                                ],
+                                "display": "select",
+                                "default": "none"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "times_up_text",
+                "label": "Times Up Text",
+                "type": "group",
+                "expanded": true,
+                "children": [
+                    {
+                        "label": "Text",
+                        "name": "text",
+                        "help_text": "Times Up Text Styles",
+                        "type": "group",
+                        "children": [
+                            {
+                                "label": "Font",
+                                "name": "font",
+                                "type": "font",
+                                "default": {
+                                    "color": "#000000",
+                                    "size": 40,
+                                    "size_unit": "px",
+                                    "styles": {
+                                        "text-decoration": "none"
+                                    },
+                                    "variant": "700"
+                                }
+                            },
+                            {
+                                "label": "Transform",
+                                "name": "transform",
+                                "type": "choice",
+                                "choices": [
+                                    [
+                                        "none",
+                                        "None"
+                                    ],
+                                    [
+                                        "capitalize",
+                                        "Capitalize"
+                                    ],
+                                    [
+                                        "uppercase",
+                                        "Uppercase"
+                                    ],
+                                    [
+                                        "lowercase",
+                                        "Lowercase"
+                                    ]
+                                ],
+                                "display": "select",
+                                "default": "none"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

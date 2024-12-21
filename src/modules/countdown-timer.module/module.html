@@ -1,0 +1,177 @@
+{####################################################}
+{################# Module scripts ###################}
+{####################################################}
+
+{% set date_to_countdown = module.event_start %}
+{% set times_up_text = module.times_up_text %}
+
+{% require_js %}
+    <script defer>
+        document.addEventListener("DOMContentLoaded", function () {
+            const widgetId = "{{ name }}";
+            const countdownModule = document.getElementById(`${widgetId}`);
+            const timesUpText = "{{ times_up_text }}";
+            const targetDate = new Date("{{ date_to_countdown|datetimeformat('%Y-%m-%dT%H:%M:%S') }}");
+
+            // Select all countdown-value elements for dynamic updates
+            const valueElements = countdownModule.querySelectorAll(".countdown-value");
+
+            // Set up the interval
+            const interval = setInterval(updateCountdown, 1000);
+
+            function updateCountdown() {
+                const now = new Date();
+                const timeLeft = targetDate - now;
+
+                if (timeLeft > 0) {
+                    // Calculate remaining time
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    // Update the values dynamically
+                    const timeValues = [days, hours, minutes, seconds];
+                    valueElements.forEach((element, index) => {
+                        element.textContent = timeValues[index].toString().padStart(2, "0"); // Add leading zero
+                    });
+                } else {
+                    // Stop the countdown
+                    clearInterval(interval);
+
+                    // Replace the content with "Time's up!"
+                    countdownModule.innerHTML = `
+                        <div class="flex flex-col items-center text-center">
+                            <h2 class="times-up-text mb-0">${timesUpText}</h2>
+                        </div>
+                    `;
+                }
+            }
+
+            // Initial update
+            updateCountdown();
+        });
+    </script>
+
+{% end_require_js %}
+
+
+{####################################################}
+{################# Module styles ####################}
+{####################################################}
+
+{% require_css %}
+    <style>
+        {% scope_css %}
+
+            {# Spacing #}
+
+            {% if module.styles.spacing.spacing %}
+                .countdown-module {
+                    {{ module.styles.spacing.spacing.css }}
+                }
+            {% endif %}
+
+
+            {# Countdown Styles #}
+
+            {% if module.styles.countdown.background.bg_color %}
+                .countdown-module {
+                    background-color: rgba({{ module.styles.countdown.background.bg_color.color|convert_rgb }}, {{ module.styles.countdown.background.bg_color.opacity / 100 }});
+                }
+            {% endif %}
+            {% if module.styles.countdown.border.border %}
+                .countdown-module {
+                    {{ module.styles.countdown.border.border.css }}
+                } 
+            {% endif %}
+            {% if module.styles.countdown.corner %}
+                .countdown-module {
+                    border-top-left-radius: {{ module.styles.countdown.corner.top_left_radius ~ "px" }};
+                    border-top-right-radius: {{ module.styles.countdown.corner.top_right_radius ~ "px" }};
+                    border-bottom-left-radius: {{ module.styles.countdown.corner.bottom_left_radius ~ "px" }};
+                    border-bottom-right-radius: {{ module.styles.countdown.corner.bottom_right_radius ~ "px" }};
+                }
+            {% endif %}
+            {% if module.styles.countdown.box_shadow.box_shadow %}
+                .countdown-module {
+                    box-shadow: {{ module.styles.countdown.box_shadow.box_shadow }};
+                }
+            {% endif %}
+
+
+            {# Countdown Value Text Styles #} 
+
+            {% if module.styles.countdown_value_text.text.font %}
+                .countdown-value {
+                    {{ module.styles.countdown_value_text.text.font.style }};
+                    font-size: {{ module.styles.countdown_value_text.text.font.size ~ module.styles.countdown_value_text.text.font.size_unit }};
+                    color: {{ module.styles.countdown_value_text.text.font.color }};
+                }
+            {% endif %}
+
+
+            {# Countdown Label Text Styles #} 
+
+            {% if module.styles.countdown_label_text.text.font %}
+                .countdown-label {
+                    {{ module.styles.countdown_label_text.text.font.style }};
+                    font-size: {{ module.styles.countdown_label_text.text.font.size ~ module.styles.countdown_label_text.text.font.size_unit }};
+                    color: {{ module.styles.countdown_label_text.text.font.color }};
+                }
+            {% endif %}
+
+            {% if module.styles.countdown_label_text.text.transform %}
+                .countdown-label {
+                    text-transform: {{ module.styles.countdown_label_text.text.transform }};
+                }
+            {% endif %}
+
+
+            {# Times Up Text Styles #} 
+
+            {% if module.styles.times_up_text.text.font %}
+                .times-up-text {
+                    {{ module.styles.times_up_text.text.font.style }};
+                    font-size: {{ module.styles.times_up_text.text.font.size ~ module.styles.times_up_text.text.font.size_unit }};
+                    color: {{ module.styles.times_up_text.text.font.color }};
+                }
+            {% endif %}
+
+            {% if module.styles.times_up_text.text.transform %}
+                .times-up-text {
+                    text-transform: {{ module.styles.times_up_text.text.transform }};
+                }
+            {% endif %}
+
+
+        {% end_scope_css %}
+    </style>
+{% end_require_css %}
+
+
+{####################################################}
+{################ Module layout ###################}
+{####################################################}
+
+<div id="{{ name }}" class="countdown-module flex flex-wrap justify-center gap-4 sm:flex-nowrap">
+    <div class="flex min-w-18 flex-col items-center">
+        <span class="countdown-value leading-[1.2]">00</span>
+        <span class="countdown-label">Days</span>
+    </div>
+    <div class="hidden w-px sm:block"></div>
+    <div class="flex min-w-18 flex-col items-center">
+        <span class="countdown-value leading-[1.2]">00</span>
+        <span class="countdown-label">Hours</span>
+    </div>
+    <div class="hidden w-px sm:block"></div>
+    <div class="flex min-w-18 flex-col items-center">
+        <span class="countdown-value leading-[1.2]">00</span>
+        <span class="countdown-label">Mins</span>
+    </div>
+    <div class="hidden w-px sm:block"></div>
+    <div class="flex min-w-18 flex-col items-center">
+        <span class="countdown-value leading-[1.2]">00</span>
+        <span class="countdown-label">Secs</span>
+    </div>
+</div>
