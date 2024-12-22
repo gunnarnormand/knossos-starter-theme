@@ -1,0 +1,353 @@
+{####################################################}
+{################# Hubl Variables ###################}
+{####################################################}
+
+{% set event_start_date = module.event_start %}
+{% set times_up_text = module.times_up_text %}
+
+{####################################################}
+{################# Module scripts ###################}
+{####################################################}
+
+{% require_js %}
+  <script defer>
+      document.addEventListener("DOMContentLoaded", function () {
+          const widgetId = "{{ name }}";
+          const eventItemHeaderModule = document.getElementById(`${widgetId}`);
+          const eventItemHeaderCountdown = eventItemHeaderModule.querySelector('.event-item-header-one-module__countdown');
+          const timesUpText = "{{ times_up_text }}";
+          const targetDate = new Date("{{ event_start_date|datetimeformat('%Y-%m-%dT%H:%M:%S') }}");
+
+          // Select all countdown-value elements for dynamic updates
+          const valueElements = eventItemHeaderCountdown.querySelectorAll(".countdown-value");
+
+          // Set up the interval
+          const interval = setInterval(updateCountdown, 1000);
+
+          function updateCountdown() {
+              const now = new Date();
+              const timeLeft = targetDate - now;
+
+              if (timeLeft > 0) {
+                  // Calculate remaining time
+                  const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                  const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                  const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                  const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                  // Update the values dynamically
+                  const timeValues = [days, hours, minutes, seconds];
+                  valueElements.forEach((element, index) => {
+                      element.textContent = timeValues[index].toString().padStart(2, "0"); // Add leading zero
+                  });
+              } else {
+                  // Stop the countdown
+                  clearInterval(interval);
+
+                  // Replace the content with "Time's up!"
+                  eventItemHeaderCountdown.innerHTML = `
+                      <div class="flex flex-col items-center text-center">
+                          <h2 class="times-up-text mb-0">${timesUpText}</h2>
+                      </div>
+                  `;
+              }
+          }
+
+          // Initial update
+          updateCountdown();
+      });
+  </script>
+{% end_require_js %}
+
+{####################################################}
+{################# Module styles ####################}
+{####################################################}
+
+{% require_css %}
+  <style>
+      {% scope_css %}
+
+        {# Button Styles #}
+        {% if module.styles.button %}
+          .event-item-header-one-module__button {
+            {% if module.styles.button.background.color.color %}
+              background-color: rgba({{ module.styles.button.background.color.color|convert_rgb }}, {{ module.styles.button.background.color.opacity / 100 }});
+            {% endif %}
+            {% if module.styles.button.corner.top_left_radius >= 0 %}
+              border-top-left-radius: {{ module.styles.button.corner.top_left_radius ~ "px" }};
+            {% endif %}
+            {% if module.styles.button.corner.top_right_radius >= 0 %}
+              border-top-right-radius: {{ module.styles.button.corner.top_right_radius ~ "px" }};
+            {% endif %}
+            {% if module.styles.button.corner.bottom_left_radius >= 0 %}
+              border-bottom-left-radius: {{ module.styles.button.corner.bottom_left_radius ~ "px" }};
+            {% endif %}
+            {% if module.styles.button.corner.bottom_right_radius >= 0 %}
+              border-bottom-right-radius: {{ module.styles.button.corner.bottom_right_radius ~ "px" }};
+            {% endif %}
+            {% if module.styles.button.text.font %}
+            {{ module.styles.button.text.font.css }}
+            {% endif %}
+            {% if module.styles.button.text.transform %}
+              text-transform: {{ module.styles.button.text.transform }};
+            {% endif %}
+            {% if module.styles.button.border.border %}
+              {{ module.styles.button.border.border.css }}
+            {% endif %}
+            {{ module.styles.button.spacing.spacing.css }}
+          }
+
+          .event-item-header-one-module__button:hover,
+          .event-item-header-one-module__button:focus,
+          .event-item-header-one-module__button:active {
+            {% if module.styles.button.hover.text.color.color %}
+              color: rgba({{ module.styles.button.hover.text.color.color|convert_rgb }}, {{ module.styles.button.hover.text.color.opacity / 100 }});
+            {% endif %}
+            {% if module.styles.button.hover.background.color.color %}
+              background-color: rgba({{ module.styles.button.hover.background.color.color|convert_rgb }}, {{ module.styles.button.hover.background.color.opacity / 100 }});
+            {% endif %}
+            {% if module.styles.button.hover.border.border %}
+              {{ module.styles.button.hover.border.border.css }}
+            {% endif %}
+            {% if module.styles.button.hover.corner.top_left_radius >= 0 %}
+              border-top-left-radius: {{ module.styles.button.hover.corner.top_left_radius ~ "px" }};
+            {% endif %}
+            {% if module.styles.button.hover.corner.top_right_radius >= 0 %}
+              border-top-right-radius: {{ module.styles.button.hover.corner.top_right_radius ~ "px" }};
+            {% endif %}
+            {% if module.styles.button.hover.corner.bottom_left_radius >= 0 %}
+              border-bottom-left-radius: {{ module.styles.button.hover.corner.bottom_left_radius ~ "px" }};
+            {% endif %}
+            {% if module.styles.button.hover.corner.bottom_right_radius >= 0 %}
+              border-bottom-right-radius: {{ module.styles.button.hover.corner.bottom_right_radius ~ "px" }};
+            {% endif %}
+          }
+        {% endif %}
+
+        {# Countdown Timer Styles #}
+
+        {% if module.styles.countdown_timer.countdown.background.bg_color %}
+            .event-item-header-one-module__countdown {
+                background-color: rgba({{ module.styles.countdown_timer.countdown.background.bg_color.color|convert_rgb }}, {{ module.styles.countdown_timer.countdown.background.bg_color.opacity / 100 }});
+            }
+        {% endif %}
+        {% if module.styles.countdown_timer.countdown.border.border %}
+            .event-item-header-one-module__countdown {
+                {{ module.styles.countdown_timer.countdown.border.border.css }}
+            } 
+        {% endif %}
+        {% if module.styles.countdown_timer.countdown.corner %}
+            .event-item-header-one-module__countdown {
+                border-top-left-radius: {{ module.styles.countdown_timer.countdown.corner.top_left_radius ~ "px" }};
+                border-top-right-radius: {{ module.styles.countdown_timer.countdown.corner.top_right_radius ~ "px" }};
+                border-bottom-left-radius: {{ module.styles.countdown_timer.countdown.corner.bottom_left_radius ~ "px" }};
+                border-bottom-right-radius: {{ module.styles.countdown_timer.countdown.corner.bottom_right_radius ~ "px" }};
+            }
+        {% endif %}
+        {% if module.styles.countdown_timer.countdown.box_shadow.box_shadow %}
+            .event-item-header-one-module__countdown {
+                box-shadow: {{ module.styles.countdown_timer.countdown.box_shadow.box_shadow }};
+            }
+        {% endif %}
+        {# Countdown Value Text Styles #} 
+        {% if module.styles.countdown_timer.countdown_value_text.text.font %}
+            .event-item-header-one-module__countdown .countdown-value {
+                {{ module.styles.countdown_timer.countdown_value_text.text.font.style }};
+                font-size: {{ module.styles.countdown_timer.countdown_value_text.text.font.size ~ module.styles.countdown_timer.countdown_value_text.text.font.size_unit }};
+                color: {{ module.styles.countdown_timer.countdown_value_text.text.font.color }};
+            }
+        {% endif %}
+        {# Countdown Label Text Styles #} 
+        {% if module.styles.countdown_timer.countdown_label_text.text.font %}
+            .event-item-header-one-module__countdown .countdown-label {
+                {{ module.styles.countdown_timer.countdown_label_text.text.font.style }};
+                font-size: {{ module.styles.countdown_timer.countdown_label_text.text.font.size ~ module.styles.countdown_timer.countdown_label_text.text.font.size_unit }};
+                color: {{ module.styles.countdown_timer.countdown_label_text.text.font.color }};
+            }
+        {% endif %}
+        {% if module.styles.countdown_timer.countdown_label_text.text.transform %}
+            .event-item-header-one-module__countdown .countdown-label {
+                text-transform: {{ module.styles.countdown_timer.countdown_label_text.text.transform }};
+            }
+        {% endif %}
+        {# Times Up Text Styles #} 
+        {% if module.styles.countdown_timer.times_up_text.text.font %}
+            .event-item-header-one-module__countdown .times-up-text {
+                {{ module.styles.countdown_timer.times_up_text.text.font.style }};
+                font-size: {{ module.styles.countdown_timer.times_up_text.text.font.size ~ module.styles.countdown_timer.times_up_text.text.font.size_unit }};
+                color: {{ module.styles.countdown_timer.times_up_text.text.font.color }};
+            }
+        {% endif %}
+        {% if module.styles.countdown_timer.times_up_text.text.transform %}
+            .event-item-header-one-module__countdown .times-up-text {
+                text-transform: {{ module.styles.countdown_timer.times_up_text.text.transform }};
+            }
+        {% endif %}
+        {# Countdown Divider Styles #} 
+        {% if module.styles.countdown_timer.divider.divider_color %}
+            .event-item-header-one-module__countdown .countdown-divider {
+                background-color: rgba({{ module.styles.countdown_timer.divider.divider_color.color|convert_rgb }}, {{ module.styles.countdown_timer.divider.divider_color.opacity / 100 }});
+            }
+        {% endif %}
+        {% if module.styles.countdown_timer.divider.divider_width %}
+            .event-item-header-one-module__countdown .countdown-divider {
+                width: {{ module.styles.countdown_timer.divider.divider_width ~ "px" }};
+            }
+        {% endif %}
+
+
+        {# Event Date Styles #}
+
+        {% if module.styles.event_date_text.text.font %}
+          .event-item-header-one-module__event-date {
+              {{ module.styles.event_date_text.text.font.style }};
+              font-size: {{ module.styles.event_date_text.text.font.size ~ module.styles.event_date_text.text.font.size_unit }};
+              color: {{ module.styles.event_date_text.text.font.color }};
+          }
+        {% endif %}
+
+        {# Badge Styles #}
+        {% if module.styles.badge %}
+          .event-item-header-one-module__badge {
+            {% if module.styles.badge.text.font %}
+              {{ module.styles.badge.text.font.style }};
+              font-size: {{ module.styles.badge.text.font.size ~ module.styles.badge.text.font.size_unit }};
+              color: {{ module.styles.badge.text.font.color }};
+            {% endif %}
+            {% if module.styles.badge.text.transform %}
+              text-transform: {{ module.styles.badge.text.transform }};
+            {% endif %}
+            {% if module.styles.badge.background.bg_color %}
+              background-color: rgba({{ module.styles.badge.background.bg_color.color|convert_rgb }}, {{ module.styles.badge.background.bg_color.opacity / 100 }});
+            {% endif %}
+            {% if module.styles.badge.border.border %}
+              {{ module.styles.badge.border.border.css }};
+            {% endif %}
+            {% if module.styles.badge.corner %}
+              border-top-left-radius: {{ module.styles.badge.corner.top_left_radius ~ "px" }};
+              border-top-right-radius: {{ module.styles.badge.corner.top_right_radius ~ "px" }};
+              border-bottom-left-radius: {{ module.styles.badge.corner.bottom_left_radius ~ "px" }};
+              border-bottom-right-radius: {{ module.styles.badge.corner.bottom_right_radius ~ "px" }};
+            {% endif %}
+          }
+        {% endif %}
+
+
+        {# Image Styles #}
+        {% if module.styles.image.corner %}
+          .event-item-header-one-module__image {
+            border-top-left-radius: {{ module.styles.image.corner.top_left_radius ~ "px" }};
+            border-top-right-radius: {{ module.styles.image.corner.top_right_radius ~ "px" }};
+            border-bottom-left-radius: {{ module.styles.image.corner.bottom_left_radius ~ "px" }};
+            border-bottom-right-radius: {{ module.styles.image.corner.bottom_right_radius ~ "px" }};
+          }
+        {% endif %}
+
+
+
+      {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+{####################################################}
+{################ Module layout ###################}
+{####################################################}
+
+<section id="{{ name }}" class="event-item-header-one-module px-[5%] py-16 md:py-24 lg:py-28">
+  <div class="container">
+    <div class="grid auto-cols-fr grid-cols-1 items-center gap-x-20 gap-y-12 md:grid-flow-row md:gap-y-16 lg:grid-cols-2 lg:gap-y-12">
+      <div class="flex flex-col items-start">
+        {% if module.add_button %}
+            {% set href = module.link.url.href %}
+            {% if module.link.url.type is equalto "EMAIL_ADDRESS" %}
+              {% set href = "mailto:" + href %}
+            {% endif %}
+            <a class="button alternate-button event-item-header-one-module__button"
+              {% if module.link.url.type is equalto "CALL_TO_ACTION"  %}
+                href="{{ href }}" {# The href here is not escaped as it is not editable and functions as a JavaScript call to the associated CTA #}
+              {% else %}
+                href="{{ href|escape_url }}"
+              {% endif %}
+              {% if module.link.open_in_new_tab %}
+                target="_blank"
+              {% endif %}
+              {% if module.link.rel %}
+                rel="{{ module.link.rel|escape_attr }}"
+              {% endif %}
+              >
+                {{ module.link_text|escape_html }}
+            </a>
+        {% endif %}
+        {% inline_rich_text field="heading" value="{{ module.heading }}" no_wrapper=True %}
+        {% inline_rich_text field="subheading" value="{{ module.subheading }}" no_wrapper=True %}
+        <div class="mt-5 flex items-center gap-4 md:mt-6">
+          <div class="event-item-header-one-module__event-date">
+            <span>{{ event_start_date|datetimeformat('%a %d %b') }}</span>
+          </div>
+          {% if module.is_badge %}
+            <p class="event-item-header-one-module__badge mb-0 px-2 py-1">
+              {% inline_text field="badge_text" value="{{ module.badge_text }}" no_wrapper=True %}
+            </p>
+          {% endif %}
+        </div>
+        <div class="event-item-header-one-module__countdown flex flex-wrap justify-center gap-4 border border-border-primary px-4 py-4 sm:flex-nowrap sm:px-6 mt-8">
+          <div class="flex min-w-18 flex-col items-center">
+              <span class="countdown-value leading-[1.2]">00</span>
+              <span class="countdown-label">Days</span>
+          </div>
+          <div class="countdown-divider hidden sm:block"></div>
+          <div class="flex min-w-18 flex-col items-center">
+              <span class="countdown-value leading-[1.2]">00</span>
+              <span class="countdown-label">Hours</span>
+          </div>
+          <div class="countdown-divider hidden sm:block"></div>
+          <div class="flex min-w-18 flex-col items-center">
+              <span class="countdown-value leading-[1.2]">00</span>
+              <span class="countdown-label">Mins</span>
+          </div>
+          <div class="countdown-divider hidden sm:block"></div>
+          <div class="flex min-w-18 flex-col items-center">
+              <span class="countdown-value leading-[1.2]">00</span>
+              <span class="countdown-label">Secs</span>
+          </div>
+        </div>
+        {% if module.is_form and module.form_field %}
+          <div class="mt-6 w-full max-w-sm md:mt-8">
+            {% form
+              form_to_use="{{ module.form_field.form_id }}",
+              response_response_type="{{ module.form_field.response_type }}",
+              response_message="{{ module.form_field.message }}",
+              response_redirect_id="{{ module.form_field.redirect_id }}",
+              response_redirect_url="{{module.form_field.redirect_url}}",
+              gotowebinar_webinar_key="{{ module.form_field.gotowebinar_webinar_key }}",
+              no_title=True,
+              no_wrapper=True
+            %}
+            {% inline_rich_text field="form_sub_text", value="{{ module.form_sub_text }}", no_wrapper=True %}
+          </div>
+        {% endif %}
+      </div>
+      <div class="w-full">
+        <div class="relative aspect-square">
+        {% if module.image_field.src %}
+          {% set loadingAttr = module.image_field.loading != 'disabled' ? 'loading="{{ module.image_field.loading }}"' : '' %}
+          <img class="event-item-header-one-module__image size-full object-cover"
+            srcset="{{ resize_image_url(module.image_field.src, 288) }} 288w,
+            {{ resize_image_url(module.image_field.src, 468) }} 468w,
+            {{ resize_image_url(module.image_field.src, 736) }} 736w,
+            {{ resize_image_url(module.image_field.src, 928) }} 928w"
+            sizes="(max-width: 320px) 288px,
+                    (max-width: 500px) 468px,
+                    (max-width: 768px) 736px,
+                    928px"
+            src="{{ module.image_field.src }}"
+            alt="{{ module.image_field.alt }}"
+            width="{{ module.image_field.width }}"
+            height="{{ module.image_field.height }}"
+            {{ loadingAttr }}>
+        {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

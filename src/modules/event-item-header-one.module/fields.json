@@ -1,0 +1,1080 @@
+[
+    {
+        "name": "event_start",
+        "label": "Event Start",
+        "help_text": "Choose the event start date and time",
+        "display_width": null,
+        "required": true,
+        "locked": false,
+        "type": "datetime",
+        "default": 1766638800000
+    },
+    {
+        "name": "times_up_text",
+        "label": "Time's Up Text",
+        "help_text": "Text to display in the timer when the event time is up.",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "show_emoji_picker": true,
+        "type": "text",
+        "default": "Time's Up! 🎉"
+    },
+    {
+        "id": "add_button",
+        "name": "add_button",
+        "display_width": null,
+        "label": "Add Button",
+        "help_text": "Adds a button to the module when selected",
+        "required": false,
+        "locked": false,
+        "display": "toggle",
+        "type": "boolean",
+        "default": true
+    },
+    {
+        "name": "link",
+        "display_width": null,
+        "label": "Link",
+        "required": true,
+        "locked": false,
+        "supported_types": [
+            "EXTERNAL",
+            "CONTENT",
+            "FILE",
+            "EMAIL_ADDRESS",
+            "BLOG",
+            "CALL_TO_ACTION",
+            "PHONE_NUMBER",
+            "WHATSAPP_NUMBER",
+            "PAYMENT"
+        ],
+        "show_advanced_rel_options": false,
+        "type": "link",
+        "visibility": {
+            "controlling_field": null,
+            "controlling_field_path": "add_button",
+            "controlling_value_regex": "true",
+            "property": null,
+            "operator": "EQUAL",
+            "access": null
+        },
+        "default": {
+            "url": {
+                "content_id": null,
+                "type": "EXTERNAL",
+                "href": "https://google.com"
+            },
+            "open_in_new_tab": false,
+            "no_follow": false
+        }
+    },
+    {
+        "label": "Link Text",
+        "name": "link_text",
+        "type": "text",
+        "required": true,
+        "visibility": {
+            "controlling_field": null,
+            "controlling_field_path": "add_button",
+            "controlling_value_regex": "true",
+            "property": null,
+            "operator": "EQUAL",
+            "access": null
+        },
+        "default": "← All Events"
+    },
+    {
+        "name": "heading",
+        "label": "Heading",
+        "help_text": "Event Title Heading",
+        "display_width": null,
+        "required": false,
+        "locked": false,
+        "type": "richtext",
+        "default": "<h1 class='mb-0 mt-6 text-5xl font-bold md:mt-8 md:text-7xl lg:text-8xl'>Event title heading</h1>"
+    },
+    {
+        "name": "subheading",
+        "label": "Sub Heading",
+        "help_text": "Event Title Heading",
+        "display_width": null,
+        "required": false,
+        "locked": false,
+        "type": "richtext",
+        "default": "<p class='mb-0 mt-5 text-base md:mt-6 md:text-md'>Introduce your events with a compelling summary of what attendees can expect. Highlight the value and excitement your events bring to your audience.</p>"
+    },
+    {
+        "name": "is_badge",
+        "label": "Enable Badge",
+        "help_text": "Adds a badge for additional info i.e. 'Limited Spots Available'",
+        "required": false,
+        "locked": false,
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+    },
+    {
+        "name": "badge_text",
+        "label": "Badge Text",
+        "required": false,
+        "locked": false,
+        "visibility": {
+            "controlling_field": null,
+            "controlling_field_path": "is_badge",
+            "controlling_value_regex": "true",
+            "property": null,
+            "operator": "EQUAL",
+            "access": null
+        },
+        "allow_new_line": false,
+        "show_emoji_picker": true,
+        "type": "text",
+        "default": "10 Spots left!"
+    },
+    {
+        "name": "is_form",
+        "label": "Enable Form",
+        "help_text": "Adds a form to the module when toggled on",
+        "required": false,
+        "locked": false,
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+    },
+    {
+        "name": "form_field",
+        "label": "Form",
+        "display_width": null,
+        "required": false,
+        "locked": false,
+        "type": "form",
+        "disable_inline_form_editing": false,
+        "visibility": {
+            "controlling_field_path": "is_form",
+            "controlling_value_regex": "true",
+            "operator": "EQUAL"
+        }
+    },
+    {
+        "name": "form_sub_text",
+        "label": "Form Sub Text",
+        "help_text": "Text to display underneath the form",
+        "required": false,
+        "locked": false,
+        "type": "richtext",
+        "visibility": {
+            "controlling_field_path": "is_form",
+            "controlling_value_regex": "true",
+            "operator": "EQUAL"
+        },
+        "default": "<p class='text-xs mt-2 mb-0'>By clicking Save my spot you're confirming that you agree with our Terms and Conditions.</p>"
+    },
+    {
+        "name": "image_field",
+        "label": "Event Image",
+        "help_text": "Event Image - best results using image with a square 1/1 aspect ratio.",
+        "display_width": null,
+        "required": true,
+        "locked": false,
+        "responsive": true,
+        "resizable": false,
+        "show_loading": true,
+        "type": "image",
+        "default": {
+            "size_type": "auto",
+            "src": "https://47891818.fs1.hubspotusercontent-na1.net/hubfs/47891818/placeholder-image.svg",
+            "alt": "placeholder-image",
+            "loading": "lazy"
+        }
+    },
+    {
+        "label": "Styles",
+        "name": "styles",
+        "type": "group",
+        "tab": "STYLE",
+        "children": [
+            {
+                "name": "button",
+                "label": "Button",
+                "type": "group",
+                "expanded": true,
+                "children": [
+                    {
+                        "label": "Text",
+                        "name": "text",
+                        "help_text": "Set Button font and transform styles",
+                        "type": "group",
+                        "children": [
+                            {
+                                "label": "Font",
+                                "name": "font",
+                                "type": "font"
+                            },
+                            {
+                                "label": "Transform",
+                                "name": "transform",
+                                "type": "choice",
+                                "choices": [
+                                    [
+                                        "none",
+                                        "None"
+                                    ],
+                                    [
+                                        "capitalize",
+                                        "Capitalize"
+                                    ],
+                                    [
+                                        "uppercase",
+                                        "Uppercase"
+                                    ],
+                                    [
+                                        "lowercase",
+                                        "Lowercase"
+                                    ]
+                                ],
+                                "display": "select"
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Background",
+                        "name": "background",
+                        "help_text": "Set Button Background color",
+                        "type": "group",
+                        "children": [
+                            {
+                                "label": "Color",
+                                "name": "color",
+                                "type": "color"
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Border",
+                        "name": "border",
+                        "help_text": "Set Button Border styles",
+                        "type": "group",
+                        "children": [
+                            {
+                                "label": "Border",
+                                "name": "border",
+                                "type": "border"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "corner",
+                        "label": "Corner",
+                        "help_text": "Set Button Border Radius for each corner individually",
+                        "type": "group",
+                        "children": [
+                            {
+                                "label": "Top Left Radius",
+                                "name": "top_left_radius",
+                                "type": "number",
+                                "display": "text",
+                                "max": 100,
+                                "step": 1,
+                                "suffix": "px"
+                            },
+                            {
+                                "label": "Top Right Radius",
+                                "name": "top_right_radius",
+                                "type": "number",
+                                "display": "text",
+                                "max": 100,
+                                "step": 1,
+                                "suffix": "px"
+                            },
+                            {
+                                "label": "Bottom Left Radius",
+                                "name": "bottom_left_radius",
+                                "type": "number",
+                                "display": "text",
+                                "max": 100,
+                                "step": 1,
+                                "suffix": "px"
+                            },
+                            {
+                                "label": "Bottom Right Radius",
+                                "name": "bottom_right_radius",
+                                "type": "number",
+                                "display": "text",
+                                "max": 100,
+                                "step": 1,
+                                "suffix": "px"
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Hover",
+                        "name": "hover",
+                        "help_text": "Set Button Hover styles",
+                        "type": "group",
+                        "children": [
+                            {
+                                "label": "Text",
+                                "name": "text",
+                                "type": "group",
+                                "children": [
+                                    {
+                                        "label": "Color",
+                                        "name": "color",
+                                        "type": "color"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "Background",
+                                "name": "background",
+                                "type": "group",
+                                "children": [
+                                    {
+                                        "label": "Color",
+                                        "name": "color",
+                                        "type": "color"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "Border",
+                                "name": "border",
+                                "type": "group",
+                                "children": [
+                                    {
+                                        "label": "Border",
+                                        "name": "border",
+                                        "type": "border"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "corner",
+                                "label": "Corner",
+                                "type": "group",
+                                "children": [
+                                    {
+                                        "label": "Top Left Radius",
+                                        "name": "top_left_radius",
+                                        "type": "number",
+                                        "display": "text",
+                                        "max": 100,
+                                        "step": 1,
+                                        "suffix": "px"
+                                    },
+                                    {
+                                        "label": "Top Right Radius",
+                                        "name": "top_right_radius",
+                                        "type": "number",
+                                        "display": "text",
+                                        "max": 100,
+                                        "step": 1,
+                                        "suffix": "px"
+                                    },
+                                    {
+                                        "label": "Bottom Left Radius",
+                                        "name": "bottom_left_radius",
+                                        "type": "number",
+                                        "display": "text",
+                                        "max": 100,
+                                        "step": 1,
+                                        "suffix": "px"
+                                    },
+                                    {
+                                        "label": "Bottom Right Radius",
+                                        "name": "bottom_right_radius",
+                                        "type": "number",
+                                        "display": "text",
+                                        "max": 100,
+                                        "step": 1,
+                                        "suffix": "px"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Spacing",
+                        "name": "spacing",
+                        "help_text": "Set Button Spacing values",
+                        "type": "group",
+                        "children": [
+                            {
+                                "label": "Spacing",
+                                "name": "spacing",
+                                "type": "spacing",
+                                "visibility": {
+                                    "hidden_subfields": {
+                                        "margin": true
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "event_date_text",
+                "label": "Event Date Text",
+                "type": "group",
+                "expanded": false,
+                "children": [
+                    {
+                        "label": "Text",
+                        "name": "text",
+                        "help_text": "Event Date Text Styles",
+                        "type": "group",
+                        "children": [
+                            {
+                                "label": "Font",
+                                "name": "font",
+                                "type": "font",
+                                "default": {
+                                    "color": "#000000",
+                                    "size": 18,
+                                    "size_unit": "px",
+                                    "styles": {
+                                        "text-decoration": "none"
+                                    },
+                                    "variant": 600
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "badge",
+                "label": "Badge",
+                "help_text": "Badge Styles",
+                "type": "group",
+                "expanded": true,
+                "children": [
+                    {
+                        "label": "Text",
+                        "name": "text",
+                        "help_text": "Tag Text Styles",
+                        "type": "group",
+                        "children": [
+                            {
+                                "label": "Font",
+                                "name": "font",
+                                "type": "font",
+                                "inherited_value": {
+                                    "property_value_paths": {
+                                        "font": "theme.blog.tags.text.font.font",
+                                        "color": "theme.blog.tags.text.font.color",
+                                        "size": "theme.blog.tags.text.font.size",
+                                        "size_unit": "theme.blog.tags.text.font.size_unit",
+                                        "styles": "theme.blog.tags.text.font.styles",
+                                        "variant": "theme.blog.tags.text.font.variant"
+                                    }
+                                }
+                            },
+                            {
+                                "label": "Transform",
+                                "name": "transform",
+                                "type": "choice",
+                                "inherited_value": {
+                                    "default_value_path": "theme.blog.tags.text.transform"
+                                },
+                                "choices": [
+                                    [
+                                        "none",
+                                        "None"
+                                    ],
+                                    [
+                                        "capitalize",
+                                        "Capitalize"
+                                    ],
+                                    [
+                                        "uppercase",
+                                        "Uppercase"
+                                    ],
+                                    [
+                                        "lowercase",
+                                        "Lowercase"
+                                    ]
+                                ],
+                                "display": "select"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "background",
+                        "label": "Background",
+                        "help_text": "Tag Background Color",
+                        "type": "group",
+                        "children": [
+                            {
+                                "name": "bg_color",
+                                "label": "Background color",
+                                "required": false,
+                                "locked": false,
+                                "type": "color",
+                                "inherited_value": {
+                                    "property_value_paths": {
+                                        "color": "theme.blog.tags.background.bg_color.color",
+                                        "opacity": "theme.blog.tags.background.bg_color.opacity"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "border",
+                        "label": "Border",
+                        "help_text": "Tag Border Style",
+                        "type": "group",
+                        "children": [
+                            {
+                                "name": "border",
+                                "label": "Border",
+                                "required": false,
+                                "locked": false,
+                                "allow_custom_border_sides": false,
+                                "type": "border",
+                                "inherited_value": {
+                                    "property_value_paths": {
+                                        "top.width.value": "theme.blog.tags.border.border.top.width.value",
+                                        "top.width.units": "theme.blog.tags.border.border.top.width.units",
+                                        "top.color": "theme.blog.tags.border.border.top.color",
+                                        "top.opacity": "theme.blog.tags.border.border.top.opacity",
+                                        "top.style": "theme.blog.tags.border.border.top.style",
+                                        "bottom.width.value": "theme.blog.tags.border.border.bottom.width.value",
+                                        "bottom.width.units": "theme.blog.tags.border.border.bottom.width.units",
+                                        "bottom.color": "theme.blog.tags.border.border.bottom.color",
+                                        "bottom.opacity": "theme.blog.tags.border.border.bottom.opacity",
+                                        "bottom.style": "theme.blog.tags.border.border.bottom.style",
+                                        "left.width.value": "theme.blog.tags.border.border.left.width.value",
+                                        "left.width.units": "theme.blog.tags.border.border.left.width.units",
+                                        "left.color": "theme.blog.tags.border.border.left.color",
+                                        "left.opacity": "theme.blog.tags.border.border.left.opacity",
+                                        "left.style": "theme.blog.tags.border.border.left.style",
+                                        "right.width.value": "theme.blog.tags.border.border.right.width.value",
+                                        "right.width.units": "theme.blog.tags.border.border.right.width.units",
+                                        "right.color": "theme.blog.tags.border.border.right.color",
+                                        "right.opacity": "theme.blog.tags.border.border.right.opacity",
+                                        "right.style": "theme.blog.tags.border.border.right.style"
+                                    }
+                                },
+                                "default": {
+                                    "top": {
+                                        "width": {
+                                            "value": 1,
+                                            "units": "px"
+                                        },
+                                        "opacity": 100,
+                                        "style": "solid",
+                                        "color": "#000000"
+                                    },
+                                    "bottom": {
+                                        "width": {
+                                            "value": 1,
+                                            "units": "px"
+                                        },
+                                        "opacity": 100,
+                                        "style": "solid",
+                                        "color": "#000000"
+                                    },
+                                    "left": {
+                                        "width": {
+                                            "value": 1,
+                                            "units": "px"
+                                        },
+                                        "opacity": 100,
+                                        "style": "solid",
+                                        "color": "#000000"
+                                    },
+                                    "right": {
+                                        "width": {
+                                            "value": 1,
+                                            "units": "px"
+                                        },
+                                        "opacity": 100,
+                                        "style": "solid",
+                                        "color": "#000000"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "corner",
+                        "label": "Corner",
+                        "help_text": "Tag Border Radius",
+                        "type": "group",
+                        "children": [
+                            {
+                                "label": "Top Left Radius",
+                                "name": "top_left_radius",
+                                "type": "number",
+                                "display": "text",
+                                "max": 100,
+                                "step": 1,
+                                "suffix": "px",
+                                "inherited_value": {
+                                    "default_value_path": "theme.blog.tags.corner.top_left_radius"
+                                },
+                                "default": 0
+                            },
+                            {
+                                "label": "Top Right Radius",
+                                "name": "top_right_radius",
+                                "type": "number",
+                                "display": "text",
+                                "max": 100,
+                                "step": 1,
+                                "suffix": "px",
+                                "inherited_value": {
+                                    "default_value_path": "theme.blog.tags.corner.top_right_radius"
+                                },
+                                "default": 0
+                            },
+                            {
+                                "label": "Bottom Left Radius",
+                                "name": "bottom_left_radius",
+                                "type": "number",
+                                "display": "text",
+                                "max": 100,
+                                "step": 1,
+                                "suffix": "px",
+                                "inherited_value": {
+                                    "default_value_path": "theme.blog.tags.corner.bottom_left_radius"
+                                },
+                                "default": 0
+                            },
+                            {
+                                "label": "Bottom Right Radius",
+                                "name": "bottom_right_radius",
+                                "type": "number",
+                                "display": "text",
+                                "max": 100,
+                                "step": 1,
+                                "suffix": "px",
+                                "inherited_value": {
+                                    "default_value_path": "theme.blog.tags.corner.bottom_right_radius"
+                                },
+                                "default": 0
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "countdown_timer",
+                "label": "Countdown Timer",
+                "type": "group",
+                "expanded": false,
+                "children": [
+                    {
+                        "name": "countdown",
+                        "label": "Countdown",
+                        "type": "group",
+                        "expanded": true,
+                        "children": [
+                            {
+                                "name": "background",
+                                "label": "Background",
+                                "help_text": "Countdown Background Color",
+                                "type": "group",
+                                "children": [
+                                    {
+                                        "name": "bg_color",
+                                        "label": "Background color",
+                                        "required": false,
+                                        "locked": false,
+                                        "type": "color",
+                                        "default": {
+                                            "color": "#ffffff",
+                                            "opacity": 100
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "border",
+                                "label": "Border",
+                                "help_text": "Countdown Border Style",
+                                "type": "group",
+                                "children": [
+                                    {
+                                        "name": "border",
+                                        "label": "Border",
+                                        "required": false,
+                                        "locked": false,
+                                        "allow_custom_border_sides": true,
+                                        "type": "border",
+                                        "default": {
+                                            "top": {
+                                                "width": {
+                                                    "value": 1,
+                                                    "units": "px"
+                                                },
+                                                "opacity": 100,
+                                                "style": "solid",
+                                                "color": "#000000"
+                                            },
+                                            "bottom": {
+                                                "width": {
+                                                    "value": 1,
+                                                    "units": "px"
+                                                },
+                                                "opacity": 100,
+                                                "style": "solid",
+                                                "color": "#000000"
+                                            },
+                                            "left": {
+                                                "width": {
+                                                    "value": 1,
+                                                    "units": "px"
+                                                },
+                                                "opacity": 100,
+                                                "style": "solid",
+                                                "color": "#000000"
+                                            },
+                                            "right": {
+                                                "width": {
+                                                    "value": 1,
+                                                    "units": "px"
+                                                },
+                                                "opacity": 100,
+                                                "style": "solid",
+                                                "color": "#000000"
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "corner",
+                                "label": "Corner",
+                                "help_text": "Countdown Border Radius",
+                                "type": "group",
+                                "children": [
+                                    {
+                                        "label": "Top Left Radius",
+                                        "name": "top_left_radius",
+                                        "type": "number",
+                                        "display": "text",
+                                        "max": 100,
+                                        "step": 1,
+                                        "suffix": "px",
+                                        "default": 0
+                                    },
+                                    {
+                                        "label": "Top Right Radius",
+                                        "name": "top_right_radius",
+                                        "type": "number",
+                                        "display": "text",
+                                        "max": 100,
+                                        "step": 1,
+                                        "suffix": "px",
+                                        "default": 0
+                                    },
+                                    {
+                                        "label": "Bottom Left Radius",
+                                        "name": "bottom_left_radius",
+                                        "type": "number",
+                                        "display": "text",
+                                        "max": 100,
+                                        "step": 1,
+                                        "suffix": "px",
+                                        "default": 0
+                                    },
+                                    {
+                                        "label": "Bottom Right Radius",
+                                        "name": "bottom_right_radius",
+                                        "type": "number",
+                                        "display": "text",
+                                        "max": 100,
+                                        "step": 1,
+                                        "suffix": "px",
+                                        "default": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "box_shadow",
+                                "label": "Box Shadow",
+                                "help_text": "Countdown Box Shadow Style",
+                                "type": "group",
+                                "children": [
+                                    {
+                                        "name": "box_shadow",
+                                        "label": "Box Shadow",
+                                        "type": "choice",
+                                        "choices": [
+                                            [
+                                                "none",
+                                                "None"
+                                            ],
+                                            [
+                                                "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+                                                "Small Shadow"
+                                            ],
+                                            [
+                                                "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+                                                "Regular Shadow"
+                                            ],
+                                            [
+                                                "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+                                                "Medium Shadow"
+                                            ],
+                                            [
+                                                "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+                                                "Large Shadow"
+                                            ],
+                                            [
+                                                "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+                                                "XL Shadow"
+                                            ],
+                                            [
+                                                "0 25px 50px -12px rgb(0 0 0 / 0.25)",
+                                                "2XL Shadow"
+                                            ],
+                                            [
+                                                "inset 0 2px 4px 0 rgb(0 0 0 / 0.05)",
+                                                "Shadow Inner"
+                                            ]
+                                        ],
+                                        "default": "none"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "countdown_value_text",
+                        "label": "Countdown Value Text",
+                        "type": "group",
+                        "expanded": true,
+                        "children": [
+                            {
+                                "label": "Text",
+                                "name": "text",
+                                "help_text": "Countdown Value Text Styles",
+                                "type": "group",
+                                "children": [
+                                    {
+                                        "label": "Font",
+                                        "name": "font",
+                                        "type": "font",
+                                        "default": {
+                                            "color": "#000000",
+                                            "size": 40,
+                                            "size_unit": "px",
+                                            "styles": {
+                                                "text-decoration": "none"
+                                            },
+                                            "variant": 700
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "countdown_label_text",
+                        "label": "Countdown Label Text",
+                        "type": "group",
+                        "expanded": true,
+                        "children": [
+                            {
+                                "label": "Text",
+                                "name": "text",
+                                "help_text": "Countdown Label Text Styles",
+                                "type": "group",
+                                "children": [
+                                    {
+                                        "label": "Font",
+                                        "name": "font",
+                                        "type": "font",
+                                        "default": {
+                                            "size": 16,
+                                            "size_unit": "px",
+                                            "styles": {
+                                                "text-decoration": "none"
+                                            },
+                                            "variant": "regular"
+                                        }
+                                    },
+                                    {
+                                        "label": "Transform",
+                                        "name": "transform",
+                                        "type": "choice",
+                                        "choices": [
+                                            [
+                                                "none",
+                                                "None"
+                                            ],
+                                            [
+                                                "capitalize",
+                                                "Capitalize"
+                                            ],
+                                            [
+                                                "uppercase",
+                                                "Uppercase"
+                                            ],
+                                            [
+                                                "lowercase",
+                                                "Lowercase"
+                                            ]
+                                        ],
+                                        "display": "select",
+                                        "default": "none"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "times_up_text",
+                        "label": "Times Up Text",
+                        "type": "group",
+                        "expanded": true,
+                        "children": [
+                            {
+                                "label": "Text",
+                                "name": "text",
+                                "help_text": "Times Up Text Styles",
+                                "type": "group",
+                                "children": [
+                                    {
+                                        "label": "Font",
+                                        "name": "font",
+                                        "type": "font",
+                                        "default": {
+                                            "color": "#000000",
+                                            "size": 40,
+                                            "size_unit": "px",
+                                            "styles": {
+                                                "text-decoration": "none"
+                                            },
+                                            "variant": "700"
+                                        }
+                                    },
+                                    {
+                                        "label": "Transform",
+                                        "name": "transform",
+                                        "type": "choice",
+                                        "choices": [
+                                            [
+                                                "none",
+                                                "None"
+                                            ],
+                                            [
+                                                "capitalize",
+                                                "Capitalize"
+                                            ],
+                                            [
+                                                "uppercase",
+                                                "Uppercase"
+                                            ],
+                                            [
+                                                "lowercase",
+                                                "Lowercase"
+                                            ]
+                                        ],
+                                        "display": "select",
+                                        "default": "none"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "divider",
+                        "label": "Dividers",
+                        "type": "group",
+                        "expanded": false,
+                        "children": [
+                            {
+                                "name": "divider_color",
+                                "label": "Divider Color",
+                                "required": false,
+                                "locked": false,
+                                "type": "color",
+                                "default": {
+                                    "color": "#000000",
+                                    "opacity": 100
+                                }
+                            },
+                            {
+                                "name": "divider_width",
+                                "label": "Divider Width",
+                                "help_text": "Controls the width in pixels of the dividers between coundtdown numbers",
+                                "required": false,
+                                "locked": false,
+                                "display": "slider",
+                                "min": 1,
+                                "max": 10,
+                                "step": 1,
+                                "type": "number",
+                                "prefix": "",
+                                "suffix": "px",
+                                "default": "1"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "label": "Image",
+                "name": "image",
+                "type": "group",
+                "children": [
+                    {
+                        "name": "corner",
+                        "label": "Corner",
+                        "help_text": "Image Border Radius",
+                        "type": "group",
+                        "children": [
+                            {
+                                "label": "Top Left Radius",
+                                "name": "top_left_radius",
+                                "type": "number",
+                                "display": "text",
+                                "max": 100,
+                                "step": 1,
+                                "suffix": "px",
+                                "default": 0
+                            },
+                            {
+                                "label": "Top Right Radius",
+                                "name": "top_right_radius",
+                                "type": "number",
+                                "display": "text",
+                                "max": 100,
+                                "step": 1,
+                                "suffix": "px",
+                                "default": 0
+                            },
+                            {
+                                "label": "Bottom Left Radius",
+                                "name": "bottom_left_radius",
+                                "type": "number",
+                                "display": "text",
+                                "max": 100,
+                                "step": 1,
+                                "suffix": "px",
+                                "default": 0
+                            },
+                            {
+                                "label": "Bottom Right Radius",
+                                "name": "bottom_right_radius",
+                                "type": "number",
+                                "display": "text",
+                                "max": 100,
+                                "step": 1,
+                                "suffix": "px",
+                                "default": 0
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
