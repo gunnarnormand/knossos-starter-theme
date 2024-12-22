@@ -5,22 +5,25 @@
   <style>
     {% scope_css %}
 
-      .faq-one-module__divider {
-        {% if module.styles.faqs.divider %}
-          {{ module.styles.faqs.divider.css }}
-        {% endif %}
-      }
 
-      .faq-one-module__question {
-        {% if module.styles.faqs.text.font %}
+      {% if module.styles.faqs.divider %}
+        .faq-one-module__divider {
+          {{ module.styles.faqs.divider.css }}
+        }
+      {% endif %}
+
+      {% if module.styles.faqs.text.font %}
+        .faq-one-module__question {
           {{ module.styles.faqs.text.font.style }};
           font-size: {{ module.styles.faqs.text.font.size ~ module.styles.faqs.text.font.size_unit }};
           color: {{ module.styles.faqs.text.font.color }};
-        {% endif %}
-        {% if module.styles.faqs.text.transform %}
+        }
+      {% endif %}
+      {% if module.styles.faqs.text.transform %}
+        .faq-one-module__question {
           text-transform: {{ module.styles.faqs.text.transform }};
-        {% endif %}
-      }
+        }
+      {% endif %}
 
       {# Button Styles #}
       {% if module.styles.button %}
